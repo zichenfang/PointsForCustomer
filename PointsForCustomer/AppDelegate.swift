@@ -6,16 +6,19 @@
 //  Copyright © 2017年 fff. All rights reserved.
 //
 
+/*
+ 项目马上就要开始了
+ */
 import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
     var window: UIWindow?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        NSLog("开始测试了");
         return true
     }
 
