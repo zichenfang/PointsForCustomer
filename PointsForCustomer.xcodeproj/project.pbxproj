@@ -7,21 +7,67 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C124C88A4B9B1FDBECD4F5F5 /* libPods-PointsForCustomer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 079B54EEA2D726ADC49BD261 /* libPods-PointsForCustomer.a */; };
 		E21A64381F6663E3007D1C49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21A64371F6663E3007D1C49 /* AppDelegate.swift */; };
-		E21A643A1F6663E3007D1C49 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21A64391F6663E3007D1C49 /* ViewController.swift */; };
-		E21A643D1F6663E3007D1C49 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E21A643B1F6663E3007D1C49 /* Main.storyboard */; };
 		E21A643F1F6663E3007D1C49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E21A643E1F6663E3007D1C49 /* Assets.xcassets */; };
 		E21A64421F6663E3007D1C49 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E21A64401F6663E3007D1C49 /* LaunchScreen.storyboard */; };
+		E2F1EF3A1F676DA500CF90C2 /* NSDate+MyDate.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F1EF2D1F676DA500CF90C2 /* NSDate+MyDate.m */; };
+		E2F1EF3B1F676DA500CF90C2 /* NSString+MyCustomString.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F1EF2F1F676DA500CF90C2 /* NSString+MyCustomString.m */; };
+		E2F1EF3D1F676DA500CF90C2 /* UIColor+MyColor.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F1EF331F676DA500CF90C2 /* UIColor+MyColor.m */; };
+		E2F1EF3E1F676DA500CF90C2 /* UIImage+MyCustomImage.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F1EF351F676DA500CF90C2 /* UIImage+MyCustomImage.m */; };
+		E2F1EF441F676F1300CF90C2 /* UIDevice+MyDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F1EF431F676F1300CF90C2 /* UIDevice+MyDevice.m */; };
+		E2F1EF461F67700300CF90C2 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F1EF451F67700300CF90C2 /* BaseViewController.swift */; };
+		E2F1EF481F67701900CF90C2 /* BaseObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F1EF471F67701900CF90C2 /* BaseObject.swift */; };
+		E2F1EF4A1F67717300CF90C2 /* PPShopObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F1EF491F67717300CF90C2 /* PPShopObject.swift */; };
+		E2F1EF4C1F67C15F00CF90C2 /* MainTabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F1EF4B1F67C15F00CF90C2 /* MainTabbarViewController.swift */; };
+		E2F1EF4F1F67C18100CF90C2 /* IndexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F1EF4D1F67C18100CF90C2 /* IndexViewController.swift */; };
+		E2F1EF501F67C18100CF90C2 /* IndexViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2F1EF4E1F67C18100CF90C2 /* IndexViewController.xib */; };
+		E2F1EF531F67C1C900CF90C2 /* ReadBitCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F1EF511F67C1C900CF90C2 /* ReadBitCodeViewController.swift */; };
+		E2F1EF541F67C1C900CF90C2 /* ReadBitCodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2F1EF521F67C1C900CF90C2 /* ReadBitCodeViewController.xib */; };
+		E2F1EF571F67C1E900CF90C2 /* UserCenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F1EF551F67C1E900CF90C2 /* UserCenterViewController.swift */; };
+		E2F1EF581F67C1E900CF90C2 /* UserCenterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2F1EF561F67C1E900CF90C2 /* UserCenterViewController.xib */; };
+		E2F1EF5E1F67DA1D00CF90C2 /* TTRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F1EF5B1F67DA1D00CF90C2 /* TTRequestOperationManager.m */; };
+		E2F1EF5F1F67DA1D00CF90C2 /* TTUserInfoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F1EF5D1F67DA1D00CF90C2 /* TTUserInfoManager.m */; };
+		E2F1EF621F67DC2500CF90C2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F1EF601F67DC2500CF90C2 /* LoginViewController.swift */; };
+		E2F1EF631F67DC2500CF90C2 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2F1EF611F67DC2500CF90C2 /* LoginViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		079B54EEA2D726ADC49BD261 /* libPods-PointsForCustomer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PointsForCustomer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		196F5DACB5DA364FCF7A3683 /* Pods-PointsForCustomer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PointsForCustomer.release.xcconfig"; path = "Pods/Target Support Files/Pods-PointsForCustomer/Pods-PointsForCustomer.release.xcconfig"; sourceTree = "<group>"; };
+		DF00F6CA4807902B55C5CDE1 /* Pods-PointsForCustomer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PointsForCustomer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PointsForCustomer/Pods-PointsForCustomer.debug.xcconfig"; sourceTree = "<group>"; };
 		E21A64341F6663E3007D1C49 /* PointsForCustomer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PointsForCustomer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E21A64371F6663E3007D1C49 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E21A64391F6663E3007D1C49 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		E21A643C1F6663E3007D1C49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E21A643E1F6663E3007D1C49 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E21A64411F6663E3007D1C49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E21A64431F6663E3007D1C49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E2F1EF271F667E8E00CF90C2 /* PointsForCustomer-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PointsForCustomer-Bridging-Header.h"; sourceTree = "<group>"; };
+		E2F1EF2C1F676DA500CF90C2 /* NSDate+MyDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+MyDate.h"; sourceTree = "<group>"; };
+		E2F1EF2D1F676DA500CF90C2 /* NSDate+MyDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+MyDate.m"; sourceTree = "<group>"; };
+		E2F1EF2E1F676DA500CF90C2 /* NSString+MyCustomString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MyCustomString.h"; sourceTree = "<group>"; };
+		E2F1EF2F1F676DA500CF90C2 /* NSString+MyCustomString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MyCustomString.m"; sourceTree = "<group>"; };
+		E2F1EF321F676DA500CF90C2 /* UIColor+MyColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+MyColor.h"; sourceTree = "<group>"; };
+		E2F1EF331F676DA500CF90C2 /* UIColor+MyColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+MyColor.m"; sourceTree = "<group>"; };
+		E2F1EF341F676DA500CF90C2 /* UIImage+MyCustomImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+MyCustomImage.h"; sourceTree = "<group>"; };
+		E2F1EF351F676DA500CF90C2 /* UIImage+MyCustomImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+MyCustomImage.m"; sourceTree = "<group>"; };
+		E2F1EF421F676F1300CF90C2 /* UIDevice+MyDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+MyDevice.h"; sourceTree = "<group>"; };
+		E2F1EF431F676F1300CF90C2 /* UIDevice+MyDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+MyDevice.m"; sourceTree = "<group>"; };
+		E2F1EF451F67700300CF90C2 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		E2F1EF471F67701900CF90C2 /* BaseObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseObject.swift; sourceTree = "<group>"; };
+		E2F1EF491F67717300CF90C2 /* PPShopObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPShopObject.swift; sourceTree = "<group>"; };
+		E2F1EF4B1F67C15F00CF90C2 /* MainTabbarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabbarViewController.swift; sourceTree = "<group>"; };
+		E2F1EF4D1F67C18100CF90C2 /* IndexViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndexViewController.swift; sourceTree = "<group>"; };
+		E2F1EF4E1F67C18100CF90C2 /* IndexViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IndexViewController.xib; sourceTree = "<group>"; };
+		E2F1EF511F67C1C900CF90C2 /* ReadBitCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadBitCodeViewController.swift; sourceTree = "<group>"; };
+		E2F1EF521F67C1C900CF90C2 /* ReadBitCodeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReadBitCodeViewController.xib; sourceTree = "<group>"; };
+		E2F1EF551F67C1E900CF90C2 /* UserCenterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCenterViewController.swift; sourceTree = "<group>"; };
+		E2F1EF561F67C1E900CF90C2 /* UserCenterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserCenterViewController.xib; sourceTree = "<group>"; };
+		E2F1EF5A1F67DA1D00CF90C2 /* TTRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTRequestOperationManager.h; sourceTree = "<group>"; };
+		E2F1EF5B1F67DA1D00CF90C2 /* TTRequestOperationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTRequestOperationManager.m; sourceTree = "<group>"; };
+		E2F1EF5C1F67DA1D00CF90C2 /* TTUserInfoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTUserInfoManager.h; sourceTree = "<group>"; };
+		E2F1EF5D1F67DA1D00CF90C2 /* TTUserInfoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTUserInfoManager.m; sourceTree = "<group>"; };
+		E2F1EF601F67DC2500CF90C2 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		E2F1EF611F67DC2500CF90C2 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +75,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C124C88A4B9B1FDBECD4F5F5 /* libPods-PointsForCustomer.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7D760FF4A1E0E7A16DCB8B09 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DF00F6CA4807902B55C5CDE1 /* Pods-PointsForCustomer.debug.xcconfig */,
+				196F5DACB5DA364FCF7A3683 /* Pods-PointsForCustomer.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E01239BC990F8F080F6D8D22 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				079B54EEA2D726ADC49BD261 /* libPods-PointsForCustomer.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E21A642B1F6663E3007D1C49 = {
 			isa = PBXGroup;
 			children = (
 				E21A64361F6663E3007D1C49 /* PointsForCustomer */,
 				E21A64351F6663E3007D1C49 /* Products */,
+				7D760FF4A1E0E7A16DCB8B09 /* Pods */,
+				E01239BC990F8F080F6D8D22 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +120,79 @@
 		E21A64361F6663E3007D1C49 /* PointsForCustomer */ = {
 			isa = PBXGroup;
 			children = (
+				E2F1EF591F67DA0000CF90C2 /* vender */,
+				E2F1EF2B1F676DA500CF90C2 /* Category */,
+				E2F1EF281F676C2D00CF90C2 /* model */,
+				E2F1EF291F676C2D00CF90C2 /* view */,
+				E2F1EF2A1F676C2D00CF90C2 /* controller */,
 				E21A64371F6663E3007D1C49 /* AppDelegate.swift */,
-				E21A64391F6663E3007D1C49 /* ViewController.swift */,
-				E21A643B1F6663E3007D1C49 /* Main.storyboard */,
 				E21A643E1F6663E3007D1C49 /* Assets.xcassets */,
 				E21A64401F6663E3007D1C49 /* LaunchScreen.storyboard */,
 				E21A64431F6663E3007D1C49 /* Info.plist */,
+				E2F1EF271F667E8E00CF90C2 /* PointsForCustomer-Bridging-Header.h */,
 			);
 			path = PointsForCustomer;
+			sourceTree = "<group>";
+		};
+		E2F1EF281F676C2D00CF90C2 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				E2F1EF471F67701900CF90C2 /* BaseObject.swift */,
+				E2F1EF491F67717300CF90C2 /* PPShopObject.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		E2F1EF291F676C2D00CF90C2 /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		E2F1EF2A1F676C2D00CF90C2 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				E2F1EF451F67700300CF90C2 /* BaseViewController.swift */,
+				E2F1EF4B1F67C15F00CF90C2 /* MainTabbarViewController.swift */,
+				E2F1EF4D1F67C18100CF90C2 /* IndexViewController.swift */,
+				E2F1EF4E1F67C18100CF90C2 /* IndexViewController.xib */,
+				E2F1EF511F67C1C900CF90C2 /* ReadBitCodeViewController.swift */,
+				E2F1EF521F67C1C900CF90C2 /* ReadBitCodeViewController.xib */,
+				E2F1EF551F67C1E900CF90C2 /* UserCenterViewController.swift */,
+				E2F1EF561F67C1E900CF90C2 /* UserCenterViewController.xib */,
+				E2F1EF601F67DC2500CF90C2 /* LoginViewController.swift */,
+				E2F1EF611F67DC2500CF90C2 /* LoginViewController.xib */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		E2F1EF2B1F676DA500CF90C2 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				E2F1EF2C1F676DA500CF90C2 /* NSDate+MyDate.h */,
+				E2F1EF2D1F676DA500CF90C2 /* NSDate+MyDate.m */,
+				E2F1EF2E1F676DA500CF90C2 /* NSString+MyCustomString.h */,
+				E2F1EF2F1F676DA500CF90C2 /* NSString+MyCustomString.m */,
+				E2F1EF321F676DA500CF90C2 /* UIColor+MyColor.h */,
+				E2F1EF331F676DA500CF90C2 /* UIColor+MyColor.m */,
+				E2F1EF341F676DA500CF90C2 /* UIImage+MyCustomImage.h */,
+				E2F1EF351F676DA500CF90C2 /* UIImage+MyCustomImage.m */,
+				E2F1EF421F676F1300CF90C2 /* UIDevice+MyDevice.h */,
+				E2F1EF431F676F1300CF90C2 /* UIDevice+MyDevice.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		E2F1EF591F67DA0000CF90C2 /* vender */ = {
+			isa = PBXGroup;
+			children = (
+				E2F1EF5A1F67DA1D00CF90C2 /* TTRequestOperationManager.h */,
+				E2F1EF5B1F67DA1D00CF90C2 /* TTRequestOperationManager.m */,
+				E2F1EF5C1F67DA1D00CF90C2 /* TTUserInfoManager.h */,
+				E2F1EF5D1F67DA1D00CF90C2 /* TTUserInfoManager.m */,
+			);
+			path = vender;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +202,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E21A64461F6663E3007D1C49 /* Build configuration list for PBXNativeTarget "PointsForCustomer" */;
 			buildPhases = (
+				7D3E28E3E6F3AC2C4923E97E /* [CP] Check Pods Manifest.lock */,
 				E21A64301F6663E3007D1C49 /* Sources */,
 				E21A64311F6663E3007D1C49 /* Frameworks */,
 				E21A64321F6663E3007D1C49 /* Resources */,
+				D90BD49DD0ED05842A172962 /* [CP] Embed Pods Frameworks */,
+				5AADD7000855C3C69B1B834E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -96,6 +230,7 @@
 				TargetAttributes = {
 					E21A64331F6663E3007D1C49 = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = CV3TV3MNW2;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -123,35 +258,92 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2F1EF501F67C18100CF90C2 /* IndexViewController.xib in Resources */,
 				E21A64421F6663E3007D1C49 /* LaunchScreen.storyboard in Resources */,
+				E2F1EF631F67DC2500CF90C2 /* LoginViewController.xib in Resources */,
+				E2F1EF581F67C1E900CF90C2 /* UserCenterViewController.xib in Resources */,
 				E21A643F1F6663E3007D1C49 /* Assets.xcassets in Resources */,
-				E21A643D1F6663E3007D1C49 /* Main.storyboard in Resources */,
+				E2F1EF541F67C1C900CF90C2 /* ReadBitCodeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5AADD7000855C3C69B1B834E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PointsForCustomer/Pods-PointsForCustomer-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7D3E28E3E6F3AC2C4923E97E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D90BD49DD0ED05842A172962 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PointsForCustomer/Pods-PointsForCustomer-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E21A64301F6663E3007D1C49 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E21A643A1F6663E3007D1C49 /* ViewController.swift in Sources */,
+				E2F1EF3A1F676DA500CF90C2 /* NSDate+MyDate.m in Sources */,
+				E2F1EF441F676F1300CF90C2 /* UIDevice+MyDevice.m in Sources */,
 				E21A64381F6663E3007D1C49 /* AppDelegate.swift in Sources */,
+				E2F1EF3B1F676DA500CF90C2 /* NSString+MyCustomString.m in Sources */,
+				E2F1EF3E1F676DA500CF90C2 /* UIImage+MyCustomImage.m in Sources */,
+				E2F1EF481F67701900CF90C2 /* BaseObject.swift in Sources */,
+				E2F1EF461F67700300CF90C2 /* BaseViewController.swift in Sources */,
+				E2F1EF5E1F67DA1D00CF90C2 /* TTRequestOperationManager.m in Sources */,
+				E2F1EF3D1F676DA500CF90C2 /* UIColor+MyColor.m in Sources */,
+				E2F1EF4A1F67717300CF90C2 /* PPShopObject.swift in Sources */,
+				E2F1EF571F67C1E900CF90C2 /* UserCenterViewController.swift in Sources */,
+				E2F1EF4F1F67C18100CF90C2 /* IndexViewController.swift in Sources */,
+				E2F1EF621F67DC2500CF90C2 /* LoginViewController.swift in Sources */,
+				E2F1EF5F1F67DA1D00CF90C2 /* TTUserInfoManager.m in Sources */,
+				E2F1EF4C1F67C15F00CF90C2 /* MainTabbarViewController.swift in Sources */,
+				E2F1EF531F67C1C900CF90C2 /* ReadBitCodeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		E21A643B1F6663E3007D1C49 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E21A643C1F6663E3007D1C49 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		E21A64401F6663E3007D1C49 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -258,27 +450,39 @@
 		};
 		E21A64471F6663E3007D1C49 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DF00F6CA4807902B55C5CDE1 /* Pods-PointsForCustomer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = CV3TV3MNW2;
 				INFOPLIST_FILE = PointsForCustomer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "-2.PointsForCustomer";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/yinyuqiu/Documents/MoneyMoney/PointsForCustomer/PointsForCustomer/PointsForCustomer-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		E21A64481F6663E3007D1C49 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 196F5DACB5DA364FCF7A3683 /* Pods-PointsForCustomer.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = CV3TV3MNW2;
 				INFOPLIST_FILE = PointsForCustomer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "-2.PointsForCustomer";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/yinyuqiu/Documents/MoneyMoney/PointsForCustomer/PointsForCustomer/PointsForCustomer-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -301,6 +505,7 @@
 				E21A64481F6663E3007D1C49 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
