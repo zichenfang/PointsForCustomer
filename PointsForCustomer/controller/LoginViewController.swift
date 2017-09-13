@@ -9,6 +9,7 @@
 import UIKit
 
 class LoginViewController: BaseViewController {
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +21,12 @@ class LoginViewController: BaseViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func test(_ sender: Any) {
+        if self.handler != nil {
+            self.handler!([:]);
+        }
+        self.dismiss(animated: true, completion: nil);
+    }
 
     /*
     // MARK: - Navigation

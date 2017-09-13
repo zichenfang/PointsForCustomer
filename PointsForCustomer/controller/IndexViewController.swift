@@ -21,6 +21,15 @@ class IndexViewController: BaseViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func login(_ sender: Any) {
+        let vc = LoginViewController();
+        self.present(vc, animated: true, completion: nil);
+//        vc.handler = {(info:NSDictionary)->Void in
+//            print(info);
+//        }
+        
+        
+    }
 
     /*
     // MARK: - Navigation
