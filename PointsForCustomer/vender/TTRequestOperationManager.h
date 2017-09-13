@@ -12,8 +12,6 @@
 #import "JsonKillNull.h"
 //数据请求地址
 #define kHTTP @"http://lvyou.heizitech.com"
-typedef void (^TTBlock)(NSDictionary *info);
-
 @interface TTRequestOperationManager : NSObject
 
 + (id)defaultManager;
@@ -21,7 +19,6 @@ typedef void (^TTBlock)(NSDictionary *info);
 + (void)POST:(NSString *)URLString Parameters:(NSMutableDictionary *)parameters Success:(void (^)(NSDictionary *responseJsonObject))mySuccess Failure:(void (^)(NSError *error))myFailure;
 //get
 + (void)GET:(NSString *)URLString Parameters:(NSMutableDictionary *)parameters Success:(void (^)(NSDictionary *responseJsonObject))mySuccess Failure:(void (^)(NSError *error))myFailure;
-
 
 //上传data的post方法
 + (void)POST:(NSString *)URLString parameters:(NSMutableDictionary *)parameters constructingBodyWithBlock:(void (^)(id <AFMultipartFormData> formData))block Success:(void (^)(NSDictionary *responseJsonObject))mySuccess Failure:(void (^)(NSError *error))myFailure;

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		C124C88A4B9B1FDBECD4F5F5 /* libPods-PointsForCustomer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 079B54EEA2D726ADC49BD261 /* libPods-PointsForCustomer.a */; };
+		E20A7CA31F68FD2D00346D4A /* KuangkuangView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20A7CA21F68FD2D00346D4A /* KuangkuangView.swift */; };
+		E20A7CA51F690AA900346D4A /* ConstantForSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20A7CA41F690AA900346D4A /* ConstantForSwift.swift */; };
 		E21A64381F6663E3007D1C49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21A64371F6663E3007D1C49 /* AppDelegate.swift */; };
 		E21A643F1F6663E3007D1C49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E21A643E1F6663E3007D1C49 /* Assets.xcassets */; };
 		E21A64421F6663E3007D1C49 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E21A64401F6663E3007D1C49 /* LaunchScreen.storyboard */; };
@@ -36,6 +38,8 @@
 		079B54EEA2D726ADC49BD261 /* libPods-PointsForCustomer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PointsForCustomer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		196F5DACB5DA364FCF7A3683 /* Pods-PointsForCustomer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PointsForCustomer.release.xcconfig"; path = "Pods/Target Support Files/Pods-PointsForCustomer/Pods-PointsForCustomer.release.xcconfig"; sourceTree = "<group>"; };
 		DF00F6CA4807902B55C5CDE1 /* Pods-PointsForCustomer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PointsForCustomer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PointsForCustomer/Pods-PointsForCustomer.debug.xcconfig"; sourceTree = "<group>"; };
+		E20A7CA21F68FD2D00346D4A /* KuangkuangView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KuangkuangView.swift; sourceTree = "<group>"; };
+		E20A7CA41F690AA900346D4A /* ConstantForSwift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstantForSwift.swift; sourceTree = "<group>"; };
 		E21A64341F6663E3007D1C49 /* PointsForCustomer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PointsForCustomer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E21A64371F6663E3007D1C49 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E21A643E1F6663E3007D1C49 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -146,6 +150,7 @@
 		E2F1EF291F676C2D00CF90C2 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				E20A7CA21F68FD2D00346D4A /* KuangkuangView.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -191,6 +196,7 @@
 				E2F1EF5B1F67DA1D00CF90C2 /* TTRequestOperationManager.m */,
 				E2F1EF5C1F67DA1D00CF90C2 /* TTUserInfoManager.h */,
 				E2F1EF5D1F67DA1D00CF90C2 /* TTUserInfoManager.m */,
+				E20A7CA41F690AA900346D4A /* ConstantForSwift.swift */,
 			);
 			path = vender;
 			sourceTree = "<group>";
@@ -328,8 +334,10 @@
 				E2F1EF3B1F676DA500CF90C2 /* NSString+MyCustomString.m in Sources */,
 				E2F1EF3E1F676DA500CF90C2 /* UIImage+MyCustomImage.m in Sources */,
 				E2F1EF481F67701900CF90C2 /* BaseObject.swift in Sources */,
+				E20A7CA31F68FD2D00346D4A /* KuangkuangView.swift in Sources */,
 				E2F1EF461F67700300CF90C2 /* BaseViewController.swift in Sources */,
 				E2F1EF5E1F67DA1D00CF90C2 /* TTRequestOperationManager.m in Sources */,
+				E20A7CA51F690AA900346D4A /* ConstantForSwift.swift in Sources */,
 				E2F1EF3D1F676DA500CF90C2 /* UIColor+MyColor.m in Sources */,
 				E2F1EF4A1F67717300CF90C2 /* PPShopObject.swift in Sources */,
 				E2F1EF571F67C1E900CF90C2 /* UserCenterViewController.swift in Sources */,

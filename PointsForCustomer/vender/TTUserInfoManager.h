@@ -16,7 +16,6 @@
 @interface TTUserInfoManager : NSObject
 
 
-
 //执行该方法的时候，会发送通知kNoti_userStatsChanged
 + (void)setUserInfo:(NSDictionary *)userInfo;
 + (NSDictionary *)userInfo;
