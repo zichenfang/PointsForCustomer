@@ -9,5 +9,9 @@
 #ifndef PointsForCustomer_Bridging_Header_h
 #define PointsForCustomer_Bridging_Header_h
 #import "ProgressHUD.h"
+//高德地图定位头文件
+#import <AMapFoundationKit/AMapFoundationKit.h>
+#import <AMapLocationKit/AMapLocationKit.h>
+#import "SDCycleScrollView.h"
 
 #endif /* PointsForCustomer_Bridging_Header_h */

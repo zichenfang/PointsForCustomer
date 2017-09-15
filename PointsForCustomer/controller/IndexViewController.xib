@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="IndexViewController" customModule="PointsForCustomer" customModuleProvider="target">
             <connections>
+                <outlet property="tableView" destination="bM8-5h-GXK" id="6TB-Sh-iE0"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -19,17 +20,46 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F8A-Lz-EBD">
-                    <rect key="frame" x="170" y="276" width="34" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="login"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="120" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bM8-5h-GXK">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <view key="tableFooterView" contentMode="scaleToFill" id="rRR-6N-fVV">
+                        <rect key="frame" x="0.0" y="666" width="375" height="1"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
                     <connections>
-                        <action selector="login:" destination="-1" eventType="touchUpInside" id="iFw-ez-Ax0"/>
+                        <outlet property="dataSource" destination="-1" id="ZUc-0L-CJ6"/>
+                        <outlet property="delegate" destination="-1" id="Dzh-RO-ggB"/>
                     </connections>
-                </button>
+                </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fUi-tf-Nx1">
+                    <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                    <subviews>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="输入搜索内容" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mbH-if-bts">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <nil key="textColor"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="Phe-gc-yk3"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-            <point key="canvasLocation" x="-99" y="-4"/>
+            <constraints>
+                <constraint firstItem="fUi-tf-Nx1" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="CNZ-xY-JQ2"/>
+                <constraint firstItem="bM8-5h-GXK" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Jv3-g7-HAs"/>
+                <constraint firstAttribute="trailing" secondItem="bM8-5h-GXK" secondAttribute="trailing" id="Pa7-XK-cN6"/>
+                <constraint firstAttribute="trailing" secondItem="fUi-tf-Nx1" secondAttribute="trailing" id="ewD-Qm-csG"/>
+                <constraint firstItem="fUi-tf-Nx1" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="fid-l3-fcR"/>
+                <constraint firstItem="bM8-5h-GXK" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="lQ1-1Y-rHL"/>
+                <constraint firstAttribute="bottom" secondItem="bM8-5h-GXK" secondAttribute="bottom" id="pQh-Da-nuF"/>
+            </constraints>
+            <point key="canvasLocation" x="-285.5" y="-161.5"/>
         </view>
     </objects>
 </document>

@@ -21,7 +21,12 @@ class ReadBitCodeViewController: BaseViewController,AVCaptureMetadataOutputObjec
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.black;
-        prepareCamera();
+        if PLARFORM.isSimulator == true{
+            UIAlertView.init(title: "模拟器无法使用相机！", message: nil, delegate: nil, cancelButtonTitle: "确定").show();
+        }
+        else{
+            prepareCamera();
+        }
         // Do any additional setup after loading the view.
     }
     override func viewDidAppear(_ animated: Bool) {
@@ -49,8 +54,11 @@ class ReadBitCodeViewController: BaseViewController,AVCaptureMetadataOutputObjec
 //        output.rectOfInterest
         session = AVCaptureSession.init();
         session?.canSetSessionPreset(AVCaptureSessionPresetHigh);
-        session?.addInput(input);
+        if input != nil{
+            session?.addInput(input);
+        }
         session?.addOutput(output);
+
         output.metadataObjectTypes = [AVMetadataObjectTypeQRCode,AVMetadataObjectTypeEAN13Code, AVMetadataObjectTypeEAN8Code, AVMetadataObjectTypeCode128Code];
         let layer = AVCaptureVideoPreviewLayer.init(session: session);
         layer?.videoGravity = AVLayerVideoGravityResizeAspectFill;

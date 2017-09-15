@@ -14,30 +14,40 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
+  - AMapFoundation-NO-IDFA (1.4.2)
+  - AMapLocation-NO-IDFA (2.4.0):
+    - AMapFoundation-NO-IDFA (~> 1.4)
   - FFFJsonKillNull (1.1.0)
   - MJRefresh (3.1.12)
   - ProgressHUD (2.4)
-  - SDWebImage (3.7.3):
-    - SDWebImage/Core (= 3.7.3)
-  - SDWebImage/Core (3.7.3)
+  - SDCycleScrollView (1.73):
+    - SDWebImage (~> 4.0.0)
+  - SDWebImage (4.0.0):
+    - SDWebImage/Core (= 4.0.0)
+  - SDWebImage/Core (4.0.0)
   - TPKeyboardAvoiding (1.3.1)
 
 DEPENDENCIES:
   - AFNetworking (= 3.1.0)
+  - AMapLocation-NO-IDFA (~> 2.4.0)
   - FFFJsonKillNull (~> 1.1.0)
   - MJRefresh (~> 3.1.12)
   - ProgressHUD (~> 2.4)
-  - SDWebImage (= 3.7.3)
+  - SDCycleScrollView (~> 1.66)
+  - SDWebImage (~> 4.0.0)
   - TPKeyboardAvoiding (= 1.3.1)
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  AMapFoundation-NO-IDFA: 3b9ce87abc6a37c718cc320687469d0b74d5c953
+  AMapLocation-NO-IDFA: 9493012d3241a7d551942c7c1e1069b51f295083
   FFFJsonKillNull: fca576ca3193e6d04a0b90c2d857d5b50caa34d9
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   ProgressHUD: 4b66b0df0e08519c5c7283a198fd2867a114c95a
-  SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
+  SDCycleScrollView: d0fd5fe40a80918371fd8939214eb3be81033d83
+  SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
   TPKeyboardAvoiding: 0d6af20e95e2850f4c621841225b59ec7d8dd852
 
-PODFILE CHECKSUM: 448b0b7fd3cf2fe2465f84ea1e2f8915b048b572
+PODFILE CHECKSUM: 34184da3fd1088be036a41d77fbab4f2cdf6a875
 
 COCOAPODS: 1.2.1

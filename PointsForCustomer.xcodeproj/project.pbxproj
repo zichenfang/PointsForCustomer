@@ -13,6 +13,12 @@
 		E21A64381F6663E3007D1C49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21A64371F6663E3007D1C49 /* AppDelegate.swift */; };
 		E21A643F1F6663E3007D1C49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E21A643E1F6663E3007D1C49 /* Assets.xcassets */; };
 		E21A64421F6663E3007D1C49 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E21A64401F6663E3007D1C49 /* LaunchScreen.storyboard */; };
+		E2E803B81F6A56A40094065F /* UserCenterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E803B61F6A56A40094065F /* UserCenterTableViewCell.swift */; };
+		E2E803B91F6A56A40094065F /* UserCenterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2E803B71F6A56A40094065F /* UserCenterTableViewCell.xib */; };
+		E2E803BC1F6BA6F00094065F /* PPShopTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E803BA1F6BA6EF0094065F /* PPShopTableViewCell.swift */; };
+		E2E803BD1F6BA6F00094065F /* PPShopTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2E803BB1F6BA6EF0094065F /* PPShopTableViewCell.xib */; };
+		E2E803BF1F6BAAE30094065F /* IndexHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E803BE1F6BAAE30094065F /* IndexHeaderView.swift */; };
+		E2E803C11F6BC3BA0094065F /* PPBannerObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E803C01F6BC3BA0094065F /* PPBannerObject.swift */; };
 		E2F1EF3A1F676DA500CF90C2 /* NSDate+MyDate.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F1EF2D1F676DA500CF90C2 /* NSDate+MyDate.m */; };
 		E2F1EF3B1F676DA500CF90C2 /* NSString+MyCustomString.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F1EF2F1F676DA500CF90C2 /* NSString+MyCustomString.m */; };
 		E2F1EF3D1F676DA500CF90C2 /* UIColor+MyColor.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F1EF331F676DA500CF90C2 /* UIColor+MyColor.m */; };
@@ -45,6 +51,12 @@
 		E21A643E1F6663E3007D1C49 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E21A64411F6663E3007D1C49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E21A64431F6663E3007D1C49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E2E803B61F6A56A40094065F /* UserCenterTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCenterTableViewCell.swift; sourceTree = "<group>"; };
+		E2E803B71F6A56A40094065F /* UserCenterTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserCenterTableViewCell.xib; sourceTree = "<group>"; };
+		E2E803BA1F6BA6EF0094065F /* PPShopTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPShopTableViewCell.swift; sourceTree = "<group>"; };
+		E2E803BB1F6BA6EF0094065F /* PPShopTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PPShopTableViewCell.xib; sourceTree = "<group>"; };
+		E2E803BE1F6BAAE30094065F /* IndexHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndexHeaderView.swift; sourceTree = "<group>"; };
+		E2E803C01F6BC3BA0094065F /* PPBannerObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPBannerObject.swift; sourceTree = "<group>"; };
 		E2F1EF271F667E8E00CF90C2 /* PointsForCustomer-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PointsForCustomer-Bridging-Header.h"; sourceTree = "<group>"; };
 		E2F1EF2C1F676DA500CF90C2 /* NSDate+MyDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+MyDate.h"; sourceTree = "<group>"; };
 		E2F1EF2D1F676DA500CF90C2 /* NSDate+MyDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+MyDate.m"; sourceTree = "<group>"; };
@@ -143,6 +155,7 @@
 			children = (
 				E2F1EF471F67701900CF90C2 /* BaseObject.swift */,
 				E2F1EF491F67717300CF90C2 /* PPShopObject.swift */,
+				E2E803C01F6BC3BA0094065F /* PPBannerObject.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -151,6 +164,11 @@
 			isa = PBXGroup;
 			children = (
 				E20A7CA21F68FD2D00346D4A /* KuangkuangView.swift */,
+				E2E803B61F6A56A40094065F /* UserCenterTableViewCell.swift */,
+				E2E803B71F6A56A40094065F /* UserCenterTableViewCell.xib */,
+				E2E803BA1F6BA6EF0094065F /* PPShopTableViewCell.swift */,
+				E2E803BB1F6BA6EF0094065F /* PPShopTableViewCell.xib */,
+				E2E803BE1F6BAAE30094065F /* IndexHeaderView.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -238,6 +256,11 @@
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = CV3TV3MNW2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -269,6 +292,8 @@
 				E2F1EF631F67DC2500CF90C2 /* LoginViewController.xib in Resources */,
 				E2F1EF581F67C1E900CF90C2 /* UserCenterViewController.xib in Resources */,
 				E21A643F1F6663E3007D1C49 /* Assets.xcassets in Resources */,
+				E2E803BD1F6BA6F00094065F /* PPShopTableViewCell.xib in Resources */,
+				E2E803B91F6A56A40094065F /* UserCenterTableViewCell.xib in Resources */,
 				E2F1EF541F67C1C900CF90C2 /* ReadBitCodeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -330,6 +355,7 @@
 			files = (
 				E2F1EF3A1F676DA500CF90C2 /* NSDate+MyDate.m in Sources */,
 				E2F1EF441F676F1300CF90C2 /* UIDevice+MyDevice.m in Sources */,
+				E2E803C11F6BC3BA0094065F /* PPBannerObject.swift in Sources */,
 				E21A64381F6663E3007D1C49 /* AppDelegate.swift in Sources */,
 				E2F1EF3B1F676DA500CF90C2 /* NSString+MyCustomString.m in Sources */,
 				E2F1EF3E1F676DA500CF90C2 /* UIImage+MyCustomImage.m in Sources */,
@@ -342,8 +368,11 @@
 				E2F1EF4A1F67717300CF90C2 /* PPShopObject.swift in Sources */,
 				E2F1EF571F67C1E900CF90C2 /* UserCenterViewController.swift in Sources */,
 				E2F1EF4F1F67C18100CF90C2 /* IndexViewController.swift in Sources */,
+				E2E803B81F6A56A40094065F /* UserCenterTableViewCell.swift in Sources */,
 				E2F1EF621F67DC2500CF90C2 /* LoginViewController.swift in Sources */,
 				E2F1EF5F1F67DA1D00CF90C2 /* TTUserInfoManager.m in Sources */,
+				E2E803BF1F6BAAE30094065F /* IndexHeaderView.swift in Sources */,
+				E2E803BC1F6BA6F00094065F /* PPShopTableViewCell.swift in Sources */,
 				E2F1EF4C1F67C15F00CF90C2 /* MainTabbarViewController.swift in Sources */,
 				E2F1EF531F67C1C900CF90C2 /* ReadBitCodeViewController.swift in Sources */,
 			);
@@ -466,7 +495,7 @@
 				INFOPLIST_FILE = PointsForCustomer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "-2.PointsForCustomer";
+				PRODUCT_BUNDLE_IDENTIFIER = com.fang.fff;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "/Users/yinyuqiu/Documents/MoneyMoney/PointsForCustomer/PointsForCustomer/PointsForCustomer-Bridging-Header.h";
@@ -485,7 +514,7 @@
 				INFOPLIST_FILE = PointsForCustomer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "-2.PointsForCustomer";
+				PRODUCT_BUNDLE_IDENTIFIER = com.fang.fff;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "/Users/yinyuqiu/Documents/MoneyMoney/PointsForCustomer/PointsForCustomer/PointsForCustomer-Bridging-Header.h";
