@@ -13,6 +13,7 @@
 		E21A64381F6663E3007D1C49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21A64371F6663E3007D1C49 /* AppDelegate.swift */; };
 		E21A643F1F6663E3007D1C49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E21A643E1F6663E3007D1C49 /* Assets.xcassets */; };
 		E21A64421F6663E3007D1C49 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E21A64401F6663E3007D1C49 /* LaunchScreen.storyboard */; };
+		E29D56051F6FA0E70006C746 /* IndexSectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E29D56041F6FA0E70006C746 /* IndexSectionHeaderView.xib */; };
 		E2E803B81F6A56A40094065F /* UserCenterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E803B61F6A56A40094065F /* UserCenterTableViewCell.swift */; };
 		E2E803B91F6A56A40094065F /* UserCenterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2E803B71F6A56A40094065F /* UserCenterTableViewCell.xib */; };
 		E2E803BC1F6BA6F00094065F /* PPShopTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E803BA1F6BA6EF0094065F /* PPShopTableViewCell.swift */; };
@@ -51,6 +52,7 @@
 		E21A643E1F6663E3007D1C49 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E21A64411F6663E3007D1C49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E21A64431F6663E3007D1C49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E29D56041F6FA0E70006C746 /* IndexSectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IndexSectionHeaderView.xib; sourceTree = "<group>"; };
 		E2E803B61F6A56A40094065F /* UserCenterTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCenterTableViewCell.swift; sourceTree = "<group>"; };
 		E2E803B71F6A56A40094065F /* UserCenterTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserCenterTableViewCell.xib; sourceTree = "<group>"; };
 		E2E803BA1F6BA6EF0094065F /* PPShopTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPShopTableViewCell.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 				E2E803BA1F6BA6EF0094065F /* PPShopTableViewCell.swift */,
 				E2E803BB1F6BA6EF0094065F /* PPShopTableViewCell.xib */,
 				E2E803BE1F6BAAE30094065F /* IndexHeaderView.swift */,
+				E29D56041F6FA0E70006C746 /* IndexSectionHeaderView.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -288,6 +291,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2F1EF501F67C18100CF90C2 /* IndexViewController.xib in Resources */,
+				E29D56051F6FA0E70006C746 /* IndexSectionHeaderView.xib in Resources */,
 				E21A64421F6663E3007D1C49 /* LaunchScreen.storyboard in Resources */,
 				E2F1EF631F67DC2500CF90C2 /* LoginViewController.xib in Resources */,
 				E2F1EF581F67C1E900CF90C2 /* UserCenterViewController.xib in Resources */,

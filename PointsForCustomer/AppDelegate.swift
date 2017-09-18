@@ -11,6 +11,7 @@
  */
 import UIKit
 
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
@@ -36,7 +37,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             if let error = error {
                 let error = error as NSError
-                
                 if error.code == AMapLocationErrorCode.locateFailed.rawValue {
                     //定位错误：此时location和regeocode没有返回值，不进行annotation的添加
                     NSLog("定位错误:{\(error.code) - \(error.localizedDescription)};")
