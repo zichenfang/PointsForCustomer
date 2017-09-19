@@ -8,7 +8,7 @@
 
 import UIKit
 
-class IndexHeaderView: UIView {
+class IndexHeaderView: UIView ,UIScrollViewDelegate {
     //轮播图
     var bannerScrollView : SDCycleScrollView!
     //轮播图高度
@@ -43,64 +43,157 @@ class IndexHeaderView: UIView {
             return _delegate;
         }
     }
-    //分类菜单模块
+    /*分类菜单模块*/
+    var subClassBackView : UIView!
+    //分类菜单模块背景view高度（建议固定值）
+    let subClassBackViewHeight : CGFloat = 185;
+
     var subClassScrollView : UIScrollView!
     //分类菜单模块高度（建议固定值）
-    let subClassScrollViewHeight : CGFloat = 188;
+    let subClassScrollViewHeight : CGFloat = 150;
     //分类菜单模块曲线高度（建议固定值）
-    let subClassScrollViewQuadCurveHeight : CGFloat = 30;
+    let subClassBackViewQuadCurveHeight : CGFloat = 15;
     //分类菜单pageControl
     var subClassPageControl : UIPageControl!
     let subClassPageControlHeight : CGFloat = 20;
+    //分类数据源
+    var _subClassDatas :NSMutableArray?
+    var subClassDatas :NSMutableArray?{
+        set{
+            if _subClassDatas == nil{
+                _subClassDatas = NSMutableArray.init();
+            }
+            else{
+                _subClassDatas?.removeAllObjects();
+            }
+            //清除上次add的view
+            for pageView in subClassScrollView.subviews {
+                pageView.removeFromSuperview();
+            }
+            if (newValue?.count)!<=0 {
+                return;
+            }
+            //10个为一组，重新处理数据，组成二维数组
+            var index = 0;
+            while index < (newValue?.count)! {
+                //页码下标
+                let page = index/10;
+                //该页码下标对应的子数组
+                var classesInPage :NSMutableArray?
+                //如果不存在该页码下标对应的子数组，则初始化
+                if (_subClassDatas?.count)! < page + 1 {
+                    classesInPage = NSMutableArray.init();
+                    _subClassDatas?.add(classesInPage!)
+                }
+                else{
+                    classesInPage = _subClassDatas?.object(at: page) as? NSMutableArray;
+                }
+                classesInPage?.add(newValue?.object(at: index) ?? IndexClassObj.init(info: [:]));
+                index = index + 1;
+            }
+            
+            //10个为一组，循环铺设view
+            var page = 0
+//            let subclassItemHeight = subClassScrollViewHeight * 0.5//item高度
+            while page < (_subClassDatas?.count)! {
+                let pageView : UIView? = UIView.init(frame: CGRect.init(x: CGFloat(page) * SCREEN_WIDTH, y: 0, width: SCREEN_WIDTH, height: subClassScrollViewHeight))
+                subClassScrollView.addSubview(pageView!);
+                //在pageView上面铺设itemView
+                let classesInPage : NSMutableArray? = _subClassDatas?.object(at: page) as? NSMutableArray;
+                var index = 0;
+                let itemWidth :CGFloat = SCREEN_WIDTH/5;
+                let itemHeight :CGFloat = subClassScrollViewHeight/2;
+                while index < (classesInPage?.count)! {
+                    let classObj :IndexClassObj? = classesInPage?.object(at: index) as! IndexClassObj;
+                    let itemView : IndexClassItemView? = Bundle.main.loadNibNamed("IndexClassItemView", owner: nil, options: nil)?.first as! IndexClassItemView?
+                    let item_x :CGFloat = CGFloat(index%5) * itemWidth;
+                    let item_y :CGFloat = CGFloat(index/5) * itemHeight;
+
+                    itemView?.frame = CGRect.init(x: item_x, y: item_y, width: itemWidth, height: itemHeight);
+                    pageView?.addSubview(itemView!)
+                    
+                    itemView?.nameLabel.text = classObj?.name;
+                    itemView?.imgView.sd_setImage(with: URL.init(string: (classObj?.imageUrl!)!), placeholderImage: PLACE_HOLDER_IMAGE);
+                    
+                    index = index + 1;
+                }
+                page = page + 1;
+            }
+            //设置pageSize
+            subClassScrollView.contentSize = CGSize.init(width: SCREEN_WIDTH * CGFloat((subClassDatas?.count)!), height: 0);
+            //设置pageControl
+            subClassPageControl.numberOfPages = (subClassDatas?.count)!
+            subClassPageControl.currentPage = 0;
+            
+        }
+        get{
+            return _subClassDatas;
+        }
+    }
     /*附近商家显示标签*/
     var nearByView : UIView!;
     let nearByViewHeight :CGFloat = 45;
 
     init() {
-        super.init(frame: CGRect.init(x: 0, y: 0, width: SCREEN_WIDTH, height: bannerScrollViewHeight + subClassScrollViewHeight + subClassPageControlHeight-subClassScrollViewQuadCurveHeight/*减去曲线高度，因为要覆盖住上面轮播图这个高度*/ + nearByViewHeight));
+        super.init(frame: CGRect.init(x: 0, y: 0, width: SCREEN_WIDTH, height: bannerScrollViewHeight + subClassBackViewHeight + subClassPageControlHeight-subClassBackViewQuadCurveHeight/*减去曲线高度，因为要覆盖住上面轮播图这个高度*/ + nearByViewHeight));
         //轮播图
         bannerScrollView = SDCycleScrollView.init(frame: CGRect.init(x: 0, y: 0, width: SCREEN_WIDTH, height: bannerScrollViewHeight), delegate: nil, placeholderImage: UIImage.init(named: ""));
         self.addSubview(bannerScrollView);
         bannerScrollView.backgroundColor = UIColor.yellow;
         bannerScrollView.pageControlAliment = SDCycleScrollViewPageContolAlimentCenter;
-        bannerScrollView.currentPageDotColor = UIColor.blue; // 自定义分页控件小圆标颜色
+        bannerScrollView.currentPageDotColor = UIColor.red; // 自定义分页控件小圆标颜色
+        bannerScrollView.pageDotColor = UIColor.darkGray; //
         bannerScrollView.autoScrollTimeInterval = 4.0;
         bannerScrollView.pageControlBottomOffset = 10;
+        bannerScrollView.bannerImageViewContentMode = UIViewContentMode.scaleAspectFill;
         //轮播图pageControl
         
         /*分类菜单模块*/
-        subClassScrollView = UIScrollView.init(frame: CGRect.init(x: 0, y: bannerScrollViewHeight - subClassScrollViewQuadCurveHeight/*减去曲线高度，因为要覆盖住上面轮播图这个高度*/, width: SCREEN_WIDTH, height: subClassScrollViewHeight));
-        subClassScrollView.backgroundColor = UIColor.red;
-        self.addSubview(subClassScrollView);
-        subClassScrollView.isPagingEnabled = true;
+        subClassBackView = UIView.init(frame: CGRect.init(x: 0, y: bannerScrollViewHeight - subClassBackViewQuadCurveHeight, width: SCREEN_WIDTH, height: subClassBackViewHeight));
+        self.addSubview(subClassBackView);
+        subClassBackView.backgroundColor = UIColor.white;
+        
         let bezierPath :UIBezierPath? = UIBezierPath();
         bezierPath?.move(to: CGPoint.zero);
-        bezierPath?.addQuadCurve(to: CGPoint.init(x:subClassScrollView.frame.size.width, y:0), controlPoint: CGPoint.init(x:subClassScrollView.frame.size.width*0.5, y:subClassScrollViewQuadCurveHeight));
-        bezierPath?.addLine(to: CGPoint.init(x: subClassScrollView.frame.size.width, y: subClassScrollView.frame.size.height))
-        bezierPath?.addLine(to: CGPoint.init(x: 0, y: subClassScrollView.frame.size.height))
+        bezierPath?.addQuadCurve(to: CGPoint.init(x:subClassBackView.frame.size.width, y:0), controlPoint: CGPoint.init(x:subClassBackView.frame.size.width*0.5, y:subClassBackViewQuadCurveHeight));
+        bezierPath?.addLine(to: CGPoint.init(x: subClassBackView.frame.size.width, y: subClassBackView.frame.size.height))
+        bezierPath?.addLine(to: CGPoint.init(x: 0, y: subClassBackView.frame.size.height))
         bezierPath?.addLine(to: CGPoint.init(x: 0, y: 0))
         bezierPath?.close();
         
         let maskLayer :CAShapeLayer? = CAShapeLayer();
         maskLayer?.path = bezierPath?.cgPath;
         maskLayer?.fillColor = UIColor.white.cgColor;
-        maskLayer?.frame = subClassScrollView.bounds;
-        subClassScrollView.layer.mask = maskLayer;
+        maskLayer?.frame = subClassBackView.bounds;
+        subClassBackView.layer.mask = maskLayer;
+        
+        
+        
+        subClassScrollView = UIScrollView.init(frame: CGRect.init(x: 0, y: subClassBackViewHeight - subClassScrollViewHeight, width: SCREEN_WIDTH, height: subClassScrollViewHeight));
+        subClassBackView.addSubview(subClassScrollView);
+        subClassScrollView.delegate = self;
+        subClassScrollView.isPagingEnabled = true;
+        subClassScrollView.showsHorizontalScrollIndicator = false;
+
 
         //分类菜单pageControl
-        subClassPageControl = UIPageControl.init(frame: CGRect.init(x: 0, y: bannerScrollViewHeight + subClassScrollViewHeight  - subClassScrollViewQuadCurveHeight/*减去曲线高度，因为要覆盖住上面轮播图这个高度*/, width: SCREEN_WIDTH, height: subClassPageControlHeight));
+        subClassPageControl = UIPageControl.init(frame: CGRect.init(x: 0, y: bannerScrollViewHeight + subClassBackViewHeight  - subClassBackViewQuadCurveHeight/*减去曲线高度，因为要覆盖住上面轮播图这个高度*/, width: SCREEN_WIDTH, height: subClassPageControlHeight));
         self.addSubview(subClassPageControl);
         subClassPageControl.isEnabled = false;
         subClassPageControl.numberOfPages = 3;
-        subClassPageControl.pageIndicatorTintColor = UIColor.blue;
-        subClassPageControl.currentPageIndicatorTintColor = UIColor.green;
+        subClassPageControl.pageIndicatorTintColor = UIColor.darkGray;
+        subClassPageControl.currentPageIndicatorTintColor = UIColor.red;
         
         /*附近商家标签*/
         nearByView  = Bundle.main.loadNibNamed("IndexSectionHeaderView", owner: nil, options: nil)?.first as?UIView;
-        nearByView.frame = CGRect.init(x: 0, y: bannerScrollViewHeight + subClassScrollViewHeight + subClassPageControlHeight - subClassScrollViewQuadCurveHeight/*减去曲线高度，因为要覆盖住上面轮播图这个高度*/, width: SCREEN_WIDTH, height: nearByViewHeight);
+        nearByView.frame = CGRect.init(x: 0, y: bannerScrollViewHeight + subClassBackViewHeight + subClassPageControlHeight - subClassBackViewQuadCurveHeight/*减去曲线高度，因为要覆盖住上面轮播图这个高度*/, width: SCREEN_WIDTH, height: nearByViewHeight);
         self.addSubview(nearByView);
     }
-    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        if scrollView == subClassScrollView {
+            subClassPageControl.currentPage = NSInteger(subClassScrollView.contentOffset.x/SCREEN_WIDTH);
+        }
+    }
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

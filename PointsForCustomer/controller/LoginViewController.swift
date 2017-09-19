@@ -10,7 +10,9 @@ import UIKit
 
 class LoginViewController: BaseViewController {
     
-
+    convenience init() {
+        self.init(nibName: "LoginViewController", bundle: nil);
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.

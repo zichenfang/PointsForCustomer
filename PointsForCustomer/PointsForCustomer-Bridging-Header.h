@@ -13,5 +13,11 @@
 #import <AMapFoundationKit/AMapFoundationKit.h>
 #import <AMapLocationKit/AMapLocationKit.h>
 #import "SDCycleScrollView.h"
+#import "NSString+MyCustomString.h"
+#import "NSDate+MyDate.h"
+#import "UIColor+MyColor.h"
+#import "UIImage+MyCustomImage.h"
+#import "UIDevice+MyDevice.h"
+#import "UIImageView+WebCache.h"
 
 #endif /* PointsForCustomer_Bridging_Header_h */

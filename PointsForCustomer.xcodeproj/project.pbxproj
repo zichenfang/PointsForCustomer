@@ -39,6 +39,10 @@
 		E2F1EF5F1F67DA1D00CF90C2 /* TTUserInfoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F1EF5D1F67DA1D00CF90C2 /* TTUserInfoManager.m */; };
 		E2F1EF621F67DC2500CF90C2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F1EF601F67DC2500CF90C2 /* LoginViewController.swift */; };
 		E2F1EF631F67DC2500CF90C2 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2F1EF611F67DC2500CF90C2 /* LoginViewController.xib */; };
+		E2FA31A81F713C6600B657A1 /* PPStringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FA31A71F713C6600B657A1 /* PPStringExtension.swift */; };
+		E2FA31AA1F71450300B657A1 /* IndexClassObj.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FA31A91F71450300B657A1 /* IndexClassObj.swift */; };
+		E2FA31AC1F71593400B657A1 /* IndexClassItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2FA31AB1F71593300B657A1 /* IndexClassItemView.xib */; };
+		E2FA31AE1F715A2500B657A1 /* IndexClassItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FA31AD1F715A2500B657A1 /* IndexClassItemView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +90,10 @@
 		E2F1EF5D1F67DA1D00CF90C2 /* TTUserInfoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTUserInfoManager.m; sourceTree = "<group>"; };
 		E2F1EF601F67DC2500CF90C2 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E2F1EF611F67DC2500CF90C2 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		E2FA31A71F713C6600B657A1 /* PPStringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPStringExtension.swift; sourceTree = "<group>"; };
+		E2FA31A91F71450300B657A1 /* IndexClassObj.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndexClassObj.swift; sourceTree = "<group>"; };
+		E2FA31AB1F71593300B657A1 /* IndexClassItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IndexClassItemView.xib; sourceTree = "<group>"; };
+		E2FA31AD1F715A2500B657A1 /* IndexClassItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndexClassItemView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +166,7 @@
 				E2F1EF471F67701900CF90C2 /* BaseObject.swift */,
 				E2F1EF491F67717300CF90C2 /* PPShopObject.swift */,
 				E2E803C01F6BC3BA0094065F /* PPBannerObject.swift */,
+				E2FA31A91F71450300B657A1 /* IndexClassObj.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -172,6 +181,8 @@
 				E2E803BB1F6BA6EF0094065F /* PPShopTableViewCell.xib */,
 				E2E803BE1F6BAAE30094065F /* IndexHeaderView.swift */,
 				E29D56041F6FA0E70006C746 /* IndexSectionHeaderView.xib */,
+				E2FA31AD1F715A2500B657A1 /* IndexClassItemView.swift */,
+				E2FA31AB1F71593300B657A1 /* IndexClassItemView.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -206,6 +217,7 @@
 				E2F1EF351F676DA500CF90C2 /* UIImage+MyCustomImage.m */,
 				E2F1EF421F676F1300CF90C2 /* UIDevice+MyDevice.h */,
 				E2F1EF431F676F1300CF90C2 /* UIDevice+MyDevice.m */,
+				E2FA31A71F713C6600B657A1 /* PPStringExtension.swift */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -295,6 +307,7 @@
 				E21A64421F6663E3007D1C49 /* LaunchScreen.storyboard in Resources */,
 				E2F1EF631F67DC2500CF90C2 /* LoginViewController.xib in Resources */,
 				E2F1EF581F67C1E900CF90C2 /* UserCenterViewController.xib in Resources */,
+				E2FA31AC1F71593400B657A1 /* IndexClassItemView.xib in Resources */,
 				E21A643F1F6663E3007D1C49 /* Assets.xcassets in Resources */,
 				E2E803BD1F6BA6F00094065F /* PPShopTableViewCell.xib in Resources */,
 				E2E803B91F6A56A40094065F /* UserCenterTableViewCell.xib in Resources */,
@@ -369,16 +382,19 @@
 				E2F1EF5E1F67DA1D00CF90C2 /* TTRequestOperationManager.m in Sources */,
 				E20A7CA51F690AA900346D4A /* ConstantForSwift.swift in Sources */,
 				E2F1EF3D1F676DA500CF90C2 /* UIColor+MyColor.m in Sources */,
+				E2FA31AE1F715A2500B657A1 /* IndexClassItemView.swift in Sources */,
 				E2F1EF4A1F67717300CF90C2 /* PPShopObject.swift in Sources */,
 				E2F1EF571F67C1E900CF90C2 /* UserCenterViewController.swift in Sources */,
 				E2F1EF4F1F67C18100CF90C2 /* IndexViewController.swift in Sources */,
 				E2E803B81F6A56A40094065F /* UserCenterTableViewCell.swift in Sources */,
+				E2FA31A81F713C6600B657A1 /* PPStringExtension.swift in Sources */,
 				E2F1EF621F67DC2500CF90C2 /* LoginViewController.swift in Sources */,
 				E2F1EF5F1F67DA1D00CF90C2 /* TTUserInfoManager.m in Sources */,
 				E2E803BF1F6BAAE30094065F /* IndexHeaderView.swift in Sources */,
 				E2E803BC1F6BA6F00094065F /* PPShopTableViewCell.swift in Sources */,
 				E2F1EF4C1F67C15F00CF90C2 /* MainTabbarViewController.swift in Sources */,
 				E2F1EF531F67C1C900CF90C2 /* ReadBitCodeViewController.swift in Sources */,
+				E2FA31AA1F71450300B657A1 /* IndexClassObj.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

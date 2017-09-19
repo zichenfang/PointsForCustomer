@@ -11,27 +11,63 @@ import UIKit
 class IndexViewController: BaseViewController , UITableViewDataSource , UITableViewDelegate , SDCycleScrollViewDelegate{
 
     @IBOutlet var tableView: UITableView!
+    
+    @IBOutlet var headerToolView: UIView!
+    /*所在位置的view模块（因为要根据位置长度设置其view长度，和圆角和边线，所以设置其为属性）*/
+    @IBOutlet var locationView: UIView!
+    /*动态计算locationView的宽度，计算方式为地址名称label宽度+40*/
+    @IBOutlet var locationViewConstraint: NSLayoutConstraint!
+    @IBOutlet var locationLabel: UILabel!
+    //轮播图数据
     var bannerDatas :NSMutableArray? = NSMutableArray();
-
+    //子分类数据
+    var subClassDatas :NSMutableArray? = NSMutableArray();
+    convenience init() {
+        self.init(nibName: "IndexViewController", bundle: nil);
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = true;
+        //圆角和边线
+
+        locationView.backgroundColor = UIColor.black.withAlphaComponent(0.5);
+        locationView.layer.masksToBounds = true;
+        locationView.layer.cornerRadius = locationView!.frame.size.height * 0.5;
+        locationView.layer.borderWidth = 1;
+        locationView.layer.borderColor = UIColor.white.withAlphaComponent(0.5).cgColor;
+        //注册tableViewCell
         tableView.register(UINib.init(nibName: "PPShopTableViewCell", bundle: nil), forCellReuseIdentifier: "indexShop");
-        
+        tableView.contentInset = UIEdgeInsets.init(top: -20, left: 0, bottom: 0, right: 0);
+        print(tableView.contentInset);
         
         //假设获取到了轮播图数据
-        bannerDatas?.add(PPBannerObject.init(info: ["imageUrl":"https://tva1.sinaimg.cn/crop.1.0.637.637.50/a3609e63jw8fboayxpgz2j20hs0hpgmj.jpg"]));
-        bannerDatas?.add(PPBannerObject.init(info: ["imageUrl":"https://tva4.sinaimg.cn/crop.0.0.177.177.50/612edf3agw1ekppvdur8wj2050050q32.jpg"]));
+        bannerDatas?.removeAllObjects();
+        bannerDatas?.add(PPBannerObject.init(info: ["imageUrl":"https://gw.alicdn.com/tfs/TB1fYOSeMMPMeJjy1XbXXcwxVXa-750-291.jpg_Q90.jpg"]));
+        bannerDatas?.add(PPBannerObject.init(info: ["imageUrl":"https://img.alicdn.com/tfs/TB1i_aLd3oQMeJjy1XaXXcSsFXa-800-300.jpg"]));
 
-        bannerDatas?.add(PPBannerObject.init(info: ["imageUrl":"https://tvax3.sinaimg.cn/crop.8.0.495.495.50/48876d1bly8fin26lls2jj20e80dr75m.jpg"]));
-        bannerDatas?.add(PPBannerObject.init(info: ["imageUrl":"https://tvax4.sinaimg.cn/crop.0.0.750.750.50/006KfxSIly8fe51x6ba02j30ku0kuq3u.jpg"]));
+        bannerDatas?.add(PPBannerObject.init(info: ["imageUrl":"https://aecpm.alicdn.com/simba/img/TB1q7ymhUQIL1JjSZFhSuuDZFXa.jpg"]));
+        bannerDatas?.add(PPBannerObject.init(info: ["imageUrl":"https://gw.alicdn.com/imgextra/i4/1/TB20GOyXDJ_SKJjSZPiXXb3LpXa_!!1-0-luban.jpg"]));
+        //加数据 子分类数据
+        subClassDatas?.removeAllObjects();
+        for _ in 1...30{
+            subClassDatas?.add(IndexClassObj.init(info: ["id":String.init(format: "%d", arc4random()%100000) , "name" : String.random32bitStringGGG(length: 4) ,"imageUrl" : "https://gw.alicdn.com/imgextra/i4/1/TB20GOyXDJ_SKJjSZPiXXb3LpXa_!!1-0-luban.jpg"]))
+        }
+        
+        
+        //地理位置获取
+        let address :String! = "海尔工业园"
+        locationLabel.text = address
+        locationViewConstraint.constant = address.widthWithFountAndHeight(font: locationLabel.font, height: locationLabel.frame.size.height) + 40;
+        
+        
+        //headerview
         updateTableViewHeaderView();
-
         
     }
     func updateTableViewHeaderView(){
         let headerView = IndexHeaderView.init();
         headerView.bannerDatas = bannerDatas;
+        headerView.subClassDatas = subClassDatas;
         headerView.delegate = self;
         tableView.tableHeaderView = headerView;
     }

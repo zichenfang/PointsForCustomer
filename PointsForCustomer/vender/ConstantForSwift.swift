@@ -27,6 +27,8 @@ struct PLARFORM {
 //高德地图appkey
 public let AMAP_APPKEY : String = Bundle.main.infoDictionary?["AMAP_APPKEY"] as! String;
 
+public let PLACE_HOLDER_IMAGE :UIImage = UIImage.init(named: "placeholderimage")!;
+
 class ConstantForSwift: NSObject {
 
 }

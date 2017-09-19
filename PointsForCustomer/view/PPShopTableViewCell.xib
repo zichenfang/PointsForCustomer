@@ -70,6 +70,9 @@
                 <constraint firstAttribute="bottom" secondItem="OW1-ph-h8K" secondAttribute="bottom" constant="10" id="QvD-di-tmu"/>
                 <constraint firstAttribute="trailing" secondItem="OW1-ph-h8K" secondAttribute="trailing" constant="8" id="mLm-OT-dzt"/>
             </constraints>
+            <connections>
+                <outlet property="shopThumbIV" destination="FJJ-KZ-YLb" id="X14-ed-0Es"/>
+            </connections>
             <point key="canvasLocation" x="-179" y="-16"/>
         </tableViewCell>
     </objects>

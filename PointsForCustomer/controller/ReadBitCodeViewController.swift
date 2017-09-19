@@ -18,6 +18,10 @@ class ReadBitCodeViewController: BaseViewController,AVCaptureMetadataOutputObjec
     var torchON : Bool?
     var codeValue : String!
 
+    convenience init() {
+        self.init(nibName: "ReadBitCodeViewController", bundle: nil);
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.black;

@@ -11,6 +11,9 @@ import UIKit
 class UserCenterViewController: BaseViewController , UITableViewDataSource , UITableViewDelegate {
 
     @IBOutlet var tableView: UITableView!
+    convenience init() {
+        self.init(nibName: "UserCenterViewController", bundle: nil);
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UINib.init(nibName: "UserCenterTableViewCell", bundle: nil), forCellReuseIdentifier: "usercenter");
