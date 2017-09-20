@@ -15,26 +15,46 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="108"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="108"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="107.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="店铺名称" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SgV-J5-y1g">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="店铺名称" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SgV-J5-y1g">
                         <rect key="frame" x="155" y="10" width="157" height="20"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="MX1-rM-bTF"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FJJ-KZ-YLb" userLabel="缩略图Image View">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholderimage" translatesAutoresizingMaskIntoConstraints="NO" id="FJJ-KZ-YLb" userLabel="缩略图Image View">
                         <rect key="frame" x="10" y="10" width="132" height="88"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="132" id="L7J-2g-hzC"/>
+                        </constraints>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="xingxing_an" highlightedImage="xingxing_liang" translatesAutoresizingMaskIntoConstraints="NO" id="c4a-9m-nkb" userLabel="星星Image View0">
+                        <rect key="frame" x="155" y="33" width="20" height="20"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c4a-9m-nkb" userLabel="星星Image View">
-                        <rect key="frame" x="155" y="33" width="86" height="20"/>
+                    <imageView userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="xingxing_an" highlightedImage="xingxing_liang" translatesAutoresizingMaskIntoConstraints="NO" id="0Qf-Zf-wXl" userLabel="星星Image View1">
+                        <rect key="frame" x="175" y="33" width="20" height="20"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="xingxing_an" highlightedImage="xingxing_liang" translatesAutoresizingMaskIntoConstraints="NO" id="f8o-wX-0bu" userLabel="星星Image View2">
+                        <rect key="frame" x="195" y="33" width="20" height="20"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="xingxing_an" highlightedImage="xingxing_liang" translatesAutoresizingMaskIntoConstraints="NO" id="PkI-v2-vuW" userLabel="星星Image View3">
+                        <rect key="frame" x="215" y="33" width="20" height="20"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="xingxing_an" highlightedImage="xingxing_liang" translatesAutoresizingMaskIntoConstraints="NO" id="zkw-gm-NJT" userLabel="星星Image View4">
+                        <rect key="frame" x="235" y="33" width="20" height="20"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="5.0分" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k4c-4T-kQG">
-                        <rect key="frame" x="249" y="33" width="54" height="20"/>
+                        <rect key="frame" x="257" y="33" width="50" height="20"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.60000002384185791" green="0.40000000596046448" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
@@ -67,8 +87,14 @@
                 </subviews>
             </tableViewCellContentView>
             <constraints>
+                <constraint firstItem="SgV-J5-y1g" firstAttribute="leading" secondItem="KGk-i7-Jjw" secondAttribute="leading" constant="155" id="AkL-gK-4gY"/>
+                <constraint firstItem="FJJ-KZ-YLb" firstAttribute="leading" secondItem="KGk-i7-Jjw" secondAttribute="leading" constant="10" id="KpV-0C-CBy"/>
+                <constraint firstItem="FJJ-KZ-YLb" firstAttribute="top" secondItem="KGk-i7-Jjw" secondAttribute="top" constant="10" id="O28-3D-Suw"/>
                 <constraint firstAttribute="bottom" secondItem="OW1-ph-h8K" secondAttribute="bottom" constant="10" id="QvD-di-tmu"/>
+                <constraint firstAttribute="trailing" secondItem="SgV-J5-y1g" secondAttribute="trailing" constant="8" id="ahk-98-hbL"/>
+                <constraint firstAttribute="bottom" secondItem="FJJ-KZ-YLb" secondAttribute="bottom" constant="10" id="kBw-gi-dMn"/>
                 <constraint firstAttribute="trailing" secondItem="OW1-ph-h8K" secondAttribute="trailing" constant="8" id="mLm-OT-dzt"/>
+                <constraint firstItem="SgV-J5-y1g" firstAttribute="top" secondItem="KGk-i7-Jjw" secondAttribute="top" constant="10" id="nZX-GS-nsn"/>
             </constraints>
             <connections>
                 <outlet property="shopThumbIV" destination="FJJ-KZ-YLb" id="X14-ed-0Es"/>
@@ -76,4 +102,9 @@
             <point key="canvasLocation" x="-179" y="-16"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="placeholderimage" width="44" height="46"/>
+        <image name="xingxing_an" width="15" height="15"/>
+        <image name="xingxing_liang" width="15" height="15"/>
+    </resources>
 </document>

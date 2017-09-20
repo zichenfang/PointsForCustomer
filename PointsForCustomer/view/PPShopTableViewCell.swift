@@ -15,7 +15,9 @@ class PPShopTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
+    func data(obj:PPShopObject) {
+        shopThumbIV.sd_setImage(with: URL.init(string: obj.imgUrl!), placeholderImage: PLACE_HOLDER_IMAGE);
+    }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         // Configure the view for the selected state

@@ -9,7 +9,8 @@
 import UIKit
 
 class IndexViewController: BaseViewController , UITableViewDataSource , UITableViewDelegate , SDCycleScrollViewDelegate{
-
+    //定位
+    var locationManager: AMapLocationManager!
     @IBOutlet var tableView: UITableView!
     
     @IBOutlet var headerToolView: UIView!
@@ -28,8 +29,9 @@ class IndexViewController: BaseViewController , UITableViewDataSource , UITableV
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = true;
+        //定位
+        startUpdatingLocation();
         //圆角和边线
-
         locationView.backgroundColor = UIColor.black.withAlphaComponent(0.5);
         locationView.layer.masksToBounds = true;
         locationView.layer.cornerRadius = locationView!.frame.size.height * 0.5;
@@ -53,13 +55,6 @@ class IndexViewController: BaseViewController , UITableViewDataSource , UITableV
             subClassDatas?.add(IndexClassObj.init(info: ["id":String.init(format: "%d", arc4random()%100000) , "name" : String.random32bitStringGGG(length: 4) ,"imageUrl" : "https://gw.alicdn.com/imgextra/i4/1/TB20GOyXDJ_SKJjSZPiXXb3LpXa_!!1-0-luban.jpg"]))
         }
         
-        
-        //地理位置获取
-        let address :String! = "海尔工业园"
-        locationLabel.text = address
-        locationViewConstraint.constant = address.widthWithFountAndHeight(font: locationLabel.font, height: locationLabel.frame.size.height) + 40;
-        
-        
         //headerview
         updateTableViewHeaderView();
         
@@ -75,7 +70,80 @@ class IndexViewController: BaseViewController , UITableViewDataSource , UITableV
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+    // MARK:定位
+    func startUpdatingLocation() -> Void {
+        ProgressHUD.show("位置更新中", interaction: false);
+        locationManager = AMapLocationManager();
+        locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
+        locationManager.locationTimeout = 2
+        locationManager.reGeocodeTimeout = 2
+        locationManager.requestLocation(withReGeocode: true, completionBlock: {  (location: CLLocation?, reGeocode: AMapLocationReGeocode?, error: Error?) in
+            ProgressHUD.dismiss();
+            if let error = error {
+                let error = error as NSError
+                if error.code == AMapLocationErrorCode.locateFailed.rawValue {
+                    //定位错误：此时location和regeocode没有返回值，不进行annotation的添加
+                    NSLog("定位错误:{\(error.code) - \(error.localizedDescription)};")
+                    let alertVC = UIAlertController.init(title: "定位获取失败", message: String.init(format: "请打开系统设置中“隐私->定位服务”，允许%@使用您的位置", AMAP_PRODUCT_NAME), preferredStyle: UIAlertControllerStyle.alert);
+                    alertVC.addAction(UIAlertAction.init(title: "取消", style: UIAlertActionStyle.cancel, handler: nil));
+                    alertVC.addAction(UIAlertAction.init(title: "设置", style: UIAlertActionStyle.default, handler: { (act) in
+                        UIApplication.shared.openURL(URL.init(string: UIApplicationOpenSettingsURLString)!);
+                    }));
+                    self.present(alertVC, animated: true, completion: nil);
+                    
+                    
+
+                    return
+                }
+                else if error.code == AMapLocationErrorCode.reGeocodeFailed.rawValue
+                    || error.code == AMapLocationErrorCode.timeOut.rawValue
+                    || error.code == AMapLocationErrorCode.cannotFindHost.rawValue
+                    || error.code == AMapLocationErrorCode.badURL.rawValue
+                    || error.code == AMapLocationErrorCode.notConnectedToInternet.rawValue
+                    || error.code == AMapLocationErrorCode.cannotConnectToHost.rawValue {
+                    //逆地理错误：在带逆地理的单次定位中，逆地理过程可能发生错误，此时location有返回值，regeocode无返回值，进行annotation的添加
+                    NSLog("逆地理错误:{\(error.code) - \(error.localizedDescription)};")
+                    self.showLocationFaildAlertAndGoCityList();
+                }
+                else {
+                    //没有错误：location有返回值，regeocode是否有返回值取决于是否进行逆地理操作，进行annotation的添加
+                }
+            }
+            //
+
+            //先取逆地理信息，如果失败，则即使经纬度有有效信息，也被视为无效信息
+            if let reGeocode = reGeocode {
+                print("逆地理信息\(reGeocode)");
+                var pointName:String? = reGeocode.poiName;
+                //poiname失败，则取aoiname
+                if (pointName?.characters.count)!<=1 {
+                    pointName = reGeocode.aoiName;
+                }
+                //aoiname失败，则取street
+                else if (pointName?.characters.count)!<=1 {
+                    pointName = reGeocode.street;
+                }
+                if let location = location {
+                    print("经纬度\(location)");
+                    self.locationLabel.text = pointName;
+                    self.locationViewConstraint.constant = (pointName?.widthWithFountAndHeight(font: self.locationLabel.font, height: self.locationLabel.frame.size.height))! + 40;
+                    //重新刷新页面数据
+                }
+                else{
+                    self.showLocationFaildAlertAndGoCityList();
+                }
+            }
+            
+        })
+    }
+    func showLocationFaildAlertAndGoCityList() {
+        let alertVC = UIAlertController.init(title: "定位获取失败", message: "请尝试手动选择您的位置", preferredStyle: UIAlertControllerStyle.alert);
+        alertVC.addAction(UIAlertAction.init(title: "取消", style: UIAlertActionStyle.cancel, handler: nil));
+        alertVC.addAction(UIAlertAction.init(title: "设置", style: UIAlertActionStyle.default, handler: { (act) in
+            //进入地理位置选择页面
+        }));
+        self.present(alertVC, animated: true, completion: nil);
+    }
     //    MARK:UITableViewDataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 15;

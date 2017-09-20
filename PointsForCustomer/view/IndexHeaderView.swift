@@ -104,7 +104,7 @@ class IndexHeaderView: UIView ,UIScrollViewDelegate {
                 let itemWidth :CGFloat = SCREEN_WIDTH/5;
                 let itemHeight :CGFloat = subClassScrollViewHeight/2;
                 while index < (classesInPage?.count)! {
-                    let classObj :IndexClassObj? = classesInPage?.object(at: index) as! IndexClassObj;
+                    let classObj :IndexClassObj! = classesInPage?.object(at: index) as! IndexClassObj;
                     let itemView : IndexClassItemView? = Bundle.main.loadNibNamed("IndexClassItemView", owner: nil, options: nil)?.first as! IndexClassItemView?
                     let item_x :CGFloat = CGFloat(index%5) * itemWidth;
                     let item_y :CGFloat = CGFloat(index/5) * itemHeight;

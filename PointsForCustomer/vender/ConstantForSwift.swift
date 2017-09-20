@@ -12,8 +12,8 @@
 import UIKit
 
 
-public let SCREEN_WIDTH :CGFloat = UIScreen.main.bounds.size.width;
-public let SCREEN_HEIGHT :CGFloat = UIScreen.main.bounds.size.height;
+let SCREEN_WIDTH :CGFloat = UIScreen.main.bounds.size.width;
+let SCREEN_HEIGHT :CGFloat = UIScreen.main.bounds.size.height;
 //模拟器检测
 struct PLARFORM {
     static let isSimulator: Bool = {
@@ -25,9 +25,12 @@ struct PLARFORM {
     }()
 }
 //高德地图appkey
-public let AMAP_APPKEY : String = Bundle.main.infoDictionary?["AMAP_APPKEY"] as! String;
+let AMAP_APPKEY : String = Bundle.main.infoDictionary?["AMAP_APPKEY"] as! String;
+let AMAP_PRODUCT_NAME : String = Bundle.main.infoDictionary?["CFBundleName"] as! String;
 
-public let PLACE_HOLDER_IMAGE :UIImage = UIImage.init(named: "placeholderimage")!;
+let PLACE_HOLDER_IMAGE :UIImage = UIImage.init(named: "placeholderimage")!;
+let APP_DELEGATE  = UIApplication.shared.delegate as! AppDelegate;
+
 
 class ConstantForSwift: NSObject {
 

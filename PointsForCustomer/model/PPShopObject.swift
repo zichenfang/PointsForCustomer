@@ -11,6 +11,7 @@ import UIKit
 class PPShopObject: BaseObject {
     var id :String?
     var name :String?
+    var imgUrl :String?
     init(info :NSDictionary){
         self.id = info["id"]as?String;
     }
