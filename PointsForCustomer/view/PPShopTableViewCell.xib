@@ -15,7 +15,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="108"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="107.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="108"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="店铺名称" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SgV-J5-y1g">
@@ -27,29 +27,29 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholderimage" translatesAutoresizingMaskIntoConstraints="NO" id="FJJ-KZ-YLb" userLabel="缩略图Image View">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholderimage" translatesAutoresizingMaskIntoConstraints="NO" id="FJJ-KZ-YLb" userLabel="缩略图Image View">
                         <rect key="frame" x="10" y="10" width="132" height="88"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="132" id="L7J-2g-hzC"/>
                         </constraints>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="xingxing_an" highlightedImage="xingxing_liang" translatesAutoresizingMaskIntoConstraints="NO" id="c4a-9m-nkb" userLabel="星星Image View0">
+                    <imageView userInteractionEnabled="NO" tag="100" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="xingxing_an" translatesAutoresizingMaskIntoConstraints="NO" id="c4a-9m-nkb" userLabel="星星Image View0">
                         <rect key="frame" x="155" y="33" width="20" height="20"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="xingxing_an" highlightedImage="xingxing_liang" translatesAutoresizingMaskIntoConstraints="NO" id="0Qf-Zf-wXl" userLabel="星星Image View1">
+                    <imageView userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="xingxing_an" translatesAutoresizingMaskIntoConstraints="NO" id="0Qf-Zf-wXl" userLabel="星星Image View1">
                         <rect key="frame" x="175" y="33" width="20" height="20"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="xingxing_an" highlightedImage="xingxing_liang" translatesAutoresizingMaskIntoConstraints="NO" id="f8o-wX-0bu" userLabel="星星Image View2">
+                    <imageView userInteractionEnabled="NO" tag="102" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="xingxing_an" translatesAutoresizingMaskIntoConstraints="NO" id="f8o-wX-0bu" userLabel="星星Image View2">
                         <rect key="frame" x="195" y="33" width="20" height="20"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="xingxing_an" highlightedImage="xingxing_liang" translatesAutoresizingMaskIntoConstraints="NO" id="PkI-v2-vuW" userLabel="星星Image View3">
+                    <imageView userInteractionEnabled="NO" tag="103" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="xingxing_an" translatesAutoresizingMaskIntoConstraints="NO" id="PkI-v2-vuW" userLabel="星星Image View3">
                         <rect key="frame" x="215" y="33" width="20" height="20"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="xingxing_an" highlightedImage="xingxing_liang" translatesAutoresizingMaskIntoConstraints="NO" id="zkw-gm-NJT" userLabel="星星Image View4">
+                    <imageView userInteractionEnabled="NO" tag="104" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="xingxing_an" translatesAutoresizingMaskIntoConstraints="NO" id="zkw-gm-NJT" userLabel="星星Image View4">
                         <rect key="frame" x="235" y="33" width="20" height="20"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </imageView>
@@ -105,6 +105,5 @@
     <resources>
         <image name="placeholderimage" width="44" height="46"/>
         <image name="xingxing_an" width="15" height="15"/>
-        <image name="xingxing_liang" width="15" height="15"/>
     </resources>
 </document>

@@ -1,22 +1,25 @@
 //
-//  BaseViewController.swift
+//  CityListViewController.swift
 //  PointsForCustomer
 //
-//  Created by 殷玉秋 on 2017/9/12.
+//  Created by 殷玉秋 on 2017/9/20.
 //  Copyright © 2017年 fff. All rights reserved.
 //
 
 import UIKit
 
-class BaseViewController: UIViewController {
-    //用于该页面返回上层时的传值，默认info可以传空[:]
-    var handler:((_ info:NSDictionary)->Void)?
-
+class CityListViewController: BaseViewController {
+    convenience init() {
+        self.init(nibName: "CityListViewController", bundle: nil);
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        let item = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
-        self.navigationItem.backBarButtonItem = item
-        self.navigationController?.navigationBar.tintColor = UIColor.black;
+        title = "手动定位";
+//        self.navigationController?.isNavigationBarHidden = false;
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated);
+        self.navigationController?.setNavigationBarHidden(false, animated: true);
     }
 
     override func didReceiveMemoryWarning() {

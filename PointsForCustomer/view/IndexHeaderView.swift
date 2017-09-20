@@ -141,7 +141,7 @@ class IndexHeaderView: UIView ,UIScrollViewDelegate {
         self.addSubview(bannerScrollView);
         bannerScrollView.backgroundColor = UIColor.yellow;
         bannerScrollView.pageControlAliment = SDCycleScrollViewPageContolAlimentCenter;
-        bannerScrollView.currentPageDotColor = UIColor.red; // 自定义分页控件小圆标颜色
+        bannerScrollView.currentPageDotColor = UIColor.styleRed(); // 自定义分页控件小圆标颜色
         bannerScrollView.pageDotColor = UIColor.darkGray; //
         bannerScrollView.autoScrollTimeInterval = 4.0;
         bannerScrollView.pageControlBottomOffset = 10;
@@ -182,7 +182,7 @@ class IndexHeaderView: UIView ,UIScrollViewDelegate {
         subClassPageControl.isEnabled = false;
         subClassPageControl.numberOfPages = 3;
         subClassPageControl.pageIndicatorTintColor = UIColor.darkGray;
-        subClassPageControl.currentPageIndicatorTintColor = UIColor.red;
+        subClassPageControl.currentPageIndicatorTintColor = UIColor.styleRed();
         
         /*附近商家标签*/
         nearByView  = Bundle.main.loadNibNamed("IndexSectionHeaderView", owner: nil, options: nil)?.first as?UIView;

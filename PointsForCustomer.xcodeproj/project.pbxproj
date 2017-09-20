@@ -13,6 +13,12 @@
 		E21A64381F6663E3007D1C49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21A64371F6663E3007D1C49 /* AppDelegate.swift */; };
 		E21A643F1F6663E3007D1C49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E21A643E1F6663E3007D1C49 /* Assets.xcassets */; };
 		E21A64421F6663E3007D1C49 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E21A64401F6663E3007D1C49 /* LaunchScreen.storyboard */; };
+		E24EEAE51F72AFBE0084C632 /* CityListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24EEAE31F72AFBE0084C632 /* CityListViewController.swift */; };
+		E24EEAE61F72AFBE0084C632 /* CityListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E24EEAE41F72AFBE0084C632 /* CityListViewController.xib */; };
+		E24EEAE91F72B4BA0084C632 /* SearchShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24EEAE71F72B4BA0084C632 /* SearchShopViewController.swift */; };
+		E24EEAEA1F72B4BA0084C632 /* SearchShopViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E24EEAE81F72B4BA0084C632 /* SearchShopViewController.xib */; };
+		E24EEAED1F72BBEA0084C632 /* ShopDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24EEAEB1F72BBEA0084C632 /* ShopDetailViewController.swift */; };
+		E24EEAEE1F72BBEA0084C632 /* ShopDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E24EEAEC1F72BBEA0084C632 /* ShopDetailViewController.xib */; };
 		E29D56051F6FA0E70006C746 /* IndexSectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E29D56041F6FA0E70006C746 /* IndexSectionHeaderView.xib */; };
 		E2E803B81F6A56A40094065F /* UserCenterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E803B61F6A56A40094065F /* UserCenterTableViewCell.swift */; };
 		E2E803B91F6A56A40094065F /* UserCenterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2E803B71F6A56A40094065F /* UserCenterTableViewCell.xib */; };
@@ -56,6 +62,12 @@
 		E21A643E1F6663E3007D1C49 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E21A64411F6663E3007D1C49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E21A64431F6663E3007D1C49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E24EEAE31F72AFBE0084C632 /* CityListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityListViewController.swift; sourceTree = "<group>"; };
+		E24EEAE41F72AFBE0084C632 /* CityListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CityListViewController.xib; sourceTree = "<group>"; };
+		E24EEAE71F72B4BA0084C632 /* SearchShopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchShopViewController.swift; sourceTree = "<group>"; };
+		E24EEAE81F72B4BA0084C632 /* SearchShopViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchShopViewController.xib; sourceTree = "<group>"; };
+		E24EEAEB1F72BBEA0084C632 /* ShopDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopDetailViewController.swift; sourceTree = "<group>"; };
+		E24EEAEC1F72BBEA0084C632 /* ShopDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShopDetailViewController.xib; sourceTree = "<group>"; };
 		E29D56041F6FA0E70006C746 /* IndexSectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IndexSectionHeaderView.xib; sourceTree = "<group>"; };
 		E2E803B61F6A56A40094065F /* UserCenterTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCenterTableViewCell.swift; sourceTree = "<group>"; };
 		E2E803B71F6A56A40094065F /* UserCenterTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserCenterTableViewCell.xib; sourceTree = "<group>"; };
@@ -200,6 +212,12 @@
 				E2F1EF561F67C1E900CF90C2 /* UserCenterViewController.xib */,
 				E2F1EF601F67DC2500CF90C2 /* LoginViewController.swift */,
 				E2F1EF611F67DC2500CF90C2 /* LoginViewController.xib */,
+				E24EEAE31F72AFBE0084C632 /* CityListViewController.swift */,
+				E24EEAE41F72AFBE0084C632 /* CityListViewController.xib */,
+				E24EEAE71F72B4BA0084C632 /* SearchShopViewController.swift */,
+				E24EEAE81F72B4BA0084C632 /* SearchShopViewController.xib */,
+				E24EEAEB1F72BBEA0084C632 /* ShopDetailViewController.swift */,
+				E24EEAEC1F72BBEA0084C632 /* ShopDetailViewController.xib */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -303,12 +321,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2F1EF501F67C18100CF90C2 /* IndexViewController.xib in Resources */,
+				E24EEAEE1F72BBEA0084C632 /* ShopDetailViewController.xib in Resources */,
 				E29D56051F6FA0E70006C746 /* IndexSectionHeaderView.xib in Resources */,
+				E24EEAE61F72AFBE0084C632 /* CityListViewController.xib in Resources */,
 				E21A64421F6663E3007D1C49 /* LaunchScreen.storyboard in Resources */,
 				E2F1EF631F67DC2500CF90C2 /* LoginViewController.xib in Resources */,
 				E2F1EF581F67C1E900CF90C2 /* UserCenterViewController.xib in Resources */,
 				E2FA31AC1F71593400B657A1 /* IndexClassItemView.xib in Resources */,
 				E21A643F1F6663E3007D1C49 /* Assets.xcassets in Resources */,
+				E24EEAEA1F72B4BA0084C632 /* SearchShopViewController.xib in Resources */,
 				E2E803BD1F6BA6F00094065F /* PPShopTableViewCell.xib in Resources */,
 				E2E803B91F6A56A40094065F /* UserCenterTableViewCell.xib in Resources */,
 				E2F1EF541F67C1C900CF90C2 /* ReadBitCodeViewController.xib in Resources */,
@@ -379,9 +400,11 @@
 				E2F1EF481F67701900CF90C2 /* BaseObject.swift in Sources */,
 				E20A7CA31F68FD2D00346D4A /* KuangkuangView.swift in Sources */,
 				E2F1EF461F67700300CF90C2 /* BaseViewController.swift in Sources */,
+				E24EEAE51F72AFBE0084C632 /* CityListViewController.swift in Sources */,
 				E2F1EF5E1F67DA1D00CF90C2 /* TTRequestOperationManager.m in Sources */,
 				E20A7CA51F690AA900346D4A /* ConstantForSwift.swift in Sources */,
 				E2F1EF3D1F676DA500CF90C2 /* UIColor+MyColor.m in Sources */,
+				E24EEAE91F72B4BA0084C632 /* SearchShopViewController.swift in Sources */,
 				E2FA31AE1F715A2500B657A1 /* IndexClassItemView.swift in Sources */,
 				E2F1EF4A1F67717300CF90C2 /* PPShopObject.swift in Sources */,
 				E2F1EF571F67C1E900CF90C2 /* UserCenterViewController.swift in Sources */,
@@ -393,6 +416,7 @@
 				E2E803BF1F6BAAE30094065F /* IndexHeaderView.swift in Sources */,
 				E2E803BC1F6BA6F00094065F /* PPShopTableViewCell.swift in Sources */,
 				E2F1EF4C1F67C15F00CF90C2 /* MainTabbarViewController.swift in Sources */,
+				E24EEAED1F72BBEA0084C632 /* ShopDetailViewController.swift in Sources */,
 				E2F1EF531F67C1C900CF90C2 /* ReadBitCodeViewController.swift in Sources */,
 				E2FA31AA1F71450300B657A1 /* IndexClassObj.swift in Sources */,
 			);

@@ -16,13 +16,13 @@ class MainTabbarViewController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tabBar.tintColor = UIColor.green;
+        self.tabBar.tintColor = UIColor.styleRed();
         indexVC = IndexViewController();
         addChildVC(childVC: indexVC!, title: "首页", image: "tabbar_index");
         readBitCodeVC = ReadBitCodeViewController();
-        addChildVC(childVC: readBitCodeVC!, title: "扫码", image: "tabbar_readCode");
+        addChildVC(childVC: readBitCodeVC!, title: "买单", image: "tabbar_readCode");
         userCenterVC = UserCenterViewController();
-        addChildVC(childVC: userCenterVC!, title: "用户", image: "tabbar_usercenter");
+        addChildVC(childVC: userCenterVC!, title: "我的", image: "tabbar_usercenter");
 
         
     }

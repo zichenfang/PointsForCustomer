@@ -65,4 +65,8 @@
 {
     return [UIColor colorWithHexString:@"#999999"];
 }
++ (UIColor *)styleRedColor
+{
+    return [UIColor colorWithHexString:@"#e43932"];
+}
 @end

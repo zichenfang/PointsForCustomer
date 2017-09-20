@@ -15,5 +15,6 @@
 + (UIColor *)styleListBackGrayColor;
 + (UIColor *)styleTextPinkColor;
 + (UIColor *)styleTextGrayColor;
++ (UIColor *)styleRedColor;
 
 @end

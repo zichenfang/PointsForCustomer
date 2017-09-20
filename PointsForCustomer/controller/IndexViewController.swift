@@ -8,7 +8,7 @@
 
 import UIKit
 
-class IndexViewController: BaseViewController , UITableViewDataSource , UITableViewDelegate , SDCycleScrollViewDelegate{
+class IndexViewController: BaseViewController , UITableViewDataSource , UITableViewDelegate , SDCycleScrollViewDelegate ,UITextFieldDelegate{
     //定位
     var locationManager: AMapLocationManager!
     @IBOutlet var tableView: UITableView!
@@ -28,7 +28,6 @@ class IndexViewController: BaseViewController , UITableViewDataSource , UITableV
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.isNavigationBarHidden = true;
         //定位
         startUpdatingLocation();
         //圆角和边线
@@ -59,6 +58,10 @@ class IndexViewController: BaseViewController , UITableViewDataSource , UITableV
         updateTableViewHeaderView();
         
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated);
+        self.navigationController?.setNavigationBarHidden(true, animated: true);
+    }
     func updateTableViewHeaderView(){
         let headerView = IndexHeaderView.init();
         headerView.bannerDatas = bannerDatas;
@@ -70,7 +73,7 @@ class IndexViewController: BaseViewController , UITableViewDataSource , UITableV
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    // MARK:定位
+    // MARK:高德地图定位
     func startUpdatingLocation() -> Void {
         ProgressHUD.show("位置更新中", interaction: false);
         locationManager = AMapLocationManager();
@@ -84,6 +87,7 @@ class IndexViewController: BaseViewController , UITableViewDataSource , UITableV
                 if error.code == AMapLocationErrorCode.locateFailed.rawValue {
                     //定位错误：此时location和regeocode没有返回值，不进行annotation的添加
                     NSLog("定位错误:{\(error.code) - \(error.localizedDescription)};")
+                    self.updateLocationLabel(address: "手动获取位置");
                     let alertVC = UIAlertController.init(title: "定位获取失败", message: String.init(format: "请打开系统设置中“隐私->定位服务”，允许%@使用您的位置", AMAP_PRODUCT_NAME), preferredStyle: UIAlertControllerStyle.alert);
                     alertVC.addAction(UIAlertAction.init(title: "取消", style: UIAlertActionStyle.cancel, handler: nil));
                     alertVC.addAction(UIAlertAction.init(title: "设置", style: UIAlertActionStyle.default, handler: { (act) in
@@ -91,8 +95,6 @@ class IndexViewController: BaseViewController , UITableViewDataSource , UITableV
                     }));
                     self.present(alertVC, animated: true, completion: nil);
                     
-                    
-
                     return
                 }
                 else if error.code == AMapLocationErrorCode.reGeocodeFailed.rawValue
@@ -103,7 +105,7 @@ class IndexViewController: BaseViewController , UITableViewDataSource , UITableV
                     || error.code == AMapLocationErrorCode.cannotConnectToHost.rawValue {
                     //逆地理错误：在带逆地理的单次定位中，逆地理过程可能发生错误，此时location有返回值，regeocode无返回值，进行annotation的添加
                     NSLog("逆地理错误:{\(error.code) - \(error.localizedDescription)};")
-                    self.showLocationFaildAlertAndGoCityList();
+                    self.showLocationFaildAlertAndTryAgain();
                 }
                 else {
                     //没有错误：location有返回值，regeocode是否有返回值取决于是否进行逆地理操作，进行annotation的添加
@@ -125,40 +127,71 @@ class IndexViewController: BaseViewController , UITableViewDataSource , UITableV
                 }
                 if let location = location {
                     print("经纬度\(location)");
-                    self.locationLabel.text = pointName;
-                    self.locationViewConstraint.constant = (pointName?.widthWithFountAndHeight(font: self.locationLabel.font, height: self.locationLabel.frame.size.height))! + 40;
+                    self.updateLocationLabel(address: pointName!);
                     //重新刷新页面数据
                 }
                 else{
-                    self.showLocationFaildAlertAndGoCityList();
+                    self.showLocationFaildAlertAndTryAgain();
                 }
             }
             
         })
     }
-    func showLocationFaildAlertAndGoCityList() {
-        let alertVC = UIAlertController.init(title: "定位获取失败", message: "请尝试手动选择您的位置", preferredStyle: UIAlertControllerStyle.alert);
+    func showLocationFaildAlertAndTryAgain() {
+        updateLocationLabel(address: "定位失败");
+        let alertVC = UIAlertController.init(title: "获取定位失败，请重试", message: "定位失败？点击左上角可进行手动定位", preferredStyle: UIAlertControllerStyle.alert);
         alertVC.addAction(UIAlertAction.init(title: "取消", style: UIAlertActionStyle.cancel, handler: nil));
-        alertVC.addAction(UIAlertAction.init(title: "设置", style: UIAlertActionStyle.default, handler: { (act) in
-            //进入地理位置选择页面
+        alertVC.addAction(UIAlertAction.init(title: "重试", style: UIAlertActionStyle.default, handler: { (act) in
+            self.startUpdatingLocation();
         }));
         self.present(alertVC, animated: true, completion: nil);
     }
+    func updateLocationLabel(address : String) {
+        locationLabel.text = address;
+        locationViewConstraint.constant = (address.widthWithFountAndHeight(font: locationLabel.font, height: locationLabel.frame.size.height)) + 40;
+    }
+//    MARK:手动选择地理位置
+    @IBAction func selectLocation(_ sender: UITapGestureRecognizer) {
+        let vc = CityListViewController();
+        vc.handler = {(_info: NSDictionary?) -> Void in
+            //手动选择地址回掉之后，刷新首页数据
+        }
+        
+        vc.hidesBottomBarWhenPushed = true;
+        navigationController?.pushViewController(vc, animated: true);
+    }
+    
     //    MARK:UITableViewDataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 15;
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell :PPShopTableViewCell! = tableView.dequeueReusableCell(withIdentifier: "indexShop", for: indexPath) as! PPShopTableViewCell;
+        let aobj = PPShopObject.init(info: ["imgUrl":"https://gw.alicdn.com/imgextra/i4/1/TB20GOyXDJ_SKJjSZPiXXb3LpXa_!!1-0-luban.jpg","star":NSNumber.init(value: arc4random()%5+1)])
+        cell.data(obj: aobj);
         return cell!;
     }
     //    MARK:UITableViewDelegate
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1;
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let vc = ShopDetailViewController();
+        vc.hidesBottomBarWhenPushed = true;
+        navigationController?.pushViewController(vc, animated: true);
+
+    }
     // MARK: - SDCycleScrollViewDelegate
     func cycleScrollView(_ cycleScrollView: SDCycleScrollView!, didSelectItemAt index: Int) {
         print(index);
+    }
+    // MARK: - UITextFieldDelegate 跳转到新的搜索页面，
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        let vc = SearchShopViewController();
+        vc.hidesBottomBarWhenPushed = true;
+        navigationController?.pushViewController(vc, animated: true);
+        return false;
     }
     /*
     // MARK: - Navigation
