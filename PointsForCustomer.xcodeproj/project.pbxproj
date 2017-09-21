@@ -19,6 +19,9 @@
 		E24EEAEA1F72B4BA0084C632 /* SearchShopViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E24EEAE81F72B4BA0084C632 /* SearchShopViewController.xib */; };
 		E24EEAED1F72BBEA0084C632 /* ShopDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24EEAEB1F72BBEA0084C632 /* ShopDetailViewController.swift */; };
 		E24EEAEE1F72BBEA0084C632 /* ShopDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E24EEAEC1F72BBEA0084C632 /* ShopDetailViewController.xib */; };
+		E2547C461F73F9DF000DA9E9 /* AllCityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2547C441F73F9DF000DA9E9 /* AllCityTableViewCell.swift */; };
+		E2547C471F73F9DF000DA9E9 /* AllCityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2547C451F73F9DF000DA9E9 /* AllCityTableViewCell.xib */; };
+		E2547C491F73FB12000DA9E9 /* citys.db in Resources */ = {isa = PBXBuildFile; fileRef = E2547C481F73FB12000DA9E9 /* citys.db */; };
 		E29D56051F6FA0E70006C746 /* IndexSectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E29D56041F6FA0E70006C746 /* IndexSectionHeaderView.xib */; };
 		E2E803B81F6A56A40094065F /* UserCenterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E803B61F6A56A40094065F /* UserCenterTableViewCell.swift */; };
 		E2E803B91F6A56A40094065F /* UserCenterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2E803B71F6A56A40094065F /* UserCenterTableViewCell.xib */; };
@@ -68,6 +71,9 @@
 		E24EEAE81F72B4BA0084C632 /* SearchShopViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchShopViewController.xib; sourceTree = "<group>"; };
 		E24EEAEB1F72BBEA0084C632 /* ShopDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopDetailViewController.swift; sourceTree = "<group>"; };
 		E24EEAEC1F72BBEA0084C632 /* ShopDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShopDetailViewController.xib; sourceTree = "<group>"; };
+		E2547C441F73F9DF000DA9E9 /* AllCityTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllCityTableViewCell.swift; sourceTree = "<group>"; };
+		E2547C451F73F9DF000DA9E9 /* AllCityTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AllCityTableViewCell.xib; sourceTree = "<group>"; };
+		E2547C481F73FB12000DA9E9 /* citys.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = citys.db; sourceTree = "<group>"; };
 		E29D56041F6FA0E70006C746 /* IndexSectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IndexSectionHeaderView.xib; sourceTree = "<group>"; };
 		E2E803B61F6A56A40094065F /* UserCenterTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCenterTableViewCell.swift; sourceTree = "<group>"; };
 		E2E803B71F6A56A40094065F /* UserCenterTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserCenterTableViewCell.xib; sourceTree = "<group>"; };
@@ -168,6 +174,7 @@
 				E21A64401F6663E3007D1C49 /* LaunchScreen.storyboard */,
 				E21A64431F6663E3007D1C49 /* Info.plist */,
 				E2F1EF271F667E8E00CF90C2 /* PointsForCustomer-Bridging-Header.h */,
+				E2547C481F73FB12000DA9E9 /* citys.db */,
 			);
 			path = PointsForCustomer;
 			sourceTree = "<group>";
@@ -195,6 +202,8 @@
 				E29D56041F6FA0E70006C746 /* IndexSectionHeaderView.xib */,
 				E2FA31AD1F715A2500B657A1 /* IndexClassItemView.swift */,
 				E2FA31AB1F71593300B657A1 /* IndexClassItemView.xib */,
+				E2547C441F73F9DF000DA9E9 /* AllCityTableViewCell.swift */,
+				E2547C451F73F9DF000DA9E9 /* AllCityTableViewCell.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -330,7 +339,9 @@
 				E2FA31AC1F71593400B657A1 /* IndexClassItemView.xib in Resources */,
 				E21A643F1F6663E3007D1C49 /* Assets.xcassets in Resources */,
 				E24EEAEA1F72B4BA0084C632 /* SearchShopViewController.xib in Resources */,
+				E2547C471F73F9DF000DA9E9 /* AllCityTableViewCell.xib in Resources */,
 				E2E803BD1F6BA6F00094065F /* PPShopTableViewCell.xib in Resources */,
+				E2547C491F73FB12000DA9E9 /* citys.db in Resources */,
 				E2E803B91F6A56A40094065F /* UserCenterTableViewCell.xib in Resources */,
 				E2F1EF541F67C1C900CF90C2 /* ReadBitCodeViewController.xib in Resources */,
 			);
@@ -395,6 +406,7 @@
 				E2F1EF441F676F1300CF90C2 /* UIDevice+MyDevice.m in Sources */,
 				E2E803C11F6BC3BA0094065F /* PPBannerObject.swift in Sources */,
 				E21A64381F6663E3007D1C49 /* AppDelegate.swift in Sources */,
+				E2547C461F73F9DF000DA9E9 /* AllCityTableViewCell.swift in Sources */,
 				E2F1EF3B1F676DA500CF90C2 /* NSString+MyCustomString.m in Sources */,
 				E2F1EF3E1F676DA500CF90C2 /* UIImage+MyCustomImage.m in Sources */,
 				E2F1EF481F67701900CF90C2 /* BaseObject.swift in Sources */,

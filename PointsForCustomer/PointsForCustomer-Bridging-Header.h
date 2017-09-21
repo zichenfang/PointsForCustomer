@@ -19,5 +19,6 @@
 #import "UIImage+MyCustomImage.h"
 #import "UIDevice+MyDevice.h"
 #import "UIImageView+WebCache.h"
+#import "FMDB.h"
 
 #endif /* PointsForCustomer_Bridging_Header_h */

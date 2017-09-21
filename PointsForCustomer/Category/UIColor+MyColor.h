@@ -16,5 +16,6 @@
 + (UIColor *)styleTextPinkColor;
 + (UIColor *)styleTextGrayColor;
 + (UIColor *)styleRedColor;
++ (UIColor *)styleNavagationBarGrayColor;
 
 @end

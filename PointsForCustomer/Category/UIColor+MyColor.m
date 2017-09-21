@@ -69,4 +69,9 @@
 {
     return [UIColor colorWithHexString:@"#e43932"];
 }
++ (UIColor *)styleNavagationBarGrayColor
+{
+    return [UIColor colorWithHexString:@"#FBFBFB"];
+}
+
 @end

@@ -10,4 +10,5 @@ target "PointsForCustomer" do
     pod 'ProgressHUD', '~> 2.4'
     pod 'AMapLocation-NO-IDFA', '~> 2.4.0'
     pod 'SDCycleScrollView', '~> 1.66'
+    pod 'FMDB', '~> 2.6.2'
 end

@@ -39,7 +39,6 @@ class IndexViewController: BaseViewController , UITableViewDataSource , UITableV
         //注册tableViewCell
         tableView.register(UINib.init(nibName: "PPShopTableViewCell", bundle: nil), forCellReuseIdentifier: "indexShop");
         tableView.contentInset = UIEdgeInsets.init(top: -20, left: 0, bottom: 0, right: 0);
-        print(tableView.contentInset);
         
         //假设获取到了轮播图数据
         bannerDatas?.removeAllObjects();

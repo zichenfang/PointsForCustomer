@@ -18,6 +18,9 @@ PODS:
   - AMapLocation-NO-IDFA (2.4.0):
     - AMapFoundation-NO-IDFA (~> 1.4)
   - FFFJsonKillNull (1.1.0)
+  - FMDB (2.6.2):
+    - FMDB/standard (= 2.6.2)
+  - FMDB/standard (2.6.2)
   - MJRefresh (3.1.12)
   - ProgressHUD (2.4)
   - SDCycleScrollView (1.73):
@@ -31,6 +34,7 @@ DEPENDENCIES:
   - AFNetworking (= 3.1.0)
   - AMapLocation-NO-IDFA (~> 2.4.0)
   - FFFJsonKillNull (~> 1.1.0)
+  - FMDB (~> 2.6.2)
   - MJRefresh (~> 3.1.12)
   - ProgressHUD (~> 2.4)
   - SDCycleScrollView (~> 1.66)
@@ -42,12 +46,13 @@ SPEC CHECKSUMS:
   AMapFoundation-NO-IDFA: 3b9ce87abc6a37c718cc320687469d0b74d5c953
   AMapLocation-NO-IDFA: 9493012d3241a7d551942c7c1e1069b51f295083
   FFFJsonKillNull: fca576ca3193e6d04a0b90c2d857d5b50caa34d9
+  FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   ProgressHUD: 4b66b0df0e08519c5c7283a198fd2867a114c95a
   SDCycleScrollView: d0fd5fe40a80918371fd8939214eb3be81033d83
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
   TPKeyboardAvoiding: 0d6af20e95e2850f4c621841225b59ec7d8dd852
 
-PODFILE CHECKSUM: 34184da3fd1088be036a41d77fbab4f2cdf6a875
+PODFILE CHECKSUM: 7250ae22a9c7d4abb88bce6e0fca9cc3a75325d4
 
 COCOAPODS: 1.2.1
