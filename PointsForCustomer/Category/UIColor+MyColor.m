@@ -48,23 +48,7 @@
 }
 
 
-+ (UIColor *)stylePinkColor
-{
-    return [UIColor colorWithRed:227/255.0f green:95/255.0f blue:147/255.0f alpha:1];
-}
-+ (UIColor *)styleListBackGrayColor
-{
-    return [UIColor colorWithRed:238/255.0f green:235/255.0f blue:236/255.0f alpha:1];
-}
 
-+ (UIColor *)styleTextPinkColor
-{
-    return [UIColor colorWithHexString:@"#EC789E"];
-}
-+ (UIColor *)styleTextGrayColor
-{
-    return [UIColor colorWithHexString:@"#999999"];
-}
 + (UIColor *)styleRedColor
 {
     return [UIColor colorWithHexString:@"#e43932"];

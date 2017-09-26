@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CityListViewController" customModule="PointsForCustomer" customModuleProvider="target">
             <connections>
+                <outlet property="aoiBtn" destination="8WQ-Df-loN" id="nxf-hd-TAt"/>
                 <outlet property="markIV" destination="lpw-ei-jwO" id="abv-cr-QUp"/>
                 <outlet property="searchTF" destination="tSd-lp-hSv" id="WB2-wz-jFb"/>
                 <outlet property="selectedCityBtn" destination="O4p-Jy-dti" id="xA7-R0-FfF"/>
@@ -24,10 +25,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U7B-7t-69r" userLabel="城市 搜索View">
-                    <rect key="frame" x="15" y="0.0" width="345" height="30"/>
+                    <rect key="frame" x="15" y="10" width="345" height="30"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O4p-Jy-dti">
-                            <rect key="frame" x="10" y="0.0" width="60" height="30"/>
+                            <rect key="frame" x="10" y="0.0" width="80" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                             <state key="normal" title="选择城市">
@@ -38,20 +39,23 @@
                             </connections>
                         </button>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入收货地址" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tSd-lp-hSv">
-                            <rect key="frame" x="93" y="0.0" width="252" height="30"/>
+                            <rect key="frame" x="113" y="0.0" width="232" height="30"/>
                             <nil key="textColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                             <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="mzR-4O-buN"/>
+                            </connections>
                         </textField>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="xiaosanjiao" translatesAutoresizingMaskIntoConstraints="NO" id="lpw-ei-jwO" userLabel="markIV">
-                            <rect key="frame" x="73" y="11" width="13" height="8"/>
+                            <rect key="frame" x="93" y="11" width="13" height="8"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
                     </subviews>
                     <color key="backgroundColor" red="0.90580290555953979" green="0.9059332013130188" blue="0.90577441453933716" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="5ue-mn-eMu"/>
-                        <constraint firstItem="tSd-lp-hSv" firstAttribute="leading" secondItem="U7B-7t-69r" secondAttribute="leading" constant="93" id="JB6-97-9Br"/>
+                        <constraint firstItem="tSd-lp-hSv" firstAttribute="leading" secondItem="U7B-7t-69r" secondAttribute="leading" constant="113" id="JB6-97-9Br"/>
                         <constraint firstAttribute="bottom" secondItem="tSd-lp-hSv" secondAttribute="bottom" id="lT1-fP-qXd"/>
                         <constraint firstItem="tSd-lp-hSv" firstAttribute="top" secondItem="U7B-7t-69r" secondAttribute="top" id="mhQ-N6-ccC"/>
                         <constraint firstAttribute="trailing" secondItem="tSd-lp-hSv" secondAttribute="trailing" id="nZi-3o-jlB"/>
@@ -64,7 +68,7 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8up-5p-q5j" userLabel="定位View">
-                    <rect key="frame" x="0.0" y="45" width="375" height="44"/>
+                    <rect key="frame" x="0.0" y="55" width="375" height="44"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8WQ-Df-loN">
                             <rect key="frame" x="93" y="0.0" width="190" height="44"/>
@@ -90,7 +94,7 @@
                     </constraints>
                 </view>
                 <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FKT-WL-vA6">
-                    <rect key="frame" x="0.0" y="45" width="375" height="622"/>
+                    <rect key="frame" x="0.0" y="55" width="375" height="612"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <color key="sectionIndexColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     <color key="sectionIndexBackgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
@@ -108,9 +112,9 @@
                 <constraint firstAttribute="trailing" secondItem="8up-5p-q5j" secondAttribute="trailing" id="Mao-Bw-xZG"/>
                 <constraint firstAttribute="trailing" secondItem="U7B-7t-69r" secondAttribute="trailing" constant="15" id="fz7-4t-pVJ"/>
                 <constraint firstItem="U7B-7t-69r" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="ixS-lH-Ij3"/>
-                <constraint firstItem="8up-5p-q5j" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="45" id="k4F-6f-hTx"/>
-                <constraint firstItem="FKT-WL-vA6" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="45" id="p8r-Cq-lln"/>
-                <constraint firstItem="U7B-7t-69r" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="rli-zl-Evt"/>
+                <constraint firstItem="8up-5p-q5j" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="55" id="k4F-6f-hTx"/>
+                <constraint firstItem="FKT-WL-vA6" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="55" id="p8r-Cq-lln"/>
+                <constraint firstItem="U7B-7t-69r" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="10" id="rli-zl-Evt"/>
                 <constraint firstAttribute="bottom" secondItem="FKT-WL-vA6" secondAttribute="bottom" id="vLJ-0b-2hw"/>
             </constraints>
             <point key="canvasLocation" x="-67" y="5"/>

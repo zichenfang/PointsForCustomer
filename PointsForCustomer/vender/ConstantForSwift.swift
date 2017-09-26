@@ -31,6 +31,8 @@ let AMAP_PRODUCT_NAME : String = Bundle.main.infoDictionary?["CFBundleName"] as!
 let PLACE_HOLDER_IMAGE :UIImage = UIImage.init(named: "placeholderimage")!;
 let APP_DELEGATE  = UIApplication.shared.delegate as! AppDelegate;
 
+//通知别名 NotificationCenter
+let NOTI_LOCATION_CHANGED  = NSNotification.Name(rawValue: "pp_noti_001");
 
 class ConstantForSwift: NSObject {
 

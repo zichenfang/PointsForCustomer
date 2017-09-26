@@ -11,10 +11,7 @@
 @interface UIColor (MyColor)
 //#FFFFFF格式的颜色转换为UIColor
 + (UIColor *)colorWithHexString:(NSString *)stringToConvert;
-+ (UIColor *)stylePinkColor;
-+ (UIColor *)styleListBackGrayColor;
-+ (UIColor *)styleTextPinkColor;
-+ (UIColor *)styleTextGrayColor;
+
 + (UIColor *)styleRedColor;
 + (UIColor *)styleNavagationBarGrayColor;
 

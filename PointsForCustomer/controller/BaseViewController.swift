@@ -16,17 +16,22 @@ class BaseViewController: UIViewController {
         super.viewDidLoad()
         let item = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
         self.navigationItem.backBarButtonItem = item
-        self.navigationController?.navigationBar.tintColor = UIColor.black;
+        self.navigationController?.navigationBar.tintColor = UIColor.white;
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white];
         //去掉导航栏下面的黑线
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage.init(color: UIColor.styleNavagationBarGray()), for: UIBarMetrics.default);
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage.init(color: UIColor.styleRed()), for: UIBarMetrics.default);
         self.navigationController?.navigationBar.shadowImage = UIImage.init();
+        //状态栏围白色
+//        UIApplication.shared.setStatusBarStyle(UIStatusBarStyle.lightContent, animated: true);
 
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated);
+//    }
 
     /*
     // MARK: - Navigation

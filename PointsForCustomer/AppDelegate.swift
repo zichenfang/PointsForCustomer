@@ -15,13 +15,18 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
+    //真实的实时位置
+    var realLocation :CLLocation!
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         //准备高德地图定位
+        print(LOCATION_MANAGER);
+        print(LOCATION_MANAGER);
+        print(LOCATION_MANAGER);
+        print(LOCATION_MANAGER);
         prepareAMAPConfig();
         window = UIWindow.init(frame: UIScreen.main.bounds);
         window?.rootViewController = MainTabbarViewController();
         window?.makeKeyAndVisible();
-
         return true
     }
     //MARK:准备高德地图定位
@@ -51,7 +56,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
+    func allowBeLocated() -> Bool  {
+        if CLLocationManager.locationServicesEnabled(){
+            if CLLocationManager.authorizationStatus() == CLAuthorizationStatus.authorizedWhenInUse || CLLocationManager.authorizationStatus() == CLAuthorizationStatus.authorizedAlways || CLLocationManager.authorizationStatus() == CLAuthorizationStatus.notDetermined
+            {
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+        else{
+            return false;
+        }
+    }
 
 }
 

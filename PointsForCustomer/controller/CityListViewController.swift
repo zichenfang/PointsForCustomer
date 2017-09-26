@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CityListViewController: BaseViewController ,UITableViewDelegate , UITableViewDataSource{
+class CityListViewController: BaseViewController ,UITableViewDelegate , UITableViewDataSource ,UITextFieldDelegate{
     convenience init() {
         self.init(nibName: "CityListViewController", bundle: nil);
     }
@@ -19,19 +19,22 @@ class CityListViewController: BaseViewController ,UITableViewDelegate , UITableV
     //三角▶️
     @IBOutlet var markIV: UIImageView!
     @IBOutlet var tableView: UITableView!
+    @IBOutlet var aoiBtn: UIButton!
+    
     //城市列表是否展示的标识符(默认为true，隐藏)
     var cityTableViewHidden: Bool = true
     /*城市列表使用了本地的数据库*/
     var db:FMDatabase!
     var rset:FMResultSet!
     var citys = NSMutableArray.init()
-    //以选择的城市
-    var selectedCityName :String!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "手动定位";
         tableView.register(UINib.init(nibName: "AllCityTableViewCell", bundle: nil), forCellReuseIdentifier: "allcity");
+        if LOCATION_MANAGER.currentCity != nil {
+            selectedCityBtn.setTitle(LOCATION_MANAGER.currentCity, for: UIControlState.normal);
+        }
 
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -105,8 +108,42 @@ class CityListViewController: BaseViewController ,UITableViewDelegate , UITableV
     }
 //  MARK:开始定位
     @IBAction func startLocation(_ sender: Any) {
+        ProgressHUD.show("位置更新中", interaction: false);
+        LOCATION_MANAGER.requestLocation(success: { (location, cityName, aoiName) in
+            ProgressHUD.dismiss();
+            LOCATION_MANAGER.currentCity = cityName;
+            LOCATION_MANAGER.currentAOIName = aoiName;
+            LOCATION_MANAGER.currentLocation = location;
+            self.selectedCityBtn.setTitle(LOCATION_MANAGER.currentCity, for: UIControlState.normal);
+            self.aoiBtn.setTitle(LOCATION_MANAGER.currentAOIName, for: UIControlState.normal);
+            //获取当前位置下的商家列表数据
+            
+        }, permissionFailed: {
+            //用户权限获取失败
+            ProgressHUD.dismiss();
+            self.selectedCityBtn.setTitle(LOCATION_MANAGER.currentCity, for: UIControlState.normal);
+            let alertVC = UIAlertController.init(title: "定位获取失败", message: String.init(format: "请打开系统设置中“隐私->定位服务”，允许%@使用您的位置", AMAP_PRODUCT_NAME), preferredStyle: UIAlertControllerStyle.alert);
+            alertVC.addAction(UIAlertAction.init(title: "取消", style: UIAlertActionStyle.cancel, handler: nil));
+            alertVC.addAction(UIAlertAction.init(title: "设置", style: UIAlertActionStyle.default, handler: { (act) in
+                UIApplication.shared.openURL(URL.init(string: UIApplicationOpenSettingsURLString)!);
+            }));
+            self.present(alertVC, animated: true, completion: nil);
+            
+        }) {
+            //获取地理位置失败或者逆地理编码失败
+            ProgressHUD.dismiss();
+            self.showLocationFaildAlertAndTryAgain();
+        }
+
     }
-    
+    func showLocationFaildAlertAndTryAgain() {
+        let alertVC = UIAlertController.init(title: "获取定位失败，请重试", message: nil, preferredStyle: UIAlertControllerStyle.alert);
+        alertVC.addAction(UIAlertAction.init(title: "取消", style: UIAlertActionStyle.cancel, handler: nil));
+        alertVC.addAction(UIAlertAction.init(title: "重试", style: UIAlertActionStyle.default, handler: { (act) in
+            self.startLocation(UIButton.init());
+        }));
+        self.present(alertVC, animated: true, completion: nil);
+    }
     //    MARK:UITableViewDataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let obj = citys.object(at: section) as! NSDictionary;
@@ -119,7 +156,7 @@ class CityListViewController: BaseViewController ,UITableViewDelegate , UITableV
         let list = obj.object(forKey: "list") as! NSArray;
         let area_name = (list.object(at: indexPath.row) as! NSDictionary).object(forKey: "area_name") as? String;
         cell.nameLabel.text = area_name;
-        if area_name == selectedCityName {
+        if area_name == LOCATION_MANAGER.currentCity {
             cell.accessoryType = UITableViewCellAccessoryType.checkmark;
         }
         else{
@@ -136,8 +173,8 @@ class CityListViewController: BaseViewController ,UITableViewDelegate , UITableV
         let obj = citys.object(at: indexPath.section) as! NSDictionary;
         let list = obj.object(forKey: "list") as! NSArray;
         let cityObj = list.object(at: indexPath.row) as! NSDictionary;
-        selectedCityName = cityObj.object(forKey: "area_name") as! String;
-        selectedCityBtn.setTitle(selectedCityName, for: UIControlState.normal);
+        LOCATION_MANAGER.currentCity = cityObj.object(forKey: "area_name") as? String;
+        selectedCityBtn.setTitle(LOCATION_MANAGER.currentCity, for: UIControlState.normal);
         tableView.reloadData();
         hideCityTableView();
     }
@@ -168,6 +205,22 @@ class CityListViewController: BaseViewController ,UITableViewDelegate , UITableV
         return titles as? [String];
     }
     
+//    MARK:搜索跳转
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        if LOCATION_MANAGER.currentCity == nil {
+            ProgressHUD.showError("请先选择城市", interaction: false);
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.2, execute: {
+                self.showCityTableView();
+            })
+            return false;
+        }
+        let vc = SearchAreaViewController();
+        vc.handler = {(_ info :NSDictionary) -> Void in
+            self.navigationController?.popViewController(animated: false);
+        }
+        self.present(vc, animated: true, completion: nil);
+        return false;
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

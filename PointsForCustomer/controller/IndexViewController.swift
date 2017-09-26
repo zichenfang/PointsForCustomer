@@ -9,8 +9,7 @@
 import UIKit
 
 class IndexViewController: BaseViewController , UITableViewDataSource , UITableViewDelegate , SDCycleScrollViewDelegate ,UITextFieldDelegate{
-    //定位
-    var locationManager: AMapLocationManager!
+    /*定位*/
     @IBOutlet var tableView: UITableView!
     
     @IBOutlet var headerToolView: UIView!
@@ -55,7 +54,15 @@ class IndexViewController: BaseViewController , UITableViewDataSource , UITableV
         
         //headerview
         updateTableViewHeaderView();
-        
+        LOCATION_MANAGER.addObserver(self, forKeyPath: "currentLocation", options: NSKeyValueObservingOptions.new, context: nil);
+
+    }
+    //MARK:地理位置发生改变的时候，刷新商家数据
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if keyPath == "currentLocation" {
+            print("地理位置发生改变的时候，刷新商家数据");
+            self.updateLocationLabel(address: LOCATION_MANAGER.currentAOIName!)
+        }
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated);
@@ -75,66 +82,28 @@ class IndexViewController: BaseViewController , UITableViewDataSource , UITableV
     // MARK:高德地图定位
     func startUpdatingLocation() -> Void {
         ProgressHUD.show("位置更新中", interaction: false);
-        locationManager = AMapLocationManager();
-        locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
-        locationManager.locationTimeout = 2
-        locationManager.reGeocodeTimeout = 2
-        locationManager.requestLocation(withReGeocode: true, completionBlock: {  (location: CLLocation?, reGeocode: AMapLocationReGeocode?, error: Error?) in
+        LOCATION_MANAGER.requestLocation(success: { (location, cityName, aoiName) in
             ProgressHUD.dismiss();
-            if let error = error {
-                let error = error as NSError
-                if error.code == AMapLocationErrorCode.locateFailed.rawValue {
-                    //定位错误：此时location和regeocode没有返回值，不进行annotation的添加
-                    NSLog("定位错误:{\(error.code) - \(error.localizedDescription)};")
-                    self.updateLocationLabel(address: "手动获取位置");
-                    let alertVC = UIAlertController.init(title: "定位获取失败", message: String.init(format: "请打开系统设置中“隐私->定位服务”，允许%@使用您的位置", AMAP_PRODUCT_NAME), preferredStyle: UIAlertControllerStyle.alert);
-                    alertVC.addAction(UIAlertAction.init(title: "取消", style: UIAlertActionStyle.cancel, handler: nil));
-                    alertVC.addAction(UIAlertAction.init(title: "设置", style: UIAlertActionStyle.default, handler: { (act) in
-                        UIApplication.shared.openURL(URL.init(string: UIApplicationOpenSettingsURLString)!);
-                    }));
-                    self.present(alertVC, animated: true, completion: nil);
-                    
-                    return
-                }
-                else if error.code == AMapLocationErrorCode.reGeocodeFailed.rawValue
-                    || error.code == AMapLocationErrorCode.timeOut.rawValue
-                    || error.code == AMapLocationErrorCode.cannotFindHost.rawValue
-                    || error.code == AMapLocationErrorCode.badURL.rawValue
-                    || error.code == AMapLocationErrorCode.notConnectedToInternet.rawValue
-                    || error.code == AMapLocationErrorCode.cannotConnectToHost.rawValue {
-                    //逆地理错误：在带逆地理的单次定位中，逆地理过程可能发生错误，此时location有返回值，regeocode无返回值，进行annotation的添加
-                    NSLog("逆地理错误:{\(error.code) - \(error.localizedDescription)};")
-                    self.showLocationFaildAlertAndTryAgain();
-                }
-                else {
-                    //没有错误：location有返回值，regeocode是否有返回值取决于是否进行逆地理操作，进行annotation的添加
-                }
-            }
-            //
-
-            //先取逆地理信息，如果失败，则即使经纬度有有效信息，也被视为无效信息
-            if let reGeocode = reGeocode {
-                print("逆地理信息\(reGeocode)");
-                var pointName:String? = reGeocode.poiName;
-                //poiname失败，则取aoiname
-                if (pointName?.characters.count)!<=1 {
-                    pointName = reGeocode.aoiName;
-                }
-                //aoiname失败，则取street
-                else if (pointName?.characters.count)!<=1 {
-                    pointName = reGeocode.street;
-                }
-                if let location = location {
-                    print("经纬度\(location)");
-                    self.updateLocationLabel(address: pointName!);
-                    //重新刷新页面数据
-                }
-                else{
-                    self.showLocationFaildAlertAndTryAgain();
-                }
-            }
+            LOCATION_MANAGER.currentCity = cityName;
+            LOCATION_MANAGER.currentAOIName = aoiName;
+            LOCATION_MANAGER.currentLocation = location;
             
-        })
+        }, permissionFailed: {
+            //用户权限获取失败
+            ProgressHUD.dismiss();
+            self.updateLocationLabel(address: "手动获取位置");
+            let alertVC = UIAlertController.init(title: "定位获取失败", message: String.init(format: "请打开系统设置中“隐私->定位服务”，允许%@使用您的位置", AMAP_PRODUCT_NAME), preferredStyle: UIAlertControllerStyle.alert);
+            alertVC.addAction(UIAlertAction.init(title: "取消", style: UIAlertActionStyle.cancel, handler: nil));
+            alertVC.addAction(UIAlertAction.init(title: "设置", style: UIAlertActionStyle.default, handler: { (act) in
+                UIApplication.shared.openURL(URL.init(string: UIApplicationOpenSettingsURLString)!);
+            }));
+            self.present(alertVC, animated: true, completion: nil);
+
+        }) {
+            //获取地理位置失败或者逆地理编码失败
+            ProgressHUD.dismiss();
+            self.showLocationFaildAlertAndTryAgain();
+        }
     }
     func showLocationFaildAlertAndTryAgain() {
         updateLocationLabel(address: "定位失败");
@@ -147,13 +116,18 @@ class IndexViewController: BaseViewController , UITableViewDataSource , UITableV
     }
     func updateLocationLabel(address : String) {
         locationLabel.text = address;
-        locationViewConstraint.constant = (address.widthWithFountAndHeight(font: locationLabel.font, height: locationLabel.frame.size.height)) + 40;
+        var locationLabelWidth :CGFloat = (address.widthWithFountAndHeight(font: locationLabel.font, height: locationLabel.frame.size.height)) + 40;
+        if locationLabelWidth >  SCREEN_WIDTH - 180{
+            locationLabelWidth = SCREEN_WIDTH - 180;
+        }
+        locationViewConstraint.constant = locationLabelWidth;
     }
 //    MARK:手动选择地理位置
     @IBAction func selectLocation(_ sender: UITapGestureRecognizer) {
         let vc = CityListViewController();
         vc.handler = {(_info: NSDictionary?) -> Void in
             //手动选择地址回掉之后，刷新首页数据
+            self.updateLocationLabel(address: LOCATION_MANAGER.currentAOIName!)
         }
         
         vc.hidesBottomBarWhenPushed = true;
