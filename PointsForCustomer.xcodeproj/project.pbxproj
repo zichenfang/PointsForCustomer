@@ -28,6 +28,10 @@
 		E28FA7F81F74DB3700377266 /* SearchAreaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28FA7F61F74DB3700377266 /* SearchAreaTableViewCell.swift */; };
 		E28FA7F91F74DB3700377266 /* SearchAreaTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E28FA7F71F74DB3700377266 /* SearchAreaTableViewCell.xib */; };
 		E29D56051F6FA0E70006C746 /* IndexSectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E29D56041F6FA0E70006C746 /* IndexSectionHeaderView.xib */; };
+		E2B602561F7D407E006FFAE1 /* ShopDetailSingleTextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B602541F7D407E006FFAE1 /* ShopDetailSingleTextTableViewCell.swift */; };
+		E2B602571F7D407E006FFAE1 /* ShopDetailSingleTextTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2B602551F7D407E006FFAE1 /* ShopDetailSingleTextTableViewCell.xib */; };
+		E2B6025A1F7D4102006FFAE1 /* ShopDetailSingleImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B602581F7D4102006FFAE1 /* ShopDetailSingleImageTableViewCell.swift */; };
+		E2B6025B1F7D4102006FFAE1 /* ShopDetailSingleImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2B602591F7D4102006FFAE1 /* ShopDetailSingleImageTableViewCell.xib */; };
 		E2E803B81F6A56A40094065F /* UserCenterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E803B61F6A56A40094065F /* UserCenterTableViewCell.swift */; };
 		E2E803B91F6A56A40094065F /* UserCenterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2E803B71F6A56A40094065F /* UserCenterTableViewCell.xib */; };
 		E2E803BC1F6BA6F00094065F /* PPShopTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E803BA1F6BA6EF0094065F /* PPShopTableViewCell.swift */; };
@@ -85,6 +89,10 @@
 		E28FA7F61F74DB3700377266 /* SearchAreaTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchAreaTableViewCell.swift; sourceTree = "<group>"; };
 		E28FA7F71F74DB3700377266 /* SearchAreaTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchAreaTableViewCell.xib; sourceTree = "<group>"; };
 		E29D56041F6FA0E70006C746 /* IndexSectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IndexSectionHeaderView.xib; sourceTree = "<group>"; };
+		E2B602541F7D407E006FFAE1 /* ShopDetailSingleTextTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopDetailSingleTextTableViewCell.swift; sourceTree = "<group>"; };
+		E2B602551F7D407E006FFAE1 /* ShopDetailSingleTextTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShopDetailSingleTextTableViewCell.xib; sourceTree = "<group>"; };
+		E2B602581F7D4102006FFAE1 /* ShopDetailSingleImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopDetailSingleImageTableViewCell.swift; sourceTree = "<group>"; };
+		E2B602591F7D4102006FFAE1 /* ShopDetailSingleImageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShopDetailSingleImageTableViewCell.xib; sourceTree = "<group>"; };
 		E2E803B61F6A56A40094065F /* UserCenterTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCenterTableViewCell.swift; sourceTree = "<group>"; };
 		E2E803B71F6A56A40094065F /* UserCenterTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserCenterTableViewCell.xib; sourceTree = "<group>"; };
 		E2E803BA1F6BA6EF0094065F /* PPShopTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPShopTableViewCell.swift; sourceTree = "<group>"; };
@@ -216,6 +224,10 @@
 				E2547C451F73F9DF000DA9E9 /* AllCityTableViewCell.xib */,
 				E28FA7F61F74DB3700377266 /* SearchAreaTableViewCell.swift */,
 				E28FA7F71F74DB3700377266 /* SearchAreaTableViewCell.xib */,
+				E2B602541F7D407E006FFAE1 /* ShopDetailSingleTextTableViewCell.swift */,
+				E2B602551F7D407E006FFAE1 /* ShopDetailSingleTextTableViewCell.xib */,
+				E2B602581F7D4102006FFAE1 /* ShopDetailSingleImageTableViewCell.swift */,
+				E2B602591F7D4102006FFAE1 /* ShopDetailSingleImageTableViewCell.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -306,12 +318,13 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = fff;
 				TargetAttributes = {
 					E21A64331F6663E3007D1C49 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = CV3TV3MNW2;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -347,6 +360,7 @@
 				E2F1EF501F67C18100CF90C2 /* IndexViewController.xib in Resources */,
 				E24EEAEE1F72BBEA0084C632 /* ShopDetailViewController.xib in Resources */,
 				E29D56051F6FA0E70006C746 /* IndexSectionHeaderView.xib in Resources */,
+				E2B6025B1F7D4102006FFAE1 /* ShopDetailSingleImageTableViewCell.xib in Resources */,
 				E24EEAE61F72AFBE0084C632 /* CityListViewController.xib in Resources */,
 				E21A64421F6663E3007D1C49 /* LaunchScreen.storyboard in Resources */,
 				E2F1EF631F67DC2500CF90C2 /* LoginViewController.xib in Resources */,
@@ -359,6 +373,7 @@
 				E2E803BD1F6BA6F00094065F /* PPShopTableViewCell.xib in Resources */,
 				E2547C491F73FB12000DA9E9 /* citys.db in Resources */,
 				E2E803B91F6A56A40094065F /* UserCenterTableViewCell.xib in Resources */,
+				E2B602571F7D407E006FFAE1 /* ShopDetailSingleTextTableViewCell.xib in Resources */,
 				E2F1EF541F67C1C900CF90C2 /* ReadBitCodeViewController.xib in Resources */,
 				E28FA7F91F74DB3700377266 /* SearchAreaTableViewCell.xib in Resources */,
 			);
@@ -429,6 +444,7 @@
 				E2F1EF481F67701900CF90C2 /* BaseObject.swift in Sources */,
 				E20A7CA31F68FD2D00346D4A /* KuangkuangView.swift in Sources */,
 				E2F1EF461F67700300CF90C2 /* BaseViewController.swift in Sources */,
+				E2B602561F7D407E006FFAE1 /* ShopDetailSingleTextTableViewCell.swift in Sources */,
 				E24EEAE51F72AFBE0084C632 /* CityListViewController.swift in Sources */,
 				E2F1EF5E1F67DA1D00CF90C2 /* TTRequestOperationManager.m in Sources */,
 				E20A7CA51F690AA900346D4A /* ConstantForSwift.swift in Sources */,
@@ -448,6 +464,7 @@
 				E2E803BF1F6BAAE30094065F /* IndexHeaderView.swift in Sources */,
 				E2E803BC1F6BA6F00094065F /* PPShopTableViewCell.swift in Sources */,
 				E2F1EF4C1F67C15F00CF90C2 /* MainTabbarViewController.swift in Sources */,
+				E2B6025A1F7D4102006FFAE1 /* ShopDetailSingleImageTableViewCell.swift in Sources */,
 				E24EEAED1F72BBEA0084C632 /* ShopDetailViewController.swift in Sources */,
 				E2F1EF531F67C1C900CF90C2 /* ReadBitCodeViewController.swift in Sources */,
 				E2FA31AA1F71450300B657A1 /* IndexClassObj.swift in Sources */,
@@ -478,7 +495,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -486,7 +505,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -528,7 +551,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -536,7 +561,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -575,7 +604,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "/Users/yinyuqiu/Documents/MoneyMoney/PointsForCustomer/PointsForCustomer/PointsForCustomer-Bridging-Header.h";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -594,7 +624,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "/Users/yinyuqiu/Documents/MoneyMoney/PointsForCustomer/PointsForCustomer/PointsForCustomer-Bridging-Header.h";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

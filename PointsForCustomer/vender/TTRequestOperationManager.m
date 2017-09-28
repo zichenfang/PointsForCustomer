@@ -201,8 +201,8 @@
 }
 + (void)shouldLogin{
     LoginViewController *vc = [[LoginViewController alloc] init];
-    vc.handler = ^(NSDictionary *info){
-    };
+//    vc.handler = ^(NSDictionary *info){
+//    };
     UINavigationController *navc = [[UINavigationController alloc] initWithRootViewController:vc];
     [[TTRequestOperationManager currentVC] presentViewController:navc animated:YES completion:nil];
     CFRunLoopWakeUp(CFRunLoopGetCurrent());

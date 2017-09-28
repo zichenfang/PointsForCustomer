@@ -19,10 +19,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var realLocation :CLLocation!
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         //准备高德地图定位
-        print(LOCATION_MANAGER);
-        print(LOCATION_MANAGER);
-        print(LOCATION_MANAGER);
-        print(LOCATION_MANAGER);
         prepareAMAPConfig();
         window = UIWindow.init(frame: UIScreen.main.bounds);
         window?.rootViewController = MainTabbarViewController();

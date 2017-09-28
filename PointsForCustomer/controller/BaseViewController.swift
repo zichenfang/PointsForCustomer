@@ -10,14 +10,14 @@ import UIKit
 
 class BaseViewController: UIViewController {
     //用于该页面返回上层时的传值，默认info可以传空[:]
-    var handler:((_ info:NSDictionary)->Void)?
+     var handler:((_ info:NSDictionary)->Void)?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         let item = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
         self.navigationItem.backBarButtonItem = item
         self.navigationController?.navigationBar.tintColor = UIColor.white;
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white];
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor : UIColor.white];
         //去掉导航栏下面的黑线
         self.navigationController?.navigationBar.setBackgroundImage(UIImage.init(color: UIColor.styleRed()), for: UIBarMetrics.default);
         self.navigationController?.navigationBar.shadowImage = UIImage.init();

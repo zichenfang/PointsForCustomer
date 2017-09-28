@@ -43,36 +43,37 @@ class ReadBitCodeViewController: BaseViewController,AVCaptureMetadataOutputObjec
     }
 //MARK:相机初始化
     func prepareCamera(){
-        let authStatus : AVAuthorizationStatus? = AVCaptureDevice.authorizationStatus(forMediaType: AVMediaTypeVideo)
+        let authStatus : AVAuthorizationStatus? = AVCaptureDevice.authorizationStatus(for: AVMediaType.video)
         if authStatus == AVAuthorizationStatus.restricted || authStatus == AVAuthorizationStatus.denied{
             let alertVC = UIAlertController.init(title: "相机权限受限,请在设备的设置-隐私-相机中允许访问相机。", message: nil, preferredStyle: UIAlertControllerStyle.alert);
             alertVC .addAction(UIAlertAction.init(title: "确定", style: UIAlertActionStyle.default, handler: nil));
             self.present(alertVC, animated: true, completion: nil);
             return;
         }
-        let device :AVCaptureDevice? = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo);
+        let device :AVCaptureDevice? = AVCaptureDevice.default(for: AVMediaType.video);
         
-        let input :AVCaptureDeviceInput? = try?AVCaptureDeviceInput.init(device: device);
+        let input :AVCaptureDeviceInput? = try?AVCaptureDeviceInput.init(device: device!);
         let output = AVCaptureMetadataOutput.init();
         output.setMetadataObjectsDelegate(self, queue: DispatchQueue.main);
 //        output.rectOfInterest
         session = AVCaptureSession.init();
-        session?.canSetSessionPreset(AVCaptureSessionPresetHigh);
+        session?.canSetSessionPreset(AVCaptureSession.Preset.high);
         if input != nil{
-            session?.addInput(input);
+            session?.addInput(input!);
         }
         session?.addOutput(output);
 
-        output.metadataObjectTypes = [AVMetadataObjectTypeQRCode,AVMetadataObjectTypeEAN13Code, AVMetadataObjectTypeEAN8Code, AVMetadataObjectTypeCode128Code];
-        let layer = AVCaptureVideoPreviewLayer.init(session: session);
-        layer?.videoGravity = AVLayerVideoGravityResizeAspectFill;
-        layer?.frame = CGRect.init(x: 0, y: 64, width: SCREEN_WIDTH, height: SCREEN_HEIGHT-64);
-        self.view.layer.insertSublayer(layer!, at: 0);
+        output.metadataObjectTypes = [AVMetadataObject.ObjectType.qr,AVMetadataObject.ObjectType.ean13, AVMetadataObject.ObjectType.ean8, AVMetadataObject.ObjectType.code128];
+        let layer = AVCaptureVideoPreviewLayer.init(session: session!);
+        layer.videoGravity = AVLayerVideoGravity.resizeAspectFill;
+        layer.frame = CGRect.init(x: 0, y: 64, width: SCREEN_WIDTH, height: SCREEN_HEIGHT-64);
+        self.view.layer.insertSublayer(layer, at: 0);
 //        //扫码半透明框
-        let kuangView :KuangkuangView? = KuangkuangView.init(frame: CGRect.init(x: 0, y: 64, width: SCREEN_WIDTH, height: SCREEN_HEIGHT - 64));
+        let kuangView :KuangkuangView? = KuangkuangView.init(frame: CGRect.init(x: 0, y: 0, width: SCREEN_WIDTH, height: SCREEN_HEIGHT - 64));
         self.view.addSubview(kuangView!);
         lineView = UIView.init(frame: CGRect.init(x: 30, y: (SCREEN_HEIGHT - SCREEN_WIDTH)*0.5, width: SCREEN_WIDTH - 60, height: 1.5));
-        lineView?.backgroundColor = UIColor.init(colorLiteralRed: 0, green: 0.768, blue: 0.043, alpha: 1);
+        lineView?.backgroundColor = UIColor.init(red: 0, green: 0.768, blue: 0.043, alpha: 1);
+
         self.view.addSubview(lineView!);
         
         animation_y = CABasicAnimation.init(keyPath: "transform.translation.y");
@@ -111,16 +112,16 @@ class ReadBitCodeViewController: BaseViewController,AVCaptureMetadataOutputObjec
     }
     func turnTorchOn(status:Bool) -> Void {
         if let _ :AnyClass = NSClassFromString("AVCaptureDevice"){
-            let device :AVCaptureDevice? = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo);
+            let device :AVCaptureDevice? = AVCaptureDevice.default(for: AVMediaType.video);
             if device?.hasTorch == true && device?.hasFlash == true{
                 try?device?.lockForConfiguration();
                 if status == true{
-                    device?.torchMode = AVCaptureTorchMode.on;
-                    device?.flashMode = AVCaptureFlashMode.on;
+                    device?.torchMode = AVCaptureDevice.TorchMode.on;
+                    device?.flashMode = AVCaptureDevice.FlashMode.on;
                 }
                 else{
-                    device?.torchMode = AVCaptureTorchMode.off;
-                    device?.flashMode = AVCaptureFlashMode.off;
+                    device?.torchMode = AVCaptureDevice.TorchMode.off;
+                    device?.flashMode = AVCaptureDevice.FlashMode.off;
                 }
                 device?.unlockForConfiguration();
             }
@@ -143,7 +144,7 @@ class ReadBitCodeViewController: BaseViewController,AVCaptureMetadataOutputObjec
         // Dispose of any resources that can be recreated.
     }
     // MARK: - Navigation
-    internal func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [Any]!, from connection: AVCaptureConnection!) {
+    internal func metadataOutput(captureOutput: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
         if (metadataObjects.count>0) {
             //输出扫描字符串
             stopReadCode();
