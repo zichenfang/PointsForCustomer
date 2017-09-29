@@ -39,6 +39,8 @@
 		E2B602571F7D407E006FFAE1 /* ShopDetailSingleTextTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2B602551F7D407E006FFAE1 /* ShopDetailSingleTextTableViewCell.xib */; };
 		E2B6025A1F7D4102006FFAE1 /* ShopDetailSingleImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B602581F7D4102006FFAE1 /* ShopDetailSingleImageTableViewCell.swift */; };
 		E2B6025B1F7D4102006FFAE1 /* ShopDetailSingleImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2B602591F7D4102006FFAE1 /* ShopDetailSingleImageTableViewCell.xib */; };
+		E2D11A011F7E7F69007FFA36 /* PayNowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D119FF1F7E7F69007FFA36 /* PayNowViewController.swift */; };
+		E2D11A021F7E7F69007FFA36 /* PayNowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2D11A001F7E7F69007FFA36 /* PayNowViewController.xib */; };
 		E2E803B81F6A56A40094065F /* UserCenterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E803B61F6A56A40094065F /* UserCenterTableViewCell.swift */; };
 		E2E803B91F6A56A40094065F /* UserCenterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2E803B71F6A56A40094065F /* UserCenterTableViewCell.xib */; };
 		E2E803BC1F6BA6F00094065F /* PPShopTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E803BA1F6BA6EF0094065F /* PPShopTableViewCell.swift */; };
@@ -68,6 +70,7 @@
 		E2FA31AA1F71450300B657A1 /* IndexClassObj.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FA31A91F71450300B657A1 /* IndexClassObj.swift */; };
 		E2FA31AC1F71593400B657A1 /* IndexClassItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2FA31AB1F71593300B657A1 /* IndexClassItemView.xib */; };
 		E2FA31AE1F715A2500B657A1 /* IndexClassItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FA31AD1F715A2500B657A1 /* IndexClassItemView.swift */; };
+		E2FE292B1F7E9BB200015D46 /* qrcode_found.wav in Resources */ = {isa = PBXBuildFile; fileRef = E2FE292A1F7E9BB200015D46 /* qrcode_found.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -107,6 +110,8 @@
 		E2B602551F7D407E006FFAE1 /* ShopDetailSingleTextTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShopDetailSingleTextTableViewCell.xib; sourceTree = "<group>"; };
 		E2B602581F7D4102006FFAE1 /* ShopDetailSingleImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopDetailSingleImageTableViewCell.swift; sourceTree = "<group>"; };
 		E2B602591F7D4102006FFAE1 /* ShopDetailSingleImageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShopDetailSingleImageTableViewCell.xib; sourceTree = "<group>"; };
+		E2D119FF1F7E7F69007FFA36 /* PayNowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayNowViewController.swift; sourceTree = "<group>"; };
+		E2D11A001F7E7F69007FFA36 /* PayNowViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PayNowViewController.xib; sourceTree = "<group>"; };
 		E2E803B61F6A56A40094065F /* UserCenterTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCenterTableViewCell.swift; sourceTree = "<group>"; };
 		E2E803B71F6A56A40094065F /* UserCenterTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserCenterTableViewCell.xib; sourceTree = "<group>"; };
 		E2E803BA1F6BA6EF0094065F /* PPShopTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPShopTableViewCell.swift; sourceTree = "<group>"; };
@@ -144,6 +149,7 @@
 		E2FA31A91F71450300B657A1 /* IndexClassObj.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndexClassObj.swift; sourceTree = "<group>"; };
 		E2FA31AB1F71593300B657A1 /* IndexClassItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IndexClassItemView.xib; sourceTree = "<group>"; };
 		E2FA31AD1F715A2500B657A1 /* IndexClassItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndexClassItemView.swift; sourceTree = "<group>"; };
+		E2FE292A1F7E9BB200015D46 /* qrcode_found.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = qrcode_found.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +213,7 @@
 				E21A64431F6663E3007D1C49 /* Info.plist */,
 				E2F1EF271F667E8E00CF90C2 /* PointsForCustomer-Bridging-Header.h */,
 				E2547C481F73FB12000DA9E9 /* citys.db */,
+				E2FE292A1F7E9BB200015D46 /* qrcode_found.wav */,
 			);
 			path = PointsForCustomer;
 			sourceTree = "<group>";
@@ -260,6 +267,8 @@
 				E297FDD51F7E21D30056C606 /* OneKindShopListViewController.xib */,
 				E2F1EF511F67C1C900CF90C2 /* ReadBitCodeViewController.swift */,
 				E2F1EF521F67C1C900CF90C2 /* ReadBitCodeViewController.xib */,
+				E2D119FF1F7E7F69007FFA36 /* PayNowViewController.swift */,
+				E2D11A001F7E7F69007FFA36 /* PayNowViewController.xib */,
 				E2F1EF551F67C1E900CF90C2 /* UserCenterViewController.swift */,
 				E2F1EF561F67C1E900CF90C2 /* UserCenterViewController.xib */,
 				E2F1EF601F67DC2500CF90C2 /* LoginViewController.swift */,
@@ -378,6 +387,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2FE292B1F7E9BB200015D46 /* qrcode_found.wav in Resources */,
 				E2F1EF501F67C18100CF90C2 /* IndexViewController.xib in Resources */,
 				E24EEAEE1F72BBEA0084C632 /* ShopDetailViewController.xib in Resources */,
 				E29D56051F6FA0E70006C746 /* IndexSectionHeaderView.xib in Resources */,
@@ -399,6 +409,7 @@
 				E2B602571F7D407E006FFAE1 /* ShopDetailSingleTextTableViewCell.xib in Resources */,
 				E2F1EF541F67C1C900CF90C2 /* ReadBitCodeViewController.xib in Resources */,
 				E28FA7F91F74DB3700377266 /* SearchAreaTableViewCell.xib in Resources */,
+				E2D11A021F7E7F69007FFA36 /* PayNowViewController.xib in Resources */,
 				E297FDCD1F7DDA6D0056C606 /* CommentTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -460,6 +471,7 @@
 			files = (
 				E2F1EF3A1F676DA500CF90C2 /* NSDate+MyDate.m in Sources */,
 				E2F1EF441F676F1300CF90C2 /* UIDevice+MyDevice.m in Sources */,
+				E2D11A011F7E7F69007FFA36 /* PayNowViewController.swift in Sources */,
 				E2E803C11F6BC3BA0094065F /* PPBannerObject.swift in Sources */,
 				E21A64381F6663E3007D1C49 /* AppDelegate.swift in Sources */,
 				E2547C461F73F9DF000DA9E9 /* AllCityTableViewCell.swift in Sources */,

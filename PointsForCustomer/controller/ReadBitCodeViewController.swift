@@ -13,10 +13,13 @@ import AVFoundation
 class ReadBitCodeViewController: BaseViewController,AVCaptureMetadataOutputObjectsDelegate {
     
     var session : AVCaptureSession?
-    var lineView : UIView?
-    var animation_y : CABasicAnimation?
     var torchON : Bool?
     var codeValue : String!
+    var device :AVCaptureDevice!
+
+    var input :AVCaptureDeviceInput!
+    var output : AVCaptureMetadataOutput!
+    var kuangView :KuangkuangView!
 
     convenience init() {
         self.init(nibName: "ReadBitCodeViewController", bundle: nil);
@@ -31,6 +34,7 @@ class ReadBitCodeViewController: BaseViewController,AVCaptureMetadataOutputObjec
         else{
             prepareCamera();
         }
+
         // Do any additional setup after loading the view.
     }
     override func viewDidAppear(_ animated: Bool) {
@@ -50,57 +54,35 @@ class ReadBitCodeViewController: BaseViewController,AVCaptureMetadataOutputObjec
             self.present(alertVC, animated: true, completion: nil);
             return;
         }
-        let device :AVCaptureDevice? = AVCaptureDevice.default(for: AVMediaType.video);
-        
-        let input :AVCaptureDeviceInput? = try?AVCaptureDeviceInput.init(device: device!);
-        let output = AVCaptureMetadataOutput.init();
-        output.setMetadataObjectsDelegate(self, queue: DispatchQueue.main);
-//        output.rectOfInterest
-        session = AVCaptureSession.init();
-        session?.canSetSessionPreset(AVCaptureSession.Preset.high);
-        if input != nil{
-            session?.addInput(input!);
+        device = AVCaptureDevice.default(for: AVMediaType.video);
+        do{
+            input = try AVCaptureDeviceInput.init(device: device!);
+            output = AVCaptureMetadataOutput()
+            output.setMetadataObjectsDelegate(self, queue: DispatchQueue.main);
+            session = AVCaptureSession();
+            session!.canSetSessionPreset(AVCaptureSession.Preset.high);
+            if session!.canAddInput(input){
+                session!.addInput(input!);
+            }
+            if session!.canAddOutput(output) {
+                session!.addOutput(output);
+            }
+            
+            output.metadataObjectTypes = [AVMetadataObject.ObjectType.qr,AVMetadataObject.ObjectType.ean13, AVMetadataObject.ObjectType.ean8, AVMetadataObject.ObjectType.code128];
+            let layer = AVCaptureVideoPreviewLayer.init(session: session!);
+            layer.videoGravity = AVLayerVideoGravity.resizeAspectFill;
+            layer.frame = CGRect.init(x: 0, y: 0, width: SCREEN_WIDTH, height: SCREEN_HEIGHT-64);
+            self.view.layer.insertSublayer(layer, at: 0);
         }
-        session?.addOutput(output);
-
-        output.metadataObjectTypes = [AVMetadataObject.ObjectType.qr,AVMetadataObject.ObjectType.ean13, AVMetadataObject.ObjectType.ean8, AVMetadataObject.ObjectType.code128];
-        let layer = AVCaptureVideoPreviewLayer.init(session: session!);
-        layer.videoGravity = AVLayerVideoGravity.resizeAspectFill;
-        layer.frame = CGRect.init(x: 0, y: 0, width: SCREEN_WIDTH, height: SCREEN_HEIGHT-64);
-        self.view.layer.insertSublayer(layer, at: 0);
-//        //扫码半透明框
-        let kuangView :KuangkuangView? = KuangkuangView.init(frame: CGRect.init(x: 0, y: 0, width: SCREEN_WIDTH, height: SCREEN_HEIGHT - 64));
+        catch{
+            ProgressHUD.showError("摄像头不可用");
+        }
+        //半透明镂空涂层 
+        kuangView = KuangkuangView.init(frame: CGRect.init(x: 0, y: 0, width: SCREEN_WIDTH, height: SCREEN_HEIGHT - 64));
         self.view.addSubview(kuangView!);
-        lineView = UIView.init(frame: CGRect.init(x: 30, y: (SCREEN_HEIGHT - SCREEN_WIDTH)*0.5 - 64, width: SCREEN_WIDTH - 60, height: 1.5));
-        lineView?.backgroundColor = UIColor.init(red: 0, green: 0.768, blue: 0.043, alpha: 1);
 
-        self.view.addSubview(lineView!);
-        
-        animation_y = CABasicAnimation.init(keyPath: "transform.translation.y");
-        let toValue :Float = Float(SCREEN_WIDTH);
-        animation_y?.toValue = NSNumber.init(value: toValue);
-        
-        animation_y?.autoreverses = true;
-        animation_y?.fillMode = kCAFillModeForwards;
-        animation_y?.repeatCount = MAXFLOAT;
-        animation_y?.duration = 2.0;
-
-//        
-//        UILabel *  lblTip = [[UILabel alloc] initWithFrame:CGRectMake(0,SCREEN_HEIGHT-110, SCREEN_WIDTH, 15)];
-//        lblTip.text = @"请对准二维码到框内（距离30cm左右）";
-//        lblTip.textColor = [UIColor whiteColor];
-//        lblTip.font = [UIFont systemFontOfSize:13];
-//        lblTip.textAlignment = NSTextAlignmentCenter;
-//        [self.view addSubview:lblTip];
-//        
-//        UILabel *  detaillblTip = [[UILabel alloc] initWithFrame:CGRectMake(0,SCREEN_HEIGHT-80, SCREEN_WIDTH, 15)];
-//        detaillblTip.text = @"打开WIFI、GPS开关可提高定位精准度";
-//        detaillblTip.textColor = [UIColor whiteColor];
-//        detaillblTip.font = [UIFont systemFontOfSize:13];
-//        detaillblTip.textAlignment = NSTextAlignmentCenter;
-//        [self.view addSubview:detaillblTip];
     }
-//    MARK : 灯光开关
+//    MARK: 灯光开关
     func switchTorchStatus () {
         if torchON == false {
             torchON = true;
@@ -129,32 +111,35 @@ class ReadBitCodeViewController: BaseViewController,AVCaptureMetadataOutputObjec
     }
     func startReadCode () {
         if session != nil {
-            session?.startRunning();
-            lineView?.layer.add(animation_y!, forKey: "scanCode")
+            session!.startRunning();
+            kuangView.begainAnimation();
         }
     }
     func stopReadCode () {
         session?.stopRunning();
-        lineView?.layer .removeAllAnimations();
+        kuangView.stopAnimation();
         turnTorchOn(status: false);
 
     }
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    // MARK: - Navigation
-    internal func metadataOutput(captureOutput: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
+    // MARK: - 读取到二维码内容
+    func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
         if (metadataObjects.count>0) {
             //输出扫描字符串
+            //播放扫码声音
+            var soundID:SystemSoundID = 0
+            AudioServicesCreateSystemSoundID(URL.init(string: Bundle.main.path(forResource: "qrcode_found", ofType: "wav")!)! as CFURL, &soundID)
+            AudioServicesPlaySystemSound(soundID)
             stopReadCode();
             if let metadataObject = metadataObjects.first as? AVMetadataMachineReadableCodeObject{
                 codeValue = metadataObject.stringValue;
                 print(codeValue);
+                let vc = PayNowViewController();
+                vc.title = codeValue;
+                vc.hidesBottomBarWhenPushed = true;
+                self.navigationController?.pushViewController(vc, animated: true);
             }
             
         }
-
     }
     /*
     // MARK: - Navigation

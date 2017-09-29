@@ -10,6 +10,8 @@ import UIKit
 
 class UserCenterTableViewCell: UITableViewCell {
 
+    @IBOutlet var IV: UIImageView!
+    @IBOutlet var nameLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

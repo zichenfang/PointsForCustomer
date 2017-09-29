@@ -11,20 +11,54 @@ import UIKit
 class UserCenterViewController: BaseViewController , UITableViewDataSource , UITableViewDelegate {
 
     @IBOutlet var tableView: UITableView!
+    @IBOutlet var msgCountLabel: UILabel!//消息数目
+    @IBOutlet var avatarIV: UIImageView!//头像
+    @IBOutlet var nameLabel: UILabel!//昵称
+    var menus :Array<String>!
     convenience init() {
         self.init(nibName: "UserCenterViewController", bundle: nil);
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        menus = ["我的邀请码","收藏店铺","修改密码","我的电话","分享软件","联系我们","注销登录"]
         tableView.register(UINib.init(nibName: "UserCenterTableViewCell", bundle: nil), forCellReuseIdentifier: "usercenter");
-        // Do any additional setup after loading the view.
+        tableView.contentInset = UIEdgeInsets.init(top: -20, left: 0, bottom: 0, right: 0);
     }
-//    MARK:UITableViewDataSource
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated);
+        self.navigationController?.setNavigationBarHidden(true, animated: true);
+    }
+    //    MARK:点击消息
+    @IBAction func goMsg(_ sender: Any) {
+        print("gomsg")
+    }
+    //    MARK:点击用户头像，进入用户资料
+    @IBAction func goUserInfo(_ sender: UITapGestureRecognizer) {
+        print("goUserInfo")
+    }
+    //    MARK:点我的积分
+    @IBAction func goMyPoints(_ sender: Any) {
+        print("goMyPoints")
+    }
+    //    MARK:积分转增
+    @IBAction func goZhuanZengPoints(_ sender: Any) {
+        print("goZhuanZengPoints")
+    }
+    //    MARK:积分说明
+    @IBAction func goPointsReadMe(_ sender: Any) {
+        print("goPointsReadMe")
+    }
+
+    //    MARK:UITableViewDataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5;
+        return menus.count;
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell :UserCenterTableViewCell! = tableView.dequeueReusableCell(withIdentifier: "usercenter", for: indexPath) as! UserCenterTableViewCell;
+        let name =  menus[indexPath.row]
+        let imageName = "usercenter_" + name
+        cell.IV.image = UIImage.init(named: imageName)
+        cell.nameLabel.text = name
         return cell!;
     }
 //    MARK:UITableViewDelegate
@@ -33,7 +67,17 @@ class UserCenterViewController: BaseViewController , UITableViewDataSource , UIT
         // Dispose of any resources that can be recreated.
     }
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2;
+        return 1;
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        // MARK: - 我的邀请码
+        // MARK: - 收藏店铺
+        // MARK: - 修改密码
+        // MARK: - 我的电话
+        // MARK: - 分享软件
+        // MARK: - 联系我们
+        // MARK: - 注销登录
     }
 
     /*
