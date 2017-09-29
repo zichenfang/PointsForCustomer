@@ -66,12 +66,12 @@ class ReadBitCodeViewController: BaseViewController,AVCaptureMetadataOutputObjec
         output.metadataObjectTypes = [AVMetadataObject.ObjectType.qr,AVMetadataObject.ObjectType.ean13, AVMetadataObject.ObjectType.ean8, AVMetadataObject.ObjectType.code128];
         let layer = AVCaptureVideoPreviewLayer.init(session: session!);
         layer.videoGravity = AVLayerVideoGravity.resizeAspectFill;
-        layer.frame = CGRect.init(x: 0, y: 64, width: SCREEN_WIDTH, height: SCREEN_HEIGHT-64);
+        layer.frame = CGRect.init(x: 0, y: 0, width: SCREEN_WIDTH, height: SCREEN_HEIGHT-64);
         self.view.layer.insertSublayer(layer, at: 0);
 //        //扫码半透明框
         let kuangView :KuangkuangView? = KuangkuangView.init(frame: CGRect.init(x: 0, y: 0, width: SCREEN_WIDTH, height: SCREEN_HEIGHT - 64));
         self.view.addSubview(kuangView!);
-        lineView = UIView.init(frame: CGRect.init(x: 30, y: (SCREEN_HEIGHT - SCREEN_WIDTH)*0.5, width: SCREEN_WIDTH - 60, height: 1.5));
+        lineView = UIView.init(frame: CGRect.init(x: 30, y: (SCREEN_HEIGHT - SCREEN_WIDTH)*0.5 - 64, width: SCREEN_WIDTH - 60, height: 1.5));
         lineView?.backgroundColor = UIColor.init(red: 0, green: 0.768, blue: 0.043, alpha: 1);
 
         self.view.addSubview(lineView!);

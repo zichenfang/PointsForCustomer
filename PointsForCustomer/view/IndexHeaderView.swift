@@ -9,7 +9,7 @@
 import UIKit
 
 class IndexHeaderView: UIView ,UIScrollViewDelegate {
-    //轮播图
+   //    MARK: /*轮播图*/
     var bannerScrollView : SDCycleScrollView!
     //轮播图高度
     let bannerScrollViewHeight :CGFloat = SCREEN_WIDTH * (1/2.0);
@@ -43,7 +43,7 @@ class IndexHeaderView: UIView ,UIScrollViewDelegate {
             return _delegate;
         }
     }
-    /*分类菜单模块*/
+//    MARK:/*分类菜单模块*/
     var subClassBackView : UIView!
     //分类菜单模块背景view高度（建议固定值）
     let subClassBackViewHeight : CGFloat = 185;
@@ -56,6 +56,8 @@ class IndexHeaderView: UIView ,UIScrollViewDelegate {
     //分类菜单pageControl
     var subClassPageControl : UIPageControl!
     let subClassPageControlHeight : CGFloat = 20;
+    //分类菜单点击回掉
+    var classSelectedHandler : ((_ item : IndexClassObj) -> Void)?
     //分类数据源
     var _subClassDatas :NSMutableArray?
     var subClassDatas :NSMutableArray?{
@@ -98,23 +100,27 @@ class IndexHeaderView: UIView ,UIScrollViewDelegate {
             while page < (_subClassDatas?.count)! {
                 let pageView : UIView? = UIView.init(frame: CGRect.init(x: CGFloat(page) * SCREEN_WIDTH, y: 0, width: SCREEN_WIDTH, height: subClassScrollViewHeight))
                 subClassScrollView.addSubview(pageView!);
-                //在pageView上面铺设itemView
+                pageView?.tag = page;
+                //取出一页的数据
                 let classesInPage : NSMutableArray? = _subClassDatas?.object(at: page) as? NSMutableArray;
                 var index = 0;
                 let itemWidth :CGFloat = SCREEN_WIDTH/5;
                 let itemHeight :CGFloat = subClassScrollViewHeight/2;
+                //在pageView上面铺设itemView
                 while index < (classesInPage?.count)! {
+                    //取出一页当中的一条数据
                     let classObj :IndexClassObj! = classesInPage?.object(at: index) as! IndexClassObj;
                     let itemView : IndexClassItemView? = Bundle.main.loadNibNamed("IndexClassItemView", owner: nil, options: nil)?.first as! IndexClassItemView?
+                    itemView?.tag = index;
                     let item_x :CGFloat = CGFloat(index%5) * itemWidth;
                     let item_y :CGFloat = CGFloat(index/5) * itemHeight;
 
                     itemView?.frame = CGRect.init(x: item_x, y: item_y, width: itemWidth, height: itemHeight);
                     pageView?.addSubview(itemView!)
-                    
                     itemView?.nameLabel.text = classObj?.name;
                     itemView?.imgView.sd_setImage(with: URL.init(string: (classObj?.imageUrl!)!), placeholderImage: PLACE_HOLDER_IMAGE);
-                    
+                    // MARK:分类点击动作
+                    itemView?.btn.addTarget(self, action: #selector(classItemDidSelected), for: UIControlEvents.touchUpInside)
                     index = index + 1;
                 }
                 page = page + 1;
@@ -130,7 +136,7 @@ class IndexHeaderView: UIView ,UIScrollViewDelegate {
             return _subClassDatas;
         }
     }
-    /*附近商家显示标签*/
+    //    MARK:/*附近商家显示标签*/
     var nearByView : UIView!;
     let nearByViewHeight :CGFloat = 45;
 
@@ -193,6 +199,16 @@ class IndexHeaderView: UIView ,UIScrollViewDelegate {
         if scrollView == subClassScrollView {
             subClassPageControl.currentPage = NSInteger(subClassScrollView.contentOffset.x/SCREEN_WIDTH);
         }
+    }
+    @objc func classItemDidSelected(sender:UIButton?)  {
+        //取出一页的数据
+        let classesInPage : NSMutableArray? = _subClassDatas?.object(at: (sender?.superview?.superview?.tag)!) as? NSMutableArray;
+        //取出一页当中的一条数据
+        let classObj :IndexClassObj! = classesInPage?.object(at: (sender?.superview?.tag)!) as! IndexClassObj;
+        if classSelectedHandler != nil{
+            classSelectedHandler!(classObj);
+        }
+
     }
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

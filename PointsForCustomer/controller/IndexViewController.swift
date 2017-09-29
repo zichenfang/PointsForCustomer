@@ -68,11 +68,20 @@ class IndexViewController: BaseViewController , UITableViewDataSource , UITableV
         super.viewWillAppear(animated);
         self.navigationController?.setNavigationBarHidden(true, animated: true);
     }
+//    MARK:更新轮播图和分类数据
     func updateTableViewHeaderView(){
         let headerView = IndexHeaderView.init();
         headerView.bannerDatas = bannerDatas;
         headerView.subClassDatas = subClassDatas;
         headerView.delegate = self;
+        //    MARK:跳转到某一个分类列表
+        headerView.classSelectedHandler = {(_ item :IndexClassObj)->Void in
+            print(item.name!);
+            let vc = OneKindShopListViewController();
+            vc.title = item.name!;
+            vc.hidesBottomBarWhenPushed = true;
+            self.navigationController?.pushViewController(vc, animated: true);
+        }
         tableView.tableHeaderView = headerView;
     }
     override func didReceiveMemoryWarning() {

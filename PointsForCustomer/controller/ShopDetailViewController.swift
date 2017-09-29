@@ -96,6 +96,8 @@ class ShopDetailViewController: BaseViewController , UITableViewDataSource , UIT
     //    MARK: 进入评论列表
     @IBAction func goCommentList(_ sender: Any) {
         print("goCommentList")
+        let vc = CommentListViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     //    MARK: 打电话

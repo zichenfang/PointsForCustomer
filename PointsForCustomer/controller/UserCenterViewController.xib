@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -24,14 +24,112 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     <view key="tableHeaderView" contentMode="scaleToFill" id="729-bt-ofg" userLabel="header View">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="308"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bolang" translatesAutoresizingMaskIntoConstraints="NO" id="FXD-VI-c1V">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="176"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="176" id="ExW-0g-G3D"/>
+                                </constraints>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ge3-zV-Ss9" userLabel="菜单View">
+                                <rect key="frame" x="0.0" y="175" width="375" height="125"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xKD-7C-BuV" userLabel="我的积分View">
+                                        <rect key="frame" x="0.0" y="0.0" width="125" height="125"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="wodejifen" translatesAutoresizingMaskIntoConstraints="NO" id="as5-lP-CUX">
+                                                <rect key="frame" x="39" y="29" width="47" height="47"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="我的积分" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z01-OI-dqB">
+                                                <rect key="frame" x="0.0" y="84" width="125" height="20"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AxG-3Y-r3f">
+                                                <rect key="frame" x="0.0" y="0.0" width="125" height="125"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G5L-Jh-Vcf" userLabel="积分转增View">
+                                        <rect key="frame" x="125" y="0.0" width="125" height="125"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="jifenzhuanzeng" translatesAutoresizingMaskIntoConstraints="NO" id="JC8-6P-p26">
+                                                <rect key="frame" x="39" y="29" width="47" height="47"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="积分转赠" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MMb-L2-To9">
+                                                <rect key="frame" x="0.0" y="84" width="125" height="20"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dZd-Bp-JCQ">
+                                                <rect key="frame" x="0.0" y="0.0" width="125" height="125"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bh3-tU-Mqg" userLabel="积分说明View">
+                                        <rect key="frame" x="250" y="0.0" width="125" height="125"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="jifenshuoming" translatesAutoresizingMaskIntoConstraints="NO" id="zLe-91-4BB">
+                                                <rect key="frame" x="39" y="29" width="47" height="47"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="积分说明" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BnJ-1D-Ixj">
+                                                <rect key="frame" x="0.0" y="84" width="125" height="20"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E8G-4b-ol2">
+                                                <rect key="frame" x="0.0" y="0.0" width="125" height="125"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="weL-zd-ywr" userLabel="灰色条View">
+                                <rect key="frame" x="0.0" y="300" width="375" height="8"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="8" id="XMD-Nb-g6u"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" red="0.16078431369999999" green="0.81960784310000001" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Ge3-zV-Ss9" firstAttribute="leading" secondItem="729-bt-ofg" secondAttribute="leading" id="Gpi-Hk-sDF"/>
+                            <constraint firstAttribute="bottom" secondItem="Ge3-zV-Ss9" secondAttribute="bottom" constant="8" id="HJ7-ds-Gi7"/>
+                            <constraint firstAttribute="trailing" secondItem="FXD-VI-c1V" secondAttribute="trailing" id="Oqf-cb-coj"/>
+                            <constraint firstAttribute="trailing" secondItem="weL-zd-ywr" secondAttribute="trailing" id="Sh3-XG-CSN"/>
+                            <constraint firstItem="weL-zd-ywr" firstAttribute="leading" secondItem="729-bt-ofg" secondAttribute="leading" id="bia-2n-fap"/>
+                            <constraint firstAttribute="trailing" secondItem="Ge3-zV-Ss9" secondAttribute="trailing" id="eAR-Zf-8ve"/>
+                            <constraint firstItem="Ge3-zV-Ss9" firstAttribute="top" secondItem="729-bt-ofg" secondAttribute="top" constant="175" id="eTA-jH-kSe"/>
+                            <constraint firstItem="FXD-VI-c1V" firstAttribute="leading" secondItem="729-bt-ofg" secondAttribute="leading" id="ixz-qI-P62"/>
+                            <constraint firstAttribute="bottom" secondItem="weL-zd-ywr" secondAttribute="bottom" id="jkl-pZ-Tx3"/>
+                            <constraint firstItem="FXD-VI-c1V" firstAttribute="top" secondItem="729-bt-ofg" secondAttribute="top" id="zOU-sa-UPA"/>
+                        </constraints>
                     </view>
                     <view key="tableFooterView" contentMode="scaleToFill" id="wei-Lo-YgL" userLabel="footer View">
-                        <rect key="frame" x="0.0" y="648.5" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="683" width="375" height="1"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="4zB-Se-qWr"/>
@@ -47,11 +145,13 @@
                 <constraint firstAttribute="trailing" secondItem="Oy3-1K-w7L" secondAttribute="trailing" id="nOL-zP-bWp"/>
                 <constraint firstItem="Oy3-1K-w7L" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="xXg-Dw-Tki"/>
             </constraints>
-            <connections>
-                <outletCollection property="gestureRecognizers" destination="rmT-hO-5lF" appends="YES" id="qEd-jk-TRW"/>
-            </connections>
             <point key="canvasLocation" x="-112.5" y="3.5"/>
         </view>
-        <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="rmT-hO-5lF"/>
     </objects>
+    <resources>
+        <image name="bolang" width="375" height="176"/>
+        <image name="jifenshuoming" width="45" height="45"/>
+        <image name="jifenzhuanzeng" width="45" height="45"/>
+        <image name="wodejifen" width="45" height="45"/>
+    </resources>
 </document>
