@@ -14,6 +14,7 @@ class PPBannerObject: BaseObject {
     var imageUrl :String?
     init(info :NSDictionary){
         self.id = info["id"]as?String;
-        self.imageUrl = info["imageUrl"]as?String;
+        self.imageUrl = info["image_url"]as?String;
+        self.name = info["title"]as?String;
     }
 }

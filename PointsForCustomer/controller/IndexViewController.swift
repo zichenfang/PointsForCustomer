@@ -41,21 +41,21 @@ class IndexViewController: BaseViewController , UITableViewDataSource , UITableV
         //获取轮播图数据
         loadBannerData()
         
-        //假设获取到了轮播图数据
-        bannerDatas?.removeAllObjects();
-        bannerDatas?.add(PPBannerObject.init(info: ["imageUrl":"https://gw.alicdn.com/tfs/TB1fYOSeMMPMeJjy1XbXXcwxVXa-750-291.jpg_Q90.jpg"]));
-        bannerDatas?.add(PPBannerObject.init(info: ["imageUrl":"https://img.alicdn.com/tfs/TB1i_aLd3oQMeJjy1XaXXcSsFXa-800-300.jpg"]));
-
-        bannerDatas?.add(PPBannerObject.init(info: ["imageUrl":"https://aecpm.alicdn.com/simba/img/TB1q7ymhUQIL1JjSZFhSuuDZFXa.jpg"]));
-        bannerDatas?.add(PPBannerObject.init(info: ["imageUrl":"https://gw.alicdn.com/imgextra/i4/1/TB20GOyXDJ_SKJjSZPiXXb3LpXa_!!1-0-luban.jpg"]));
-        //加数据 子分类数据
-        subClassDatas?.removeAllObjects();
-        for _ in 1...30{
-            subClassDatas?.add(IndexClassObj.init(info: ["id":String.init(format: "%d", arc4random()%100000) , "name" : String.random32bitStringGGG(length: 4) ,"imageUrl" : "https://gw.alicdn.com/imgextra/i4/1/TB20GOyXDJ_SKJjSZPiXXb3LpXa_!!1-0-luban.jpg"]))
-        }
+//        //假设获取到了轮播图数据
+//        bannerDatas?.removeAllObjects();
+//        bannerDatas?.add(PPBannerObject.init(info: ["imageUrl":"https://gw.alicdn.com/tfs/TB1fYOSeMMPMeJjy1XbXXcwxVXa-750-291.jpg_Q90.jpg"]));
+//        bannerDatas?.add(PPBannerObject.init(info: ["imageUrl":"https://img.alicdn.com/tfs/TB1i_aLd3oQMeJjy1XaXXcSsFXa-800-300.jpg"]));
+//
+//        bannerDatas?.add(PPBannerObject.init(info: ["imageUrl":"https://aecpm.alicdn.com/simba/img/TB1q7ymhUQIL1JjSZFhSuuDZFXa.jpg"]));
+//        bannerDatas?.add(PPBannerObject.init(info: ["imageUrl":"https://gw.alicdn.com/imgextra/i4/1/TB20GOyXDJ_SKJjSZPiXXb3LpXa_!!1-0-luban.jpg"]));
+//        //加数据 子分类数据
+//        subClassDatas?.removeAllObjects();
+//        for _ in 1...30{
+//            subClassDatas?.add(IndexClassObj.init(info: ["id":String.init(format: "%d", arc4random()%100000) , "name" : String.random32bitStringGGG(length: 4) ,"imageUrl" : "https://gw.alicdn.com/imgextra/i4/1/TB20GOyXDJ_SKJjSZPiXXb3LpXa_!!1-0-luban.jpg"]))
+//        }
         
         //headerview
-        updateTableViewHeaderView();
+
         LOCATION_MANAGER.addObserver(self, forKeyPath: "currentLocation", options: NSKeyValueObservingOptions.new, context: nil);
 
     }
@@ -75,10 +75,21 @@ class IndexViewController: BaseViewController , UITableViewDataSource , UITableV
 //        let test :[AnyHashable:Any]? = ["1" :"2"]
 //        let value = test!["1"]
         TTRequestOperationManager.get(API_SHOP_BANNER, parameters: nil, success: { (response) in
-            let response_new = response as! [String:Any];
-            let resut = response_new["result"] as Array;
-//            let result = response!["result"] as Array<Dictionary?>;
-//            let arr = Array(result)
+            let code = response!["code"] as! Int;
+            //请求成功
+            if code == 200 {
+                let result = response!["result"] as! NSArray
+                for dic in result{
+                    let banner = PPBannerObject.init(info: dic as! NSDictionary);
+                    self.bannerDatas?.add(banner);
+                }
+                self.updateTableViewHeaderView();
+                
+            }
+            else{
+                //请求失败
+            }
+
 
             
         }) { (error) in
