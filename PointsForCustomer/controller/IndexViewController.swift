@@ -38,6 +38,8 @@ class IndexViewController: BaseViewController , UITableViewDataSource , UITableV
         //注册tableViewCell
         tableView.register(UINib.init(nibName: "PPShopTableViewCell", bundle: nil), forCellReuseIdentifier: "indexShop");
         tableView.contentInset = UIEdgeInsets.init(top: -20, left: 0, bottom: 0, right: 0);
+        //获取轮播图数据
+        loadBannerData()
         
         //假设获取到了轮播图数据
         bannerDatas?.removeAllObjects();
@@ -67,6 +69,21 @@ class IndexViewController: BaseViewController , UITableViewDataSource , UITableV
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated);
         self.navigationController?.setNavigationBarHidden(true, animated: true);
+    }
+//    MARK:获取轮播图数据
+    func loadBannerData() {
+//        let test :[AnyHashable:Any]? = ["1" :"2"]
+//        let value = test!["1"]
+        TTRequestOperationManager.get(API_SHOP_BANNER, parameters: nil, success: { (response) in
+            let response_new = response as! [String:Any];
+            let resut = response_new["result"] as Array;
+//            let result = response!["result"] as Array<Dictionary?>;
+//            let arr = Array(result)
+
+            
+        }) { (error) in
+            
+        }
     }
 //    MARK:更新轮播图和分类数据
     func updateTableViewHeaderView(){

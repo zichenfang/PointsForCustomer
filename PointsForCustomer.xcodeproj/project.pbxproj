@@ -19,6 +19,7 @@
 		E24EEAEA1F72B4BA0084C632 /* SearchShopViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E24EEAE81F72B4BA0084C632 /* SearchShopViewController.xib */; };
 		E24EEAED1F72BBEA0084C632 /* ShopDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24EEAEB1F72BBEA0084C632 /* ShopDetailViewController.swift */; };
 		E24EEAEE1F72BBEA0084C632 /* ShopDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E24EEAEC1F72BBEA0084C632 /* ShopDetailViewController.xib */; };
+		E25369A91F7F6A5A004AC8A3 /* PPRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25369A81F7F6A5A004AC8A3 /* PPRequestManager.swift */; };
 		E2547C461F73F9DF000DA9E9 /* AllCityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2547C441F73F9DF000DA9E9 /* AllCityTableViewCell.swift */; };
 		E2547C471F73F9DF000DA9E9 /* AllCityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2547C451F73F9DF000DA9E9 /* AllCityTableViewCell.xib */; };
 		E2547C491F73FB12000DA9E9 /* citys.db in Resources */ = {isa = PBXBuildFile; fileRef = E2547C481F73FB12000DA9E9 /* citys.db */; };
@@ -90,6 +91,7 @@
 		E24EEAE81F72B4BA0084C632 /* SearchShopViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchShopViewController.xib; sourceTree = "<group>"; };
 		E24EEAEB1F72BBEA0084C632 /* ShopDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopDetailViewController.swift; sourceTree = "<group>"; };
 		E24EEAEC1F72BBEA0084C632 /* ShopDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShopDetailViewController.xib; sourceTree = "<group>"; };
+		E25369A81F7F6A5A004AC8A3 /* PPRequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPRequestManager.swift; sourceTree = "<group>"; };
 		E2547C441F73F9DF000DA9E9 /* AllCityTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllCityTableViewCell.swift; sourceTree = "<group>"; };
 		E2547C451F73F9DF000DA9E9 /* AllCityTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AllCityTableViewCell.xib; sourceTree = "<group>"; };
 		E2547C481F73FB12000DA9E9 /* citys.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = citys.db; sourceTree = "<group>"; };
@@ -312,6 +314,7 @@
 				E2F1EF5B1F67DA1D00CF90C2 /* TTRequestOperationManager.m */,
 				E2F1EF5C1F67DA1D00CF90C2 /* TTUserInfoManager.h */,
 				E2F1EF5D1F67DA1D00CF90C2 /* TTUserInfoManager.m */,
+				E25369A81F7F6A5A004AC8A3 /* PPRequestManager.swift */,
 				E28BE24E1F78909300775097 /* UserLocationManager.swift */,
 				E20A7CA41F690AA900346D4A /* ConstantForSwift.swift */,
 			);
@@ -482,6 +485,7 @@
 				E2F1EF461F67700300CF90C2 /* BaseViewController.swift in Sources */,
 				E2B602561F7D407E006FFAE1 /* ShopDetailSingleTextTableViewCell.swift in Sources */,
 				E24EEAE51F72AFBE0084C632 /* CityListViewController.swift in Sources */,
+				E25369A91F7F6A5A004AC8A3 /* PPRequestManager.swift in Sources */,
 				E2F1EF5E1F67DA1D00CF90C2 /* TTRequestOperationManager.m in Sources */,
 				E20A7CA51F690AA900346D4A /* ConstantForSwift.swift in Sources */,
 				E2F1EF3D1F676DA500CF90C2 /* UIColor+MyColor.m in Sources */,

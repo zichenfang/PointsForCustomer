@@ -23,5 +23,6 @@
 #import "FMDB.h"
 #import "TPKeyboardAvoidingTableView.h"
 #import <MAMapKit/MAMapKit.h>
+#import "TTRequestOperationManager.h"
 
 #endif /* PointsForCustomer_Bridging_Header_h */

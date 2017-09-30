@@ -11,7 +11,7 @@
 #import <CommonCrypto/CommonDigest.h>
 #import "JsonKillNull.h"
 //数据请求地址
-#define kHTTP @"http://lvyou.heizitech.com"
+#define kHTTP @"http://jf.bingplus.com/"
 @interface TTRequestOperationManager : NSObject
 
 + (id)defaultManager;
