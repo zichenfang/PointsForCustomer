@@ -57,7 +57,7 @@ class IndexHeaderView: UIView ,UIScrollViewDelegate {
     var subClassPageControl : UIPageControl!
     let subClassPageControlHeight : CGFloat = 20;
     //分类菜单点击回掉
-    var classSelectedHandler : ((_ item : IndexClassObj) -> Void)?
+    var classSelectedHandler : ((_ item : PPIndexClassObj) -> Void)?
     //分类数据源
     var _subClassDatas :NSMutableArray?
     var subClassDatas :NSMutableArray?{
@@ -90,7 +90,7 @@ class IndexHeaderView: UIView ,UIScrollViewDelegate {
                 else{
                     classesInPage = _subClassDatas?.object(at: page) as? NSMutableArray;
                 }
-                classesInPage?.add(newValue?.object(at: index) ?? IndexClassObj.init(info: [:]));
+                classesInPage?.add(newValue?.object(at: index) ?? PPIndexClassObj.init(info: [:]));
                 index = index + 1;
             }
             
@@ -109,7 +109,7 @@ class IndexHeaderView: UIView ,UIScrollViewDelegate {
                 //在pageView上面铺设itemView
                 while index < (classesInPage?.count)! {
                     //取出一页当中的一条数据
-                    let classObj :IndexClassObj! = classesInPage?.object(at: index) as! IndexClassObj;
+                    let classObj :PPIndexClassObj! = classesInPage?.object(at: index) as! PPIndexClassObj;
                     let itemView : IndexClassItemView? = Bundle.main.loadNibNamed("IndexClassItemView", owner: nil, options: nil)?.first as! IndexClassItemView?
                     itemView?.tag = index;
                     let item_x :CGFloat = CGFloat(index%5) * itemWidth;
@@ -152,6 +152,7 @@ class IndexHeaderView: UIView ,UIScrollViewDelegate {
         bannerScrollView.autoScrollTimeInterval = 4.0;
         bannerScrollView.pageControlBottomOffset = 10;
         bannerScrollView.bannerImageViewContentMode = UIViewContentMode.scaleAspectFill;
+        bannerScrollView.placeholderImage = PLACE_HOLDER_IMAGE
         //轮播图pageControl
         
         /*分类菜单模块*/
@@ -204,7 +205,7 @@ class IndexHeaderView: UIView ,UIScrollViewDelegate {
         //取出一页的数据
         let classesInPage : NSMutableArray? = _subClassDatas?.object(at: (sender?.superview?.superview?.tag)!) as? NSMutableArray;
         //取出一页当中的一条数据
-        let classObj :IndexClassObj! = classesInPage?.object(at: (sender?.superview?.tag)!) as! IndexClassObj;
+        let classObj :PPIndexClassObj! = classesInPage?.object(at: (sender?.superview?.tag)!) as! PPIndexClassObj;
         if classSelectedHandler != nil{
             classSelectedHandler!(classObj);
         }

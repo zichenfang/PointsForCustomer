@@ -8,13 +8,13 @@
 
 import UIKit
 
-class IndexClassObj: BaseObject {
+class PPIndexClassObj: BaseObject {
     var id :String?
     var name :String?
     var imageUrl :String?
     init(info :NSDictionary){
         self.id = info["id"]as?String;
         self.name = info["name"]as?String;
-        self.imageUrl = info["imageUrl"]as?String;
+        self.imageUrl = info["icon_url"]as?String;
     }
 }

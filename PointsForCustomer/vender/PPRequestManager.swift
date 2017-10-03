@@ -10,7 +10,7 @@ import UIKit
 
 class PPRequestManager: NSObject {
     //MARK:GET
-    static func GET (url :String , para:[AnyHashable : Any]? , success:((_ response:NSDictionary)->Void)? , failure:((_ error:NSError)->Void)? ){
+    static func GET (url :String , para:[AnyHashable : Any]? , success:((_ json:Dictionary<String, AnyObject>)->Void)? , failure:(()->Void)? ){
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         let manager = AFHTTPSessionManager()
         manager.responseSerializer = AFHTTPResponseSerializer()
@@ -25,13 +25,26 @@ class PPRequestManager: NSObject {
         }
         url_here = url_here.replacingOccurrences(of: "//", with: "/")
 
-//        manager.get(url_here, parameters: para, progress: nil, success: {(task,response) in
-////            print(NSString.init(data: response as! Data, encoding: String.Encoding.utf8.rawValue)!)
-//            let json :Any? = try JSONSerialization.jsonObject(with: response as! Data, options: [])
-//            print(json!)
-//        }, failure:{(task,error) in
-//            print(error);
-//        });
+        manager.get(url_here, parameters: para, progress: nil, success: {(task,response) in
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            let response_data = response as! Data
+            do{
+                let json_option = try JSONSerialization.jsonObject(with: response_data, options: .allowFragments)
+                let json_dic = json_option as! Dictionary<String, AnyObject>
+                if success != nil{
+                    print("url = \(url_here) \n para = \(para_here) json_dic =\(json_dic)")
+                    success!(json_dic)
+                }
+            }catch let error as NSError{
+                print("url = \(url_here) \n error =\(error)")
+                if failure != nil{
+                    failure!();
+                }
+            }
+        }, failure:{(task,error) in
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            print(error);
+        });
 
         
         
@@ -52,8 +65,5 @@ class PPRequestManager: NSObject {
 //            myFailure(error);
 //            [UIApplication sharedApplication].networkActivityIndicatorVisible =NO;
 //            }];
-        if success != nil{
-            success!(["1":"2"]);
-        }
     }
 }

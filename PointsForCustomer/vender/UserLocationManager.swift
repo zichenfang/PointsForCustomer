@@ -72,11 +72,11 @@ class UserLocationManager: NSObject {
                 print("逆地理信息\(reGeocode)");
                 var aoiName:String? = reGeocode.aoiName;
                 //aoiName失败，则取poiname
-                if (aoiName?.characters.count)!<=1 {
+                if aoiName == nil {
                     aoiName = reGeocode.poiName;
                 }
                     //aoiname失败，则取street
-                else if (aoiName?.characters.count)!<=1 {
+                else if aoiName == nil {
                     aoiName = reGeocode.street;
                 }
                 if let location = location {

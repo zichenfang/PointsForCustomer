@@ -22,88 +22,93 @@ class IndexViewController: BaseViewController , UITableViewDataSource , UITableV
     var bannerDatas :NSMutableArray? = NSMutableArray();
     //子分类数据
     var subClassDatas :NSMutableArray? = NSMutableArray();
+    //商家列表数据
+    var shopDatas :NSMutableArray? = NSMutableArray();
+    //商家列表分页页码
+    var page :Int = 1;
     convenience init() {
         self.init(nibName: "IndexViewController", bundle: nil);
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         //定位
+        LOCATION_MANAGER.addObserver(self, forKeyPath: "currentLocation", options: NSKeyValueObservingOptions.new, context: nil);
+        completeUIForLocationView();
+        configTableView();
         startUpdatingLocation();
+        //获取轮播图数据和分类数据
+        loadBannerData()
+        loadSubClassData()
+
+    }
+//    MARK: 位置视图加圆角和边线
+    func completeUIForLocationView(){
         //圆角和边线
         locationView.backgroundColor = UIColor.black.withAlphaComponent(0.5);
         locationView.layer.masksToBounds = true;
         locationView.layer.cornerRadius = locationView!.frame.size.height * 0.5;
         locationView.layer.borderWidth = 1;
         locationView.layer.borderColor = UIColor.white.withAlphaComponent(0.5).cgColor;
-        //注册tableViewCell
+    }
+    //MARK:配置tableview下拉刷新，cell ，contentInset
+    func configTableView()  {
         tableView.register(UINib.init(nibName: "PPShopTableViewCell", bundle: nil), forCellReuseIdentifier: "indexShop");
         tableView.contentInset = UIEdgeInsets.init(top: -20, left: 0, bottom: 0, right: 0);
-        //获取轮播图数据
-        loadBannerData()
-        
-//        //假设获取到了轮播图数据
-//        bannerDatas?.removeAllObjects();
-//        bannerDatas?.add(PPBannerObject.init(info: ["imageUrl":"https://gw.alicdn.com/tfs/TB1fYOSeMMPMeJjy1XbXXcwxVXa-750-291.jpg_Q90.jpg"]));
-//        bannerDatas?.add(PPBannerObject.init(info: ["imageUrl":"https://img.alicdn.com/tfs/TB1i_aLd3oQMeJjy1XaXXcSsFXa-800-300.jpg"]));
-//
-//        bannerDatas?.add(PPBannerObject.init(info: ["imageUrl":"https://aecpm.alicdn.com/simba/img/TB1q7ymhUQIL1JjSZFhSuuDZFXa.jpg"]));
-//        bannerDatas?.add(PPBannerObject.init(info: ["imageUrl":"https://gw.alicdn.com/imgextra/i4/1/TB20GOyXDJ_SKJjSZPiXXb3LpXa_!!1-0-luban.jpg"]));
-//        //加数据 子分类数据
-//        subClassDatas?.removeAllObjects();
-//        for _ in 1...30{
-//            subClassDatas?.add(IndexClassObj.init(info: ["id":String.init(format: "%d", arc4random()%100000) , "name" : String.random32bitStringGGG(length: 4) ,"imageUrl" : "https://gw.alicdn.com/imgextra/i4/1/TB20GOyXDJ_SKJjSZPiXXb3LpXa_!!1-0-luban.jpg"]))
-//        }
-        
-        //headerview
-
-        LOCATION_MANAGER.addObserver(self, forKeyPath: "currentLocation", options: NSKeyValueObservingOptions.new, context: nil);
-
+        tableView.mj_header = MJRefreshNormalHeader.init(refreshingBlock: {
+            self.page = 1
+            self.shopDatas?.removeAllObjects()
+            self.loadShopData()
+        })
+        tableView.mj_footer = MJRefreshAutoNormalFooter.init(refreshingBlock: {
+            self.page = self.page + 1
+            self.loadShopData()
+        })
     }
-    //MARK:地理位置发生改变的时候，刷新商家数据
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        if keyPath == "currentLocation" {
-            print("地理位置发生改变的时候，刷新商家数据");
-            self.updateLocationLabel(address: LOCATION_MANAGER.currentAOIName!)
-        }
-    }
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated);
         self.navigationController?.setNavigationBarHidden(true, animated: true);
     }
 //    MARK:获取轮播图数据
     func loadBannerData() {
-//        let test :[AnyHashable:Any]? = ["1" :"2"]
-//        let value = test!["1"]
-        TTRequestOperationManager.get(API_SHOP_BANNER, parameters: nil, success: { (response) in
-            let code = response!["code"] as! Int;
-            //请求成功
+        PPRequestManager.GET(url: API_SHOP_BANNER, para: nil, success: { (json) in
+            let code = json["code"] as! Int
             if code == 200 {
-                let result = response!["result"] as! NSArray
-                for dic in result{
-                    let banner = PPBannerObject.init(info: dic as! NSDictionary);
-                    self.bannerDatas?.add(banner);
+                let result = json["result"] as! NSArray
+                for banner_dic in result{
+                    let banner = PPBannerObject.init(info: banner_dic as! NSDictionary)
+                    banner.imageUrl = "https://tvax3.sinaimg.cn/crop.30.11.238.238.50/006qv3hHly8fj7xu3ht2pj30fa083dgh.jpg";
+                    self.bannerDatas?.add(banner)
                 }
-                self.updateTableViewHeaderView();
-                
+                self.updateTableViewHeaderView()
             }
-            else{
-                //请求失败
-            }
-
-
-            
-        }) { (error) in
-            
+        }) {
         }
     }
-//    MARK:更新轮播图和分类数据
+    //    MARK:获取分类数据
+    func loadSubClassData() {
+        PPRequestManager.GET(url: API_SHOP_SUBCLASS, para: nil, success: { (json) in
+            let code = json["code"] as! Int
+            if code == 200 {
+                let result = json["result"] as! NSArray
+                for subclass_dic in result{
+                    let subclass = PPIndexClassObj.init(info: subclass_dic as! NSDictionary)
+                    self.subClassDatas?.add(subclass)
+                }
+                self.updateTableViewHeaderView()
+            }
+        }) {
+        }
+        
+    }
+//    MARK:更新轮播图和分类数据UI
     func updateTableViewHeaderView(){
         let headerView = IndexHeaderView.init();
         headerView.bannerDatas = bannerDatas;
         headerView.subClassDatas = subClassDatas;
         headerView.delegate = self;
         //    MARK:跳转到某一个分类列表
-        headerView.classSelectedHandler = {(_ item :IndexClassObj)->Void in
+        headerView.classSelectedHandler = {(_ item :PPIndexClassObj)->Void in
             print(item.name!);
             let vc = OneKindShopListViewController();
             vc.title = item.name!;
@@ -170,10 +175,62 @@ class IndexViewController: BaseViewController , UITableViewDataSource , UITableV
         vc.hidesBottomBarWhenPushed = true;
         navigationController?.pushViewController(vc, animated: true);
     }
+    //MARK:地理位置发生改变的时候，刷新商家数据
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if keyPath == "currentLocation" {
+            self.updateLocationLabel(address: LOCATION_MANAGER.currentAOIName!)
+            self.tableView.mj_header.beginRefreshing()
+        }
+    }
+//    MARK:获取商家数据
+    func loadShopData() {
+        if LOCATION_MANAGER.currentLocation == nil {
+            ProgressHUD.showError("系统无法获取到您的位置，定位成功后再次重试", interaction: false)
+            return
+        }
+        let para = ["longitude":LOCATION_MANAGER.currentLocation?.coordinate.longitude ?? DEFAULT_LOCATION_LONGITUDE,
+                    "latitude":LOCATION_MANAGER.currentLocation?.coordinate.latitude ?? DEFAULT_LOCATION_LATITUDE,
+                    "city_id":LOCATION_MANAGER.currentCity ?? DEFAULT_LOCATION_CITYNAME,
+                    "p":page,
+                    "pagesize":LIST_PAGESIZE,
+                    "type":"all"] as [String : AnyObject]
+        
+        
+        PPRequestManager.GET(url: API_SHOP_SHOPS, para: para, success: { (json) in
+            if self.page == 1{
+                self.tableView.mj_header.endRefreshing()
+            }
+            else{
+                self.tableView.mj_footer.endRefreshing()
+            }
+            let code = json["code"] as! Int
+            let msg = json["msg"] as! String
+            if code == 200 {
+                let result = json["result"] as! NSArray
+                for shop_dic in result{
+                    let shop = PPShopObject.init(info: shop_dic as! NSDictionary)
+                    self.shopDatas?.add(shop)
+                }
+                if result.count < LIST_PAGESIZE {
+                    self.tableView.mj_footer.endRefreshingWithNoMoreData();
+                }
+            }
+            else{
+                ProgressHUD.showError(msg, interaction: false)
+            }
+        }) {
+            if self.page == 1{
+                self.tableView.mj_header.endRefreshing()
+            }
+            else{
+                self.tableView.mj_footer.endRefreshing()
+            }
+        }
+    }
     
     //    MARK:UITableViewDataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 15;
+        return (shopDatas?.count)!;
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell :PPShopTableViewCell! = tableView.dequeueReusableCell(withIdentifier: "indexShop", for: indexPath) as! PPShopTableViewCell;

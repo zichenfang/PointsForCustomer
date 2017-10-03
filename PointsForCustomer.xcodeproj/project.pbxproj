@@ -68,7 +68,7 @@
 		E2F1EF621F67DC2500CF90C2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F1EF601F67DC2500CF90C2 /* LoginViewController.swift */; };
 		E2F1EF631F67DC2500CF90C2 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2F1EF611F67DC2500CF90C2 /* LoginViewController.xib */; };
 		E2FA31A81F713C6600B657A1 /* PPStringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FA31A71F713C6600B657A1 /* PPStringExtension.swift */; };
-		E2FA31AA1F71450300B657A1 /* IndexClassObj.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FA31A91F71450300B657A1 /* IndexClassObj.swift */; };
+		E2FA31AA1F71450300B657A1 /* PPIndexClassObj.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FA31A91F71450300B657A1 /* PPIndexClassObj.swift */; };
 		E2FA31AC1F71593400B657A1 /* IndexClassItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2FA31AB1F71593300B657A1 /* IndexClassItemView.xib */; };
 		E2FA31AE1F715A2500B657A1 /* IndexClassItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FA31AD1F715A2500B657A1 /* IndexClassItemView.swift */; };
 		E2FE292B1F7E9BB200015D46 /* qrcode_found.wav in Resources */ = {isa = PBXBuildFile; fileRef = E2FE292A1F7E9BB200015D46 /* qrcode_found.wav */; };
@@ -148,7 +148,7 @@
 		E2F1EF601F67DC2500CF90C2 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E2F1EF611F67DC2500CF90C2 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		E2FA31A71F713C6600B657A1 /* PPStringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPStringExtension.swift; sourceTree = "<group>"; };
-		E2FA31A91F71450300B657A1 /* IndexClassObj.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndexClassObj.swift; sourceTree = "<group>"; };
+		E2FA31A91F71450300B657A1 /* PPIndexClassObj.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPIndexClassObj.swift; sourceTree = "<group>"; };
 		E2FA31AB1F71593300B657A1 /* IndexClassItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IndexClassItemView.xib; sourceTree = "<group>"; };
 		E2FA31AD1F715A2500B657A1 /* IndexClassItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndexClassItemView.swift; sourceTree = "<group>"; };
 		E2FE292A1F7E9BB200015D46 /* qrcode_found.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = qrcode_found.wav; sourceTree = "<group>"; };
@@ -226,7 +226,7 @@
 				E2F1EF471F67701900CF90C2 /* BaseObject.swift */,
 				E2F1EF491F67717300CF90C2 /* PPShopObject.swift */,
 				E2E803C01F6BC3BA0094065F /* PPBannerObject.swift */,
-				E2FA31A91F71450300B657A1 /* IndexClassObj.swift */,
+				E2FA31A91F71450300B657A1 /* PPIndexClassObj.swift */,
 				E297FDD21F7DEFB70056C606 /* CommentObj.swift */,
 			);
 			path = model;
@@ -511,7 +511,7 @@
 				E24EEAED1F72BBEA0084C632 /* ShopDetailViewController.swift in Sources */,
 				E297FDCC1F7DDA6C0056C606 /* CommentTableViewCell.swift in Sources */,
 				E2F1EF531F67C1C900CF90C2 /* ReadBitCodeViewController.swift in Sources */,
-				E2FA31AA1F71450300B657A1 /* IndexClassObj.swift in Sources */,
+				E2FA31AA1F71450300B657A1 /* PPIndexClassObj.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
