@@ -32,7 +32,7 @@ class PPRequestManager: NSObject {
                 let json_option = try JSONSerialization.jsonObject(with: response_data, options: .allowFragments)
                 let json_dic = json_option as! Dictionary<String, AnyObject>
                 if success != nil{
-                    print("url = \(url_here) \n para = \(para_here) json_dic =\(json_dic)")
+                    print("url = \(url_here) \n para = \(para_here) \n json_dic =\(json_dic)")
                     success!(json_dic)
                 }
             }catch let error as NSError{

@@ -9,11 +9,11 @@
 import UIKit
 
 class CommentObj: BaseObject {
-    var id :String?
+    var id :Int?
     var name :String?
     var imageUrl :String?
     init(info :NSDictionary){
-        self.id = info["id"]as?String;
+        self.id = info["id"]as?Int;
         self.name = info["name"]as?String;
         self.imageUrl = info["imageUrl"]as?String;
     }

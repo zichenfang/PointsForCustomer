@@ -53,7 +53,8 @@ let API_SHOP_BANNER :String = "/api.php/v1.Index/ads";
 let API_SHOP_SUBCLASS :String = "/api.php/v1.Index/category";
 //MARK: ●获取商家
 let API_SHOP_SHOPS :String = "/api.php/v1.Index/sellers";
-
+//MARK: ●获取商家（没有距离）
+let API_SHOP_SHOPS_WITHOUTDISTANCE :String = "/api.php/v1.Index/sellerList";
 
 
 

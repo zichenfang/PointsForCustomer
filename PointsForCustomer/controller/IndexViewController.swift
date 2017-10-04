@@ -109,9 +109,9 @@ class IndexViewController: BaseViewController , UITableViewDataSource , UITableV
         headerView.delegate = self;
         //    MARK:跳转到某一个分类列表
         headerView.classSelectedHandler = {(_ item :PPIndexClassObj)->Void in
-            print(item.name!);
+//            print(item.id!);
             let vc = OneKindShopListViewController();
-            vc.title = item.name!;
+            vc.classObj = item;
             vc.hidesBottomBarWhenPushed = true;
             self.navigationController?.pushViewController(vc, animated: true);
         }

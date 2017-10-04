@@ -9,12 +9,12 @@
 import UIKit
 
 class PPShopObject: BaseObject {
-    var id :String?
+    var id :Int?
     var name :String?
     var imgUrl :String?
     var star :NSInteger?
     init(info :NSDictionary){
-        self.id = info["id"]as?String;
+        self.id = info["id"]as?Int;
         self.imgUrl = info["imgUrl"]as?String;
         self.star = info["star"]as?NSInteger;
         

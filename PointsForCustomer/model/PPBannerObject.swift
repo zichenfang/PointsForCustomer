@@ -9,11 +9,11 @@
 import UIKit
 
 class PPBannerObject: BaseObject {
-    var id :String?
+    var id :Int?
     var name :String?
     var imageUrl :String?
     init(info :NSDictionary){
-        self.id = info["id"]as?String;
+        self.id = info["id"]as?Int;
         self.imageUrl = info["image_url"]as?String;
         self.name = info["title"]as?String;
     }
