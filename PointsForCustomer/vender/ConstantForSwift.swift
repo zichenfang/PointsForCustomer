@@ -39,13 +39,15 @@ let APP_DELEGATE  = UIApplication.shared.delegate as! AppDelegate;
 let NOTI_LOCATION_CHANGED  = NSNotification.Name(rawValue: "pp_noti_001");
 //MARK: 列表页内数据个数
 let LIST_PAGESIZE  = 50 ;
-
+//MARK: 短信验证码倒计时
+let MESSAGE_CODE_TIMEOUT  = 60 ;
 
 //MARK: 具体接口地址别名
 let API_HEADERURL :String = "http://jf.bingplus.com/";
 //MARK: ●用户注册
 let API_USER_REGISTER :String = "/api.php/v1.Publics/register";
-
+//MARK: ●短信
+let API_USER_MESSAGE :String = "/api.php/v1.Publics/sendSms";
 
 //MARK: ●轮播图
 let API_SHOP_BANNER :String = "/api.php/v1.Index/ads";
@@ -55,7 +57,8 @@ let API_SHOP_SUBCLASS :String = "/api.php/v1.Index/category";
 let API_SHOP_SHOPS :String = "/api.php/v1.Index/sellers";
 //MARK: ●获取商家（没有距离）
 let API_SHOP_SHOPS_WITHOUTDISTANCE :String = "/api.php/v1.Index/sellerList";
-
+//MARK: ●获取商家详情
+let API_SHOP_SHOPS_DETAIL :String = "/api.php/v1.Index/sellerDetail";
 
 
 

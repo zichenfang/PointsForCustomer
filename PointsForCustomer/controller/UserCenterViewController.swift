@@ -35,6 +35,17 @@ class UserCenterViewController: BaseViewController , UITableViewDataSource , UIT
     //    MARK:点击用户头像，进入用户资料
     @IBAction func goUserInfo(_ sender: UITapGestureRecognizer) {
         print("goUserInfo")
+        if TTUserInfoManager.logined() == false {
+            let vc = LoginViewController()
+            vc.handler = {(_ info :NSDictionary?) -> Void in
+                self.nameLabel.text = "登录成功"
+            }
+            self.present(UINavigationController.init(rootViewController: vc), animated: true, completion: nil)
+            return
+        }
+        else{
+            //进入个人资料页面
+        }
     }
     //    MARK:点我的积分
     @IBAction func goMyPoints(_ sender: Any) {

@@ -8,15 +8,35 @@
 
 import UIKit
 
-class SearchShopViewController: BaseViewController {
+class SearchShopViewController: BaseViewController , UITableViewDataSource , UITableViewDelegate ,UITextFieldDelegate ,UIScrollViewDelegate{
     //var searchView :SearchShopInputView!
     var searchTF :UITextField?
+    @IBOutlet var tableView: UITableView!
+    //商家列表数据
+    var shopDatas :NSMutableArray? = NSMutableArray();
+    //商家列表分页页码
+    var page :Int = 1;
     convenience init() {
         self.init(nibName: "SearchShopViewController", bundle: nil);
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        prepareSearchView();
+        prepareSearchView()
+        configTableView()
+    }
+    //MARK:配置tableview下拉刷新，cell ，contentInset
+    func configTableView()  {
+        tableView.register(UINib.init(nibName: "PPShopTableViewCell", bundle: nil), forCellReuseIdentifier: "indexShop");
+        //        tableView.contentInset = UIEdgeInsets.init(top: -20, left: 0, bottom: 0, right: 0);
+        tableView.mj_header = MJRefreshNormalHeader.init(refreshingBlock: {
+            self.page = 1
+            self.shopDatas?.removeAllObjects()
+            self.loadShopData()
+        })
+        tableView.mj_footer = MJRefreshAutoNormalFooter.init(refreshingBlock: {
+            self.page = self.page + 1
+            self.loadShopData()
+        })
     }
     func prepareSearchView()  {
         let searchView = UIView.init(frame: CGRect.init(x: 0, y: 7, width: SCREEN_WIDTH - 120, height: 44-7*2))
@@ -30,69 +50,104 @@ class SearchShopViewController: BaseViewController {
         searchTF!.placeholder = "输入店铺名/商品名"
         searchTF!.returnKeyType = UIReturnKeyType.search
         searchTF!.tintColor = UIColor.lightGray
-        searchTF?.font = UIFont.systemFont(ofSize: 15)
+        searchTF!.font = UIFont.systemFont(ofSize: 15)
+        searchTF!.delegate = self
         self.navigationItem.titleView = searchView
-
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "搜索", style: UIBarButtonItemStyle.plain, target: self, action: #selector(loadShopData))
+        searchTF?.becomeFirstResponder()
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "搜索", style: UIBarButtonItemStyle.plain, target: self, action: #selector(searchNow))
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated);
         self.navigationController?.setNavigationBarHidden(false, animated: true);
     }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.searchTF?.resignFirstResponder()
+    }
+//    MARK:UITextFieldDelegate
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == self.searchTF {
+            self.searchNow()
+        }
+        return true
+    }
+    @objc func searchNow() {
+        self.searchTF!.resignFirstResponder()
+        if self.searchTF!.text == nil || searchTF?.text == ""{
+            ProgressHUD.showError("搜索内容不能为空", interaction: false)
+            return
+        }
+        else{
+            tableView.mj_header.beginRefreshing()
+        }
+        self.tableView.mj_header.beginRefreshing()
+    }
     //    MARK:获取商家数据
-    @objc func loadShopData() {
-//        if LOCATION_MANAGER.currentLocation == nil {
-//            ProgressHUD.showError("系统无法获取到您的位置，定位成功后再次重试", interaction: false)
-//            return
-//        }
-//        let para = ["longitude":LOCATION_MANAGER.currentLocation?.coordinate.longitude ?? DEFAULT_LOCATION_LONGITUDE,
-//                    "latitude":LOCATION_MANAGER.currentLocation?.coordinate.latitude ?? DEFAULT_LOCATION_LATITUDE,
-//                    "city_id":LOCATION_MANAGER.currentCity ?? DEFAULT_LOCATION_CITYNAME,
-//                    "p":page,
-//                    "pagesize":LIST_PAGESIZE,
-//                    "type":"all"] as [String : AnyObject]
-//
-//
-//        PPRequestManager.GET(url: API_SHOP_SHOPS, para: para, success: { (json) in
-//            if self.page == 1{
-//                self.tableView.mj_header.endRefreshing()
-//            }
-//            else{
-//                self.tableView.mj_footer.endRefreshing()
-//            }
-//            let code = json["code"] as! Int
-//            let msg = json["msg"] as! String
-//            if code == 200 {
-//                let result = json["result"] as! NSArray
-//                for shop_dic in result{
-//                    let shop = PPShopObject.init(info: shop_dic as! NSDictionary)
-//                    self.shopDatas?.add(shop)
-//                }
-//                if result.count < LIST_PAGESIZE {
-//                    self.tableView.mj_footer.endRefreshingWithNoMoreData();
-//                }
-//            }
-//            else{
-//                ProgressHUD.showError(msg, interaction: false)
-//            }
-//        }) {
-//            if self.page == 1{
-//                self.tableView.mj_header.endRefreshing()
-//            }
-//            else{
-//                self.tableView.mj_footer.endRefreshing()
-//            }
-//        }
+    func loadShopData() {
+
+        let para = ["longitude":LOCATION_MANAGER.currentLocation?.coordinate.longitude ?? DEFAULT_LOCATION_LONGITUDE,
+                    "latitude":LOCATION_MANAGER.currentLocation?.coordinate.latitude ?? DEFAULT_LOCATION_LATITUDE,
+                    "city_id":LOCATION_MANAGER.currentCity ?? DEFAULT_LOCATION_CITYNAME,
+                    "p":page,
+                    "pagesize":LIST_PAGESIZE,
+                    "type":"all",
+                    "keyword":self.searchTF!.text!] as [String : AnyObject]
+        PPRequestManager.GET(url: API_SHOP_SHOPS, para: para, success: { (json) in
+            if self.page == 1{
+                self.tableView.mj_header.endRefreshing()
+            }
+            else{
+                self.tableView.mj_footer.endRefreshing()
+            }
+            let code = json["code"] as! Int
+            let msg = json["msg"] as! String
+            if code == 200 {
+                let result = json["result"] as! NSArray
+                for shop_dic in result{
+                    let shop = PPShopObject.init(info: shop_dic as! NSDictionary)
+                    self.shopDatas?.add(shop)
+                }
+                if result.count < LIST_PAGESIZE {
+                    self.tableView.mj_footer.endRefreshingWithNoMoreData();
+                }
+            }
+            else{
+                ProgressHUD.showError(msg, interaction: false)
+            }
+        }) {
+            if self.page == 1{
+                self.tableView.mj_header.endRefreshing()
+            }
+            else{
+                self.tableView.mj_footer.endRefreshing()
+            }
+        }
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    //    MARK:UITableViewDataSource
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return (shopDatas?.count)!;
     }
-    */
-
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell :PPShopTableViewCell! = tableView.dequeueReusableCell(withIdentifier: "indexShop", for: indexPath) as! PPShopTableViewCell;
+        let aobj = PPShopObject.init(info: ["imgUrl":"https://gw.alicdn.com/imgextra/i4/1/TB20GOyXDJ_SKJjSZPiXXb3LpXa_!!1-0-luban.jpg","star":NSNumber.init(value: arc4random()%5+1)])
+        cell.data(obj: aobj);
+        return cell!;
+    }
+    //    MARK:UITableViewDelegate
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1;
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let vc = ShopDetailViewController();
+        vc.hidesBottomBarWhenPushed = true;
+        navigationController?.pushViewController(vc, animated: true);
+    }
+//    MARK:UIScrollViewDelegate
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if scrollView == tableView {
+            self.searchTF?.resignFirstResponder()
+        }
+    }
 }

@@ -10,6 +10,8 @@
 		C124C88A4B9B1FDBECD4F5F5 /* libPods-PointsForCustomer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 079B54EEA2D726ADC49BD261 /* libPods-PointsForCustomer.a */; };
 		E20A7CA31F68FD2D00346D4A /* KuangkuangView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20A7CA21F68FD2D00346D4A /* KuangkuangView.swift */; };
 		E20A7CA51F690AA900346D4A /* ConstantForSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20A7CA41F690AA900346D4A /* ConstantForSwift.swift */; };
+		E20AE6121F851C3D003A603F /* RegistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20AE6101F851C3D003A603F /* RegistViewController.swift */; };
+		E20AE6131F851C3D003A603F /* RegistViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E20AE6111F851C3D003A603F /* RegistViewController.xib */; };
 		E21A64381F6663E3007D1C49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21A64371F6663E3007D1C49 /* AppDelegate.swift */; };
 		E21A643F1F6663E3007D1C49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E21A643E1F6663E3007D1C49 /* Assets.xcassets */; };
 		E21A64421F6663E3007D1C49 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E21A64401F6663E3007D1C49 /* LaunchScreen.storyboard */; };
@@ -80,6 +82,8 @@
 		DF00F6CA4807902B55C5CDE1 /* Pods-PointsForCustomer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PointsForCustomer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PointsForCustomer/Pods-PointsForCustomer.debug.xcconfig"; sourceTree = "<group>"; };
 		E20A7CA21F68FD2D00346D4A /* KuangkuangView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KuangkuangView.swift; sourceTree = "<group>"; };
 		E20A7CA41F690AA900346D4A /* ConstantForSwift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstantForSwift.swift; sourceTree = "<group>"; };
+		E20AE6101F851C3D003A603F /* RegistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistViewController.swift; sourceTree = "<group>"; };
+		E20AE6111F851C3D003A603F /* RegistViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegistViewController.xib; sourceTree = "<group>"; };
 		E21A64341F6663E3007D1C49 /* PointsForCustomer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PointsForCustomer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E21A64371F6663E3007D1C49 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E21A643E1F6663E3007D1C49 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -271,10 +275,6 @@
 				E2F1EF521F67C1C900CF90C2 /* ReadBitCodeViewController.xib */,
 				E2D119FF1F7E7F69007FFA36 /* PayNowViewController.swift */,
 				E2D11A001F7E7F69007FFA36 /* PayNowViewController.xib */,
-				E2F1EF551F67C1E900CF90C2 /* UserCenterViewController.swift */,
-				E2F1EF561F67C1E900CF90C2 /* UserCenterViewController.xib */,
-				E2F1EF601F67DC2500CF90C2 /* LoginViewController.swift */,
-				E2F1EF611F67DC2500CF90C2 /* LoginViewController.xib */,
 				E24EEAE31F72AFBE0084C632 /* CityListViewController.swift */,
 				E24EEAE41F72AFBE0084C632 /* CityListViewController.xib */,
 				E28FA7F21F74D9A100377266 /* SearchAreaViewController.swift */,
@@ -285,6 +285,12 @@
 				E24EEAEC1F72BBEA0084C632 /* ShopDetailViewController.xib */,
 				E297FDCE1F7DDAA80056C606 /* CommentListViewController.swift */,
 				E297FDCF1F7DDAA80056C606 /* CommentListViewController.xib */,
+				E2F1EF551F67C1E900CF90C2 /* UserCenterViewController.swift */,
+				E2F1EF561F67C1E900CF90C2 /* UserCenterViewController.xib */,
+				E2F1EF601F67DC2500CF90C2 /* LoginViewController.swift */,
+				E2F1EF611F67DC2500CF90C2 /* LoginViewController.xib */,
+				E20AE6101F851C3D003A603F /* RegistViewController.swift */,
+				E20AE6111F851C3D003A603F /* RegistViewController.xib */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -402,6 +408,7 @@
 				E2F1EF581F67C1E900CF90C2 /* UserCenterViewController.xib in Resources */,
 				E2FA31AC1F71593400B657A1 /* IndexClassItemView.xib in Resources */,
 				E21A643F1F6663E3007D1C49 /* Assets.xcassets in Resources */,
+				E20AE6131F851C3D003A603F /* RegistViewController.xib in Resources */,
 				E297FDD71F7E21D30056C606 /* OneKindShopListViewController.xib in Resources */,
 				E24EEAEA1F72B4BA0084C632 /* SearchShopViewController.xib in Resources */,
 				E2547C471F73F9DF000DA9E9 /* AllCityTableViewCell.xib in Resources */,
@@ -474,6 +481,7 @@
 			files = (
 				E2F1EF3A1F676DA500CF90C2 /* NSDate+MyDate.m in Sources */,
 				E2F1EF441F676F1300CF90C2 /* UIDevice+MyDevice.m in Sources */,
+				E20AE6121F851C3D003A603F /* RegistViewController.swift in Sources */,
 				E2D11A011F7E7F69007FFA36 /* PayNowViewController.swift in Sources */,
 				E2E803C11F6BC3BA0094065F /* PPBannerObject.swift in Sources */,
 				E21A64381F6663E3007D1C49 /* AppDelegate.swift in Sources */,

@@ -9,6 +9,8 @@
 import UIKit
 
 class ShopDetailViewController: BaseViewController , UITableViewDataSource , UITableViewDelegate , SDCycleScrollViewDelegate {
+    //外部传值店铺
+    public var shopObj : PPShopObject!
     var favBarItem : UIBarButtonItem!
     //是否已经收藏，默认为否
     var isFav :Bool = false;
@@ -55,7 +57,7 @@ class ShopDetailViewController: BaseViewController , UITableViewDataSource , UIT
         }
         navigationItem.rightBarButtonItem = favBarItem;
     }
-    //    MARK:配置轮播图哦
+    //    MARK:配置轮播图
     func richBannerScrollView() {
         bannerScrollView.backgroundColor = UIColor.yellow;
         bannerScrollView.pageControlAliment = SDCycleScrollViewPageContolAlimentCenter;
@@ -65,7 +67,23 @@ class ShopDetailViewController: BaseViewController , UITableViewDataSource , UIT
         bannerScrollView.pageControlBottomOffset = 10;
         bannerScrollView.bannerImageViewContentMode = UIViewContentMode.scaleAspectFill;
     }
-
+//    MARK:获取店铺详情数据
+    func loadShopDetailData(){
+        let para = ["seller_id":shopObj.id ?? 0]
+        PPRequestManager.GET(url: API_SHOP_SHOPS_DETAIL, para: para, success: { (json) in
+            let code = json["code"] as! Int
+            let msg = json["msg"] as! String
+            if code == 200 {
+//                let result = json["result"] as! NSArray
+            }
+            else{
+                ProgressHUD.showError(msg, interaction: false)
+            }
+        }) {
+        }
+    
+    }
+    
 //    MARK:更新头部数据（除图文以外的数据）
     func updateHeaderUIData() {
         tableView.beginUpdates()
