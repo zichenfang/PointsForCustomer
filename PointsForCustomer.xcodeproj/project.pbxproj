@@ -15,6 +15,9 @@
 		E21A64381F6663E3007D1C49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21A64371F6663E3007D1C49 /* AppDelegate.swift */; };
 		E21A643F1F6663E3007D1C49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E21A643E1F6663E3007D1C49 /* Assets.xcassets */; };
 		E21A64421F6663E3007D1C49 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E21A64401F6663E3007D1C49 /* LaunchScreen.storyboard */; };
+		E228688E1F8667690050CDEC /* PPUserInfoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E228688D1F8667690050CDEC /* PPUserInfoManager.swift */; };
+		E22868911F86746B0050CDEC /* FindPassWordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E228688F1F86746B0050CDEC /* FindPassWordViewController.swift */; };
+		E22868921F86746B0050CDEC /* FindPassWordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E22868901F86746B0050CDEC /* FindPassWordViewController.xib */; };
 		E24EEAE51F72AFBE0084C632 /* CityListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24EEAE31F72AFBE0084C632 /* CityListViewController.swift */; };
 		E24EEAE61F72AFBE0084C632 /* CityListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E24EEAE41F72AFBE0084C632 /* CityListViewController.xib */; };
 		E24EEAE91F72B4BA0084C632 /* SearchShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24EEAE71F72B4BA0084C632 /* SearchShopViewController.swift */; };
@@ -89,6 +92,9 @@
 		E21A643E1F6663E3007D1C49 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E21A64411F6663E3007D1C49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E21A64431F6663E3007D1C49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E228688D1F8667690050CDEC /* PPUserInfoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPUserInfoManager.swift; sourceTree = "<group>"; };
+		E228688F1F86746B0050CDEC /* FindPassWordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindPassWordViewController.swift; sourceTree = "<group>"; };
+		E22868901F86746B0050CDEC /* FindPassWordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FindPassWordViewController.xib; sourceTree = "<group>"; };
 		E24EEAE31F72AFBE0084C632 /* CityListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityListViewController.swift; sourceTree = "<group>"; };
 		E24EEAE41F72AFBE0084C632 /* CityListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CityListViewController.xib; sourceTree = "<group>"; };
 		E24EEAE71F72B4BA0084C632 /* SearchShopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchShopViewController.swift; sourceTree = "<group>"; };
@@ -291,6 +297,8 @@
 				E2F1EF611F67DC2500CF90C2 /* LoginViewController.xib */,
 				E20AE6101F851C3D003A603F /* RegistViewController.swift */,
 				E20AE6111F851C3D003A603F /* RegistViewController.xib */,
+				E228688F1F86746B0050CDEC /* FindPassWordViewController.swift */,
+				E22868901F86746B0050CDEC /* FindPassWordViewController.xib */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -320,6 +328,7 @@
 				E2F1EF5B1F67DA1D00CF90C2 /* TTRequestOperationManager.m */,
 				E2F1EF5C1F67DA1D00CF90C2 /* TTUserInfoManager.h */,
 				E2F1EF5D1F67DA1D00CF90C2 /* TTUserInfoManager.m */,
+				E228688D1F8667690050CDEC /* PPUserInfoManager.swift */,
 				E25369A81F7F6A5A004AC8A3 /* PPRequestManager.swift */,
 				E28BE24E1F78909300775097 /* UserLocationManager.swift */,
 				E20A7CA41F690AA900346D4A /* ConstantForSwift.swift */,
@@ -400,6 +409,7 @@
 				E2F1EF501F67C18100CF90C2 /* IndexViewController.xib in Resources */,
 				E24EEAEE1F72BBEA0084C632 /* ShopDetailViewController.xib in Resources */,
 				E29D56051F6FA0E70006C746 /* IndexSectionHeaderView.xib in Resources */,
+				E22868921F86746B0050CDEC /* FindPassWordViewController.xib in Resources */,
 				E2B6025B1F7D4102006FFAE1 /* ShopDetailSingleImageTableViewCell.xib in Resources */,
 				E24EEAE61F72AFBE0084C632 /* CityListViewController.xib in Resources */,
 				E297FDD11F7DDAA80056C606 /* CommentListViewController.xib in Resources */,
@@ -503,9 +513,11 @@
 				E2F1EF4A1F67717300CF90C2 /* PPShopObject.swift in Sources */,
 				E2F1EF571F67C1E900CF90C2 /* UserCenterViewController.swift in Sources */,
 				E2F1EF4F1F67C18100CF90C2 /* IndexViewController.swift in Sources */,
+				E228688E1F8667690050CDEC /* PPUserInfoManager.swift in Sources */,
 				E2E803B81F6A56A40094065F /* UserCenterTableViewCell.swift in Sources */,
 				E2FA31A81F713C6600B657A1 /* PPStringExtension.swift in Sources */,
 				E2F1EF621F67DC2500CF90C2 /* LoginViewController.swift in Sources */,
+				E22868911F86746B0050CDEC /* FindPassWordViewController.swift in Sources */,
 				E28FA7F81F74DB3700377266 /* SearchAreaTableViewCell.swift in Sources */,
 				E297FDD61F7E21D30056C606 /* OneKindShopListViewController.swift in Sources */,
 				E2F1EF5F1F67DA1D00CF90C2 /* TTUserInfoManager.m in Sources */,

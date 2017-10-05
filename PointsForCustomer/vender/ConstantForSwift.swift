@@ -36,7 +36,13 @@ let PLACE_HOLDER_IMAGE :UIImage = UIImage.init(named: "placeholderimage")!;
 let APP_DELEGATE  = UIApplication.shared.delegate as! AppDelegate;
 
 //MARK: 通知别名 NotificationCenter
+//MARK: ●地理位置发生改变的时候（自动获取位置或者手动获取位置成功后）
 let NOTI_LOCATION_CHANGED  = NSNotification.Name(rawValue: "pp_noti_001");
+//MARK: ●用户信息被修改之后（比如头像或者昵称）
+let NOTI_USERINFO_CHANGED  = NSNotification.Name(rawValue: "pp_noti_002");
+//MARK: ●用户登录成功或者退出登录
+let NOTI_USERSTATUS_CHANGED  = NSNotification.Name(rawValue: "pp_noti_003");
+
 //MARK: 列表页内数据个数
 let LIST_PAGESIZE  = 50 ;
 //MARK: 短信验证码倒计时
@@ -48,6 +54,10 @@ let API_HEADERURL :String = "http://jf.bingplus.com/";
 let API_USER_REGISTER :String = "/api.php/v1.Publics/register";
 //MARK: ●短信
 let API_USER_MESSAGE :String = "/api.php/v1.Publics/sendSms";
+//MARK: ●登录
+let API_USER_LOGIN :String = "/api.php/v1.Publics/login";
+//MARK: ●忘记密码
+let API_USER_FINDPASSWORD :String = "/api.php/v1.Publics/retrievePassword";
 
 //MARK: ●轮播图
 let API_SHOP_BANNER :String = "/api.php/v1.Index/ads";

@@ -20,14 +20,38 @@ class UserCenterViewController: BaseViewController , UITableViewDataSource , UIT
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        menus = ["我的邀请码","收藏店铺","修改密码","我的电话","分享软件","联系我们","注销登录"]
+        //开局手动刷新一下页面
+        userStatusDidChanged()
         tableView.register(UINib.init(nibName: "UserCenterTableViewCell", bundle: nil), forCellReuseIdentifier: "usercenter");
         tableView.contentInset = UIEdgeInsets.init(top: -20, left: 0, bottom: 0, right: 0);
+        //添加用户登录状态和信息修改通知
+        NotificationCenter.default.addObserver(self, selector: #selector(userInfoDidChanged), name: NOTI_USERINFO_CHANGED, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(userStatusDidChanged), name: NOTI_USERSTATUS_CHANGED, object: nil)
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated);
         self.navigationController?.setNavigationBarHidden(true, animated: true);
     }
+//    MARK:用户登录状态和信息修改通知
+    @objc func userInfoDidChanged () {
+        let nickname = PPUserInfoManager.userInfo()?.value(forKey: "nickname") as! String;
+        nameLabel.text = nickname ;
+        let avatar = PPUserInfoManager.userInfo()?.value(forKey: "head_img") as! String;
+        avatarIV.sd_setImage(with: URL.init(string: avatar), placeholderImage: PLACE_HOLDER_IMAGE)
+    }
+    @objc func userStatusDidChanged () {
+        if PPUserInfoManager.loginStatus() == true {
+            userInfoDidChanged()
+            menus = ["我的邀请码","收藏店铺","修改密码","我的电话","分享软件","联系我们","注销登录"]
+        }
+        else{
+            nameLabel.text = "登录/注册" ;
+            avatarIV.image = PLACE_HOLDER_IMAGE
+            menus = ["我的邀请码","收藏店铺","修改密码","我的电话","分享软件","联系我们"]
+        }
+        tableView.reloadData()
+    }
+
     //    MARK:点击消息
     @IBAction func goMsg(_ sender: Any) {
         print("gomsg")
@@ -35,11 +59,8 @@ class UserCenterViewController: BaseViewController , UITableViewDataSource , UIT
     //    MARK:点击用户头像，进入用户资料
     @IBAction func goUserInfo(_ sender: UITapGestureRecognizer) {
         print("goUserInfo")
-        if TTUserInfoManager.logined() == false {
+        if PPUserInfoManager.loginStatus() == false {
             let vc = LoginViewController()
-            vc.handler = {(_ info :NSDictionary?) -> Void in
-                self.nameLabel.text = "登录成功"
-            }
             self.present(UINavigationController.init(rootViewController: vc), animated: true, completion: nil)
             return
         }
@@ -82,15 +103,33 @@ class UserCenterViewController: BaseViewController , UITableViewDataSource , UIT
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        let title = menus[indexPath.row]
+        switch title {
+        case "我的邀请码":
+            print("我的邀请码")
+        case "注销登录":
+            logOut()
+        default:
+            print("default")
+        }
         // MARK: - 我的邀请码
         // MARK: - 收藏店铺
         // MARK: - 修改密码
         // MARK: - 我的电话
         // MARK: - 分享软件
         // MARK: - 联系我们
-        // MARK: - 注销登录
     }
-
+    // MARK: - 注销登录
+    func logOut()  {
+        let alertVC = UIAlertController.init(title: "确认退出？", message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
+        alertVC.addAction(UIAlertAction.init(title: "退出", style: UIAlertActionStyle.destructive, handler: { (act) in
+            PPUserInfoManager.updateLoginStatus(logined: false)
+            let vc = LoginViewController()
+            self.present(UINavigationController.init(rootViewController: vc), animated: true, completion: nil)
+        }))
+        alertVC.addAction(UIAlertAction.init(title: "取消", style: UIAlertActionStyle.cancel, handler: nil))
+        self.present(alertVC, animated: true, completion: nil)
+    }
     /*
     // MARK: - Navigation
 

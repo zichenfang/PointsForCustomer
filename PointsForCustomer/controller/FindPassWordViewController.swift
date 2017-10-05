@@ -1,37 +1,39 @@
 //
-//  RegistViewController.swift
+//  FindPassWordViewController.swift
 //  PointsForCustomer
 //
-//  Created by 殷玉秋 on 2017/10/4.
+//  Created by 殷玉秋 on 2017/10/5.
 //  Copyright © 2017年 fff. All rights reserved.
 //
 
 import UIKit
 
-class RegistViewController: BaseViewController {
+class FindPassWordViewController: BaseViewController {
     @IBOutlet var phoneTF: UITextField!
     @IBOutlet var codeTF: UITextField!
     @IBOutlet var passWordTF: UITextField!
-    @IBOutlet var inviteCodeTF: UITextField!
+    @IBOutlet var passWordAgainTF: UITextField!
     //短信倒计时
     @IBOutlet var codeBtn: UIButton!
     var leftCount :Int!
     var msgCode :Int!
-
+    
     convenience init() {
-        self.init(nibName: "RegistViewController", bundle: nil);
+        self.init(nibName: "FindPassWordViewController", bundle: nil);
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "注册"
-        // Do any additional setup after loading the view.
+        self.navigationItem.title = "忘记密码"
     }
-
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(false, animated: true);
     }
-	// MARK: - 获取验证码
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    // MARK: - 获取验证码
     @IBAction func sendCode(_ sender: Any) {
         if phoneTF.text?.isValidMobileNO() == false {
             ProgressHUD.showError("请输入正确的手机号码", interaction: false)
@@ -75,13 +77,11 @@ class RegistViewController: BaseViewController {
                     self.codeBtn.isEnabled = true
                 }
             }
-            
-
         })
         codeTimer.resume()
     }
-    // MARK: - 注册
-    @IBAction func regist(_ sender: Any) {
+    // MARK: - 找回密码
+    @IBAction func sendRequest(_ sender: Any) {
         if phoneTF.text?.isValidMobileNO() == false {
             ProgressHUD.showError("请输入正确的手机号码", interaction: false)
             return
@@ -94,26 +94,20 @@ class RegistViewController: BaseViewController {
             ProgressHUD.showError("请输入至少6位数密码", interaction: false)
             return
         }
-    
-        var para = ["mobile":phoneTF.text,
-                    "nickname":phoneTF.text,
-                    "password":passWordTF.text?.md5_32Bit_String(),
-                    "verifycode":codeTF.text
-                    ] as [String : AnyObject]
-        if inviteCodeTF.text != "" && (inviteCodeTF.text?.characters.count)!>1{
-            para.updateValue(inviteCodeTF, forKey: "invitation")
+        if passWordTF.text != passWordAgainTF.text {
+            ProgressHUD.showError("两次输入密码不一致", interaction: false)
+            return
         }
-        
-        
+        let para = ["mobile":phoneTF.text,
+                    "password":passWordTF.text?.md5_32Bit_String(),
+                    "code":codeTF.text
+            ] as [String : AnyObject]
         ProgressHUD.show(nil, interaction: false)
-        PPRequestManager.POST(url: API_USER_REGISTER, para: para, success: { (json) in
+        PPRequestManager.POST(url: API_USER_FINDPASSWORD, para: para, success: { (json) in
             let code = json["code"] as! Int
             let msg = json["msg"] as! String
             if code == 200 {
-                ProgressHUD.showSuccess("注册成功", interaction: false)
-                let result = json["result"] as! NSDictionary
-                PPUserInfoManager.updateUserInfo(info: result)
-                PPUserInfoManager.updateLoginStatus(logined: true)
+                ProgressHUD.showSuccess("密码修改成功", interaction: false)
                 self.perform(#selector(self.successBack), with: nil, afterDelay: 1.2)
             }
             else{
@@ -122,9 +116,9 @@ class RegistViewController: BaseViewController {
         }) {
         }
     }
-//    MARK:注册成功跳转
+    //    MARK:密码修改成功跳转
     @objc func successBack()  {
-        self.navigationController?.popToRootViewController(animated: false)
+        self.navigationController?.popToRootViewController(animated: true)
     }
-    
+
 }

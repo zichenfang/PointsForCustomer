@@ -30,6 +30,8 @@ class LoginViewController: BaseViewController {
     }
     // MARK: - Navigation
     @IBAction func findPassword(_ sender: Any) {
+        let vc = FindPassWordViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     @IBAction func regist(_ sender: Any) {
         let vc = RegistViewController()
@@ -43,6 +45,37 @@ class LoginViewController: BaseViewController {
     }
     
     @IBAction func login(_ sender: Any) {
+        if phoneTF.text?.isValidMobileNO() == false {
+            ProgressHUD.showError("请输入正确的手机号码", interaction: false)
+            return
+        }
+        if passWordTF.text! == "" || (passWordTF.text?.characters.count)!<6{
+            ProgressHUD.showError("请输入至少6位数密码", interaction: false)
+            return
+        }
+        let para = ["mobile":phoneTF.text,
+                    "password":passWordTF.text?.md5_32Bit_String(),
+            ] as [String : AnyObject]
+        ProgressHUD.show(nil, interaction: false)
+        PPRequestManager.POST(url: API_USER_LOGIN, para: para, success: { (json) in
+            let code = json["code"] as! Int
+            let msg = json["msg"] as! String
+            if code == 200 {
+                ProgressHUD.showSuccess("登录成功", interaction: false)
+                let result = json["result"] as! NSDictionary
+                PPUserInfoManager.updateUserInfo(info: result)
+                PPUserInfoManager.updateLoginStatus(logined: true)
+                self.perform(#selector(self.successBack), with: nil, afterDelay: 1.2)
+            }
+            else{
+                ProgressHUD.showError(msg, interaction: false)
+            }
+        }) {
+        }
+    }
+    //    MARK:登录成功跳转
+    @objc func successBack()  {
+        self.dismiss(animated: true, completion: nil)
     }
     
 }

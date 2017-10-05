@@ -25,6 +25,5 @@
 #import <MAMapKit/MAMapKit.h>
 #import "TTRequestOperationManager.h"
 #import "MJRefresh.h"
-#import "TTUserInfoManager.h"
 
 #endif /* PointsForCustomer_Bridging_Header_h */
