@@ -15,9 +15,17 @@
 		E21A64381F6663E3007D1C49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21A64371F6663E3007D1C49 /* AppDelegate.swift */; };
 		E21A643F1F6663E3007D1C49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E21A643E1F6663E3007D1C49 /* Assets.xcassets */; };
 		E21A64421F6663E3007D1C49 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E21A64401F6663E3007D1C49 /* LaunchScreen.storyboard */; };
+		E21D2AA11F8A6228001D29A1 /* MyInviteCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21D2A9F1F8A6228001D29A1 /* MyInviteCodeViewController.swift */; };
+		E21D2AA21F8A6228001D29A1 /* MyInviteCodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E21D2AA01F8A6228001D29A1 /* MyInviteCodeViewController.xib */; };
+		E21D2AA91F8A700A001D29A1 /* PointsHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21D2AA81F8A700A001D29A1 /* PointsHistoryViewController.swift */; };
+		E21D2AAC1F8A71EB001D29A1 /* PointsHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21D2AAA1F8A71EB001D29A1 /* PointsHistoryTableViewCell.swift */; };
+		E21D2AAD1F8A71EB001D29A1 /* PointsHistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E21D2AAB1F8A71EB001D29A1 /* PointsHistoryTableViewCell.xib */; };
+		E21D2AAF1F8A752B001D29A1 /* PPPointsHistoryObj.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21D2AAE1F8A752B001D29A1 /* PPPointsHistoryObj.swift */; };
+		E21D2AB01F8A773D001D29A1 /* PointsHistoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E21D2AA71F8A700A001D29A1 /* PointsHistoryViewController.xib */; };
 		E228688E1F8667690050CDEC /* PPUserInfoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E228688D1F8667690050CDEC /* PPUserInfoManager.swift */; };
 		E22868911F86746B0050CDEC /* FindPassWordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E228688F1F86746B0050CDEC /* FindPassWordViewController.swift */; };
 		E22868921F86746B0050CDEC /* FindPassWordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E22868901F86746B0050CDEC /* FindPassWordViewController.xib */; };
+		E24708971F89D81500F8705D /* PPShopDetailobj.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24708961F89D81500F8705D /* PPShopDetailobj.swift */; };
 		E24EEAE51F72AFBE0084C632 /* CityListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24EEAE31F72AFBE0084C632 /* CityListViewController.swift */; };
 		E24EEAE61F72AFBE0084C632 /* CityListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E24EEAE41F72AFBE0084C632 /* CityListViewController.xib */; };
 		E24EEAE91F72B4BA0084C632 /* SearchShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24EEAE71F72B4BA0084C632 /* SearchShopViewController.swift */; };
@@ -92,9 +100,17 @@
 		E21A643E1F6663E3007D1C49 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E21A64411F6663E3007D1C49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E21A64431F6663E3007D1C49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E21D2A9F1F8A6228001D29A1 /* MyInviteCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInviteCodeViewController.swift; sourceTree = "<group>"; };
+		E21D2AA01F8A6228001D29A1 /* MyInviteCodeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyInviteCodeViewController.xib; sourceTree = "<group>"; };
+		E21D2AA71F8A700A001D29A1 /* PointsHistoryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PointsHistoryViewController.xib; sourceTree = "<group>"; };
+		E21D2AA81F8A700A001D29A1 /* PointsHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsHistoryViewController.swift; sourceTree = "<group>"; };
+		E21D2AAA1F8A71EB001D29A1 /* PointsHistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsHistoryTableViewCell.swift; sourceTree = "<group>"; };
+		E21D2AAB1F8A71EB001D29A1 /* PointsHistoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PointsHistoryTableViewCell.xib; sourceTree = "<group>"; };
+		E21D2AAE1F8A752B001D29A1 /* PPPointsHistoryObj.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPPointsHistoryObj.swift; sourceTree = "<group>"; };
 		E228688D1F8667690050CDEC /* PPUserInfoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPUserInfoManager.swift; sourceTree = "<group>"; };
 		E228688F1F86746B0050CDEC /* FindPassWordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindPassWordViewController.swift; sourceTree = "<group>"; };
 		E22868901F86746B0050CDEC /* FindPassWordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FindPassWordViewController.xib; sourceTree = "<group>"; };
+		E24708961F89D81500F8705D /* PPShopDetailobj.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPShopDetailobj.swift; sourceTree = "<group>"; };
 		E24EEAE31F72AFBE0084C632 /* CityListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityListViewController.swift; sourceTree = "<group>"; };
 		E24EEAE41F72AFBE0084C632 /* CityListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CityListViewController.xib; sourceTree = "<group>"; };
 		E24EEAE71F72B4BA0084C632 /* SearchShopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchShopViewController.swift; sourceTree = "<group>"; };
@@ -235,9 +251,11 @@
 			children = (
 				E2F1EF471F67701900CF90C2 /* BaseObject.swift */,
 				E2F1EF491F67717300CF90C2 /* PPShopObject.swift */,
+				E24708961F89D81500F8705D /* PPShopDetailobj.swift */,
 				E2E803C01F6BC3BA0094065F /* PPBannerObject.swift */,
 				E2FA31A91F71450300B657A1 /* PPIndexClassObj.swift */,
 				E297FDD21F7DEFB70056C606 /* CommentObj.swift */,
+				E21D2AAE1F8A752B001D29A1 /* PPPointsHistoryObj.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -264,6 +282,8 @@
 				E2B602591F7D4102006FFAE1 /* ShopDetailSingleImageTableViewCell.xib */,
 				E297FDCA1F7DDA6C0056C606 /* CommentTableViewCell.swift */,
 				E297FDCB1F7DDA6C0056C606 /* CommentTableViewCell.xib */,
+				E21D2AAA1F8A71EB001D29A1 /* PointsHistoryTableViewCell.swift */,
+				E21D2AAB1F8A71EB001D29A1 /* PointsHistoryTableViewCell.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -293,6 +313,10 @@
 				E297FDCF1F7DDAA80056C606 /* CommentListViewController.xib */,
 				E2F1EF551F67C1E900CF90C2 /* UserCenterViewController.swift */,
 				E2F1EF561F67C1E900CF90C2 /* UserCenterViewController.xib */,
+				E21D2A9F1F8A6228001D29A1 /* MyInviteCodeViewController.swift */,
+				E21D2AA01F8A6228001D29A1 /* MyInviteCodeViewController.xib */,
+				E21D2AA81F8A700A001D29A1 /* PointsHistoryViewController.swift */,
+				E21D2AA71F8A700A001D29A1 /* PointsHistoryViewController.xib */,
 				E2F1EF601F67DC2500CF90C2 /* LoginViewController.swift */,
 				E2F1EF611F67DC2500CF90C2 /* LoginViewController.xib */,
 				E20AE6101F851C3D003A603F /* RegistViewController.swift */,
@@ -405,7 +429,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E21D2AB01F8A773D001D29A1 /* PointsHistoryViewController.xib in Resources */,
 				E2FE292B1F7E9BB200015D46 /* qrcode_found.wav in Resources */,
+				E21D2AA21F8A6228001D29A1 /* MyInviteCodeViewController.xib in Resources */,
 				E2F1EF501F67C18100CF90C2 /* IndexViewController.xib in Resources */,
 				E24EEAEE1F72BBEA0084C632 /* ShopDetailViewController.xib in Resources */,
 				E29D56051F6FA0E70006C746 /* IndexSectionHeaderView.xib in Resources */,
@@ -425,6 +451,7 @@
 				E28FA7F51F74D9A100377266 /* SearchAreaViewController.xib in Resources */,
 				E2E803BD1F6BA6F00094065F /* PPShopTableViewCell.xib in Resources */,
 				E2547C491F73FB12000DA9E9 /* citys.db in Resources */,
+				E21D2AAD1F8A71EB001D29A1 /* PointsHistoryTableViewCell.xib in Resources */,
 				E2E803B91F6A56A40094065F /* UserCenterTableViewCell.xib in Resources */,
 				E2B602571F7D407E006FFAE1 /* ShopDetailSingleTextTableViewCell.xib in Resources */,
 				E2F1EF541F67C1C900CF90C2 /* ReadBitCodeViewController.xib in Resources */,
@@ -495,11 +522,14 @@
 				E2D11A011F7E7F69007FFA36 /* PayNowViewController.swift in Sources */,
 				E2E803C11F6BC3BA0094065F /* PPBannerObject.swift in Sources */,
 				E21A64381F6663E3007D1C49 /* AppDelegate.swift in Sources */,
+				E21D2AA11F8A6228001D29A1 /* MyInviteCodeViewController.swift in Sources */,
+				E21D2AAC1F8A71EB001D29A1 /* PointsHistoryTableViewCell.swift in Sources */,
 				E2547C461F73F9DF000DA9E9 /* AllCityTableViewCell.swift in Sources */,
 				E2F1EF3B1F676DA500CF90C2 /* NSString+MyCustomString.m in Sources */,
 				E2F1EF3E1F676DA500CF90C2 /* UIImage+MyCustomImage.m in Sources */,
 				E2F1EF481F67701900CF90C2 /* BaseObject.swift in Sources */,
 				E20A7CA31F68FD2D00346D4A /* KuangkuangView.swift in Sources */,
+				E21D2AAF1F8A752B001D29A1 /* PPPointsHistoryObj.swift in Sources */,
 				E2F1EF461F67700300CF90C2 /* BaseViewController.swift in Sources */,
 				E2B602561F7D407E006FFAE1 /* ShopDetailSingleTextTableViewCell.swift in Sources */,
 				E24EEAE51F72AFBE0084C632 /* CityListViewController.swift in Sources */,
@@ -513,10 +543,12 @@
 				E2F1EF4A1F67717300CF90C2 /* PPShopObject.swift in Sources */,
 				E2F1EF571F67C1E900CF90C2 /* UserCenterViewController.swift in Sources */,
 				E2F1EF4F1F67C18100CF90C2 /* IndexViewController.swift in Sources */,
+				E24708971F89D81500F8705D /* PPShopDetailobj.swift in Sources */,
 				E228688E1F8667690050CDEC /* PPUserInfoManager.swift in Sources */,
 				E2E803B81F6A56A40094065F /* UserCenterTableViewCell.swift in Sources */,
 				E2FA31A81F713C6600B657A1 /* PPStringExtension.swift in Sources */,
 				E2F1EF621F67DC2500CF90C2 /* LoginViewController.swift in Sources */,
+				E21D2AA91F8A700A001D29A1 /* PointsHistoryViewController.swift in Sources */,
 				E22868911F86746B0050CDEC /* FindPassWordViewController.swift in Sources */,
 				E28FA7F81F74DB3700377266 /* SearchAreaTableViewCell.swift in Sources */,
 				E297FDD61F7E21D30056C606 /* OneKindShopListViewController.swift in Sources */,

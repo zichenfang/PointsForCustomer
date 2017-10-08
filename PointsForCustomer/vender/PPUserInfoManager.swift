@@ -8,7 +8,7 @@
 
 import UIKit
 let USERDEFAULTS_KEY_USERINFO = "userdefaults_001";
-let USERDEFAULTS_KEY_LOGINSTATUS = "userdefaults_002";
+let USERDEFAULTS_KEY_ISLOGINED = "userdefaults_002";
 
 class PPUserInfoManager: NSObject {
 //    MARK:用户信息综合
@@ -28,17 +28,26 @@ class PPUserInfoManager: NSObject {
         }
     }
 //    MARK:登录状态
-    static func updateLoginStatus(logined :Bool)  {
-        UserDefaults.standard.setValue(logined, forKey: USERDEFAULTS_KEY_LOGINSTATUS)
+    static func updateIsLogined(logined :Bool)  {
+        UserDefaults.standard.setValue(logined, forKey: USERDEFAULTS_KEY_ISLOGINED)
         //发送用户登录状态更改通知
         NotificationCenter.default.post(name: NOTI_USERSTATUS_CHANGED, object: nil)
     }
-    static func loginStatus() -> Bool {
-        if let status = UserDefaults.standard.value(forKey: USERDEFAULTS_KEY_LOGINSTATUS) as? Bool{
+    static func isLogined() -> Bool {
+        if let status = UserDefaults.standard.value(forKey: USERDEFAULTS_KEY_ISLOGINED) as? Bool{
             return status
         }
         else{
             return false
+        }
+    }
+    //    MARK:token
+    static func token() -> String {
+        if let token = PPUserInfoManager.userInfo()!["token"]{
+            return token as! String
+        }
+        else{
+            return ""
         }
     }
 }

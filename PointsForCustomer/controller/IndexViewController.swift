@@ -8,7 +8,7 @@
 
 import UIKit
 
-class IndexViewController: BaseViewController , UITableViewDataSource , UITableViewDelegate , SDCycleScrollViewDelegate ,UITextFieldDelegate{
+class IndexViewController: BaseViewController , UITableViewDataSource , UITableViewDelegate , SDCycleScrollViewDelegate ,UITextFieldDelegate ,UIScrollViewDelegate{
     /*定位*/
     @IBOutlet var tableView: UITableView!
     
@@ -39,7 +39,7 @@ class IndexViewController: BaseViewController , UITableViewDataSource , UITableV
         //获取轮播图数据和分类数据
         loadBannerData()
         loadSubClassData()
-
+        
     }
 //    MARK: 位置视图加圆角和边线
     func completeUIForLocationView(){
@@ -58,6 +58,8 @@ class IndexViewController: BaseViewController , UITableViewDataSource , UITableV
             self.page = 1
             self.shopDatas?.removeAllObjects()
             self.loadShopData()
+            self.loadBannerData()
+            self.loadSubClassData()
         })
         tableView.mj_footer = MJRefreshAutoNormalFooter.init(refreshingBlock: {
             self.page = self.page + 1
@@ -75,6 +77,7 @@ class IndexViewController: BaseViewController , UITableViewDataSource , UITableV
             let code = json["code"] as! Int
             if code == 200 {
                 let result = json["result"] as! NSArray
+                self.bannerDatas?.removeAllObjects()
                 for banner_dic in result{
                     let banner = PPBannerObject.init(info: banner_dic as! NSDictionary)
                     banner.imageUrl = "https://tvax3.sinaimg.cn/crop.30.11.238.238.50/006qv3hHly8fj7xu3ht2pj30fa083dgh.jpg";
@@ -91,6 +94,7 @@ class IndexViewController: BaseViewController , UITableViewDataSource , UITableV
             let code = json["code"] as! Int
             if code == 200 {
                 let result = json["result"] as! NSArray
+                self.subClassDatas?.removeAllObjects()
                 for subclass_dic in result{
                     let subclass = PPIndexClassObj.init(info: subclass_dic as! NSDictionary)
                     self.subClassDatas?.add(subclass)
@@ -195,8 +199,7 @@ class IndexViewController: BaseViewController , UITableViewDataSource , UITableV
                     "pagesize":LIST_PAGESIZE,
                     "type":"all"] as [String : AnyObject]
         
-        
-        PPRequestManager.GET(url: API_SHOP_SHOPS, para: para, success: { (json) in
+        PPRequestManager.POST(url: API_SHOP_SHOPS, para: para, success: { (json) in
             if self.page == 1{
                 self.tableView.mj_header.endRefreshing()
             }
@@ -214,6 +217,7 @@ class IndexViewController: BaseViewController , UITableViewDataSource , UITableV
                 if result.count < LIST_PAGESIZE {
                     self.tableView.mj_footer.endRefreshingWithNoMoreData();
                 }
+                self.tableView.reloadData()
             }
             else{
                 ProgressHUD.showError(msg, interaction: false)
@@ -234,8 +238,8 @@ class IndexViewController: BaseViewController , UITableViewDataSource , UITableV
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell :PPShopTableViewCell! = tableView.dequeueReusableCell(withIdentifier: "indexShop", for: indexPath) as! PPShopTableViewCell;
-        let aobj = PPShopObject.init(info: ["imgUrl":"https://gw.alicdn.com/imgextra/i4/1/TB20GOyXDJ_SKJjSZPiXXb3LpXa_!!1-0-luban.jpg","star":NSNumber.init(value: arc4random()%5+1)])
-        cell.data(obj: aobj);
+        let aobj = shopDatas![indexPath.row]
+        cell.data(obj: aobj as! PPShopObject);
         return cell!;
     }
     //    MARK:UITableViewDelegate
@@ -245,6 +249,7 @@ class IndexViewController: BaseViewController , UITableViewDataSource , UITableV
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let vc = ShopDetailViewController();
+        vc.shopObj = shopDatas![indexPath.row] as! PPShopObject
         vc.hidesBottomBarWhenPushed = true;
         navigationController?.pushViewController(vc, animated: true);
 
@@ -260,8 +265,23 @@ class IndexViewController: BaseViewController , UITableViewDataSource , UITableV
         navigationController?.pushViewController(vc, animated: true);
         return false;
     }
+    // MARK: - 扫码跳转
+    @IBAction func scanCode(_ sender: Any) {
+        NotificationCenter.default.post(name: NOTI_INDEX_SCANECODE, object: nil)
+    }
+    // MARK: - UIScrollViewDelegate
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let rangeForAlpha :CGFloat = 200.0
+        var alpha = (scrollView.contentOffset.y - 50)/rangeForAlpha
+        if alpha > 1 {
+            alpha = 1
+        }
+        if alpha<0 {
+            alpha = 0
+        }
+        headerToolView.backgroundColor = UIColor.styleRed().withAlphaComponent(alpha)
+    }
     /*
-    // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

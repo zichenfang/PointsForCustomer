@@ -19,7 +19,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2Ce-8J-yyx">
-                        <rect key="frame" x="10" y="0.0" width="300" height="120"/>
+                        <rect key="frame" x="10" y="2" width="300" height="118"/>
                     </imageView>
                 </subviews>
             </tableViewCellContentView>
@@ -27,7 +27,7 @@
                 <constraint firstAttribute="trailing" secondItem="2Ce-8J-yyx" secondAttribute="trailing" constant="10" id="UVL-p3-96b"/>
                 <constraint firstItem="2Ce-8J-yyx" firstAttribute="leading" secondItem="KGk-i7-Jjw" secondAttribute="leading" constant="10" id="aGU-br-eP2"/>
                 <constraint firstAttribute="bottom" secondItem="2Ce-8J-yyx" secondAttribute="bottom" id="bCm-7F-OVV"/>
-                <constraint firstItem="2Ce-8J-yyx" firstAttribute="top" secondItem="KGk-i7-Jjw" secondAttribute="top" id="vER-I9-SNz"/>
+                <constraint firstItem="2Ce-8J-yyx" firstAttribute="top" secondItem="KGk-i7-Jjw" secondAttribute="top" constant="2" id="vER-I9-SNz"/>
             </constraints>
             <connections>
                 <outlet property="imgView" destination="2Ce-8J-yyx" id="QGQ-5J-cXU"/>

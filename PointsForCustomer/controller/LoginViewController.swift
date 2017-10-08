@@ -64,7 +64,7 @@ class LoginViewController: BaseViewController {
                 ProgressHUD.showSuccess("登录成功", interaction: false)
                 let result = json["result"] as! NSDictionary
                 PPUserInfoManager.updateUserInfo(info: result)
-                PPUserInfoManager.updateLoginStatus(logined: true)
+                PPUserInfoManager.updateIsLogined(logined: true)
                 self.perform(#selector(self.successBack), with: nil, afterDelay: 1.2)
             }
             else{

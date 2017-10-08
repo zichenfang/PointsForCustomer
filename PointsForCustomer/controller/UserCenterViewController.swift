@@ -40,7 +40,7 @@ class UserCenterViewController: BaseViewController , UITableViewDataSource , UIT
         avatarIV.sd_setImage(with: URL.init(string: avatar), placeholderImage: PLACE_HOLDER_IMAGE)
     }
     @objc func userStatusDidChanged () {
-        if PPUserInfoManager.loginStatus() == true {
+        if PPUserInfoManager.isLogined() == true {
             userInfoDidChanged()
             menus = ["我的邀请码","收藏店铺","修改密码","我的电话","分享软件","联系我们","注销登录"]
         }
@@ -59,7 +59,7 @@ class UserCenterViewController: BaseViewController , UITableViewDataSource , UIT
     //    MARK:点击用户头像，进入用户资料
     @IBAction func goUserInfo(_ sender: UITapGestureRecognizer) {
         print("goUserInfo")
-        if PPUserInfoManager.loginStatus() == false {
+        if PPUserInfoManager.isLogined() == false {
             let vc = LoginViewController()
             self.present(UINavigationController.init(rootViewController: vc), animated: true, completion: nil)
             return
@@ -68,8 +68,16 @@ class UserCenterViewController: BaseViewController , UITableViewDataSource , UIT
             //进入个人资料页面
         }
     }
-    //    MARK:点我的积分
+    //    MARK:点我的积分(积分纪录)
     @IBAction func goMyPoints(_ sender: Any) {
+        if PPUserInfoManager.isLogined() == false {
+            let vc = LoginViewController()
+            self.present(UINavigationController.init(rootViewController: vc), animated: true, completion: nil)
+            return
+        }
+        let vc = PointsHistoryViewController()
+        vc.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(vc, animated: true)
         print("goMyPoints")
     }
     //    MARK:积分转增
@@ -104,9 +112,20 @@ class UserCenterViewController: BaseViewController , UITableViewDataSource , UIT
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let title = menus[indexPath.row]
+        let titles_need_login = ["我的邀请码","收藏店铺","修改密码","我的电话"]
+        //在需要登录到情况下，判断登录状态
+        if titles_need_login.contains(title) && PPUserInfoManager.isLogined() == false {
+            let vc = LoginViewController()
+            self.present(UINavigationController.init(rootViewController: vc), animated: true, completion: nil)
+            return
+        }
+
         switch title {
         case "我的邀请码":
             print("我的邀请码")
+            let vc = MyInviteCodeViewController()
+            vc.hidesBottomBarWhenPushed = true
+            self.navigationController?.pushViewController(vc, animated: true)
         case "注销登录":
             logOut()
         default:
@@ -121,9 +140,9 @@ class UserCenterViewController: BaseViewController , UITableViewDataSource , UIT
     }
     // MARK: - 注销登录
     func logOut()  {
-        let alertVC = UIAlertController.init(title: "确认退出？", message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
+        let alertVC = UIAlertController.init(title: "确认退出？", message: nil, preferredStyle: UIAlertControllerStyle.alert)
         alertVC.addAction(UIAlertAction.init(title: "退出", style: UIAlertActionStyle.destructive, handler: { (act) in
-            PPUserInfoManager.updateLoginStatus(logined: false)
+            PPUserInfoManager.updateIsLogined(logined: false)
             let vc = LoginViewController()
             self.present(UINavigationController.init(rootViewController: vc), animated: true, completion: nil)
         }))

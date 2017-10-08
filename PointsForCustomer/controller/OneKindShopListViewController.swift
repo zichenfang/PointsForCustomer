@@ -36,7 +36,6 @@ class OneKindShopListViewController: BaseViewController , UITableViewDataSource 
     //MARK:配置tableview下拉刷新，cell ，contentInset
     func configTableView()  {
         tableView.register(UINib.init(nibName: "PPShopTableViewCell", bundle: nil), forCellReuseIdentifier: "indexShop");
-//        tableView.contentInset = UIEdgeInsets.init(top: -20, left: 0, bottom: 0, right: 0);
         tableView.mj_header = MJRefreshNormalHeader.init(refreshingBlock: {
             self.page = 1
             self.shopDatas?.removeAllObjects()
@@ -49,10 +48,14 @@ class OneKindShopListViewController: BaseViewController , UITableViewDataSource 
     }
     //    MARK:获取商家数据
     func loadShopData() {
-        let para = ["p":page,
+        let para = ["longitude":LOCATION_MANAGER.currentLocation?.coordinate.longitude ?? DEFAULT_LOCATION_LONGITUDE,
+                    "latitude":LOCATION_MANAGER.currentLocation?.coordinate.latitude ?? DEFAULT_LOCATION_LATITUDE,
+                    "city_id":LOCATION_MANAGER.currentCity ?? DEFAULT_LOCATION_CITYNAME,
+                    "p":page,
                     "pagesize":LIST_PAGESIZE,
-                    "type":classObj.id ?? "0"] as [String : AnyObject]
-        PPRequestManager.GET(url: API_SHOP_SHOPS_WITHOUTDISTANCE, para: para, success: { (json) in
+                    "type":classObj.id!] as [String : AnyObject]
+
+        PPRequestManager.POST(url: API_SHOP_SHOPS, para: para, success: { (json) in
             if self.page == 1{
                 self.tableView.mj_header.endRefreshing()
             }
@@ -70,6 +73,7 @@ class OneKindShopListViewController: BaseViewController , UITableViewDataSource 
                 if result.count < LIST_PAGESIZE {
                     self.tableView.mj_footer.endRefreshingWithNoMoreData();
                 }
+                self.tableView.reloadData()
             }
             else{
                 ProgressHUD.showError(msg, interaction: false)
@@ -89,8 +93,8 @@ class OneKindShopListViewController: BaseViewController , UITableViewDataSource 
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell :PPShopTableViewCell! = tableView.dequeueReusableCell(withIdentifier: "indexShop", for: indexPath) as! PPShopTableViewCell;
-        let aobj = PPShopObject.init(info: ["imgUrl":"https://gw.alicdn.com/imgextra/i4/1/TB20GOyXDJ_SKJjSZPiXXb3LpXa_!!1-0-luban.jpg","star":NSNumber.init(value: arc4random()%5+1)])
-        cell.data(obj: aobj);
+        let aobj = shopDatas![indexPath.row]
+        cell.data(obj: aobj as! PPShopObject);
         return cell!;
     }
     //    MARK:UITableViewDelegate
@@ -100,6 +104,7 @@ class OneKindShopListViewController: BaseViewController , UITableViewDataSource 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let vc = ShopDetailViewController();
+        vc.shopObj = shopDatas![indexPath.row] as! PPShopObject
         vc.hidesBottomBarWhenPushed = true;
         navigationController?.pushViewController(vc, animated: true);
     }

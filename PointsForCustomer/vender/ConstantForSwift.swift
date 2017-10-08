@@ -42,6 +42,9 @@ let NOTI_LOCATION_CHANGED  = NSNotification.Name(rawValue: "pp_noti_001");
 let NOTI_USERINFO_CHANGED  = NSNotification.Name(rawValue: "pp_noti_002");
 //MARK: ●用户登录成功或者退出登录
 let NOTI_USERSTATUS_CHANGED  = NSNotification.Name(rawValue: "pp_noti_003");
+//MARK: ●点击首页右上角扫码动作
+let NOTI_INDEX_SCANECODE  = NSNotification.Name(rawValue: "pp_noti_004");
+
 
 //MARK: 列表页内数据个数
 let LIST_PAGESIZE  = 50 ;
@@ -69,10 +72,14 @@ let API_SHOP_SHOPS :String = "/api.php/v1.Index/sellers";
 let API_SHOP_SHOPS_WITHOUTDISTANCE :String = "/api.php/v1.Index/sellerList";
 //MARK: ●获取商家详情
 let API_SHOP_SHOPS_DETAIL :String = "/api.php/v1.Index/sellerDetail";
-
-
-
-
+//MARK: ●收藏店铺
+let API_SHOP_ADD_FAV :String = "/api.php/v1.User/addCollection";
+//MARK: ●取消收藏店铺
+let API_SHOP_DELE_FAV :String = "/api.php/v1.User/removeCollection";
+//MARK: ●获取收藏店铺状态
+let API_SHOP_FAV_STATUS :String = "/api.php/v1.User/isCollection";
+//MARK: ●积分使用记录
+let API_USER_POINTS_HISTORY :String = "/api.php/v1.User/statement";
 class ConstantForSwift: NSObject {
 
 }

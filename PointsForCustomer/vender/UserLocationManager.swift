@@ -48,10 +48,9 @@ class UserLocationManager: NSObject {
             ProgressHUD.dismiss();
             if let error = error {
                 let error = error as NSError
-                if error.code == AMapLocationErrorCode.locateFailed.rawValue {
-                    if permissionFailed != nil{
-                        permissionFailed!();
-                    }
+                print("定位错误了！！！\(error)")
+                if error.code == AMapLocationErrorCode.locateFailed.rawValue && permissionFailed != nil{
+                    permissionFailed!();
                     return
                 }
                 else if error.code == AMapLocationErrorCode.reGeocodeFailed.rawValue

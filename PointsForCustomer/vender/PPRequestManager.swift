@@ -23,7 +23,7 @@ class PPRequestManager: NSObject {
         if url_here .hasPrefix("http") == false{
             url_here = API_HEADERURL + url_here
         }
-        url_here = url_here.replacingOccurrences(of: "//", with: "/")
+//        url_here = url_here.replacingOccurrences(of: "//", with: "/")
 
         manager.get(url_here, parameters: para, progress: nil, success: {(task,response) in
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
@@ -62,7 +62,7 @@ class PPRequestManager: NSObject {
         if url_here .hasPrefix("http") == false{
             url_here = API_HEADERURL + url_here
         }
-        url_here = url_here.replacingOccurrences(of: "//", with: "/")
+//        url_here = url_here.replacingOccurrences(of: "//", with: "/")
         
         manager.post(url_here, parameters: para, progress: nil, success: {(task,response) in
             UIApplication.shared.isNetworkActivityIndicatorVisible = false

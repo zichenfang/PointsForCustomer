@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -15,7 +15,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="108"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="108"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="107.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="店铺名称" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SgV-J5-y1g">
@@ -97,6 +97,11 @@
                 <constraint firstItem="SgV-J5-y1g" firstAttribute="top" secondItem="KGk-i7-Jjw" secondAttribute="top" constant="10" id="nZX-GS-nsn"/>
             </constraints>
             <connections>
+                <outlet property="commentCountLabel" destination="Bce-Lh-NKo" id="p1s-PJ-BPG"/>
+                <outlet property="distanceLabel" destination="OW1-ph-h8K" id="XdE-Qw-Y7S"/>
+                <outlet property="kdaLabel" destination="k4c-4T-kQG" id="ki6-N7-R0R"/>
+                <outlet property="percentLabel" destination="cHB-cc-tIQ" id="RK3-Le-bNa"/>
+                <outlet property="shopNameLabel" destination="SgV-J5-y1g" id="F4Q-BO-NMd"/>
                 <outlet property="shopThumbIV" destination="FJJ-KZ-YLb" id="X14-ed-0Es"/>
             </connections>
             <point key="canvasLocation" x="-179" y="-16"/>
