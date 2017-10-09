@@ -124,7 +124,6 @@ class ReadBitCodeViewController: BaseViewController,AVCaptureMetadataOutputObjec
     // MARK: - 读取到二维码内容
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
         if (metadataObjects.count>0) {
-            //输出扫描字符串
             //播放扫码声音
             var soundID:SystemSoundID = 0
             AudioServicesCreateSystemSoundID(URL.init(string: Bundle.main.path(forResource: "qrcode_found", ofType: "wav")!)! as CFURL, &soundID)
@@ -132,9 +131,20 @@ class ReadBitCodeViewController: BaseViewController,AVCaptureMetadataOutputObjec
             stopReadCode();
             if let metadataObject = metadataObjects.first as? AVMetadataMachineReadableCodeObject{
                 codeValue = metadataObject.stringValue;
-                print(codeValue);
+//                25jfnmuhgpbv春风十里jfnmuhgpbv5jfnmuhgpbv100 ()
+//                店铺idjfnmuhgpbv店铺名jfnmuhgpbv转换比例jfnmuhgpbv消费金额
+                let para = codeValue.components(separatedBy: "jfnmuhgpbv")
+                if para.count != 4 {
+                    let alertC = UIAlertController.init(title: "商家二维码无效", message: nil, preferredStyle: UIAlertControllerStyle.alert)
+                    alertC.addAction(UIAlertAction.init(title: "确定", style: UIAlertActionStyle.default, handler: { (act) in
+                        self.startReadCode()
+                    }))
+                    self.present(alertC, animated: true, completion: nil)
+                    return
+                }
+                
                 let vc = PayNowViewController();
-                vc.title = codeValue;
+                vc.para = para;
                 vc.hidesBottomBarWhenPushed = true;
                 self.navigationController?.pushViewController(vc, animated: true);
             }
