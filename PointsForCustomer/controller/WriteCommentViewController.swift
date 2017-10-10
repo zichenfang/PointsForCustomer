@@ -41,8 +41,17 @@ class WriteCommentViewController: BaseViewController {
         super.viewWillAppear(animated);
         self.navigationController?.setNavigationBarHidden(false, animated: true);
     }
+//    MARK:取消评论
     @objc func dis (){
-        self.dismiss(animated: true, completion: nil)
+        let alertC = UIAlertController.init(title: "是否放弃评论？", message: nil, preferredStyle: UIAlertControllerStyle.alert)
+        alertC.addAction(UIAlertAction.init(title: "放弃", style: UIAlertActionStyle.default, handler: { (act) in
+            self.dismiss(animated: true, completion: nil)
+            if self.handler != nil{
+                self.handler!([:])
+            }
+        }))
+        alertC.addAction(UIAlertAction.init(title: "取消", style: UIAlertActionStyle.cancel, handler: nil))
+        self.present(alertC, animated: true, completion: nil)
     }
     @objc func resignKeyBoard (){
         commentTV.resignFirstResponder()
@@ -146,16 +155,19 @@ class WriteCommentViewController: BaseViewController {
         //测试发表评价
         ProgressHUD.show(nil, interaction: false)
         PPRequestManager.POST(url: API_SHOP_ADD_COMMENT, para: para, construct: { (formatData) in
-            var index = 1
-            for img in self.uploadImages!{
-                let imgName = String.init(format: "image%d", index)
-                formatData.appendPart(withFileData: UIImagePNGRepresentation(img)!, name: imgName, fileName: "pic.png", mimeType: "image/png")
-                index = index + 1
+            if self.uploadImages != nil{
+                var index = 1
+                for img in self.uploadImages!{
+                    let imgName = String.init(format: "image%d", index)
+                    formatData.appendPart(withFileData: UIImagePNGRepresentation(img)!, name: imgName, fileName: "pic.png", mimeType: "image/png")
+                    index = index + 1
+                }
             }
         }, success: { (json) in
             let code = json["code"] as! Int
             if code == 200 {
                 ProgressHUD.showSuccess("评价成功！", interaction: false)
+                self.perform(#selector(self.commentSuccess), with: nil, afterDelay: 1.2)
             }
             else{
                 let msg = json["msg"] as! String
@@ -166,15 +178,13 @@ class WriteCommentViewController: BaseViewController {
             ProgressHUD.showError("请求超时，请重试", interaction: false)
         }
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    //    MARK:评论成功
+    @objc func commentSuccess()  {
+        self.dismiss(animated: true, completion: nil)
+        if self.handler != nil{
+            self.handler!([:])
+        }
     }
-    */
+
 
 }

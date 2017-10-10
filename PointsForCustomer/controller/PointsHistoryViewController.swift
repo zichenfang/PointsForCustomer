@@ -12,7 +12,7 @@ class PointsHistoryViewController: BaseViewController , UITableViewDataSource , 
     @IBOutlet var lastPointsLabel: UILabel!
     @IBOutlet var tableView: UITableView!
     //积分纪录列表数据
-    var pointsHistoryData :NSMutableArray? = NSMutableArray();
+    var pointsHistoryData  = NSMutableArray() as! [PPPointsHistoryObj];
     //商家列表分页页码
     var page :Int = 1;
     convenience init() {
@@ -24,6 +24,7 @@ class PointsHistoryViewController: BaseViewController , UITableViewDataSource , 
         let points = PPUserInfoManager.userInfo()!["integral_balance"] as? Int
         lastPointsLabel.text = String.init(format: "%d", points!)
         configTableView()
+        loadPointsHistoryData()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -34,7 +35,7 @@ class PointsHistoryViewController: BaseViewController , UITableViewDataSource , 
         tableView.register(UINib.init(nibName: "PointsHistoryTableViewCell", bundle: nil), forCellReuseIdentifier: "pointshistory");
         tableView.mj_header = MJRefreshNormalHeader.init(refreshingBlock: {
             self.page = 1
-            self.pointsHistoryData?.removeAllObjects()
+            self.pointsHistoryData.removeAll()
             self.loadPointsHistoryData()
         })
         tableView.mj_footer = MJRefreshAutoNormalFooter.init(refreshingBlock: {
@@ -59,9 +60,9 @@ class PointsHistoryViewController: BaseViewController , UITableViewDataSource , 
             let msg = json["msg"] as! String
             if code == 200 {
                 let result = json["result"] as! NSArray
-                for shop_dic in result{
-                    let shop = PPPointsHistoryObj.init(info: shop_dic as! NSDictionary)
-                    self.pointsHistoryData?.add(shop)
+                for pointhis_dic in result{
+                    let pointhisObj = PPPointsHistoryObj.init(info: pointhis_dic as! NSDictionary)
+                    self.pointsHistoryData.append(pointhisObj)
                 }
                 if result.count < LIST_PAGESIZE {
                     self.tableView.mj_footer.endRefreshingWithNoMoreData();
@@ -82,13 +83,12 @@ class PointsHistoryViewController: BaseViewController , UITableViewDataSource , 
     }
     //    MARK:UITableViewDataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return (shopDatas?.count)!;
-        return 10
+        return pointsHistoryData.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell :PointsHistoryTableViewCell! = tableView.dequeueReusableCell(withIdentifier: "pointshistory", for: indexPath) as! PointsHistoryTableViewCell;
-//        let aobj = shopDatas![indexPath.row]
-//        cell.data(obj: aobj as! PPShopObject);
+        let aobj = pointsHistoryData[indexPath.row]
+        cell.data(obj: aobj);
         return cell!;
     }
     //    MARK:UITableViewDelegate

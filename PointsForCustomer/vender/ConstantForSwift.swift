@@ -32,7 +32,12 @@ let DEFAULT_LOCATION_LONGITUDE = 120.3748378135;
 let DEFAULT_LOCATION_LATITUDE = 36.0876615097;
 let DEFAULT_LOCATION_CITYNAME = "青岛";
 
-let PLACE_HOLDER_IMAGE :UIImage = UIImage.init(named: "placeholderimage")!;
+//MARK: ●通用默认图
+let PLACE_HOLDER_IMAGE_GENERAL :UIImage = UIImage.init(named: "placeholderimage")!;
+//MARK: ●用户头像默认图
+let PLACE_HOLDER_IMAGE_USER :UIImage = UIImage.init(named: "avatarplaceholder")!;
+
+
 let APP_DELEGATE  = UIApplication.shared.delegate as! AppDelegate;
 
 //MARK: 通知别名 NotificationCenter
@@ -63,6 +68,9 @@ let API_USER_LOGIN :String = "/api.php/v1.Publics/login";
 let API_USER_FINDPASSWORD :String = "/api.php/v1.Publics/retrievePassword";
 //MARK: ●积分使用记录
 let API_USER_POINTS_HISTORY :String = "/api.php/v1.User/statement";
+//MARK: ●积分转赠
+let API_USER_TRANS_POINTS :String = "/api.php/v1.User/invitationWithdraw";
+
 
 //MARK: ●轮播图
 let API_SHOP_BANNER :String = "/api.php/v1.Index/ads";
@@ -86,6 +94,10 @@ let API_SHOP_ADD_COMMENT :String = "/api.php/v1.User/addComment";
 let API_SHOP_UPLOADIMAGE :String = "/api.php/v1.User/upload";
 //MARK: ●扫码支付
 let API_SHOP_PAYNOW :String = "/api.php/v1.User/pay";
+//MARK: ●商家下面的评论列表
+let API_SHOP_COMMENTS :String = "/api.php/v1.Index/Comments";
+
+
 
 class ConstantForSwift: NSObject {
 

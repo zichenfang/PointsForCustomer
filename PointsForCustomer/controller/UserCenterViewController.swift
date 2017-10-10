@@ -37,7 +37,7 @@ class UserCenterViewController: BaseViewController , UITableViewDataSource , UIT
         let nickname = PPUserInfoManager.userInfo()?.value(forKey: "nickname") as! String;
         nameLabel.text = nickname ;
         let avatar = PPUserInfoManager.userInfo()?.value(forKey: "head_img") as! String;
-        avatarIV.sd_setImage(with: URL.init(string: avatar), placeholderImage: PLACE_HOLDER_IMAGE)
+        avatarIV.sd_setImage(with: URL.init(string: avatar), placeholderImage: PLACE_HOLDER_IMAGE_GENERAL)
     }
     @objc func userStatusDidChanged () {
         if PPUserInfoManager.isLogined() == true {
@@ -46,7 +46,7 @@ class UserCenterViewController: BaseViewController , UITableViewDataSource , UIT
         }
         else{
             nameLabel.text = "登录/注册" ;
-            avatarIV.image = PLACE_HOLDER_IMAGE
+            avatarIV.image = PLACE_HOLDER_IMAGE_GENERAL
             menus = ["我的邀请码","收藏店铺","修改密码","我的电话","分享软件","联系我们"]
         }
         tableView.reloadData()
@@ -82,7 +82,14 @@ class UserCenterViewController: BaseViewController , UITableViewDataSource , UIT
     }
     //    MARK:积分转增
     @IBAction func goZhuanZengPoints(_ sender: Any) {
-        print("goZhuanZengPoints")
+        if PPUserInfoManager.isLogined() == false {
+            let vc = LoginViewController()
+            self.present(UINavigationController.init(rootViewController: vc), animated: true, completion: nil)
+            return
+        }
+        let vc = TransPointsViewController()
+        vc.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     //    MARK:积分说明
     @IBAction func goPointsReadMe(_ sender: Any) {

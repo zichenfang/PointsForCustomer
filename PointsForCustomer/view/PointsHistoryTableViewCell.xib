@@ -83,6 +83,12 @@
                 <constraint firstItem="xLD-9Y-lVl" firstAttribute="top" secondItem="KGk-i7-Jjw" secondAttribute="top" id="sJF-8k-mLV"/>
                 <constraint firstAttribute="bottom" secondItem="xLD-9Y-lVl" secondAttribute="bottom" constant="5" id="z0g-7Q-zWn"/>
             </constraints>
+            <connections>
+                <outlet property="pointsDesLabel" destination="R0V-zz-dKX" id="ut4-pv-kJv"/>
+                <outlet property="shopNameLabel" destination="8QJ-qb-tlP" id="4v6-7m-oZB"/>
+                <outlet property="timeLabel" destination="Uci-uB-eLl" id="dnN-0a-cY9"/>
+                <outlet property="valueLabel" destination="OC8-rw-ceQ" id="bcE-LP-oyx"/>
+            </connections>
             <point key="canvasLocation" x="25" y="18.5"/>
         </tableViewCell>
     </objects>

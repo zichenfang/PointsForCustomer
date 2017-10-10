@@ -56,13 +56,24 @@ class PayNowViewController: BaseViewController {
         
         canGetPointLabel.text = String.init(format: "%d分", canUseMaxPoint - inputPoint)
     }
-//    MARK:支付，支付成功后，跳转到评价页面
+//    MARK:开始支付
     @IBAction func payNow(_ sender: Any) {
+        let alertC = UIAlertController.init(title: "确认支付？", message: nil, preferredStyle: UIAlertControllerStyle.alert)
+        alertC.addAction(UIAlertAction.init(title: "支付", style: UIAlertActionStyle.default, handler: { (act) in
+            self.requestPay()
+        }))
+        alertC.addAction(UIAlertAction.init(title: "取消", style: UIAlertActionStyle.cancel, handler: nil))
+        self.present(alertC, animated: true, completion: nil)
+
+    }
+    //    MARK:支付请求
+    func requestPay() {
         let usePoint = Int(usePointTF.text!) ?? 0
         let para = ["pay_points" : usePoint,
                     "token" : PPUserInfoManager.token(),
                     "store_id" : shopId,
                     "total_fee" : price] as [String:AnyObject]
+        ProgressHUD.show(nil)
         PPRequestManager.POST(url: API_SHOP_PAYNOW, para: para, success: { (json) in
             let code = json["code"] as! Int
             let msg = json["msg"] as! String
@@ -76,12 +87,15 @@ class PayNowViewController: BaseViewController {
         }) {
             ProgressHUD.showError("支付失败，请重试", interaction: false)
         }
-        
+
     }
 //    MARK:支付成功，跳转到评论页面
     @objc func paySuccess()  {
         let vc = WriteCommentViewController()
         vc.shop_id = shopId
+        vc.handler = {(_ info) -> Void in
+            self.navigationController?.popToRootViewController(animated: false)
+        }
         self.present(UINavigationController.init(rootViewController: vc), animated: true, completion: nil)
     }
     

@@ -118,7 +118,7 @@ class IndexHeaderView: UIView ,UIScrollViewDelegate {
                     itemView?.frame = CGRect.init(x: item_x, y: item_y, width: itemWidth, height: itemHeight);
                     pageView?.addSubview(itemView!)
                     itemView?.nameLabel.text = classObj?.name;
-                    itemView?.imgView.sd_setImage(with: URL.init(string: (classObj?.imageUrl!)!), placeholderImage: PLACE_HOLDER_IMAGE);
+                    itemView?.imgView.sd_setImage(with: URL.init(string: (classObj?.imageUrl!)!), placeholderImage: PLACE_HOLDER_IMAGE_GENERAL);
                     // MARK:分类点击动作
                     itemView?.btn.addTarget(self, action: #selector(classItemDidSelected), for: UIControlEvents.touchUpInside)
                     index = index + 1;
@@ -152,7 +152,7 @@ class IndexHeaderView: UIView ,UIScrollViewDelegate {
         bannerScrollView.autoScrollTimeInterval = 4.0;
         bannerScrollView.pageControlBottomOffset = 10;
         bannerScrollView.bannerImageViewContentMode = UIViewContentMode.scaleAspectFill;
-        bannerScrollView.placeholderImage = PLACE_HOLDER_IMAGE
+        bannerScrollView.placeholderImage = PLACE_HOLDER_IMAGE_GENERAL
         //轮播图pageControl
         
         /*分类菜单模块*/

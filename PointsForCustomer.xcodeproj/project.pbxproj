@@ -22,6 +22,8 @@
 		E21D2AAF1F8A752B001D29A1 /* PPPointsHistoryObj.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21D2AAE1F8A752B001D29A1 /* PPPointsHistoryObj.swift */; };
 		E21D2AB31F8A7958001D29A1 /* PointsHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21D2AB21F8A7957001D29A1 /* PointsHistoryViewController.swift */; };
 		E21D2AB41F8A79BE001D29A1 /* PointsHistoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E21D2AB11F8A7957001D29A1 /* PointsHistoryViewController.xib */; };
+		E223EF9D1F8CF6A300D8AB7C /* TransPointsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E223EF9B1F8CF6A300D8AB7C /* TransPointsViewController.swift */; };
+		E223EF9E1F8CF6A300D8AB7C /* TransPointsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E223EF9C1F8CF6A300D8AB7C /* TransPointsViewController.xib */; };
 		E228688E1F8667690050CDEC /* PPUserInfoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E228688D1F8667690050CDEC /* PPUserInfoManager.swift */; };
 		E22868911F86746B0050CDEC /* FindPassWordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E228688F1F86746B0050CDEC /* FindPassWordViewController.swift */; };
 		E22868921F86746B0050CDEC /* FindPassWordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E22868901F86746B0050CDEC /* FindPassWordViewController.xib */; };
@@ -107,6 +109,8 @@
 		E21D2AAE1F8A752B001D29A1 /* PPPointsHistoryObj.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPPointsHistoryObj.swift; sourceTree = "<group>"; };
 		E21D2AB11F8A7957001D29A1 /* PointsHistoryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PointsHistoryViewController.xib; sourceTree = "<group>"; };
 		E21D2AB21F8A7957001D29A1 /* PointsHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsHistoryViewController.swift; sourceTree = "<group>"; };
+		E223EF9B1F8CF6A300D8AB7C /* TransPointsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransPointsViewController.swift; sourceTree = "<group>"; };
+		E223EF9C1F8CF6A300D8AB7C /* TransPointsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransPointsViewController.xib; sourceTree = "<group>"; };
 		E228688D1F8667690050CDEC /* PPUserInfoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPUserInfoManager.swift; sourceTree = "<group>"; };
 		E228688F1F86746B0050CDEC /* FindPassWordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindPassWordViewController.swift; sourceTree = "<group>"; };
 		E22868901F86746B0050CDEC /* FindPassWordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FindPassWordViewController.xib; sourceTree = "<group>"; };
@@ -301,6 +305,8 @@
 				E2D11A001F7E7F69007FFA36 /* PayNowViewController.xib */,
 				E2BFAA351F8B607100B84D45 /* WriteCommentViewController.swift */,
 				E2BFAA361F8B607100B84D45 /* WriteCommentViewController.xib */,
+				E297FDCE1F7DDAA80056C606 /* CommentListViewController.swift */,
+				E297FDCF1F7DDAA80056C606 /* CommentListViewController.xib */,
 				E24EEAE31F72AFBE0084C632 /* CityListViewController.swift */,
 				E24EEAE41F72AFBE0084C632 /* CityListViewController.xib */,
 				E28FA7F21F74D9A100377266 /* SearchAreaViewController.swift */,
@@ -309,14 +315,14 @@
 				E24EEAE81F72B4BA0084C632 /* SearchShopViewController.xib */,
 				E24EEAEB1F72BBEA0084C632 /* ShopDetailViewController.swift */,
 				E24EEAEC1F72BBEA0084C632 /* ShopDetailViewController.xib */,
-				E297FDCE1F7DDAA80056C606 /* CommentListViewController.swift */,
-				E297FDCF1F7DDAA80056C606 /* CommentListViewController.xib */,
 				E2F1EF551F67C1E900CF90C2 /* UserCenterViewController.swift */,
 				E2F1EF561F67C1E900CF90C2 /* UserCenterViewController.xib */,
 				E21D2A9F1F8A6228001D29A1 /* MyInviteCodeViewController.swift */,
 				E21D2AA01F8A6228001D29A1 /* MyInviteCodeViewController.xib */,
 				E21D2AB21F8A7957001D29A1 /* PointsHistoryViewController.swift */,
 				E21D2AB11F8A7957001D29A1 /* PointsHistoryViewController.xib */,
+				E223EF9B1F8CF6A300D8AB7C /* TransPointsViewController.swift */,
+				E223EF9C1F8CF6A300D8AB7C /* TransPointsViewController.xib */,
 				E2F1EF601F67DC2500CF90C2 /* LoginViewController.swift */,
 				E2F1EF611F67DC2500CF90C2 /* LoginViewController.xib */,
 				E20AE6101F851C3D003A603F /* RegistViewController.swift */,
@@ -449,6 +455,7 @@
 				E2E803BD1F6BA6F00094065F /* PPShopTableViewCell.xib in Resources */,
 				E2547C491F73FB12000DA9E9 /* citys.db in Resources */,
 				E21D2AAD1F8A71EB001D29A1 /* PointsHistoryTableViewCell.xib in Resources */,
+				E223EF9E1F8CF6A300D8AB7C /* TransPointsViewController.xib in Resources */,
 				E2E803B91F6A56A40094065F /* UserCenterTableViewCell.xib in Resources */,
 				E2B602571F7D407E006FFAE1 /* ShopDetailSingleTextTableViewCell.xib in Resources */,
 				E2F1EF541F67C1C900CF90C2 /* ReadBitCodeViewController.xib in Resources */,
@@ -543,6 +550,7 @@
 				E24708971F89D81500F8705D /* PPShopDetailobj.swift in Sources */,
 				E228688E1F8667690050CDEC /* PPUserInfoManager.swift in Sources */,
 				E2E803B81F6A56A40094065F /* UserCenterTableViewCell.swift in Sources */,
+				E223EF9D1F8CF6A300D8AB7C /* TransPointsViewController.swift in Sources */,
 				E21D2AB31F8A7958001D29A1 /* PointsHistoryViewController.swift in Sources */,
 				E2FA31A81F713C6600B657A1 /* PPStringExtension.swift in Sources */,
 				E2F1EF621F67DC2500CF90C2 /* LoginViewController.swift in Sources */,

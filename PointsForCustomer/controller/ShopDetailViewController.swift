@@ -219,7 +219,7 @@ class ShopDetailViewController: BaseViewController , UITableViewDataSource , UIT
         if indexPath.row == 0 /*图片*/{
             let cell :ShopDetailSingleImageTableViewCell! = tableView.dequeueReusableCell(withIdentifier: "shopdetailimage", for: indexPath) as! ShopDetailSingleImageTableViewCell;
             let imgUrl = shopDetailObj.images[indexPath.section] as? String
-            cell.imgView.sd_setImage(with: URL.init(string: imgUrl!), placeholderImage: PLACE_HOLDER_IMAGE)
+            cell.imgView.sd_setImage(with: URL.init(string: imgUrl!), placeholderImage: PLACE_HOLDER_IMAGE_GENERAL)
             return cell!;
         }
         else /*文字*/{

@@ -16,7 +16,7 @@ class CommentListViewController: BaseViewController , UITableViewDataSource , UI
     @IBOutlet var shopNameLabel: UILabel!
     @IBOutlet var commentCountLabel: UILabel!
     //评价列表数据
-    var commentDatas :NSMutableArray? = NSMutableArray();
+    var commentDatas = NSMutableArray() as! [CommentObj];
     //商家列表分页页码
     var page :Int = 1;
     convenience init() {
@@ -28,13 +28,14 @@ class CommentListViewController: BaseViewController , UITableViewDataSource , UI
         shopNameLabel.text = shopObj.name
         commentCountLabel.text = String.init(format: "%d 评价", shopObj.comment_num!)
         configTableView()
+        loadCommentData()
     }
     //MARK:配置tableview下拉刷新，cell ，contentInset
     func configTableView()  {
         tableView.register(UINib.init(nibName: "CommentTableViewCell", bundle: nil), forCellReuseIdentifier: "comment");
         tableView.mj_header = MJRefreshNormalHeader.init(refreshingBlock: {
             self.page = 1
-            self.commentDatas?.removeAllObjects()
+            self.commentDatas.removeAll()
             self.loadCommentData()
         })
         tableView.mj_footer = MJRefreshAutoNormalFooter.init(refreshingBlock: {
@@ -44,14 +45,11 @@ class CommentListViewController: BaseViewController , UITableViewDataSource , UI
     }
     //    MARK:获取评价列表数据
     func loadCommentData() {
-        let para = ["longitude":LOCATION_MANAGER.currentLocation?.coordinate.longitude ?? DEFAULT_LOCATION_LONGITUDE,
-                    "latitude":LOCATION_MANAGER.currentLocation?.coordinate.latitude ?? DEFAULT_LOCATION_LATITUDE,
-                    "city_id":LOCATION_MANAGER.currentCity ?? DEFAULT_LOCATION_CITYNAME,
+        let para = ["seller_id":shopObj.id!,
                     "p":page,
-                    "pagesize":LIST_PAGESIZE,
-                    "type":"all"] as [String : AnyObject]
+                    "pagesize":LIST_PAGESIZE] as [String : AnyObject]
         
-        PPRequestManager.POST(url: API_SHOP_SHOPS, para: para, success: { (json) in
+        PPRequestManager.POST(url: API_SHOP_COMMENTS, para: para, success: { (json) in
             if self.page == 1{
                 self.tableView.mj_header.endRefreshing()
             }
@@ -62,9 +60,9 @@ class CommentListViewController: BaseViewController , UITableViewDataSource , UI
             let msg = json["msg"] as! String
             if code == 200 {
                 let result = json["result"] as! NSArray
-                for shop_dic in result{
-                    let shop = CommentObj.init(info: shop_dic as! NSDictionary)
-                    self.commentDatas?.add(shop)
+                for comment_dic in result{
+                    let comment = CommentObj.init(info: comment_dic as! NSDictionary)
+                    self.commentDatas.append(comment)
                 }
                 if result.count < LIST_PAGESIZE {
                     self.tableView.mj_footer.endRefreshingWithNoMoreData();
@@ -85,48 +83,32 @@ class CommentListViewController: BaseViewController , UITableViewDataSource , UI
     }
     //    MARK:UITableViewDataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10;
+        return commentDatas.count;
     }
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell :CommentTableViewCell! = tableView.dequeueReusableCell(withIdentifier: "comment", for: indexPath) as! CommentTableViewCell;
-        //测试 只有图
-        if indexPath.row%3 == 0 {
-            cell.insertImagesViewHeight.constant = SCREEN_WIDTH * 0.2
-            cell.commentLabel.text = nil
-        }
-            //只有文字
-        else if indexPath.row%3 == 1
-        {
-            cell.insertImagesViewHeight.constant = 0
-            cell.commentLabel.text = "我们可以在构造器中为存储型属性设置初始值；同样，也可以在属性声明时为其设置默认值。我们可以在构造器中为存储型属性设置初始值；同样，也可以在属性声明时为其设置默认值。我们可以在构造器中为存储型属性设置初始值；同样，也可以在属性声明时为其设置默认值。我们可以在构造器中为存储型属性设置初始值；同样，也可以在属性声明时为其设置默认值。"
-        }
-            //图文都有
-        else{
-            cell.insertImagesViewHeight.constant = SCREEN_WIDTH * 0.2
-            cell.commentLabel.text = "我们可以在构造器中为存储型属性设置初始值；同样，也可以在属性声明时为其设置默认值。我们可以在构造器中为存储型属性设置初始值；同样，也可以在属性声明时为其设置默认值。我们可以在构造器中为存储型属性设置初始值；同样，也可以在属性声明时为其设置默认值。我们可以在构造器中为存储型属性设置初始值；同样，也可以在属性声明时为其设置默认值。"
-        }
-        return cell!;
         
+        let obj = commentDatas[indexPath.row]
+        cell.data(obj: obj)
+       
+        return cell!;
     }
     //    MARK:UITableViewDelegate
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1;
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let comment = "我们可以在构造器中为存储型属性设置初始值；同样，也可以在属性声明时为其设置默认值。我们可以在构造器中为存储型属性设置初始值；同样，也可以在属性声明时为其设置默认值。我们可以在构造器中为存储型属性设置初始值；同样，也可以在属性声明时为其设置默认值。我们可以在构造器中为存储型属性设置初始值；同样，也可以在属性声明时为其设置默认值。"
-        //测试 只有图
-        if indexPath.row%3 == 0 {
-            return 74 + SCREEN_WIDTH * 0.2 + 15
+        let obj = commentDatas[indexPath.row]
+        //包含图片
+        if obj.images.count>0 {
+            return 74 + SCREEN_WIDTH * 0.2 + obj.comment!.heightWithFountAndWidth(font: UIFont.systemFont(ofSize: 14), width: SCREEN_WIDTH - 10*2) + 15
         }
-            //只有文字
-        else if indexPath.row%3 == 1
-        {
-            return 74 + comment.heightWithFountAndWidth(font: UIFont.systemFont(ofSize: 14), width: SCREEN_WIDTH - 10*2) + 15
-        }
-            //图文都有
+            //不包含图片，只有文字
         else{
-            return 74 + SCREEN_WIDTH * 0.2 + comment.heightWithFountAndWidth(font: UIFont.systemFont(ofSize: 14), width: SCREEN_WIDTH - 10*2) + 15
+            return 74 + obj.comment!.heightWithFountAndWidth(font: UIFont.systemFont(ofSize: 14), width: SCREEN_WIDTH - 10*2) + 15
         }
+       
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)

@@ -21,7 +21,7 @@ class PPShopTableViewCell: UITableViewCell {
         // Initialization code
     }
     func data(obj:PPShopObject) {
-        shopThumbIV.sd_setImage(with: URL.init(string: obj.head_img!), placeholderImage: PLACE_HOLDER_IMAGE);
+        shopThumbIV.sd_setImage(with: URL.init(string: obj.head_img!), placeholderImage: PLACE_HOLDER_IMAGE_GENERAL);
         shopNameLabel.text = obj.name
         kdaLabel.text = String.init(format: "%.1f分", obj.ave_score!)
         percentLabel.text = String.init(format: "返利折扣：%d%", obj.integral_ratio!)

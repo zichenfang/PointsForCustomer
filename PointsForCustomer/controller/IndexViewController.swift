@@ -80,7 +80,6 @@ class IndexViewController: BaseViewController , UITableViewDataSource , UITableV
                 self.bannerDatas?.removeAllObjects()
                 for banner_dic in result{
                     let banner = PPBannerObject.init(info: banner_dic as! NSDictionary)
-                    banner.imageUrl = "https://tvax3.sinaimg.cn/crop.30.11.238.238.50/006qv3hHly8fj7xu3ht2pj30fa083dgh.jpg";
                     self.bannerDatas?.add(banner)
                 }
                 self.updateTableViewHeaderView()

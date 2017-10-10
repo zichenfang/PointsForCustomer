@@ -33,8 +33,8 @@ class UserLocationManager: NSObject {
         /*定位初始化*/
         mapManager = AMapLocationManager();
         mapManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
-        mapManager.locationTimeout = 2
-        mapManager.reGeocodeTimeout = 2
+        mapManager.locationTimeout = 10
+        mapManager.reGeocodeTimeout = 10
         super.init();
     }
     /*静态方法,开始定位

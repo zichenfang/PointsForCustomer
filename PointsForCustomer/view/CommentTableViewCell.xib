@@ -144,7 +144,10 @@
                 <outlet property="commentTimeLabel" destination="6Wy-mS-8h9" id="4i1-ua-GKu"/>
                 <outlet property="insertImagesView" destination="cLX-KZ-3Vv" id="ghr-18-NXv"/>
                 <outlet property="insertImagesViewHeight" destination="uxd-AF-Rci" id="Scs-nk-hK4"/>
-                <outlet property="kpiLabel" destination="WHf-Qi-hCa" id="FIA-35-ctl"/>
+                <outlet property="iv1" destination="uxs-Fc-mj0" id="lRN-xY-m8j"/>
+                <outlet property="iv2" destination="JOg-w6-rfA" id="PwA-Wd-3Mt"/>
+                <outlet property="iv3" destination="nBt-JK-dS6" id="vpZ-7a-Wll"/>
+                <outlet property="kdaLabel" destination="WHf-Qi-hCa" id="asR-Eb-zbE"/>
                 <outlet property="uesrAvatarIV" destination="uyB-UX-Bb5" id="Pi6-aD-0bK"/>
                 <outlet property="userInfoView" destination="hoT-pg-sDI" id="L5U-m4-4P1"/>
                 <outlet property="userNameLabel" destination="g6N-vt-gj1" id="leo-m2-kAO"/>

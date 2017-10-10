@@ -57,5 +57,8 @@
 {
     return [UIColor colorWithHexString:@"#FBFBFB"];
 }
-
++ (UIColor *)styleGreenColor
+{
+    return [UIColor colorWithHexString:@"#29D144"];
+}
 @end

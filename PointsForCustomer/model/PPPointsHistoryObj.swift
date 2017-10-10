@@ -9,10 +9,22 @@
 import UIKit
 
 class PPPointsHistoryObj: BaseObject {
-    var id :Int?
-    var shopName :String?
+    var create_time :String?
+    var num :String?
+    var order_no :String?
+    var remark :String?
+    var transaction_id :Int?
+    var transaction_name :String?
+    var type :String?
+
     init(info :NSDictionary){
-        self.id = info["id"]as?Int;
-        self.shopName = info["shopName"]as?String;
+        self.create_time = info["create_time"]as?String;
+        self.num = info["num"]as?String;
+        self.order_no = info["order_no"]as?String;
+        self.remark = info["remark"]as?String;
+        self.transaction_id = info["transaction_id"]as?Int;
+        self.transaction_name = info["transaction_name"]as?String;
+        self.type = info["type"]as?String;
+
     }
 }

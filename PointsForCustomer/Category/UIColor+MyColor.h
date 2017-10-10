@@ -14,5 +14,6 @@
 
 + (UIColor *)styleRedColor;
 + (UIColor *)styleNavagationBarGrayColor;
++ (UIColor *)styleGreenColor;
 
 @end
