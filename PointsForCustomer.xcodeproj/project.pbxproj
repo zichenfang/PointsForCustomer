@@ -78,8 +78,6 @@
 		E2F1EF541F67C1C900CF90C2 /* ReadBitCodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2F1EF521F67C1C900CF90C2 /* ReadBitCodeViewController.xib */; };
 		E2F1EF571F67C1E900CF90C2 /* UserCenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F1EF551F67C1E900CF90C2 /* UserCenterViewController.swift */; };
 		E2F1EF581F67C1E900CF90C2 /* UserCenterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2F1EF561F67C1E900CF90C2 /* UserCenterViewController.xib */; };
-		E2F1EF5E1F67DA1D00CF90C2 /* TTRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F1EF5B1F67DA1D00CF90C2 /* TTRequestOperationManager.m */; };
-		E2F1EF5F1F67DA1D00CF90C2 /* TTUserInfoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F1EF5D1F67DA1D00CF90C2 /* TTUserInfoManager.m */; };
 		E2F1EF621F67DC2500CF90C2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F1EF601F67DC2500CF90C2 /* LoginViewController.swift */; };
 		E2F1EF631F67DC2500CF90C2 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2F1EF611F67DC2500CF90C2 /* LoginViewController.xib */; };
 		E2FA31A81F713C6600B657A1 /* PPStringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FA31A71F713C6600B657A1 /* PPStringExtension.swift */; };
@@ -171,10 +169,6 @@
 		E2F1EF521F67C1C900CF90C2 /* ReadBitCodeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReadBitCodeViewController.xib; sourceTree = "<group>"; };
 		E2F1EF551F67C1E900CF90C2 /* UserCenterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCenterViewController.swift; sourceTree = "<group>"; };
 		E2F1EF561F67C1E900CF90C2 /* UserCenterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserCenterViewController.xib; sourceTree = "<group>"; };
-		E2F1EF5A1F67DA1D00CF90C2 /* TTRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTRequestOperationManager.h; sourceTree = "<group>"; };
-		E2F1EF5B1F67DA1D00CF90C2 /* TTRequestOperationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTRequestOperationManager.m; sourceTree = "<group>"; };
-		E2F1EF5C1F67DA1D00CF90C2 /* TTUserInfoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTUserInfoManager.h; sourceTree = "<group>"; };
-		E2F1EF5D1F67DA1D00CF90C2 /* TTUserInfoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTUserInfoManager.m; sourceTree = "<group>"; };
 		E2F1EF601F67DC2500CF90C2 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E2F1EF611F67DC2500CF90C2 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		E2FA31A71F713C6600B657A1 /* PPStringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPStringExtension.swift; sourceTree = "<group>"; };
@@ -354,10 +348,6 @@
 		E2F1EF591F67DA0000CF90C2 /* vender */ = {
 			isa = PBXGroup;
 			children = (
-				E2F1EF5A1F67DA1D00CF90C2 /* TTRequestOperationManager.h */,
-				E2F1EF5B1F67DA1D00CF90C2 /* TTRequestOperationManager.m */,
-				E2F1EF5C1F67DA1D00CF90C2 /* TTUserInfoManager.h */,
-				E2F1EF5D1F67DA1D00CF90C2 /* TTUserInfoManager.m */,
 				E228688D1F8667690050CDEC /* PPUserInfoManager.swift */,
 				E25369A81F7F6A5A004AC8A3 /* PPRequestManager.swift */,
 				E28BE24E1F78909300775097 /* UserLocationManager.swift */,
@@ -542,7 +532,6 @@
 				E2B602561F7D407E006FFAE1 /* ShopDetailSingleTextTableViewCell.swift in Sources */,
 				E24EEAE51F72AFBE0084C632 /* CityListViewController.swift in Sources */,
 				E25369A91F7F6A5A004AC8A3 /* PPRequestManager.swift in Sources */,
-				E2F1EF5E1F67DA1D00CF90C2 /* TTRequestOperationManager.m in Sources */,
 				E20A7CA51F690AA900346D4A /* ConstantForSwift.swift in Sources */,
 				E2F1EF3D1F676DA500CF90C2 /* UIColor+MyColor.m in Sources */,
 				E24EEAE91F72B4BA0084C632 /* SearchShopViewController.swift in Sources */,
@@ -560,7 +549,6 @@
 				E22868911F86746B0050CDEC /* FindPassWordViewController.swift in Sources */,
 				E28FA7F81F74DB3700377266 /* SearchAreaTableViewCell.swift in Sources */,
 				E297FDD61F7E21D30056C606 /* OneKindShopListViewController.swift in Sources */,
-				E2F1EF5F1F67DA1D00CF90C2 /* TTUserInfoManager.m in Sources */,
 				E28FA7F41F74D9A100377266 /* SearchAreaViewController.swift in Sources */,
 				E2E803BF1F6BAAE30094065F /* IndexHeaderView.swift in Sources */,
 				E297FDD01F7DDAA80056C606 /* CommentListViewController.swift in Sources */,

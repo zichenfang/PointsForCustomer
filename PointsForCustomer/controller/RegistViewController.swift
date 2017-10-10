@@ -125,6 +125,9 @@ class RegistViewController: BaseViewController {
 //    MARK:注册成功跳转
     @objc func successBack()  {
         self.navigationController?.popToRootViewController(animated: false)
+        if self.handler != nil {
+            self.handler!([:])
+        }
     }
     
 }

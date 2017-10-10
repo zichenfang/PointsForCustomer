@@ -18,7 +18,7 @@ class LoginViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        self.navigationItem.title = "登录"
+        self.title = "登录"
         self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "取消", style: UIBarButtonItemStyle.plain, target: self, action: #selector(dis))
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -36,9 +36,7 @@ class LoginViewController: BaseViewController {
     @IBAction func regist(_ sender: Any) {
         let vc = RegistViewController()
         vc.handler = {(_ info :NSDictionary?) ->Void in
-            if self.handler != nil {
-                self.handler!([:])
-            }
+            //注册成功之后的回掉
             self.dismiss(animated: true, completion: nil)
         }
         self.navigationController?.pushViewController(vc, animated: true)

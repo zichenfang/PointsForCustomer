@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainTabbarViewController: UITabBarController {
+class MainTabbarViewController: UITabBarController ,UITabBarControllerDelegate{
     var indexVC :IndexViewController?
     var readBitCodeVC :ReadBitCodeViewController?
     var userCenterVC :UserCenterViewController?
@@ -24,7 +24,7 @@ class MainTabbarViewController: UITabBarController {
         userCenterVC = UserCenterViewController();
         addChildVC(childVC: userCenterVC!, title: "我的", image: "tabbar_usercenter");
         NotificationCenter.default.addObserver(self, selector: #selector(scanCode), name: NOTI_INDEX_SCANECODE, object: nil)
-        
+        self.delegate = self
     }
     func addChildVC(childVC :UIViewController,title:String,image:String) {
         childVC.title = title;
@@ -35,6 +35,23 @@ class MainTabbarViewController: UITabBarController {
 
     }
     @objc func scanCode () {
-        self.selectedViewController = self.viewControllers?[1]
+        if PPUserInfoManager.isLogined() == false {
+            let vc = LoginViewController()
+            self.selectedViewController?.present(UINavigationController.init(rootViewController: vc), animated: true, completion: nil)
+        }
+        else{
+            self.selectedViewController = self.viewControllers?[1]
+        }
+    }
+    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+        //扫码时，判断登录状态
+        if viewController == self.viewControllers?[1] && PPUserInfoManager.isLogined() == false {
+            let vc = LoginViewController()
+            self.selectedViewController?.present(UINavigationController.init(rootViewController: vc), animated: true, completion: nil)
+            return false
+        }
+        else{
+            return true
+        }
     }
 }

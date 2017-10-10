@@ -13,10 +13,12 @@ class PPShopObject: BaseObject {
     var name :String?
     var head_img :String?
     //评分
-    var ave_score :NSInteger?
-    var comment_num :NSInteger?
+    var ave_score :Double?
+    //星星等级
+    var star :Int?
+    var comment_num :Int?
     var distance :String?
-    var integral_ratio :NSInteger?
+    var integral_ratio :Int?
     var latitude :Double?
     var longitude :Double?
 
@@ -24,10 +26,11 @@ class PPShopObject: BaseObject {
         self.id = info["id"]as?Int;
         self.name = info["name"]as?String;
         self.head_img = info["head_img"]as?String;
-        self.ave_score = info["ave_score"]as?NSInteger;
-        self.comment_num = info["comment_num"]as?NSInteger;
+        self.ave_score = info["ave_score"]as?Double;
+        self.star = Int(self.ave_score!)
+        self.comment_num = info["comment_num"]as?Int;
         self.distance = info["distance"]as?String;
-        self.integral_ratio = info["integral_ratio"]as?NSInteger;
+        self.integral_ratio = info["integral_ratio"]as?Int;
         self.latitude = info["latitude"]as?Double;
         self.longitude = info["longitude"]as?Double;
 

@@ -27,7 +27,9 @@ class PPShopDetailobj: BaseObject {
     var introduction :String?
 
     //评分
-    var ave_score :NSInteger?
+    var ave_score :Double?
+    //星星等级
+    var star :Int?
     var comment_num :NSInteger?
     var distance :String?
     var integral_ratio :NSInteger?
@@ -61,7 +63,8 @@ class PPShopDetailobj: BaseObject {
 
         self.introduction = info["introduction"]as?String;
 
-        self.ave_score = info["ave_score"]as?NSInteger;
+        self.ave_score = info["ave_score"]as?Double;
+        self.star = Int(self.ave_score!)
         self.comment_num = info["comment_num"]as?NSInteger;
         self.distance = info["distance"]as?String;
         self.integral_ratio = info["integral_ratio"]as?NSInteger;

@@ -23,7 +23,9 @@
 #import "FMDB.h"
 #import "TPKeyboardAvoidingTableView.h"
 #import <MAMapKit/MAMapKit.h>
-#import "TTRequestOperationManager.h"
 #import "MJRefresh.h"
+#import "ZLPhotoActionSheet.h"
+#import "AFNetworking.h"
+#import <CommonCrypto/CommonDigest.h>
 
 #endif /* PointsForCustomer_Bridging_Header_h */

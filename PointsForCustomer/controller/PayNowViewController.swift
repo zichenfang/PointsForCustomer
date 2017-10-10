@@ -24,6 +24,7 @@ class PayNowViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        shopId = Int(para[0])
         self.title = para[1]
         //消费金额
         price = Double(para[3])
@@ -55,13 +56,33 @@ class PayNowViewController: BaseViewController {
         
         canGetPointLabel.text = String.init(format: "%d分", canUseMaxPoint - inputPoint)
     }
+//    MARK:支付，支付成功后，跳转到评价页面
     @IBAction func payNow(_ sender: Any) {
         let usePoint = Int(usePointTF.text!) ?? 0
-        let getPoint = canUseMaxPoint - usePoint
-        let para = ["use" : usePoint,
-                    "get" : getPoint,
-                    "price" : price] as [String:AnyObject]
-        print(para)
+        let para = ["pay_points" : usePoint,
+                    "token" : PPUserInfoManager.token(),
+                    "store_id" : shopId,
+                    "total_fee" : price] as [String:AnyObject]
+        PPRequestManager.POST(url: API_SHOP_PAYNOW, para: para, success: { (json) in
+            let code = json["code"] as! Int
+            let msg = json["msg"] as! String
+            if code == 200 {
+                ProgressHUD.showSuccess("支付成功！", interaction: false)
+                self.perform(#selector(self.paySuccess), with: nil, afterDelay: 1.2)
+            }
+            else{
+                ProgressHUD.showError(msg, interaction: false)
+            }
+        }) {
+            ProgressHUD.showError("支付失败，请重试", interaction: false)
+        }
+        
+    }
+//    MARK:支付成功，跳转到评论页面
+    @objc func paySuccess()  {
+        let vc = WriteCommentViewController()
+        vc.shop_id = shopId
+        self.present(UINavigationController.init(rootViewController: vc), animated: true, completion: nil)
     }
     
 }

@@ -13,4 +13,5 @@ target "PointsForCustomer" do
     pod 'SDCycleScrollView', '~> 1.66'
     pod 'FMDB', '~> 2.6.2'
     pod 'AMap2DMap-NO-IDFA', '~> 4.6.0'
+    pod 'ZLPhotoBrowser', '~> 2.4.0'
 end

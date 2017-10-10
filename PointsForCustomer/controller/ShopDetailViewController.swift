@@ -133,7 +133,7 @@ class ShopDetailViewController: BaseViewController , UITableViewDataSource , UIT
         titleLabel.text = shopDetailObj.name;
         pointScaleLabel.text = String.init(format: "积分比例：%d %%", shopDetailObj.integral_ratio!)
 
-        let starValue = Int(shopDetailObj.ave_score!);
+        let starValue = shopDetailObj.star!;
         for index in 0...4 {
             let starIV = subContentView.viewWithTag(100 + index) as? UIImageView
             if index+1 <= starValue  {
@@ -143,7 +143,7 @@ class ShopDetailViewController: BaseViewController , UITableViewDataSource , UIT
                 starIV!.image = #imageLiteral(resourceName: "xingxing_an")
             }
         }
-        kdaLabel.text = String.init(format: "%d分", shopDetailObj.ave_score!)
+        kdaLabel.text = String.init(format: "%.1f分", shopDetailObj.ave_score!)
         commentCountBtn.setTitle(String.init(format: "%d 评价", shopDetailObj.comment_num!), for: UIControlState.normal)
         addressLabel.text = shopDetailObj.address
         tableView.endUpdates()

@@ -65,7 +65,6 @@ class SearchAreaViewController: BaseViewController ,UITextFieldDelegate ,UITable
         if LOCATION_MANAGER.realLocation != nil{
             let apoi_corrd = CLLocationCoordinate2D.init(latitude: CLLocationDegrees(apoi.location.latitude), longitude: CLLocationDegrees(apoi.location.longitude))
             let distance = MAMetersBetweenMapPoints(MAMapPointForCoordinate((LOCATION_MANAGER.realLocation?.coordinate)!), MAMapPointForCoordinate(apoi_corrd));
-            print(distance);
             if distance <= 0.1 {
                 cell.distanceLabel.isHidden = true;
             }

@@ -61,6 +61,8 @@ let API_USER_MESSAGE :String = "/api.php/v1.Publics/sendSms";
 let API_USER_LOGIN :String = "/api.php/v1.Publics/login";
 //MARK: ●忘记密码
 let API_USER_FINDPASSWORD :String = "/api.php/v1.Publics/retrievePassword";
+//MARK: ●积分使用记录
+let API_USER_POINTS_HISTORY :String = "/api.php/v1.User/statement";
 
 //MARK: ●轮播图
 let API_SHOP_BANNER :String = "/api.php/v1.Index/ads";
@@ -78,8 +80,13 @@ let API_SHOP_ADD_FAV :String = "/api.php/v1.User/addCollection";
 let API_SHOP_DELE_FAV :String = "/api.php/v1.User/removeCollection";
 //MARK: ●获取收藏店铺状态
 let API_SHOP_FAV_STATUS :String = "/api.php/v1.User/isCollection";
-//MARK: ●积分使用记录
-let API_USER_POINTS_HISTORY :String = "/api.php/v1.User/statement";
+//MARK: ●发表评论(图片与其他内容一并提交)
+let API_SHOP_ADD_COMMENT :String = "/api.php/v1.User/addComment";
+//MARK: ●上传图片（修改头像等）
+let API_SHOP_UPLOADIMAGE :String = "/api.php/v1.User/upload";
+//MARK: ●扫码支付
+let API_SHOP_PAYNOW :String = "/api.php/v1.User/pay";
+
 class ConstantForSwift: NSObject {
 
 }
