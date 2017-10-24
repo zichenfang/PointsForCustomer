@@ -70,7 +70,8 @@ let API_USER_FINDPASSWORD :String = "/api.php/v1.Publics/retrievePassword";
 let API_USER_POINTS_HISTORY :String = "/api.php/v1.User/statement";
 //MARK: ●积分转赠
 let API_USER_TRANS_POINTS :String = "/api.php/v1.User/invitationWithdraw";
-
+//MARK: ●修改密码
+let API_USER_CHANGE_PASSWORD :String = "/api.php/v1.User/changePassword";
 
 //MARK: ●轮播图
 let API_SHOP_BANNER :String = "/api.php/v1.Index/ads";
@@ -88,6 +89,8 @@ let API_SHOP_ADD_FAV :String = "/api.php/v1.User/addCollection";
 let API_SHOP_DELE_FAV :String = "/api.php/v1.User/removeCollection";
 //MARK: ●获取收藏店铺状态
 let API_SHOP_FAV_STATUS :String = "/api.php/v1.User/isCollection";
+//MARK: ●获取收藏店铺列表
+let API_SHOP_FAV_LIST :String = "/api.php/v1.User/collections";
 //MARK: ●发表评论(图片与其他内容一并提交)
 let API_SHOP_ADD_COMMENT :String = "/api.php/v1.User/addComment";
 //MARK: ●上传图片（修改头像等）

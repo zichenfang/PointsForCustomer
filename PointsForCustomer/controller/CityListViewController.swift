@@ -215,7 +215,7 @@ class CityListViewController: BaseViewController ,UITableViewDelegate , UITableV
             return false;
         }
         let vc = SearchAreaViewController();
-        vc.handler = {(_ info :NSDictionary) -> Void in
+        vc.handler = {(_ info) -> Void in
             self.navigationController?.popViewController(animated: false);
         }
         self.present(vc, animated: true, completion: nil);

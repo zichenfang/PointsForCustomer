@@ -10,7 +10,7 @@ import UIKit
 
 class BaseViewController: UIViewController {
     //用于该页面返回上层时的传值，默认info可以传空[:]
-     var handler:((_ info:NSDictionary)->Void)?
+    var handler:((_ info:[String:AnyObject])->Void)?
 
     override func viewDidLoad() {
         super.viewDidLoad()

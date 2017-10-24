@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "default_goods_image_360.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "屏幕快照 2017-09-19 下午11.06.31.png",
       "scale" : "2x"
     },
     {

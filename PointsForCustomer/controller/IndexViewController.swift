@@ -76,7 +76,7 @@ class IndexViewController: BaseViewController , UITableViewDataSource , UITableV
         PPRequestManager.GET(url: API_SHOP_BANNER, para: nil, success: { (json) in
             let code = json["code"] as! Int
             if code == 200 {
-                let result = json["result"] as! NSArray
+                let result = json.array_ForKey(key: "result")
                 self.bannerDatas?.removeAllObjects()
                 for banner_dic in result{
                     let banner = PPBannerObject.init(info: banner_dic as! NSDictionary)
@@ -92,7 +92,7 @@ class IndexViewController: BaseViewController , UITableViewDataSource , UITableV
         PPRequestManager.GET(url: API_SHOP_SUBCLASS, para: nil, success: { (json) in
             let code = json["code"] as! Int
             if code == 200 {
-                let result = json["result"] as! NSArray
+                let result = json.array_ForKey(key: "result")
                 self.subClassDatas?.removeAllObjects()
                 for subclass_dic in result{
                     let subclass = PPIndexClassObj.init(info: subclass_dic as! NSDictionary)
@@ -170,7 +170,7 @@ class IndexViewController: BaseViewController , UITableViewDataSource , UITableV
 //    MARK:手动选择地理位置
     @IBAction func selectLocation(_ sender: UITapGestureRecognizer) {
         let vc = CityListViewController();
-        vc.handler = {(_info: NSDictionary?) -> Void in
+        vc.handler = {(_info) -> Void in
             //手动选择地址回掉之后，刷新首页数据
             self.updateLocationLabel(address: LOCATION_MANAGER.currentAOIName!)
         }
@@ -208,12 +208,12 @@ class IndexViewController: BaseViewController , UITableViewDataSource , UITableV
             let code = json["code"] as! Int
             let msg = json["msg"] as! String
             if code == 200 {
-                let result = json["result"] as! NSArray
+                let result = json.array_ForKey(key: "result")
                 for shop_dic in result{
                     let shop = PPShopObject.init(info: shop_dic as! NSDictionary)
                     self.shopDatas?.add(shop)
                 }
-                if result.count < LIST_PAGESIZE {
+                if (result.count) < LIST_PAGESIZE {
                     self.tableView.mj_footer.endRefreshingWithNoMoreData();
                 }
                 self.tableView.reloadData()

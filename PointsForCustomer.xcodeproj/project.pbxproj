@@ -27,6 +27,11 @@
 		E228688E1F8667690050CDEC /* PPUserInfoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E228688D1F8667690050CDEC /* PPUserInfoManager.swift */; };
 		E22868911F86746B0050CDEC /* FindPassWordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E228688F1F86746B0050CDEC /* FindPassWordViewController.swift */; };
 		E22868921F86746B0050CDEC /* FindPassWordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E22868901F86746B0050CDEC /* FindPassWordViewController.xib */; };
+		E23378991F8E0ED30012E6DD /* ChangePassWordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23378971F8E0ED30012E6DD /* ChangePassWordViewController.swift */; };
+		E233789A1F8E0ED30012E6DD /* ChangePassWordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E23378981F8E0ED30012E6DD /* ChangePassWordViewController.xib */; };
+		E235A2761F9F0D9400DDB827 /* PPDictionaryExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E235A2751F9F0D9400DDB827 /* PPDictionaryExtension.swift */; };
+		E235A27E1F9F241900DDB827 /* FavShopListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E235A27C1F9F241900DDB827 /* FavShopListViewController.swift */; };
+		E235A27F1F9F241900DDB827 /* FavShopListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E235A27D1F9F241900DDB827 /* FavShopListViewController.xib */; };
 		E24708971F89D81500F8705D /* PPShopDetailobj.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24708961F89D81500F8705D /* PPShopDetailobj.swift */; };
 		E24EEAE51F72AFBE0084C632 /* CityListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24EEAE31F72AFBE0084C632 /* CityListViewController.swift */; };
 		E24EEAE61F72AFBE0084C632 /* CityListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E24EEAE41F72AFBE0084C632 /* CityListViewController.xib */; };
@@ -38,6 +43,8 @@
 		E2547C461F73F9DF000DA9E9 /* AllCityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2547C441F73F9DF000DA9E9 /* AllCityTableViewCell.swift */; };
 		E2547C471F73F9DF000DA9E9 /* AllCityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2547C451F73F9DF000DA9E9 /* AllCityTableViewCell.xib */; };
 		E2547C491F73FB12000DA9E9 /* citys.db in Resources */ = {isa = PBXBuildFile; fileRef = E2547C481F73FB12000DA9E9 /* citys.db */; };
+		E25517901F9F3DB3007CE86C /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E255178E1F9F3DB3007CE86C /* UserInfoViewController.swift */; };
+		E25517911F9F3DB3007CE86C /* UserInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E255178F1F9F3DB3007CE86C /* UserInfoViewController.xib */; };
 		E28BE24F1F78909300775097 /* UserLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28BE24E1F78909300775097 /* UserLocationManager.swift */; };
 		E28FA7F41F74D9A100377266 /* SearchAreaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28FA7F21F74D9A100377266 /* SearchAreaViewController.swift */; };
 		E28FA7F51F74D9A100377266 /* SearchAreaViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E28FA7F31F74D9A100377266 /* SearchAreaViewController.xib */; };
@@ -114,6 +121,11 @@
 		E228688D1F8667690050CDEC /* PPUserInfoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPUserInfoManager.swift; sourceTree = "<group>"; };
 		E228688F1F86746B0050CDEC /* FindPassWordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindPassWordViewController.swift; sourceTree = "<group>"; };
 		E22868901F86746B0050CDEC /* FindPassWordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FindPassWordViewController.xib; sourceTree = "<group>"; };
+		E23378971F8E0ED30012E6DD /* ChangePassWordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePassWordViewController.swift; sourceTree = "<group>"; };
+		E23378981F8E0ED30012E6DD /* ChangePassWordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChangePassWordViewController.xib; sourceTree = "<group>"; };
+		E235A2751F9F0D9400DDB827 /* PPDictionaryExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPDictionaryExtension.swift; sourceTree = "<group>"; };
+		E235A27C1F9F241900DDB827 /* FavShopListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavShopListViewController.swift; sourceTree = "<group>"; };
+		E235A27D1F9F241900DDB827 /* FavShopListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavShopListViewController.xib; sourceTree = "<group>"; };
 		E24708961F89D81500F8705D /* PPShopDetailobj.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPShopDetailobj.swift; sourceTree = "<group>"; };
 		E24EEAE31F72AFBE0084C632 /* CityListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityListViewController.swift; sourceTree = "<group>"; };
 		E24EEAE41F72AFBE0084C632 /* CityListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CityListViewController.xib; sourceTree = "<group>"; };
@@ -125,6 +137,8 @@
 		E2547C441F73F9DF000DA9E9 /* AllCityTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllCityTableViewCell.swift; sourceTree = "<group>"; };
 		E2547C451F73F9DF000DA9E9 /* AllCityTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AllCityTableViewCell.xib; sourceTree = "<group>"; };
 		E2547C481F73FB12000DA9E9 /* citys.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = citys.db; sourceTree = "<group>"; };
+		E255178E1F9F3DB3007CE86C /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
+		E255178F1F9F3DB3007CE86C /* UserInfoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserInfoViewController.xib; sourceTree = "<group>"; };
 		E28BE24E1F78909300775097 /* UserLocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLocationManager.swift; sourceTree = "<group>"; };
 		E28FA7F21F74D9A100377266 /* SearchAreaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchAreaViewController.swift; sourceTree = "<group>"; };
 		E28FA7F31F74D9A100377266 /* SearchAreaViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchAreaViewController.xib; sourceTree = "<group>"; };
@@ -317,12 +331,18 @@
 				E24EEAEC1F72BBEA0084C632 /* ShopDetailViewController.xib */,
 				E2F1EF551F67C1E900CF90C2 /* UserCenterViewController.swift */,
 				E2F1EF561F67C1E900CF90C2 /* UserCenterViewController.xib */,
+				E255178E1F9F3DB3007CE86C /* UserInfoViewController.swift */,
+				E255178F1F9F3DB3007CE86C /* UserInfoViewController.xib */,
 				E21D2A9F1F8A6228001D29A1 /* MyInviteCodeViewController.swift */,
 				E21D2AA01F8A6228001D29A1 /* MyInviteCodeViewController.xib */,
 				E21D2AB21F8A7957001D29A1 /* PointsHistoryViewController.swift */,
 				E21D2AB11F8A7957001D29A1 /* PointsHistoryViewController.xib */,
 				E223EF9B1F8CF6A300D8AB7C /* TransPointsViewController.swift */,
 				E223EF9C1F8CF6A300D8AB7C /* TransPointsViewController.xib */,
+				E235A27C1F9F241900DDB827 /* FavShopListViewController.swift */,
+				E235A27D1F9F241900DDB827 /* FavShopListViewController.xib */,
+				E23378971F8E0ED30012E6DD /* ChangePassWordViewController.swift */,
+				E23378981F8E0ED30012E6DD /* ChangePassWordViewController.xib */,
 				E2F1EF601F67DC2500CF90C2 /* LoginViewController.swift */,
 				E2F1EF611F67DC2500CF90C2 /* LoginViewController.xib */,
 				E20AE6101F851C3D003A603F /* RegistViewController.swift */,
@@ -347,6 +367,7 @@
 				E2F1EF421F676F1300CF90C2 /* UIDevice+MyDevice.h */,
 				E2F1EF431F676F1300CF90C2 /* UIDevice+MyDevice.m */,
 				E2FA31A71F713C6600B657A1 /* PPStringExtension.swift */,
+				E235A2751F9F0D9400DDB827 /* PPDictionaryExtension.swift */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -437,8 +458,10 @@
 				E2F1EF501F67C18100CF90C2 /* IndexViewController.xib in Resources */,
 				E24EEAEE1F72BBEA0084C632 /* ShopDetailViewController.xib in Resources */,
 				E29D56051F6FA0E70006C746 /* IndexSectionHeaderView.xib in Resources */,
+				E235A27F1F9F241900DDB827 /* FavShopListViewController.xib in Resources */,
 				E22868921F86746B0050CDEC /* FindPassWordViewController.xib in Resources */,
 				E2B6025B1F7D4102006FFAE1 /* ShopDetailSingleImageTableViewCell.xib in Resources */,
+				E25517911F9F3DB3007CE86C /* UserInfoViewController.xib in Resources */,
 				E24EEAE61F72AFBE0084C632 /* CityListViewController.xib in Resources */,
 				E297FDD11F7DDAA80056C606 /* CommentListViewController.xib in Resources */,
 				E21A64421F6663E3007D1C49 /* LaunchScreen.storyboard in Resources */,
@@ -449,6 +472,7 @@
 				E20AE6131F851C3D003A603F /* RegistViewController.xib in Resources */,
 				E297FDD71F7E21D30056C606 /* OneKindShopListViewController.xib in Resources */,
 				E24EEAEA1F72B4BA0084C632 /* SearchShopViewController.xib in Resources */,
+				E233789A1F8E0ED30012E6DD /* ChangePassWordViewController.xib in Resources */,
 				E2BFAA381F8B607100B84D45 /* WriteCommentViewController.xib in Resources */,
 				E2547C471F73F9DF000DA9E9 /* AllCityTableViewCell.xib in Resources */,
 				E28FA7F51F74D9A100377266 /* SearchAreaViewController.xib in Resources */,
@@ -525,10 +549,12 @@
 				E20AE6121F851C3D003A603F /* RegistViewController.swift in Sources */,
 				E2D11A011F7E7F69007FFA36 /* PayNowViewController.swift in Sources */,
 				E2E803C11F6BC3BA0094065F /* PPBannerObject.swift in Sources */,
+				E235A2761F9F0D9400DDB827 /* PPDictionaryExtension.swift in Sources */,
 				E21A64381F6663E3007D1C49 /* AppDelegate.swift in Sources */,
 				E21D2AA11F8A6228001D29A1 /* MyInviteCodeViewController.swift in Sources */,
 				E21D2AAC1F8A71EB001D29A1 /* PointsHistoryTableViewCell.swift in Sources */,
 				E2547C461F73F9DF000DA9E9 /* AllCityTableViewCell.swift in Sources */,
+				E23378991F8E0ED30012E6DD /* ChangePassWordViewController.swift in Sources */,
 				E2F1EF3B1F676DA500CF90C2 /* NSString+MyCustomString.m in Sources */,
 				E2F1EF3E1F676DA500CF90C2 /* UIImage+MyCustomImage.m in Sources */,
 				E2F1EF481F67701900CF90C2 /* BaseObject.swift in Sources */,
@@ -563,7 +589,9 @@
 				E2E803BC1F6BA6F00094065F /* PPShopTableViewCell.swift in Sources */,
 				E2F1EF4C1F67C15F00CF90C2 /* MainTabbarViewController.swift in Sources */,
 				E297FDD31F7DEFB70056C606 /* CommentObj.swift in Sources */,
+				E25517901F9F3DB3007CE86C /* UserInfoViewController.swift in Sources */,
 				E2B6025A1F7D4102006FFAE1 /* ShopDetailSingleImageTableViewCell.swift in Sources */,
+				E235A27E1F9F241900DDB827 /* FavShopListViewController.swift in Sources */,
 				E24EEAED1F72BBEA0084C632 /* ShopDetailViewController.swift in Sources */,
 				E297FDCC1F7DDA6C0056C606 /* CommentTableViewCell.swift in Sources */,
 				E2F1EF531F67C1C900CF90C2 /* ReadBitCodeViewController.swift in Sources */,

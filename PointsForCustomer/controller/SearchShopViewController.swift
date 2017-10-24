@@ -45,7 +45,7 @@ class SearchShopViewController: BaseViewController , UITableViewDataSource , UIT
         let imgView = UIImageView.init(frame: CGRect.init(x: 7, y: (searchView.frame.size.height - 16)*0.5, width: 16, height: 16))
         imgView.image = UIImage.init(named: "fangdajing");
         searchView.addSubview(imgView)
-        searchTF = UITextField.init(frame: CGRect.init(x: 7+16+7, y: 0, width: searchView.frame.size.width, height: searchView.frame.size.height))
+        searchTF = UITextField.init(frame: CGRect.init(x: 7+16+7, y: 0, width: searchView.frame.size.width - (7+16+7), height: searchView.frame.size.height))
         searchView.addSubview(searchTF!);
         searchTF!.placeholder = "输入店铺名/商品名"
         searchTF!.returnKeyType = UIReturnKeyType.search
@@ -102,7 +102,7 @@ class SearchShopViewController: BaseViewController , UITableViewDataSource , UIT
             let code = json["code"] as! Int
             let msg = json["msg"] as! String
             if code == 200 {
-                let result = json["result"] as! NSArray
+                let result = json.array_ForKey(key: "result");
                 for shop_dic in result{
                     let shop = PPShopObject.init(info: shop_dic as! NSDictionary)
                     self.shopDatas?.add(shop)

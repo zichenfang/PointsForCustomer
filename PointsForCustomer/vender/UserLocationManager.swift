@@ -43,7 +43,13 @@ class UserLocationManager: NSObject {
      reGeocodeFailed 逆地理编码获取失败
      */
      func requestLocation (success :((_ location:CLLocation , _ cityName : String? , _ aoiName : String?)->Void)? , permissionFailed :(()->Void)? , reGeocodeFailed :(()->Void)? ) {
-        
+        let authStatus = CLLocationManager.authorizationStatus();
+        if authStatus == CLAuthorizationStatus.denied {
+            if permissionFailed != nil{
+                permissionFailed!();
+            }
+            return;
+        }
         self.mapManager.requestLocation(withReGeocode: true, completionBlock: {  (location: CLLocation?, reGeocode: AMapLocationReGeocode?, error: Error?) in
             ProgressHUD.dismiss();
             if let error = error {

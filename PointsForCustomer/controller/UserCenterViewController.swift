@@ -128,19 +128,26 @@ class UserCenterViewController: BaseViewController , UITableViewDataSource , UIT
         }
 
         switch title {
+            // MARK: - 我的邀请码
         case "我的邀请码":
-            print("我的邀请码")
             let vc = MyInviteCodeViewController()
             vc.hidesBottomBarWhenPushed = true
             self.navigationController?.pushViewController(vc, animated: true)
         case "注销登录":
             logOut()
+        // MARK: - 修改密码
+        case "修改密码":
+            let vc = ChangePassWordViewController()
+            vc.hidesBottomBarWhenPushed = true
+            self.navigationController?.pushViewController(vc, animated: true)
+            // MARK: - 收藏店铺
+        case "收藏店铺":
+            let vc = FavShopListViewController()
+            vc.hidesBottomBarWhenPushed = true
+            self.navigationController?.pushViewController(vc, animated: true)
         default:
             print("default")
         }
-        // MARK: - 我的邀请码
-        // MARK: - 收藏店铺
-        // MARK: - 修改密码
         // MARK: - 我的电话
         // MARK: - 分享软件
         // MARK: - 联系我们

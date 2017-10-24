@@ -13,8 +13,6 @@ class IndexHeaderView: UIView ,UIScrollViewDelegate {
     var bannerScrollView : SDCycleScrollView!
     //轮播图高度
     let bannerScrollViewHeight :CGFloat = SCREEN_WIDTH * (1/2.0);
-    //轮播图pageControl
-    var bannerPageControl : UIPageControl!
     //轮播图图片数据源
     var _bannerDatas :NSArray?
     var bannerDatas :NSArray?{
@@ -145,7 +143,7 @@ class IndexHeaderView: UIView ,UIScrollViewDelegate {
         //轮播图
         bannerScrollView = SDCycleScrollView.init(frame: CGRect.init(x: 0, y: 0, width: SCREEN_WIDTH, height: bannerScrollViewHeight), delegate: nil, placeholderImage: UIImage.init(named: ""));
         self.addSubview(bannerScrollView);
-        bannerScrollView.backgroundColor = UIColor.yellow;
+        bannerScrollView.backgroundColor = UIColor.white;
         bannerScrollView.pageControlAliment = SDCycleScrollViewPageContolAlimentCenter;
         bannerScrollView.currentPageDotColor = UIColor.styleRed(); // 自定义分页控件小圆标颜色
         bannerScrollView.pageDotColor = UIColor.darkGray; //

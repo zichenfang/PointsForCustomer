@@ -64,7 +64,7 @@ class ShopDetailViewController: BaseViewController , UITableViewDataSource , UIT
     //    MARK:配置轮播图
     func richBannerScrollView() {
         bannerScrollView.delegate = self
-        bannerScrollView.backgroundColor = UIColor.yellow;
+        bannerScrollView.backgroundColor = UIColor.white;
         bannerScrollView.pageControlAliment = SDCycleScrollViewPageContolAlimentCenter;
         bannerScrollView.currentPageDotColor = UIColor.styleRed(); // 自定义分页控件小圆标颜色
         bannerScrollView.pageDotColor = UIColor.darkGray; //
@@ -192,10 +192,16 @@ class ShopDetailViewController: BaseViewController , UITableViewDataSource , UIT
                 if self.isFav == false {
                     self.isFav = true
                     ProgressHUD.showSuccess("收藏成功", interaction: false)
+                    if self.handler != nil{
+                        self.handler!(["shop":self.shopObj,"type":"1" as AnyObject]);//type 1:添加收藏
+                    }
                 }
                 else{
                     self.isFav = false
                     ProgressHUD.showSuccess("取消收藏成功", interaction: false)
+                    if self.handler != nil{
+                        self.handler!(["shop":self.shopObj,"type":"0" as AnyObject]);//type 0:删除收藏
+                    }
                 }
                 self.prepareFavItem()
             }

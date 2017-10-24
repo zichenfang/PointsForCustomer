@@ -75,7 +75,6 @@ class RegistViewController: BaseViewController {
                     self.codeBtn.isEnabled = true
                 }
             }
-            
 
         })
         codeTimer.resume()

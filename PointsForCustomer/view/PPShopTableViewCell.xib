@@ -63,8 +63,8 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="返利折扣：5%" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cHB-cc-tIQ">
                         <rect key="frame" x="155" y="56" width="157" height="20"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <color key="textColor" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                        <color key="textColor" red="0.88639801740646362" green="0.23795482516288757" blue="0.20017397403717041" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="100评论" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bce-Lh-NKo">
@@ -104,11 +104,11 @@
                 <outlet property="shopNameLabel" destination="SgV-J5-y1g" id="F4Q-BO-NMd"/>
                 <outlet property="shopThumbIV" destination="FJJ-KZ-YLb" id="X14-ed-0Es"/>
             </connections>
-            <point key="canvasLocation" x="-179" y="-16"/>
+            <point key="canvasLocation" x="-279" y="-13"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="placeholderimage" width="44" height="46"/>
+        <image name="placeholderimage" width="360" height="360"/>
         <image name="xingxing_an" width="15" height="15"/>
     </resources>
 </document>

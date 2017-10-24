@@ -35,7 +35,7 @@ class LoginViewController: BaseViewController {
     }
     @IBAction func regist(_ sender: Any) {
         let vc = RegistViewController()
-        vc.handler = {(_ info :NSDictionary?) ->Void in
+        vc.handler = {(_ info) ->Void in
             //注册成功之后的回掉
             self.dismiss(animated: true, completion: nil)
         }

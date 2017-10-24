@@ -34,8 +34,6 @@ class ReadBitCodeViewController: BaseViewController,AVCaptureMetadataOutputObjec
         else{
             prepareCamera();
         }
-
-        // Do any additional setup after loading the view.
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated);
