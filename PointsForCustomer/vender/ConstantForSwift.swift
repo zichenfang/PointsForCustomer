@@ -99,7 +99,8 @@ let API_SHOP_UPLOADIMAGE :String = "/api.php/v1.User/upload";
 let API_SHOP_PAYNOW :String = "/api.php/v1.User/pay";
 //MARK: ●商家下面的评论列表
 let API_SHOP_COMMENTS :String = "/api.php/v1.Index/Comments";
-
+//MARK: ●修改用户信息
+let API_USER_CHANGEINFO :String = "/api.php/v1.User/changeInfo";
 
 
 class ConstantForSwift: NSObject {

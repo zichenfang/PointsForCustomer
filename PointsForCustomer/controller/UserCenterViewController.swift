@@ -38,16 +38,17 @@ class UserCenterViewController: BaseViewController , UITableViewDataSource , UIT
         nameLabel.text = nickname ;
         let avatar = PPUserInfoManager.userInfo()?.value(forKey: "head_img") as! String;
         avatarIV.sd_setImage(with: URL.init(string: avatar), placeholderImage: PLACE_HOLDER_IMAGE_GENERAL)
+        self.tableView.contentOffset = CGPoint.init(x: 0, y: 0);
     }
     @objc func userStatusDidChanged () {
         if PPUserInfoManager.isLogined() == true {
             userInfoDidChanged()
-            menus = ["我的邀请码","收藏店铺","修改密码","我的电话","分享软件","联系我们","注销登录"]
+            menus = ["我的邀请码","分享软件","收藏店铺","修改密码","个人资料","我的电话","联系我们","注销登录"]
         }
         else{
             nameLabel.text = "登录/注册" ;
             avatarIV.image = PLACE_HOLDER_IMAGE_GENERAL
-            menus = ["我的邀请码","收藏店铺","修改密码","我的电话","分享软件","联系我们"]
+            menus = ["我的邀请码","分享软件","收藏店铺","修改密码","个人资料","我的电话","联系我们"]
         }
         tableView.reloadData()
     }
@@ -66,6 +67,9 @@ class UserCenterViewController: BaseViewController , UITableViewDataSource , UIT
         }
         else{
             //进入个人资料页面
+            let vc = UserInfoViewController();
+            vc.hidesBottomBarWhenPushed = true;
+            self.navigationController?.pushViewController(vc, animated: true);
         }
     }
     //    MARK:点我的积分(积分纪录)
@@ -143,6 +147,11 @@ class UserCenterViewController: BaseViewController , UITableViewDataSource , UIT
             // MARK: - 收藏店铺
         case "收藏店铺":
             let vc = FavShopListViewController()
+            vc.hidesBottomBarWhenPushed = true
+            self.navigationController?.pushViewController(vc, animated: true)
+            // MARK: - 个人资料
+        case "个人资料":
+            let vc = UserInfoViewController()
             vc.hidesBottomBarWhenPushed = true
             self.navigationController?.pushViewController(vc, animated: true)
         default:

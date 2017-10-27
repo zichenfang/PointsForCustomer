@@ -27,6 +27,11 @@ class PPUserInfoManager: NSObject {
             return [:]
         }
     }
+    static func updateUserInfo(userInfo :NSDictionary) {
+        UserDefaults.standard.setValue(userInfo, forKey: USERDEFAULTS_KEY_USERINFO)
+        //发送用户信息修改通知
+        NotificationCenter.default.post(name: NOTI_USERINFO_CHANGED, object: nil)
+    }
 //    MARK:登录状态
     static func updateIsLogined(logined :Bool)  {
         UserDefaults.standard.setValue(logined, forKey: USERDEFAULTS_KEY_ISLOGINED)
