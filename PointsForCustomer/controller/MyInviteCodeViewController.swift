@@ -20,8 +20,8 @@ class MyInviteCodeViewController: BaseViewController {
         self.title  = "邀请码"
         btn.layer.masksToBounds = true
         btn.layer.cornerRadius = 2
-        btn.layer.borderWidth = 1
-        btn.layer.borderColor = UIColor.darkGray.withAlphaComponent(0.3).cgColor
+//        btn.layer.borderWidth = 1
+//        btn.layer.borderColor = UIColor.darkGray.withAlphaComponent(0.3).cgColor
         codeLabel.text = PPUserInfoManager.userInfo()!["invitation_code"] as? String
         // Do any additional setup after loading the view.
     }

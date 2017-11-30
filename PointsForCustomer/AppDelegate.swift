@@ -20,11 +20,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         //准备高德地图定位
         prepareAMAPConfig();
+        //友盟启动配置
+        TTUmengManager.setUp();
         window = UIWindow.init(frame: UIScreen.main.bounds);
         window?.rootViewController = MainTabbarViewController();
         window?.makeKeyAndVisible();
+        
         return true
     }
+    func json_String(dic:NSDictionary) -> String {
+        var jsonString = "";
+        do {
+            let jsonData = try JSONSerialization.data(withJSONObject: dic, options: JSONSerialization.WritingOptions.init(rawValue: 0));
+            jsonString = String.init(data: jsonData, encoding: String.Encoding.utf8)!;
+        }
+        catch _ as NSError{}
+        return jsonString;
+    }
+
+    
+    
     //MARK:准备高德地图定位
     func prepareAMAPConfig(){
         AMapServices.shared().apiKey = AMAP_APPKEY;

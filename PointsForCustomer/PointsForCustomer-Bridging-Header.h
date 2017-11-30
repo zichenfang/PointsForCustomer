@@ -27,5 +27,8 @@
 #import "ZLPhotoActionSheet.h"
 #import "AFNetworking.h"
 #import <CommonCrypto/CommonDigest.h>
+#import "ImageBrowserVC.h"
+//#import "JsonKillNull.h"
+#import "TTUmengManager.h"
 
 #endif /* PointsForCustomer_Bridging_Header_h */

@@ -68,8 +68,12 @@ class PPShopDetailobj: BaseObject {
         self.comment_num = info["comment_num"]as?NSInteger;
         self.distance = info["distance"]as?String;
         self.integral_ratio = info["integral_ratio"]as?NSInteger;
-        self.latitude = info["latitude"]as?Double;
-        self.longitude = info["longitude"]as?Double;
+        if let latitude :String = info["latitude"] as? String{
+            self.latitude = Double(latitude);
+        }
+        if let longitude :String = info["longitude"] as? String{
+            self.longitude = Double(longitude);
+        }
         
         self.mobile = info["mobile"]as?String;
         self.type = info["type"]as?String;

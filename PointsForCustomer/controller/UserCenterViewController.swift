@@ -14,16 +14,18 @@ class UserCenterViewController: BaseViewController , UITableViewDataSource , UIT
     @IBOutlet var msgCountLabel: UILabel!//消息数目
     @IBOutlet var avatarIV: UIImageView!//头像
     @IBOutlet var nameLabel: UILabel!//昵称
+    @IBOutlet var headBackIV: UIImageView!//头部背景色
+    
     var menus :Array<String>!
     convenience init() {
         self.init(nibName: "UserCenterViewController", bundle: nil);
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
         //开局手动刷新一下页面
         userStatusDidChanged()
         tableView.register(UINib.init(nibName: "UserCenterTableViewCell", bundle: nil), forCellReuseIdentifier: "usercenter");
-        tableView.contentInset = UIEdgeInsets.init(top: -20, left: 0, bottom: 0, right: 0);
         //添加用户登录状态和信息修改通知
         NotificationCenter.default.addObserver(self, selector: #selector(userInfoDidChanged), name: NOTI_USERINFO_CHANGED, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(userStatusDidChanged), name: NOTI_USERSTATUS_CHANGED, object: nil)
@@ -43,12 +45,12 @@ class UserCenterViewController: BaseViewController , UITableViewDataSource , UIT
     @objc func userStatusDidChanged () {
         if PPUserInfoManager.isLogined() == true {
             userInfoDidChanged()
-            menus = ["我的邀请码","分享软件","收藏店铺","修改密码","个人资料","我的电话","联系我们","注销登录"]
+            menus = ["我的邀请码","分享软件","收藏店铺","修改密码","个人资料","联系我们","注销登录"]
         }
         else{
             nameLabel.text = "登录/注册" ;
             avatarIV.image = PLACE_HOLDER_IMAGE_GENERAL
-            menus = ["我的邀请码","分享软件","收藏店铺","修改密码","个人资料","我的电话","联系我们"]
+            menus = ["我的邀请码","分享软件","收藏店铺","修改密码","个人资料","联系我们"]
         }
         tableView.reloadData()
     }
@@ -123,7 +125,7 @@ class UserCenterViewController: BaseViewController , UITableViewDataSource , UIT
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let title = menus[indexPath.row]
-        let titles_need_login = ["我的邀请码","收藏店铺","修改密码","我的电话"]
+        let titles_need_login = ["我的邀请码","收藏店铺","修改密码","我的电话","个人资料"]
         //在需要登录到情况下，判断登录状态
         if titles_need_login.contains(title) && PPUserInfoManager.isLogined() == false {
             let vc = LoginViewController()
@@ -154,10 +156,11 @@ class UserCenterViewController: BaseViewController , UITableViewDataSource , UIT
             let vc = UserInfoViewController()
             vc.hidesBottomBarWhenPushed = true
             self.navigationController?.pushViewController(vc, animated: true)
+        case "分享软件":
+            TTUmengManager.shareContent(withTitle: "积分购", url: "http://www.baidu.com/", shareText: "积分购应用", shareImage: PLACE_HOLDER_IMAGE_GENERAL, delegate: nil, inSheetView: self);
         default:
             print("default")
         }
-        // MARK: - 我的电话
         // MARK: - 分享软件
         // MARK: - 联系我们
     }

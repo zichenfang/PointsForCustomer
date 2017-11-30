@@ -16,8 +16,11 @@ class WriteCommentViewController: BaseViewController {
     var uploadImages :[UIImage]?//上传图片数组
     var selectedAssets = NSMutableArray()//已选择的图片数组
     var photoActionSheet :ZLPhotoActionSheet!
-    var kda : Int = 5 //评分
-    
+    var kda_zonghe : Int = 5 //综合评分
+    var kda_fuwu : Int = 5 //服务评分
+    var kda_chanpin : Int = 5 //产品评分
+    var kda_huanjing : Int = 5 //环境评分
+
     @IBOutlet var placeHolderTV: UITextView!//用于显示placeholder的textview，因为要保持跟commentTV一致，所以用了UITextView
     @IBOutlet var commentTV: UITextView!//输入评论内容
     //承载三个插图的 view视图
@@ -119,15 +122,15 @@ class WriteCommentViewController: BaseViewController {
 //            let index = Int(point.x/(SCREEN_WIDTH/3))
         }
     }
-    // MARK:选择星星等级
-    @IBAction func tapForStar(_ sender: UITapGestureRecognizer) {
+    // MARK:选择星星等级(综合评分)
+    @IBAction func tapForStar_zonghe(_ sender: UITapGestureRecognizer) {
         if sender.state == UIGestureRecognizerState.ended {
             let point = sender.location(in: sender.view)
-            kda = Int(point.x/40) + 1 //单个星星的宽度为40
+            kda_zonghe = Int(point.x/40) + 1 //单个星星的宽度为40
             //更改星星亮和暗
             for index in 0...4 {
                 let starIV = sender.view?.viewWithTag(100+index) as! UIImageView
-                if index < kda{
+                if index < kda_zonghe{
                     starIV.image = UIImage.init(named: "daxingxinghuang");
                 }
                 else{
@@ -135,11 +138,68 @@ class WriteCommentViewController: BaseViewController {
                 }
             }
         }
-
     }
-    
+    // MARK:选择星星等级(服务评分)
+    @IBAction func tapForStar_fuwu(_ sender: UITapGestureRecognizer) {
+        if sender.state == UIGestureRecognizerState.ended {
+            let point = sender.location(in: sender.view)
+            kda_fuwu = Int(point.x/27) + 1 //单个星星的宽度为40
+            //更改星星亮和暗
+            for index in 0...4 {
+                let starIV = sender.view?.viewWithTag(100+index) as! UIImageView
+                if index < kda_fuwu{
+                    starIV.image = UIImage.init(named: "xiaolian_huang");
+                }
+                else{
+                    starIV.image = UIImage.init(named: "xiaolian_hui");
+                }
+            }
+        }
+        
+    }
+    // MARK:选择星星等级(产品评分)
+    @IBAction func tapForStar_chanpin(_ sender: UITapGestureRecognizer) {
+        if sender.state == UIGestureRecognizerState.ended {
+            let point = sender.location(in: sender.view)
+            kda_chanpin = Int(point.x/27) + 1 //单个星星的宽度为40
+            //更改星星亮和暗
+            for index in 0...4 {
+                let starIV = sender.view?.viewWithTag(100+index) as! UIImageView
+                if index < kda_chanpin{
+                    starIV.image = UIImage.init(named: "xiaolian_huang");
+                }
+                else{
+                    starIV.image = UIImage.init(named: "xiaolian_hui");
+                }
+            }
+        }
+        
+    }
+    // MARK:选择星星等级(环境评分)
+    @IBAction func tapForStar_huanjing(_ sender: UITapGestureRecognizer) {
+        if sender.state == UIGestureRecognizerState.ended {
+            let point = sender.location(in: sender.view)
+            kda_huanjing = Int(point.x/27) + 1 //单个星星的宽度为40
+            //更改星星亮和暗
+            for index in 0...4 {
+                let starIV = sender.view?.viewWithTag(100+index) as! UIImageView
+                if index < kda_huanjing{
+                    starIV.image = UIImage.init(named: "xiaolian_huang");
+                }
+                else{
+                    starIV.image = UIImage.init(named: "xiaolian_hui");
+                }
+            }
+        }
+        
+    }
+
     // MARK: - 发布评价
     @IBAction func save(_ sender: Any) {
+        //测试评论成功提示框
+        self.showShareAlertView();
+        return;
+        
         if shop_id! <= 0{
             ProgressHUD.showError("店铺信息错误")
             return
@@ -166,8 +226,7 @@ class WriteCommentViewController: BaseViewController {
         }, success: { (json) in
             let code = json["code"] as! Int
             if code == 200 {
-                ProgressHUD.showSuccess("评价成功！", interaction: false)
-                self.perform(#selector(self.commentSuccess), with: nil, afterDelay: 1.2)
+                self.showShareAlertView();
             }
             else{
                 let msg = json["msg"] as! String
@@ -178,13 +237,29 @@ class WriteCommentViewController: BaseViewController {
             ProgressHUD.showError("请求超时，请重试", interaction: false)
         }
     }
-    //    MARK:评论成功
-    @objc func commentSuccess()  {
+
+    //MARK:show alert
+    func showShareAlertView() {
+        let sAlertView :ShareAlertView? = Bundle.main.loadNibNamed("ShareAlertView", owner: self, options: nil)?.first as? ShareAlertView;
+        sAlertView?.frame = UIScreen.main.bounds;
+        UIApplication.shared.keyWindow?.addSubview(sAlertView!);
+        sAlertView?.cancelBtn.addTarget(self, action: #selector(cancelShareApp(_sender:)), for: UIControlEvents.touchUpInside)
+        sAlertView?.cancelBtn.addTarget(self, action: #selector(shareAPP(_sender:)), for: UIControlEvents.touchUpInside)
+    }
+    //MARK:hide alert
+    @objc func cancelShareApp(_sender:UIButton) {
+        _sender.superview?.superview?.removeFromSuperview();
+        self.commentSuccessBack();
+    }
+    //MARK:share app
+    @objc func shareAPP(_sender:UIButton) {
+        _sender.superview?.superview?.removeFromSuperview();
+    }
+    //    MARK:评论成功之后返回
+    @objc func commentSuccessBack()  {
         self.dismiss(animated: true, completion: nil)
         if self.handler != nil{
             self.handler!([:])
         }
     }
-
-
 }

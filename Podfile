@@ -14,4 +14,6 @@ target "PointsForCustomer" do
     pod 'FMDB', '~> 2.6.2'
     pod 'AMap2DMap-NO-IDFA', '~> 4.6.0'
     pod 'ZLPhotoBrowser', '~> 2.4.0'
+    pod 'UMengSocial', '~>5.0'
+
 end

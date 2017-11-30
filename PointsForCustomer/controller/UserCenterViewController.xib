@@ -23,7 +23,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="55" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Oy3-1K-w7L">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" contentInsetAdjustmentBehavior="never" style="plain" separatorStyle="default" rowHeight="55" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Oy3-1K-w7L">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <inset key="separatorInset" minX="50" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -288,7 +288,7 @@
                 <constraint firstAttribute="trailing" secondItem="Oy3-1K-w7L" secondAttribute="trailing" id="nOL-zP-bWp"/>
                 <constraint firstItem="Oy3-1K-w7L" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="xXg-Dw-Tki"/>
             </constraints>
-            <point key="canvasLocation" x="-112.5" y="3.5"/>
+            <point key="canvasLocation" x="-218" y="-25"/>
         </view>
         <tapGestureRecognizer id="398-yI-2cu" userLabel="头像点击Tap Gesture Recognizer">
             <connections>
@@ -301,7 +301,7 @@
         <image name="jifenshuoming" width="45" height="45"/>
         <image name="jifenzhuanzeng" width="45" height="45"/>
         <image name="naoling" width="26" height="29"/>
-        <image name="placeholderimage" width="44" height="46"/>
+        <image name="placeholderimage" width="360" height="360"/>
         <image name="wodejifen" width="45" height="45"/>
     </resources>
 </document>

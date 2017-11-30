@@ -76,6 +76,7 @@ class PPRequestManager: NSObject {
         manager.post(url_here, parameters: para, progress: nil, success: {(task,response) in
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
             let response_data = response as! Data
+            print(String.init(data: response_data, encoding: String.Encoding.utf8));
             do{
                 let json_option = try JSONSerialization.jsonObject(with: response_data, options: .allowFragments)
                 let json_dic = json_option as! Dictionary<String, AnyObject>

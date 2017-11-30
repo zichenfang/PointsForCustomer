@@ -17,6 +17,8 @@ class PayNowViewController: BaseViewController {
     @IBOutlet var priceLabel: UILabel!
     var canUseMaxPoint :Int! //本单使用积分上限
     var price : Double! //消费总金额
+    @IBOutlet var payTruePriceLabel: UILabel!//实际消费
+    
     var shopId :Int! //店铺ID
     convenience init(){
         self.init(nibName: "PayNowViewController", bundle: nil)
@@ -29,6 +31,7 @@ class PayNowViewController: BaseViewController {
         //消费金额
         price = Double(para[3])
         priceLabel.text = String.init(format: "%.2f", price)
+        payTruePriceLabel.text = String.init(format: "%.2f", price);
         //最多使用积分限制
         print(Double(para[2])! * 0.01 * price)
         print(Int(Double(para[2])! * 0.01 * price))
@@ -53,8 +56,9 @@ class PayNowViewController: BaseViewController {
             inputPoint = 0
             usePointTF.text = "0"
         }
-        
         canGetPointLabel.text = String.init(format: "%d分", canUseMaxPoint - inputPoint)
+        //实际支付
+        payTruePriceLabel.text = String.init(format: "%.2f", price - (Double)(inputPoint));
     }
 //    MARK:开始支付
     @IBAction func payNow(_ sender: Any) {

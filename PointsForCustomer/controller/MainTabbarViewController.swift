@@ -17,6 +17,7 @@ class MainTabbarViewController: UITabBarController ,UITabBarControllerDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tabBar.tintColor = UIColor.styleRed();
+        self.tabBar.isTranslucent = false;
         indexVC = IndexViewController();
         addChildVC(childVC: indexVC!, title: "首页", image: "tabbar_index");
         readBitCodeVC = ReadBitCodeViewController();

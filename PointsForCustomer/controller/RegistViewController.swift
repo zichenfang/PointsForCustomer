@@ -128,5 +128,4 @@ class RegistViewController: BaseViewController {
             self.handler!([:])
         }
     }
-    
 }

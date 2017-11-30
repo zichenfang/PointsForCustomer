@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MapKit
 
 class ShopDetailViewController: BaseViewController , UITableViewDataSource , UITableViewDelegate , SDCycleScrollViewDelegate {
     //外部传值店铺
@@ -89,7 +90,6 @@ class ShopDetailViewController: BaseViewController , UITableViewDataSource , UIT
             }
         }) {
         }
-    
     }
     //    MARK:获取收藏状态
     func loadFavStatus(){
@@ -162,10 +162,51 @@ class ShopDetailViewController: BaseViewController , UITableViewDataSource , UIT
     }
     //    MARK: 地址导航
     @IBAction func goMap(_ sender: Any) {
-    }
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        let loc = CLLocationCoordinate2D.init(latitude: shopDetailObj.latitude!, longitude: shopDetailObj.longitude!);
+        //检测地图app安装情况
+        let alertC = UIAlertController.init(title: "选择", message: nil, preferredStyle: UIAlertControllerStyle.alert);
+        //自带apple地图
+        alertC.addAction(UIAlertAction.init(title: "Apple地图", style: UIAlertActionStyle.default, handler: { (act) in
+            let currentMapItem = MKMapItem.forCurrentLocation();
+            let toMapItem = MKMapItem.init(placemark: MKPlacemark.init(coordinate: loc, addressDictionary: nil));
+            MKMapItem.openMaps(with: [currentMapItem,toMapItem], launchOptions: [MKLaunchOptionsDirectionsModeKey:MKLaunchOptionsDirectionsModeDriving,MKLaunchOptionsShowsTrafficKey:NSNumber.init(value: true)]);
+        }));
+        if UIApplication.shared.canOpenURL(URL.init(string: "iosamap://")!) {
+            //高德地图
+            alertC.addAction(UIAlertAction.init(title: "高德地图", style: UIAlertActionStyle.default, handler: { (act) in
+                let urlStr = String.init(format: "iosamap://navi?sourceApplication=%@&backScheme=%@&lat=%f&lon=%f&dev=0&style=2","积分购","pointsbuy", loc.latitude,loc.longitude).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed);
+                if #available(iOS 10.0, *) {
+                    UIApplication.shared.open(URL.init(string: urlStr!)!, options: [:], completionHandler: nil);
+                } else {
+                    UIApplication.shared.openURL(URL.init(string: urlStr!)!);
+                }
+            }));
+        }
+        if UIApplication.shared.canOpenURL(URL.init(string: "baidumap://")!) {
+            //百度地图
+            alertC.addAction(UIAlertAction.init(title: "百度地图", style: UIAlertActionStyle.default, handler: { (act) in
+                let urlStr = String.init(format: "baidumap://map/direction?origin={{我的位置}}&destination=latlng:%f,%f|name=目的地&mode=driving&coord_type=gcj02", loc.latitude,loc.longitude).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed);
+                if #available(iOS 10.0, *) {
+                    UIApplication.shared.open(URL.init(string: urlStr!)!, options: [:], completionHandler: nil);
+                } else {
+                    UIApplication.shared.openURL(URL.init(string: urlStr!)!);
+                }
+            }));
+        }
+        if UIApplication.shared.canOpenURL(URL.init(string: "comgooglemaps://")!) {
+            //谷歌地图
+            alertC.addAction(UIAlertAction.init(title: "Google地图", style: UIAlertActionStyle.default, handler: { (act) in
+                let urlStr = String.init(format: "comgooglemaps://?x-source=%@&x-success=%@&saddr=&daddr=%f,%f&directionsmode=driving","积分购","pointsbuy", loc.latitude,loc.longitude).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed);
+                if #available(iOS 10.0, *) {
+                    UIApplication.shared.open(URL.init(string: urlStr!)!, options: [:], completionHandler: nil);
+                } else {
+                    UIApplication.shared.openURL(URL.init(string: urlStr!)!);
+                }
+            }));
+        }
+        
+        alertC.addAction(UIAlertAction.init(title: "取消", style: UIAlertActionStyle.cancel, handler: nil));
+        self.present(alertC, animated: true, completion: nil);
     }
 //    MARK:添加或者删除收藏
     @objc func add_remove_Fav()  {
@@ -252,13 +293,18 @@ class ShopDetailViewController: BaseViewController , UITableViewDataSource , UIT
             let des = shopDetailObj.desces[indexPath.section] as! String
             let height = des.heightWithFountAndWidth(font: UIFont.systemFont(ofSize: 15), width: SCREEN_WIDTH - 10*2) + 5
             return height;
-
         }
     }
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {        
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 0 {
+            let broVC :ImageBrowserVC = ImageBrowserVC.init(links: self.shopDetailObj.images as! [Any], currentIndex: indexPath.section);
+            broVC.show();
+        }
     }
     // MARK: - SDCycleScrollViewDelegate
     func cycleScrollView(_ cycleScrollView: SDCycleScrollView!, didSelectItemAt index: Int) {
+        let broVC :ImageBrowserVC = ImageBrowserVC.init(links: self.shopDetailObj.images as! [Any], currentIndex: index);
+        broVC.show();
     }
 
 

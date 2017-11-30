@@ -13,6 +13,7 @@
             <connections>
                 <outlet property="canGetPointLabel" destination="noU-sY-tL1" id="gL9-DN-Ivn"/>
                 <outlet property="maxPointLabel" destination="rAU-X9-MZo" id="q0P-rH-pY7"/>
+                <outlet property="payTruePriceLabel" destination="xNM-Xy-hex" id="uha-6A-mTt"/>
                 <outlet property="priceLabel" destination="AXq-9Q-6BX" id="ok2-Mz-x66"/>
                 <outlet property="usePointTF" destination="62E-Ka-mH8" id="iiP-zh-NTa"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -98,8 +99,8 @@
                                         <constraint firstAttribute="trailing" secondItem="62E-Ka-mH8" secondAttribute="trailing" constant="20" id="wpB-72-LEg"/>
                                     </constraints>
                                 </view>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="实际支付（元）" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cHR-N9-3Q4">
-                                    <rect key="frame" x="10" y="209" width="149" height="21"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="本次消费" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cHR-N9-3Q4">
+                                    <rect key="frame" x="10" y="210" width="149" height="20"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <nil key="textColor"/>
@@ -112,11 +113,10 @@
                                         <constraint firstAttribute="height" constant="20" id="O96-6a-2dm"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <color key="textColor" red="0.89411764709999997" green="0.22352941179999999" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pfl-DQ-wOk">
-                                    <rect key="frame" x="10" y="270" width="355" height="45"/>
+                                    <rect key="frame" x="10" y="280" width="355" height="45"/>
                                     <color key="backgroundColor" red="0.89411764709999997" green="0.22352941179999999" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="45" id="t9O-HC-WHO"/>
@@ -136,68 +136,59 @@
                                     </connections>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="PLV-KO-NFX">
-                                    <rect key="frame" x="8" y="342" width="357" height="20"/>
+                                    <rect key="frame" x="10" y="342" width="355" height="20"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="20" id="58I-U8-EFi"/>
                                     </constraints>
                                     <attributedString key="attributedText">
                                         <fragment content="备注：">
                                             <attributes>
-                                                <color key="NSColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="13" name=".PingFangSC-Regular"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                <color key="NSColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="14" name=".PingFangSC-Regular"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                             </attributes>
                                         </fragment>
-                                        <fragment content="本单可得到积分">
+                                        <fragment content="可得到积分+使用积分=本单最多可使用积分">
                                             <attributes>
-                                                <color key="NSColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="13" name=".PingFangSC-Regular"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment content="+">
-                                            <attributes>
-                                                <color key="NSColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" metaFont="system"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment content="本次使用积分">
-                                            <attributes>
-                                                <color key="NSColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="13" name=".PingFangSC-Regular"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment content="=">
-                                            <attributes>
-                                                <color key="NSColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" metaFont="system"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment content="本单最多可使用积分">
-                                            <attributes>
-                                                <color key="NSColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="13" name=".PingFangSC-Regular"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                <color key="NSColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                <font key="NSFont" size="14" name=".PingFangSC-Regular"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                             </attributes>
                                         </fragment>
                                     </attributedString>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="实际支付（元）" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uyc-wJ-394">
+                                    <rect key="frame" x="10" y="240" width="149" height="20"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xNM-Xy-hex">
+                                    <rect key="frame" x="245" y="240" width="120" height="20"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="120" id="1Ck-Gq-gCC"/>
+                                        <constraint firstAttribute="height" constant="20" id="dum-VN-4db"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" red="0.89411764709999997" green="0.22352941179999999" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
                             <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                             <constraints>
                                 <constraint firstAttribute="trailing" secondItem="PLV-KO-NFX" secondAttribute="trailing" constant="10" id="5i1-aj-apR"/>
-                                <constraint firstItem="PLV-KO-NFX" firstAttribute="leading" secondItem="fQN-JZ-IBB" secondAttribute="leading" constant="8" id="Art-SY-MOe"/>
+                                <constraint firstAttribute="trailing" secondItem="xNM-Xy-hex" secondAttribute="trailing" constant="10" id="5zQ-rW-bSi"/>
+                                <constraint firstItem="xNM-Xy-hex" firstAttribute="top" secondItem="qSx-FR-BBb" secondAttribute="bottom" constant="55" id="9uO-ry-sQH"/>
+                                <constraint firstItem="PLV-KO-NFX" firstAttribute="leading" secondItem="fQN-JZ-IBB" secondAttribute="leading" constant="10" id="Art-SY-MOe"/>
                                 <constraint firstAttribute="trailing" secondItem="AXq-9Q-6BX" secondAttribute="trailing" constant="10" id="CjY-ME-Wlf"/>
                                 <constraint firstAttribute="trailing" secondItem="Pfl-DQ-wOk" secondAttribute="trailing" constant="10" id="D2e-sB-GoA"/>
                                 <constraint firstItem="Pfl-DQ-wOk" firstAttribute="leading" secondItem="fQN-JZ-IBB" secondAttribute="leading" constant="10" id="JOD-dj-5dF"/>
                                 <constraint firstItem="AXq-9Q-6BX" firstAttribute="top" secondItem="fQN-JZ-IBB" secondAttribute="top" constant="210" id="K3R-vR-Zob"/>
                                 <constraint firstItem="qSx-FR-BBb" firstAttribute="top" secondItem="fQN-JZ-IBB" secondAttribute="top" constant="5" id="axw-fL-XpI"/>
                                 <constraint firstItem="PLV-KO-NFX" firstAttribute="top" secondItem="fQN-JZ-IBB" secondAttribute="top" constant="342" id="f5h-M2-D7r"/>
-                                <constraint firstItem="Pfl-DQ-wOk" firstAttribute="top" secondItem="fQN-JZ-IBB" secondAttribute="top" constant="270" id="llh-7p-g1n"/>
+                                <constraint firstItem="Pfl-DQ-wOk" firstAttribute="top" secondItem="fQN-JZ-IBB" secondAttribute="top" constant="280" id="llh-7p-g1n"/>
                                 <constraint firstItem="qSx-FR-BBb" firstAttribute="leading" secondItem="fQN-JZ-IBB" secondAttribute="leading" constant="10" id="wqX-Kr-5Kl"/>
                                 <constraint firstAttribute="trailing" secondItem="qSx-FR-BBb" secondAttribute="trailing" constant="10" id="xgQ-5e-Fgo"/>
                             </constraints>
