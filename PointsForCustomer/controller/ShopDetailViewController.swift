@@ -16,7 +16,6 @@ class ShopDetailViewController: BaseViewController , UITableViewDataSource , UIT
     //是否已经收藏，默认为否
     var isFav :Bool = false;
     @IBOutlet var tableView: UITableView!
-    @IBOutlet var phoneBtnWidthConstraint: NSLayoutConstraint!
     @IBOutlet var bannerScrollView: SDCycleScrollView!
     @IBOutlet var titleLabel: UILabel! //标题
     @IBOutlet var contentLabel: UILabel! //内容
@@ -24,6 +23,11 @@ class ShopDetailViewController: BaseViewController , UITableViewDataSource , UIT
     @IBOutlet var kdaLabel: UILabel!//评分
     @IBOutlet var commentCountBtn: UIButton!//评论数目
     @IBOutlet var addressLabel: UILabel!//地址
+    @IBOutlet var timeDesLabel: UILabel!//营业时间
+    @IBOutlet var shiyongDesTV: UITextView!//使用范围
+    @IBOutlet var zhizhaoIV: UIImageView!//营业执照
+    @IBOutlet var xukezhengIV: UIImageView!//经营许可证
+
     @IBOutlet var subContentView: UIView!//小星星的父视图，用来批量处理小星星
     //用来适配中间标题+简介view模块的高度，没有用autolayout是因为它报错了
     @IBOutlet var titleViewConstraint: NSLayoutConstraint!
@@ -48,9 +52,6 @@ class ShopDetailViewController: BaseViewController , UITableViewDataSource , UIT
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated);
         self.navigationController?.setNavigationBarHidden(false, animated: true);
-        //修改打电话按钮的宽度
-        phoneBtnWidthConstraint.constant = SCREEN_WIDTH * 0.226
-        
     }
     //MAR:修改收藏状态按钮
     func prepareFavItem() {
@@ -128,7 +129,7 @@ class ShopDetailViewController: BaseViewController , UITableViewDataSource , UIT
         let titleViewHeight = shopDetailObj.introduction!.heightWithFountAndWidth(font: contentLabel.font, width: SCREEN_WIDTH - 10*2) + 40
         titleViewConstraint.constant = titleViewHeight
         //积分、电话等内容的高度
-        let subContentheight :CGFloat = 200
+        let subContentheight :CGFloat = 350
         tableView.tableHeaderView?.frame = CGRect.init(x: 0, y: 0, width: SCREEN_WIDTH, height: bannerHeight + titleViewHeight + subContentheight)
         titleLabel.text = shopDetailObj.name;
         pointScaleLabel.text = String.init(format: "积分比例：%d %%", shopDetailObj.integral_ratio!)
@@ -146,15 +147,21 @@ class ShopDetailViewController: BaseViewController , UITableViewDataSource , UIT
         kdaLabel.text = String.init(format: "%.1f分", shopDetailObj.ave_score!)
         commentCountBtn.setTitle(String.init(format: "%d 评价", shopDetailObj.comment_num!), for: UIControlState.normal)
         addressLabel.text = shopDetailObj.address
+        //营业时间和使用范围
+        timeDesLabel.text = shopDetailObj.business_hours;
+        shiyongDesTV.text = shopDetailObj.use_range;
+        //营业执照和经营许可证
+        zhizhaoIV.sd_setImage(with: URL.init(string: shopDetailObj.business_license!), placeholderImage: PLACE_HOLDER_IMAGE_GENERAL)
+        xukezhengIV.sd_setImage(with: URL.init(string: shopDetailObj.business_permit!), placeholderImage: PLACE_HOLDER_IMAGE_GENERAL)
+        tableView.tableFooterView?.frame = CGRect.init(x: 0, y: 0, width: SCREEN_WIDTH, height: SCREEN_WIDTH*1.54);
         tableView.endUpdates()
     }
     //    MARK: 进入评论列表
     @IBAction func goCommentList(_ sender: Any) {
         let vc = CommentListViewController()
-        vc.shopObj = self.shopObj
+        vc.shopObj = shopDetailObj;
         self.navigationController?.pushViewController(vc, animated: true)
     }
-    
     //    MARK: 打电话
     @IBAction func callToShop(_ sender: Any) {
         let phoneUrl = "telprompt://" + shopDetailObj.mobile!

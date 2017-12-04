@@ -26,9 +26,7 @@ class WriteCommentViewController: BaseViewController {
     //承载三个插图的 view视图
     @IBOutlet var insertImagesParentView: UIView!
     @IBOutlet var textParentViewHeightConstraint: NSLayoutConstraint!
-    
-    
-    
+ 
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -196,10 +194,6 @@ class WriteCommentViewController: BaseViewController {
 
     // MARK: - 发布评价
     @IBAction func save(_ sender: Any) {
-        //测试评论成功提示框
-        self.showShareAlertView();
-        return;
-        
         if shop_id! <= 0{
             ProgressHUD.showError("店铺信息错误")
             return
@@ -209,7 +203,10 @@ class WriteCommentViewController: BaseViewController {
             return
         }
         let para = ["comment":"很好很好吃",
-                    "score":"5",
+                    "score":NSNumber.init(value: kda_zonghe),
+                    "server_score":NSNumber.init(value: kda_fuwu),
+                    "product_score":NSNumber.init(value: kda_chanpin),
+                    "milieu_score":NSNumber.init(value: kda_huanjing),
                     "seller_id":shop_id!,
                     "token":PPUserInfoManager.token()] as [String:AnyObject]
         //测试发表评价

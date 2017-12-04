@@ -11,8 +11,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CommentListViewController" customModule="PointsForCustomer" customModuleProvider="target">
             <connections>
-                <outlet property="commentCountLabel" destination="4a9-0d-P5T" id="TiN-e9-ASO"/>
-                <outlet property="shopNameLabel" destination="Wqm-F6-SEF" id="A3m-OR-j2c"/>
+                <outlet property="chanpinPointsLabel" destination="cVU-XI-La4" id="DJu-1G-J4L"/>
+                <outlet property="chanpinView" destination="y0v-Qu-a3M" id="kHj-44-w8B"/>
+                <outlet property="fuwuPointsLabel" destination="mhv-5G-lnh" id="F2C-IK-JkG"/>
+                <outlet property="fuwuView" destination="k1L-eQ-VBW" id="qgw-Vy-OBs"/>
+                <outlet property="huanjingPointsLabel" destination="azE-YR-bEB" id="WdX-uA-bkZ"/>
+                <outlet property="huanjingView" destination="II4-Ar-KTR" id="ZId-dr-Vjc"/>
                 <outlet property="tableView" destination="zoH-Ns-Ev7" id="s3n-3A-yVF"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -26,48 +30,144 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <view key="tableHeaderView" contentMode="scaleToFill" id="gh4-fH-Kfb" userLabel="header View">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="135"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="onZ-lx-t9j" userLabel="line View">
-                                <rect key="frame" x="10" y="14" width="1.5" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.89411764709999997" green="0.22352941179999999" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AUS-pf-xWt" userLabel="line View">
+                                <rect key="frame" x="0.0" y="130" width="375" height="5"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="5" id="coN-Dr-Kho"/>
+                                </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="店铺介绍" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wqm-F6-SEF">
-                                <rect key="frame" x="28" y="0.0" width="247" height="50"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="服务:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GoZ-y1-RsN">
+                                <rect key="frame" x="10" y="6" width="42" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="评价" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4a9-0d-P5T">
-                                <rect key="frame" x="275" y="0.0" width="90" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="90" id="d8y-If-sht"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="k1L-eQ-VBW" userLabel="服务View">
+                                <rect key="frame" x="52" y="6" width="135" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" tag="100" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="xiaolian_huang" translatesAutoresizingMaskIntoConstraints="NO" id="iyZ-rv-jJk" userLabel="星星Image View0">
+                                        <rect key="frame" x="0.0" y="6.5" width="27" height="27"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" tag="101" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="xiaolian_huang" translatesAutoresizingMaskIntoConstraints="NO" id="2X9-Y3-8Ym" userLabel="星星Image View1">
+                                        <rect key="frame" x="27" y="6.5" width="27" height="27"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" tag="102" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="xiaolian_huang" translatesAutoresizingMaskIntoConstraints="NO" id="10h-oH-1aF" userLabel="星星Image View2">
+                                        <rect key="frame" x="54" y="6.5" width="27" height="27"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" tag="103" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="xiaolian_huang" translatesAutoresizingMaskIntoConstraints="NO" id="Fsr-TB-SB7" userLabel="星星Image View3">
+                                        <rect key="frame" x="81" y="6.5" width="27" height="27"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" tag="104" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="xiaolian_huang" translatesAutoresizingMaskIntoConstraints="NO" id="UlI-8r-Psk" userLabel="星星Image View4">
+                                        <rect key="frame" x="108" y="6.5" width="27" height="27"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <gestureRecognizers/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0.0分" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mhv-5G-lnh">
+                                <rect key="frame" x="210" y="6" width="42" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AUS-pf-xWt" userLabel="line View">
-                                <rect key="frame" x="0.0" y="49" width="375" height="1"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="1" id="coN-Dr-Kho"/>
-                                </constraints>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="产品:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kay-l6-gGh">
+                                <rect key="frame" x="10" y="41" width="42" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y0v-Qu-a3M" userLabel="产品View">
+                                <rect key="frame" x="52" y="41" width="135" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" tag="100" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="xiaolian_huang" translatesAutoresizingMaskIntoConstraints="NO" id="zTb-Hl-SMq" userLabel="星星Image View0">
+                                        <rect key="frame" x="0.0" y="6.5" width="27" height="27"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" tag="101" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="xiaolian_huang" translatesAutoresizingMaskIntoConstraints="NO" id="YhE-5u-chk" userLabel="星星Image View1">
+                                        <rect key="frame" x="27" y="6.5" width="27" height="27"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" tag="102" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="xiaolian_huang" translatesAutoresizingMaskIntoConstraints="NO" id="lZM-QG-L83" userLabel="星星Image View2">
+                                        <rect key="frame" x="54" y="6.5" width="27" height="27"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" tag="103" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="xiaolian_huang" translatesAutoresizingMaskIntoConstraints="NO" id="5og-b7-Pcl" userLabel="星星Image View3">
+                                        <rect key="frame" x="81" y="6.5" width="27" height="27"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" tag="104" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="xiaolian_huang" translatesAutoresizingMaskIntoConstraints="NO" id="Kgv-ks-0Ke" userLabel="星星Image View4">
+                                        <rect key="frame" x="108" y="6.5" width="27" height="27"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <gestureRecognizers/>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0.0分" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cVU-XI-La4">
+                                <rect key="frame" x="210" y="41" width="42" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="环境:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fiC-yJ-MGC">
+                                <rect key="frame" x="10" y="76" width="42" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="II4-Ar-KTR" userLabel="环境View">
+                                <rect key="frame" x="52" y="76" width="135" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" tag="100" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="xiaolian_huang" translatesAutoresizingMaskIntoConstraints="NO" id="vKc-se-TMC" userLabel="星星Image View0">
+                                        <rect key="frame" x="0.0" y="6.5" width="27" height="27"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" tag="101" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="xiaolian_huang" translatesAutoresizingMaskIntoConstraints="NO" id="94o-ZH-1Hk" userLabel="星星Image View1">
+                                        <rect key="frame" x="27" y="6.5" width="27" height="27"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" tag="102" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="xiaolian_huang" translatesAutoresizingMaskIntoConstraints="NO" id="3Jj-4e-WoS" userLabel="星星Image View2">
+                                        <rect key="frame" x="54" y="6.5" width="27" height="27"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" tag="103" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="xiaolian_huang" translatesAutoresizingMaskIntoConstraints="NO" id="b3p-Ce-Sdk" userLabel="星星Image View3">
+                                        <rect key="frame" x="81" y="6.5" width="27" height="27"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" tag="104" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="xiaolian_huang" translatesAutoresizingMaskIntoConstraints="NO" id="JqR-Ml-SAR" userLabel="星星Image View4">
+                                        <rect key="frame" x="108" y="6.5" width="27" height="27"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <gestureRecognizers/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0.0分" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="azE-YR-bEB">
+                                <rect key="frame" x="210" y="76" width="42" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="AUS-pf-xWt" secondAttribute="bottom" id="4De-tX-gzR"/>
-                            <constraint firstAttribute="bottom" secondItem="Wqm-F6-SEF" secondAttribute="bottom" id="AA3-PU-Tzr"/>
-                            <constraint firstItem="Wqm-F6-SEF" firstAttribute="leading" secondItem="gh4-fH-Kfb" secondAttribute="leading" constant="28" id="FNa-bX-p9z"/>
-                            <constraint firstItem="Wqm-F6-SEF" firstAttribute="top" secondItem="gh4-fH-Kfb" secondAttribute="top" id="PwK-Dh-fPC"/>
-                            <constraint firstAttribute="trailing" secondItem="4a9-0d-P5T" secondAttribute="trailing" constant="10" id="Qs9-SJ-i1N"/>
                             <constraint firstItem="AUS-pf-xWt" firstAttribute="leading" secondItem="gh4-fH-Kfb" secondAttribute="leading" id="RZN-Ve-tFe"/>
-                            <constraint firstAttribute="trailing" secondItem="Wqm-F6-SEF" secondAttribute="trailing" constant="100" id="Z1c-HS-g0F"/>
-                            <constraint firstItem="4a9-0d-P5T" firstAttribute="top" secondItem="gh4-fH-Kfb" secondAttribute="top" id="Z4a-iD-8jS"/>
                             <constraint firstAttribute="trailing" secondItem="AUS-pf-xWt" secondAttribute="trailing" id="ZPO-s4-qeQ"/>
-                            <constraint firstAttribute="bottom" secondItem="4a9-0d-P5T" secondAttribute="bottom" id="e0I-z3-EQS"/>
                         </constraints>
                     </view>
                     <connections>
@@ -86,4 +186,7 @@
             <point key="canvasLocation" x="-115.5" y="20.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="xiaolian_huang" width="19" height="19"/>
+    </resources>
 </document>

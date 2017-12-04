@@ -9,12 +9,16 @@
 import UIKit
 
 class CommentListViewController: BaseViewController , UITableViewDataSource , UITableViewDelegate{
-    //外部传值店铺
-    public var shopObj : PPShopObject!
-    
+    //外部传值店铺,店铺的详细信息
+    public var shopObj : PPShopDetailobj!
     @IBOutlet var tableView: UITableView!
-    @IBOutlet var shopNameLabel: UILabel!
-    @IBOutlet var commentCountLabel: UILabel!
+    @IBOutlet var fuwuView: UIView!//服务
+    @IBOutlet var fuwuPointsLabel: UILabel!
+    @IBOutlet var chanpinView: UIView!//产品
+    @IBOutlet var chanpinPointsLabel: UILabel!
+    @IBOutlet var huanjingView: UIView!//环境
+    @IBOutlet var huanjingPointsLabel: UILabel!
+    
     //评价列表数据
     var commentDatas = NSMutableArray() as! [CommentObj];
     //商家列表分页页码
@@ -25,8 +29,6 @@ class CommentListViewController: BaseViewController , UITableViewDataSource , UI
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "评价";
-        shopNameLabel.text = shopObj.name
-        commentCountLabel.text = String.init(format: "%d 评价", shopObj.comment_num!)
         configTableView()
         loadCommentData()
     }
@@ -42,6 +44,39 @@ class CommentListViewController: BaseViewController , UITableViewDataSource , UI
             self.page = self.page + 1
             self.loadCommentData()
         })
+        //将三个评分赋值到当前页面
+        //服务
+        for index in 0...4 {
+            let starIV = fuwuView.viewWithTag(100+index) as! UIImageView
+            if index < (Int)(shopObj.server_score!){
+                starIV.image = UIImage.init(named: "xiaolian_huang");
+            }
+            else{
+                starIV.image = UIImage.init(named: "xiaolian_hui");
+            }
+        }
+        //产品
+        for index in 0...4 {
+            let starIV = chanpinView.viewWithTag(100+index) as! UIImageView
+            if index < (Int)(shopObj.product_score!){
+                starIV.image = UIImage.init(named: "xiaolian_huang");
+            }
+            else{
+                starIV.image = UIImage.init(named: "xiaolian_hui");
+            }
+        }
+
+        //环境
+        for index in 0...4 {
+            let starIV = huanjingView.viewWithTag(100+index) as! UIImageView
+            if index < (Int)(shopObj.milieu_score!){
+                starIV.image = UIImage.init(named: "xiaolian_huang");
+            }
+            else{
+                starIV.image = UIImage.init(named: "xiaolian_hui");
+            }
+        }
+
     }
     //    MARK:获取评价列表数据
     func loadCommentData() {
