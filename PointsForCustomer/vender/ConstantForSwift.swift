@@ -101,6 +101,13 @@ let API_SHOP_PAYNOW :String = "/api.php/v1.User/pay";
 let API_SHOP_COMMENTS :String = "/api.php/v1.Index/Comments";
 //MARK: ●修改用户信息
 let API_USER_CHANGEINFO :String = "/api.php/v1.User/changeInfo";
+//MARK: ●意见反馈
+let API_USER_FEEDBACK :String = "/api.php/v1.User/feedback";
+//MARK: ●获取常见问题
+let API_USER_FAQ_LIST :String = "/api.php/v1.User/FAQs";
+
+
+
 
 
 class ConstantForSwift: NSObject {
