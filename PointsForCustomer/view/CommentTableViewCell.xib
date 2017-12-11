@@ -156,7 +156,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="placeholderimage" width="44" height="46"/>
+        <image name="placeholderimage" width="360" height="360"/>
         <image name="xingxing_an" width="15" height="15"/>
     </resources>
 </document>

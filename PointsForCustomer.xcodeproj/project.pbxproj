@@ -17,7 +17,13 @@
 		E21D2AAD1F8A71EB001D29A1 /* PointsHistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E21D2AAB1F8A71EB001D29A1 /* PointsHistoryTableViewCell.xib */; };
 		E21D2AAF1F8A752B001D29A1 /* PPPointsHistoryObj.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21D2AAE1F8A752B001D29A1 /* PPPointsHistoryObj.swift */; };
 		E228688E1F8667690050CDEC /* PPUserInfoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E228688D1F8667690050CDEC /* PPUserInfoManager.swift */; };
+		E23135811FDE6DB000F659E6 /* MsgListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E231357F1FDE6DB000F659E6 /* MsgListTableViewCell.swift */; };
+		E23135821FDE6DB000F659E6 /* MsgListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E23135801FDE6DB000F659E6 /* MsgListTableViewCell.xib */; };
+		E23135841FDE6F9600F659E6 /* PPMsgObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23135831FDE6F9600F659E6 /* PPMsgObject.swift */; };
 		E235A2761F9F0D9400DDB827 /* PPDictionaryExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E235A2751F9F0D9400DDB827 /* PPDictionaryExtension.swift */; };
+		E24265FC1FDE5333001F5267 /* PPNSDictionaryExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24265FB1FDE5333001F5267 /* PPNSDictionaryExtension.swift */; };
+		E24265FF1FDE640D001F5267 /* MsgListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24265FD1FDE640D001F5267 /* MsgListViewController.swift */; };
+		E24266001FDE640D001F5267 /* MsgListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E24265FE1FDE640D001F5267 /* MsgListViewController.xib */; };
 		E24708971F89D81500F8705D /* PPShopDetailobj.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24708961F89D81500F8705D /* PPShopDetailobj.swift */; };
 		E252302D1FD7CC3200E79EAB /* MainTabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E235F03F1FD7C423006EEADB /* MainTabbarViewController.swift */; };
 		E252302E1FD7CC4C00E79EAB /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E235F03E1FD7C423006EEADB /* BaseViewController.swift */; };
@@ -127,6 +133,9 @@
 		E21D2AAB1F8A71EB001D29A1 /* PointsHistoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PointsHistoryTableViewCell.xib; sourceTree = "<group>"; };
 		E21D2AAE1F8A752B001D29A1 /* PPPointsHistoryObj.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPPointsHistoryObj.swift; sourceTree = "<group>"; };
 		E228688D1F8667690050CDEC /* PPUserInfoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPUserInfoManager.swift; sourceTree = "<group>"; };
+		E231357F1FDE6DB000F659E6 /* MsgListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MsgListTableViewCell.swift; sourceTree = "<group>"; };
+		E23135801FDE6DB000F659E6 /* MsgListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MsgListTableViewCell.xib; sourceTree = "<group>"; };
+		E23135831FDE6F9600F659E6 /* PPMsgObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPMsgObject.swift; sourceTree = "<group>"; };
 		E235A2751F9F0D9400DDB827 /* PPDictionaryExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPDictionaryExtension.swift; sourceTree = "<group>"; };
 		E235F0121FD7C423006EEADB /* BoundsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoundsListViewController.swift; sourceTree = "<group>"; };
 		E235F0131FD7C423006EEADB /* BoundsListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BoundsListViewController.xib; sourceTree = "<group>"; };
@@ -172,6 +181,9 @@
 		E235F03C1FD7C423006EEADB /* WriteCommentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WriteCommentViewController.xib; sourceTree = "<group>"; };
 		E235F03E1FD7C423006EEADB /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		E235F03F1FD7C423006EEADB /* MainTabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabbarViewController.swift; sourceTree = "<group>"; };
+		E24265FB1FDE5333001F5267 /* PPNSDictionaryExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPNSDictionaryExtension.swift; sourceTree = "<group>"; };
+		E24265FD1FDE640D001F5267 /* MsgListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MsgListViewController.swift; sourceTree = "<group>"; };
+		E24265FE1FDE640D001F5267 /* MsgListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MsgListViewController.xib; sourceTree = "<group>"; };
 		E24708961F89D81500F8705D /* PPShopDetailobj.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPShopDetailobj.swift; sourceTree = "<group>"; };
 		E25369A81F7F6A5A004AC8A3 /* PPRequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPRequestManager.swift; sourceTree = "<group>"; };
 		E2547C441F73F9DF000DA9E9 /* AllCityTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllCityTableViewCell.swift; sourceTree = "<group>"; };
@@ -327,6 +339,8 @@
 				E288FB5E1FD8E75200697C29 /* FeedBackViewController.xib */,
 				E288FB611FD9193000697C29 /* FAQViewController.swift */,
 				E288FB621FD9193000697C29 /* FAQViewController.xib */,
+				E24265FD1FDE640D001F5267 /* MsgListViewController.swift */,
+				E24265FE1FDE640D001F5267 /* MsgListViewController.xib */,
 			);
 			path = "个人中心";
 			sourceTree = "<group>";
@@ -378,6 +392,7 @@
 				E297FDD21F7DEFB70056C606 /* CommentObj.swift */,
 				E21D2AAE1F8A752B001D29A1 /* PPPointsHistoryObj.swift */,
 				E2D8D51E1FD91D89006246FA /* PPFAQObj.swift */,
+				E23135831FDE6F9600F659E6 /* PPMsgObject.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -412,6 +427,8 @@
 				E2D8D5211FD91E79006246FA /* FAQIssueTableViewCell.xib */,
 				E2D8D5241FD91E94006246FA /* FAQAnswerTableViewCell.swift */,
 				E2D8D5251FD91E94006246FA /* FAQAnswerTableViewCell.xib */,
+				E231357F1FDE6DB000F659E6 /* MsgListTableViewCell.swift */,
+				E23135801FDE6DB000F659E6 /* MsgListTableViewCell.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -441,6 +458,7 @@
 				E2F1EF431F676F1300CF90C2 /* UIDevice+MyDevice.m */,
 				E2FA31A71F713C6600B657A1 /* PPStringExtension.swift */,
 				E235A2751F9F0D9400DDB827 /* PPDictionaryExtension.swift */,
+				E24265FB1FDE5333001F5267 /* PPNSDictionaryExtension.swift */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -539,6 +557,7 @@
 				E252304A1FD7CC5600E79EAB /* SearchAreaViewController.xib in Resources */,
 				E252304B1FD7CC5600E79EAB /* SearchShopViewController.xib in Resources */,
 				E252304C1FD7CC5600E79EAB /* ShopDetailViewController.xib in Resources */,
+				E24266001FDE640D001F5267 /* MsgListViewController.xib in Resources */,
 				E252304D1FD7CC5600E79EAB /* WriteCommentViewController.xib in Resources */,
 				E252304E1FD7CC5600E79EAB /* BoundsListViewController.xib in Resources */,
 				E252304F1FD7CC5600E79EAB /* ChangePassWordViewController.xib in Resources */,
@@ -557,6 +576,7 @@
 				E2B6025B1F7D4102006FFAE1 /* ShopDetailSingleImageTableViewCell.xib in Resources */,
 				E21A64421F6663E3007D1C49 /* LaunchScreen.storyboard in Resources */,
 				E2FA31AC1F71593400B657A1 /* IndexClassItemView.xib in Resources */,
+				E23135821FDE6DB000F659E6 /* MsgListTableViewCell.xib in Resources */,
 				E288FB601FD8E75200697C29 /* FeedBackViewController.xib in Resources */,
 				E25B8B221FCF97B400F56982 /* ShareAlertView.xib in Resources */,
 				E2D8D5271FD91E94006246FA /* FAQAnswerTableViewCell.xib in Resources */,
@@ -627,6 +647,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E23135841FDE6F9600F659E6 /* PPMsgObject.swift in Sources */,
+				E24265FC1FDE5333001F5267 /* PPNSDictionaryExtension.swift in Sources */,
 				E252302E1FD7CC4C00E79EAB /* BaseViewController.swift in Sources */,
 				E252302F1FD7CC4C00E79EAB /* CityListViewController.swift in Sources */,
 				E25230301FD7CC4C00E79EAB /* CommentListViewController.swift in Sources */,
@@ -685,8 +707,10 @@
 				E2E803BF1F6BAAE30094065F /* IndexHeaderView.swift in Sources */,
 				E2E803BC1F6BA6F00094065F /* PPShopTableViewCell.swift in Sources */,
 				E297FDD31F7DEFB70056C606 /* CommentObj.swift in Sources */,
+				E23135811FDE6DB000F659E6 /* MsgListTableViewCell.swift in Sources */,
 				E2B6025A1F7D4102006FFAE1 /* ShopDetailSingleImageTableViewCell.swift in Sources */,
 				E297FDCC1F7DDA6C0056C606 /* CommentTableViewCell.swift in Sources */,
+				E24265FF1FDE640D001F5267 /* MsgListViewController.swift in Sources */,
 				E2FA31AA1F71450300B657A1 /* PPIndexClassObj.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -827,7 +851,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "/Users/yinyuqiu/Documents/MoneyMoney/PointsForCustomer/PointsForCustomer/PointsForCustomer-Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -848,7 +872,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "/Users/yinyuqiu/Documents/MoneyMoney/PointsForCustomer/PointsForCustomer/PointsForCustomer-Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

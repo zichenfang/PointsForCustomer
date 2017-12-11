@@ -25,7 +25,7 @@ class PPShopObject: BaseObject {
     init(info :NSDictionary){
         self.id = info["id"]as?Int;
         self.name = info["name"]as?String;
-        self.head_img = info["head_img"]as?String;
+        self.head_img = info.string_ForKey(key: "head_img");// info["head_img"]as?String;
         if let ave_score :Double = info["ave_score"] as? Double{
             self.ave_score = ave_score;
         }

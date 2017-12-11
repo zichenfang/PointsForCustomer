@@ -50,7 +50,7 @@
                                                     <constraint firstAttribute="height" constant="47" id="rCH-Pv-JtT"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我的积分" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z01-OI-dqB">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="积分记录" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z01-OI-dqB">
                                                 <rect key="frame" x="0.0" y="85" width="125" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="LVg-Vb-yyE"/>
@@ -226,11 +226,12 @@
                                     <action selector="goMsg:" destination="-1" eventType="touchUpInside" id="jLm-7K-Ygb"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1    " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vpj-MP-nng" userLabel="消息数目">
-                                <rect key="frame" x="348" y="24" width="23" height="20"/>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vpj-MP-nng" userLabel="消息数目">
+                                <rect key="frame" x="349" y="30" width="14" height="14"/>
                                 <color key="backgroundColor" red="0.89411764709999997" green="0.22352941179999999" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="MvK-aZ-pxa"/>
+                                    <constraint firstAttribute="width" constant="14" id="IJK-dm-loC"/>
+                                    <constraint firstAttribute="height" constant="14" id="ZZp-a9-0M5"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -238,7 +239,7 @@
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="10"/>
+                                        <integer key="value" value="7"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
@@ -246,22 +247,22 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="Vpj-MP-nng" secondAttribute="trailing" constant="4" id="2gO-va-8Q9"/>
                             <constraint firstItem="V6f-c1-um5" firstAttribute="leading" secondItem="729-bt-ofg" secondAttribute="leading" constant="20" id="7gu-0c-tJY"/>
                             <constraint firstItem="W85-9e-Tff" firstAttribute="top" secondItem="729-bt-ofg" secondAttribute="top" constant="20" id="BTN-Tw-WtF"/>
                             <constraint firstItem="Ge3-zV-Ss9" firstAttribute="leading" secondItem="729-bt-ofg" secondAttribute="leading" id="Gpi-Hk-sDF"/>
                             <constraint firstAttribute="bottom" secondItem="Ge3-zV-Ss9" secondAttribute="bottom" constant="8" id="HJ7-ds-Gi7"/>
                             <constraint firstItem="blZ-Sx-Cdj" firstAttribute="top" secondItem="729-bt-ofg" secondAttribute="top" constant="35" id="HOo-is-Iry"/>
                             <constraint firstAttribute="trailing" secondItem="W85-9e-Tff" secondAttribute="trailing" id="K3c-zN-AKC"/>
+                            <constraint firstAttribute="trailing" secondItem="Vpj-MP-nng" secondAttribute="trailing" constant="12" id="L2c-pL-OmZ"/>
                             <constraint firstAttribute="trailing" secondItem="FXD-VI-c1V" secondAttribute="trailing" id="Oqf-cb-coj"/>
                             <constraint firstAttribute="bottom" secondItem="V6f-c1-um5" secondAttribute="bottom" constant="168" id="OxX-51-gxu"/>
                             <constraint firstAttribute="trailing" secondItem="weL-zd-ywr" secondAttribute="trailing" id="Sh3-XG-CSN"/>
                             <constraint firstItem="weL-zd-ywr" firstAttribute="leading" secondItem="729-bt-ofg" secondAttribute="leading" id="bia-2n-fap"/>
                             <constraint firstAttribute="trailing" secondItem="Ge3-zV-Ss9" secondAttribute="trailing" id="eAR-Zf-8ve"/>
                             <constraint firstItem="Ge3-zV-Ss9" firstAttribute="top" secondItem="729-bt-ofg" secondAttribute="top" constant="175" id="eTA-jH-kSe"/>
-                            <constraint firstItem="Vpj-MP-nng" firstAttribute="top" secondItem="729-bt-ofg" secondAttribute="top" constant="24" id="hdO-Cq-tVm"/>
                             <constraint firstItem="FXD-VI-c1V" firstAttribute="leading" secondItem="729-bt-ofg" secondAttribute="leading" id="ixz-qI-P62"/>
                             <constraint firstAttribute="bottom" secondItem="weL-zd-ywr" secondAttribute="bottom" id="jkl-pZ-Tx3"/>
+                            <constraint firstItem="Vpj-MP-nng" firstAttribute="top" secondItem="729-bt-ofg" secondAttribute="top" constant="30" id="oRP-1y-f7m"/>
                             <constraint firstAttribute="trailing" secondItem="V6f-c1-um5" secondAttribute="trailing" constant="20" id="qQe-bq-giP"/>
                             <constraint firstItem="blZ-Sx-Cdj" firstAttribute="centerX" secondItem="729-bt-ofg" secondAttribute="centerX" id="smM-gh-LnV"/>
                             <constraint firstItem="FXD-VI-c1V" firstAttribute="top" secondItem="729-bt-ofg" secondAttribute="top" id="zOU-sa-UPA"/>

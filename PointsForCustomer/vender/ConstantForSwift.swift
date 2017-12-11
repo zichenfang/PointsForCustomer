@@ -92,7 +92,7 @@ let API_SHOP_FAV_STATUS :String = "/api.php/v1.User/isCollection";
 //MARK: ●获取收藏店铺列表
 let API_SHOP_FAV_LIST :String = "/api.php/v1.User/collections";
 //MARK: ●发表评论(图片与其他内容一并提交)
-let API_SHOP_ADD_COMMENT :String = "/api.php/v1.User/addComment";
+let API_SHOP_ADD_COMMENT :String = "/api.php/v1.User/addCommentIos";
 //MARK: ●上传图片（修改头像等）
 let API_SHOP_UPLOADIMAGE :String = "/api.php/v1.User/upload";
 //MARK: ●扫码支付
@@ -105,9 +105,12 @@ let API_USER_CHANGEINFO :String = "/api.php/v1.User/changeInfo";
 let API_USER_FEEDBACK :String = "/api.php/v1.User/feedback";
 //MARK: ●获取常见问题
 let API_USER_FAQ_LIST :String = "/api.php/v1.User/FAQs";
-
-
-
+//MARK: ●获取未读系统消息
+let API_USER_GET_UNREADMESSAGE :String = "/api.php/v1.User/unreadMessages";
+//MARK: ●系统消息列表
+let API_USER_MESSAGE_LIST :String = "/api.php/v1.User/messages";
+//MARK: ●设置消息为已读
+let API_USER_READ_MESSAGE :String = "/api.php/v1.User/readMessage";
 
 
 class ConstantForSwift: NSObject {

@@ -9,13 +9,13 @@
 import UIKit
 
 class PPFAQObj: BaseObject {
-    var faq_id :String?
+    var faq_id :Int?
     var issue :String?
     var answer :String?
     var isOpen :Bool?//是否展开
 
     init(info :NSDictionary){
-        self.faq_id = info["id"]as?String;
+        self.faq_id = info["id"]as?Int;
         self.issue = info["issue"]as?String;
         self.answer = info["answer"]as?String;
         self.isOpen = false;//默认为关闭

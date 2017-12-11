@@ -42,22 +42,58 @@ class UserCenterViewController: BaseViewController , UITableViewDataSource , UIT
         avatarIV.sd_setImage(with: URL.init(string: avatar), placeholderImage: PLACE_HOLDER_IMAGE_GENERAL)
         self.tableView.contentOffset = CGPoint.init(x: 0, y: 0);
     }
+    //MARK:用户登录或者注销之后变更个人中心菜单
     @objc func userStatusDidChanged () {
         if PPUserInfoManager.isLogined() == true {
             userInfoDidChanged()
             menus = ["奖励信息","我的邀请码","分享软件","收藏店铺","修改密码","个人资料","意见反馈","联系我们","注销登录"]
+            loadUnReadMessage();//获取一下未读消息
         }
         else{
             nameLabel.text = "登录/注册" ;
             avatarIV.image = PLACE_HOLDER_IMAGE_GENERAL
             menus = ["奖励信息","我的邀请码","分享软件","收藏店铺","修改密码","个人资料","意见反馈","联系我们"]
+            self.msgCountLabel.isHidden = true;
         }
         tableView.reloadData()
     }
-
-    //    MARK:点击消息
+    //MARK:获取未读消息
+    @objc func loadUnReadMessage() {
+        let para = ["token":PPUserInfoManager.token()] as [String:AnyObject];
+        PPRequestManager.POST(url: API_USER_GET_UNREADMESSAGE, para: para, success: { (json) in
+            let code = json["code"] as! Int
+            if code == 200 {
+                let result = json.dictionary_ForKey(key: "result");
+                if let unread :Int = result["unread"] as? Int {
+                    if unread == 1 {
+                        self.msgCountLabel.isHidden = false;
+                    }
+                    else{
+                        self.msgCountLabel.isHidden = true;
+                    }
+                }
+            }
+            else{
+                self.msgCountLabel.isHidden = true;
+            }
+        }) {
+        }
+    }
+    //    MARK:消息列表
     @IBAction func goMsg(_ sender: Any) {
-        print("gomsg")
+        if PPUserInfoManager.isLogined() == false {
+            let vc = LoginViewController()
+            self.present(UINavigationController.init(rootViewController: vc), animated: true, completion: nil)
+        }
+        else{
+            let vc = MsgListViewController();
+            vc.hidesBottomBarWhenPushed = true;
+            vc.handler = {(_info) -> Void in
+                //刷新未读消息
+                self.loadUnReadMessage();
+            }
+            self.navigationController?.pushViewController(vc, animated: true);
+        }
     }
     //    MARK:点击用户头像，进入用户资料
     @IBAction func goUserInfo(_ sender: UITapGestureRecognizer) {
@@ -65,7 +101,6 @@ class UserCenterViewController: BaseViewController , UITableViewDataSource , UIT
         if PPUserInfoManager.isLogined() == false {
             let vc = LoginViewController()
             self.present(UINavigationController.init(rootViewController: vc), animated: true, completion: nil)
-            return
         }
         else{
             //进入个人资料页面
@@ -79,23 +114,24 @@ class UserCenterViewController: BaseViewController , UITableViewDataSource , UIT
         if PPUserInfoManager.isLogined() == false {
             let vc = LoginViewController()
             self.present(UINavigationController.init(rootViewController: vc), animated: true, completion: nil)
-            return
         }
-        let vc = PointsHistoryViewController()
-        vc.hidesBottomBarWhenPushed = true
-        self.navigationController?.pushViewController(vc, animated: true)
-        print("goMyPoints")
+        else{
+            let vc = PointsHistoryViewController();
+            vc.hidesBottomBarWhenPushed = true;
+            self.navigationController?.pushViewController(vc, animated: true);
+        }
     }
     //    MARK:积分转增
     @IBAction func goZhuanZengPoints(_ sender: Any) {
         if PPUserInfoManager.isLogined() == false {
             let vc = LoginViewController()
             self.present(UINavigationController.init(rootViewController: vc), animated: true, completion: nil)
-            return
         }
-        let vc = TransPointsViewController()
-        vc.hidesBottomBarWhenPushed = true
-        self.navigationController?.pushViewController(vc, animated: true)
+        else{
+            let vc = TransPointsViewController()
+            vc.hidesBottomBarWhenPushed = true
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     //    MARK:积分说明
     @IBAction func goPointsReadMe(_ sender: Any) {

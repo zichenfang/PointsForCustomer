@@ -9,7 +9,9 @@
 import UIKit
 
 class FeedBackViewController: BaseViewController {
-
+    convenience init() {
+        self.init(nibName: "FeedBackViewController", bundle: nil);
+    }
     @IBOutlet var contentView: UIView!
     @IBOutlet var inputTV: UITextView!//
     @IBOutlet var placeHolderLabel: UILabel!

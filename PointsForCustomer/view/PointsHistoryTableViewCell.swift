@@ -12,8 +12,11 @@ class PointsHistoryTableViewCell: UITableViewCell {
 
     @IBOutlet var shopNameLabel: UILabel!
     @IBOutlet var timeLabel: UILabel!
-    @IBOutlet var pointsDesLabel: UILabel!
-    @IBOutlet var valueLabel: UILabel!
+    @IBOutlet var xiaofeiPointsLabel: UILabel!//消费积分
+    @IBOutlet var huodePointsLabel: UILabel!//获得积分
+    @IBOutlet var huodePointsLabel: UILabel!//获得积分
+    @IBOutlet var stateLabel: UILabel!//状态
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

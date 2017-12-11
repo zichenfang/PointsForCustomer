@@ -9,6 +9,9 @@
 import UIKit
 
 class FAQViewController: BaseViewController ,UITableViewDataSource , UITableViewDelegate{
+    convenience init() {
+        self.init(nibName: "FAQViewController", bundle: nil);
+    }
     @IBOutlet var tableView: UITableView!
     //积分纪录列表数据
     var datas  = NSMutableArray() as! [PPFAQObj];
