@@ -224,6 +224,7 @@
 		E2B602551F7D407E006FFAE1 /* ShopDetailSingleTextTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShopDetailSingleTextTableViewCell.xib; sourceTree = "<group>"; };
 		E2B602581F7D4102006FFAE1 /* ShopDetailSingleImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopDetailSingleImageTableViewCell.swift; sourceTree = "<group>"; };
 		E2B602591F7D4102006FFAE1 /* ShopDetailSingleImageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShopDetailSingleImageTableViewCell.xib; sourceTree = "<group>"; };
+		E2C52F4B1FE24FA6004CA4D8 /* PointsForCustomer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PointsForCustomer.entitlements; sourceTree = "<group>"; };
 		E2D8D51E1FD91D89006246FA /* PPFAQObj.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPFAQObj.swift; sourceTree = "<group>"; };
 		E2D8D5201FD91E79006246FA /* FAQIssueTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQIssueTableViewCell.swift; sourceTree = "<group>"; };
 		E2D8D5211FD91E79006246FA /* FAQIssueTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FAQIssueTableViewCell.xib; sourceTree = "<group>"; };
@@ -312,6 +313,7 @@
 		E21A64361F6663E3007D1C49 /* PointsForCustomer */ = {
 			isa = PBXGroup;
 			children = (
+				E2C52F4B1FE24FA6004CA4D8 /* PointsForCustomer.entitlements */,
 				E2F1EF591F67DA0000CF90C2 /* vender */,
 				E2F1EF2B1F676DA500CF90C2 /* Category */,
 				E2F1EF281F676C2D00CF90C2 /* model */,
@@ -546,6 +548,9 @@
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 0;
+							};
+							com.apple.Push = {
+								enabled = 1;
 							};
 						};
 					};
@@ -875,6 +880,7 @@
 			baseConfigurationReference = DF00F6CA4807902B55C5CDE1 /* Pods-PointsForCustomer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = PointsForCustomer/PointsForCustomer.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 2D9E8Y6VW3;
 				ENABLE_BITCODE = NO;
@@ -896,6 +902,7 @@
 			baseConfigurationReference = 196F5DACB5DA364FCF7A3683 /* Pods-PointsForCustomer.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = PointsForCustomer/PointsForCustomer.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 2D9E8Y6VW3;
 				ENABLE_BITCODE = NO;

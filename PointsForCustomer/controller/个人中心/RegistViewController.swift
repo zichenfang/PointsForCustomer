@@ -91,12 +91,11 @@ class RegistViewController: BaseViewController {
             ProgressHUD.showError("请输入至少6位数密码", interaction: false)
             return
         }
-    
-        var para = ["mobile":phoneTF.text,
-                    "nickname":phoneTF.text,
-                    "password":passWordTF.text?.md5_32Bit_String(),
-                    "verifycode":codeTF.text
-                    ] as [String : AnyObject]
+        var para = ["password":passWordTF.text?.md5_32Bit_String(),
+                    "mobile":self.phoneTF.text ?? "",
+                    "verifycode":codeTF.text,
+                    "push_token":PPUserInfoManager.jPushRegistID()
+            ] as [String : AnyObject]
         if inviteCodeTF.text != "" && (inviteCodeTF.text?.characters.count)!>1{
             para.updateValue(inviteCodeTF, forKey: "invitation")
         }

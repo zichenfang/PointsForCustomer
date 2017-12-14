@@ -9,6 +9,7 @@
 import UIKit
 let USERDEFAULTS_KEY_USERINFO = "userdefaults_001";
 let USERDEFAULTS_KEY_ISLOGINED = "userdefaults_002";
+let USERDEFAULTS_KEY_JPUSH_REGISTID = "userdefaults_003";
 
 class PPUserInfoManager: NSObject {
 //    MARK:用户信息综合
@@ -53,6 +54,18 @@ class PPUserInfoManager: NSObject {
         }
         else{
             return ""
+        }
+    }
+    //    MARK:极光注册ID
+    static func updateJPushRegistID(rID :String) {
+        UserDefaults.standard.setValue(rID, forKey: USERDEFAULTS_KEY_JPUSH_REGISTID)
+    }
+    static func jPushRegistID() -> String{
+        if let rID = UserDefaults.standard.value(forKey: USERDEFAULTS_KEY_JPUSH_REGISTID) as? String{
+            return rID;
+        }
+        else{
+            return "";
         }
     }
 }

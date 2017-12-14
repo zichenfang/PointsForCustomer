@@ -49,7 +49,7 @@ class LoginViewController: BaseViewController {
         }
         let para = ["mobile":phoneTF.text,
                     "password":passWordTF.text?.md5_32Bit_String(),
-            ] as [String : AnyObject]
+                    "push_token":PPUserInfoManager.jPushRegistID()] as [String : AnyObject]
         ProgressHUD.show(nil, interaction: false)
         PPRequestManager.POST(url: API_USER_LOGIN, para: para, success: { (json) in
             let code = json["code"] as! Int

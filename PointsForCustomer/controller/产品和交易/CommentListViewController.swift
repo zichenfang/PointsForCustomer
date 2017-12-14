@@ -127,7 +127,7 @@ class CommentListViewController: BaseViewController , UITableViewDataSource , UI
             let msg = json["msg"] as! String
             if code == 200 {
                 let result = json["result"] as! NSArray
-                if selt.page == 1{
+                if self.page == 1{
                     self.commentDatas.removeAll();
                 }
                 for comment_dic in result{
