@@ -34,7 +34,6 @@ class OneKindShopListViewController: BaseViewController , UITableViewDataSource 
         tableView.register(UINib.init(nibName: "PPShopTableViewCell", bundle: nil), forCellReuseIdentifier: "indexShop");
         tableView.mj_header = MJRefreshNormalHeader.init(refreshingBlock: {
             self.page = 1
-            self.shopDatas?.removeAllObjects()
             self.loadShopData()
         })
         tableView.mj_footer = MJRefreshAutoNormalFooter.init(refreshingBlock: {
@@ -62,6 +61,9 @@ class OneKindShopListViewController: BaseViewController , UITableViewDataSource 
             let msg = json["msg"] as! String
             if code == 200 {
                 let result = json.array_ForKey(key: "result")
+                if self.page == 1{
+                    self.shopDatas?.removeAllObjects()
+                }
                 for shop_dic in result{
                     let shop = PPShopObject.init(info: shop_dic as! NSDictionary)
                     self.shopDatas?.add(shop)

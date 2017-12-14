@@ -26,7 +26,7 @@ class CommentTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-    func data(obj:CommentObj) {
+    func data(obj:PPCommentObj) {
         //包含图片
         if obj.images.count>0 {
             self.insertImagesViewHeight.constant = SCREEN_WIDTH * 0.2

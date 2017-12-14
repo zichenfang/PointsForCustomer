@@ -198,7 +198,7 @@ class WriteCommentViewController: BaseViewController {
             ProgressHUD.showError("请输入不少于5个字的内容")
             return
         }
-        let para = ["comment":"很好很好吃",
+        let para = ["comment":self.commentTV.text,
                     "score":NSNumber.init(value: kda_zonghe),
                     "server_score":NSNumber.init(value: kda_fuwu),
                     "product_score":NSNumber.init(value: kda_chanpin),
@@ -220,6 +220,7 @@ class WriteCommentViewController: BaseViewController {
             let code = json["code"] as! Int
             if code == 200 {
                 self.showShareAlertView();
+                ProgressHUD.dismiss();
             }
             else{
                 let msg = json["msg"] as! String
@@ -239,7 +240,7 @@ class WriteCommentViewController: BaseViewController {
         sAlertView?.cancelBtn.addTarget(self, action: #selector(cancelShareApp(_sender:)), for: UIControlEvents.touchUpInside)
         sAlertView?.cancelBtn.addTarget(self, action: #selector(shareAPP(_sender:)), for: UIControlEvents.touchUpInside)
     }
-    //MARK:hide alert
+    //MARK:hide alert 取消掉alert之后，跳转到订单记录页面
     @objc func cancelShareApp(_sender:UIButton) {
         _sender.superview?.superview?.removeFromSuperview();
         self.commentSuccessBack();
@@ -247,6 +248,7 @@ class WriteCommentViewController: BaseViewController {
     //MARK:share app
     @objc func shareAPP(_sender:UIButton) {
         _sender.superview?.superview?.removeFromSuperview();
+        TTUmengManager.shareContent(withTitle: "大哲扣", url: "http://www.baidu.com/", shareText: "大哲扣", shareImage: PLACE_HOLDER_IMAGE_GENERAL, delegate: nil, inSheetView: self);
     }
     //    MARK:评论成功之后返回
     @objc func commentSuccessBack()  {

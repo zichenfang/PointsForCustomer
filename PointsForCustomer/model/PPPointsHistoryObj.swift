@@ -2,7 +2,7 @@
 //  PPPointsHistoryObj.swift
 //  PointsForCustomer
 //
-//  Created by 殷玉秋 on 2017/10/8.
+//  Created by 殷玉秋 on 2017/12/12.
 //  Copyright © 2017年 fff. All rights reserved.
 //
 
@@ -16,7 +16,7 @@ class PPPointsHistoryObj: BaseObject {
     var transaction_id :Int?
     var transaction_name :String?
     var type :String?
-
+    
     init(info :NSDictionary){
         self.create_time = info["create_time"]as?String;
         self.num = info["num"]as?String;
@@ -25,6 +25,6 @@ class PPPointsHistoryObj: BaseObject {
         self.transaction_id = info["transaction_id"]as?Int;
         self.transaction_name = info["transaction_name"]as?String;
         self.type = info["type"]as?String;
-
+        
     }
 }

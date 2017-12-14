@@ -13,6 +13,9 @@ class RegistViewController: BaseViewController {
     @IBOutlet var codeTF: UITextField!
     @IBOutlet var passWordTF: UITextField!
     @IBOutlet var inviteCodeTF: UITextField!
+    @IBOutlet var agreeBtn: UIButton!
+    @IBOutlet var saveBtn: UIButton!
+    
     //短信倒计时
     @IBOutlet var codeBtn: UIButton!
     var leftCount :Int!
@@ -123,4 +126,22 @@ class RegistViewController: BaseViewController {
             self.handler!([:])
         }
     }
+    //    MARK:同意协议
+    @IBAction func agreeDeal()  {
+        if self.agreeBtn.isSelected == true {
+            self.agreeBtn.isSelected = false;
+            self.saveBtn.isEnabled = false;
+        }
+        else{
+            self.agreeBtn.isSelected = true;
+            self.saveBtn.isEnabled = true;
+        }
+    }
+    //    MARK:查看协议
+    @IBAction func checkDeal()  {
+        let vc = CheckRegisDealDesViewController();
+        self.navigationController?.pushViewController(vc, animated: true);
+    }
+
+
 }

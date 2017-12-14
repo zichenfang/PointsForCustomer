@@ -131,7 +131,7 @@ class ReadBitCodeViewController: BaseViewController,AVCaptureMetadataOutputObjec
                 codeValue = metadataObject.stringValue;
 //                25jfnmuhgpbv春风十里jfnmuhgpbv5jfnmuhgpbv100 ()
 //                店铺idjfnmuhgpbv店铺名jfnmuhgpbv转换比例jfnmuhgpbv消费金额
-                let para = codeValue.components(separatedBy: "jfnmuhgpbv")
+                let para = codeValue.components(separatedBy: "jfnmuhgpbv");
                 if para.count != 4 {
                     let alertC = UIAlertController.init(title: "商家二维码无效", message: nil, preferredStyle: UIAlertControllerStyle.alert)
                     alertC.addAction(UIAlertAction.init(title: "确定", style: UIAlertActionStyle.default, handler: { (act) in
@@ -140,7 +140,7 @@ class ReadBitCodeViewController: BaseViewController,AVCaptureMetadataOutputObjec
                     self.present(alertC, animated: true, completion: nil)
                     return
                 }
-                
+
                 let vc = PayNowViewController();
                 vc.para = para;
                 vc.hidesBottomBarWhenPushed = true;

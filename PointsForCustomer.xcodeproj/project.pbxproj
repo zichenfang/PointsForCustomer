@@ -15,8 +15,15 @@
 		E21A64421F6663E3007D1C49 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E21A64401F6663E3007D1C49 /* LaunchScreen.storyboard */; };
 		E21D2AAC1F8A71EB001D29A1 /* PointsHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21D2AAA1F8A71EB001D29A1 /* PointsHistoryTableViewCell.swift */; };
 		E21D2AAD1F8A71EB001D29A1 /* PointsHistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E21D2AAB1F8A71EB001D29A1 /* PointsHistoryTableViewCell.xib */; };
-		E21D2AAF1F8A752B001D29A1 /* PPPointsHistoryObj.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21D2AAE1F8A752B001D29A1 /* PPPointsHistoryObj.swift */; };
+		E21D2AAF1F8A752B001D29A1 /* PPOrderHisoryObj.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21D2AAE1F8A752B001D29A1 /* PPOrderHisoryObj.swift */; };
 		E228688E1F8667690050CDEC /* PPUserInfoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E228688D1F8667690050CDEC /* PPUserInfoManager.swift */; };
+		E22E414F1FDF737000663A73 /* PPPointsHistoryObj.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22E414E1FDF737000663A73 /* PPPointsHistoryObj.swift */; };
+		E22E41521FDFB46A00663A73 /* PointsDesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22E41501FDFB46A00663A73 /* PointsDesViewController.swift */; };
+		E22E41531FDFB46A00663A73 /* PointsDesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E22E41511FDFB46A00663A73 /* PointsDesViewController.xib */; };
+		E22E41561FDFBC4B00663A73 /* TransPointsHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22E41541FDFBC4B00663A73 /* TransPointsHistoryViewController.swift */; };
+		E22E41571FDFBC4B00663A73 /* TransPointsHistoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E22E41551FDFBC4B00663A73 /* TransPointsHistoryViewController.xib */; };
+		E22E415A1FDFBEA200663A73 /* PointsTransObtainHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22E41581FDFBEA200663A73 /* PointsTransObtainHistoryTableViewCell.swift */; };
+		E22E415B1FDFBEA200663A73 /* PointsTransObtainHistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E22E41591FDFBEA200663A73 /* PointsTransObtainHistoryTableViewCell.xib */; };
 		E23135811FDE6DB000F659E6 /* MsgListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E231357F1FDE6DB000F659E6 /* MsgListTableViewCell.swift */; };
 		E23135821FDE6DB000F659E6 /* MsgListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E23135801FDE6DB000F659E6 /* MsgListTableViewCell.xib */; };
 		E23135841FDE6F9600F659E6 /* PPMsgObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23135831FDE6F9600F659E6 /* PPMsgObject.swift */; };
@@ -84,7 +91,7 @@
 		E28FA7F91F74DB3700377266 /* SearchAreaTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E28FA7F71F74DB3700377266 /* SearchAreaTableViewCell.xib */; };
 		E297FDCC1F7DDA6C0056C606 /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E297FDCA1F7DDA6C0056C606 /* CommentTableViewCell.swift */; };
 		E297FDCD1F7DDA6D0056C606 /* CommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E297FDCB1F7DDA6C0056C606 /* CommentTableViewCell.xib */; };
-		E297FDD31F7DEFB70056C606 /* CommentObj.swift in Sources */ = {isa = PBXBuildFile; fileRef = E297FDD21F7DEFB70056C606 /* CommentObj.swift */; };
+		E297FDD31F7DEFB70056C606 /* PPCommentObj.swift in Sources */ = {isa = PBXBuildFile; fileRef = E297FDD21F7DEFB70056C606 /* PPCommentObj.swift */; };
 		E29A68421FA4D1D200A2A4CF /* TTUmengManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E29A68401FA4D1D100A2A4CF /* TTUmengManager.m */; };
 		E29D56051F6FA0E70006C746 /* IndexSectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E29D56041F6FA0E70006C746 /* IndexSectionHeaderView.xib */; };
 		E2B602561F7D407E006FFAE1 /* ShopDetailSingleTextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B602541F7D407E006FFAE1 /* ShopDetailSingleTextTableViewCell.swift */; };
@@ -96,6 +103,8 @@
 		E2D8D5231FD91E79006246FA /* FAQIssueTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2D8D5211FD91E79006246FA /* FAQIssueTableViewCell.xib */; };
 		E2D8D5261FD91E94006246FA /* FAQAnswerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D8D5241FD91E94006246FA /* FAQAnswerTableViewCell.swift */; };
 		E2D8D5271FD91E94006246FA /* FAQAnswerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2D8D5251FD91E94006246FA /* FAQAnswerTableViewCell.xib */; };
+		E2DB25981FE21AA2005A4EEF /* CheckRegisDealDesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DB25961FE21AA2005A4EEF /* CheckRegisDealDesViewController.swift */; };
+		E2DB25991FE21AA2005A4EEF /* CheckRegisDealDesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2DB25971FE21AA2005A4EEF /* CheckRegisDealDesViewController.xib */; };
 		E2DD0B951FA2C800009253DB /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2DD0B941FA2C800009253DB /* MapKit.framework */; };
 		E2DD0B9B1FA30B60009253DB /* ImageBrowserVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E2DD0B9A1FA30B60009253DB /* ImageBrowserVC.m */; };
 		E2E803B81F6A56A40094065F /* UserCenterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E803B61F6A56A40094065F /* UserCenterTableViewCell.swift */; };
@@ -131,8 +140,15 @@
 		E21A64431F6663E3007D1C49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E21D2AAA1F8A71EB001D29A1 /* PointsHistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsHistoryTableViewCell.swift; sourceTree = "<group>"; };
 		E21D2AAB1F8A71EB001D29A1 /* PointsHistoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PointsHistoryTableViewCell.xib; sourceTree = "<group>"; };
-		E21D2AAE1F8A752B001D29A1 /* PPPointsHistoryObj.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPPointsHistoryObj.swift; sourceTree = "<group>"; };
+		E21D2AAE1F8A752B001D29A1 /* PPOrderHisoryObj.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPOrderHisoryObj.swift; sourceTree = "<group>"; };
 		E228688D1F8667690050CDEC /* PPUserInfoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPUserInfoManager.swift; sourceTree = "<group>"; };
+		E22E414E1FDF737000663A73 /* PPPointsHistoryObj.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPPointsHistoryObj.swift; sourceTree = "<group>"; };
+		E22E41501FDFB46A00663A73 /* PointsDesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsDesViewController.swift; sourceTree = "<group>"; };
+		E22E41511FDFB46A00663A73 /* PointsDesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PointsDesViewController.xib; sourceTree = "<group>"; };
+		E22E41541FDFBC4B00663A73 /* TransPointsHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransPointsHistoryViewController.swift; sourceTree = "<group>"; };
+		E22E41551FDFBC4B00663A73 /* TransPointsHistoryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransPointsHistoryViewController.xib; sourceTree = "<group>"; };
+		E22E41581FDFBEA200663A73 /* PointsTransObtainHistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsTransObtainHistoryTableViewCell.swift; sourceTree = "<group>"; };
+		E22E41591FDFBEA200663A73 /* PointsTransObtainHistoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PointsTransObtainHistoryTableViewCell.xib; sourceTree = "<group>"; };
 		E231357F1FDE6DB000F659E6 /* MsgListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MsgListTableViewCell.swift; sourceTree = "<group>"; };
 		E23135801FDE6DB000F659E6 /* MsgListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MsgListTableViewCell.xib; sourceTree = "<group>"; };
 		E23135831FDE6F9600F659E6 /* PPMsgObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPMsgObject.swift; sourceTree = "<group>"; };
@@ -200,7 +216,7 @@
 		E28FA7F71F74DB3700377266 /* SearchAreaTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchAreaTableViewCell.xib; sourceTree = "<group>"; };
 		E297FDCA1F7DDA6C0056C606 /* CommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
 		E297FDCB1F7DDA6C0056C606 /* CommentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentTableViewCell.xib; sourceTree = "<group>"; };
-		E297FDD21F7DEFB70056C606 /* CommentObj.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentObj.swift; sourceTree = "<group>"; };
+		E297FDD21F7DEFB70056C606 /* PPCommentObj.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPCommentObj.swift; sourceTree = "<group>"; };
 		E29A68401FA4D1D100A2A4CF /* TTUmengManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTUmengManager.m; sourceTree = "<group>"; };
 		E29A68411FA4D1D200A2A4CF /* TTUmengManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTUmengManager.h; sourceTree = "<group>"; };
 		E29D56041F6FA0E70006C746 /* IndexSectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IndexSectionHeaderView.xib; sourceTree = "<group>"; };
@@ -213,6 +229,8 @@
 		E2D8D5211FD91E79006246FA /* FAQIssueTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FAQIssueTableViewCell.xib; sourceTree = "<group>"; };
 		E2D8D5241FD91E94006246FA /* FAQAnswerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQAnswerTableViewCell.swift; sourceTree = "<group>"; };
 		E2D8D5251FD91E94006246FA /* FAQAnswerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FAQAnswerTableViewCell.xib; sourceTree = "<group>"; };
+		E2DB25961FE21AA2005A4EEF /* CheckRegisDealDesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckRegisDealDesViewController.swift; sourceTree = "<group>"; };
+		E2DB25971FE21AA2005A4EEF /* CheckRegisDealDesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CheckRegisDealDesViewController.xib; sourceTree = "<group>"; };
 		E2DD0B941FA2C800009253DB /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		E2DD0B991FA30B60009253DB /* ImageBrowserVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageBrowserVC.h; sourceTree = "<group>"; };
 		E2DD0B9A1FA30B60009253DB /* ImageBrowserVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageBrowserVC.m; sourceTree = "<group>"; };
@@ -313,6 +331,8 @@
 		E235F0111FD7C423006EEADB /* 个人中心 */ = {
 			isa = PBXGroup;
 			children = (
+				E235F0241FD7C423006EEADB /* UserCenterViewController.swift */,
+				E235F0251FD7C423006EEADB /* UserCenterViewController.xib */,
 				E235F0121FD7C423006EEADB /* BoundsListViewController.swift */,
 				E235F0131FD7C423006EEADB /* BoundsListViewController.xib */,
 				E235F0141FD7C423006EEADB /* ChangePassWordViewController.swift */,
@@ -327,12 +347,16 @@
 				E235F01D1FD7C423006EEADB /* MyInviteCodeViewController.xib */,
 				E235F01E1FD7C423006EEADB /* PointsHistoryViewController.swift */,
 				E235F01F1FD7C423006EEADB /* PointsHistoryViewController.xib */,
+				E22E41501FDFB46A00663A73 /* PointsDesViewController.swift */,
+				E22E41511FDFB46A00663A73 /* PointsDesViewController.xib */,
 				E235F0201FD7C423006EEADB /* RegistViewController.swift */,
 				E235F0211FD7C423006EEADB /* RegistViewController.xib */,
+				E2DB25961FE21AA2005A4EEF /* CheckRegisDealDesViewController.swift */,
+				E2DB25971FE21AA2005A4EEF /* CheckRegisDealDesViewController.xib */,
 				E235F0221FD7C423006EEADB /* TransPointsViewController.swift */,
 				E235F0231FD7C423006EEADB /* TransPointsViewController.xib */,
-				E235F0241FD7C423006EEADB /* UserCenterViewController.swift */,
-				E235F0251FD7C423006EEADB /* UserCenterViewController.xib */,
+				E22E41541FDFBC4B00663A73 /* TransPointsHistoryViewController.swift */,
+				E22E41551FDFBC4B00663A73 /* TransPointsHistoryViewController.xib */,
 				E235F0261FD7C423006EEADB /* UserInfoViewController.swift */,
 				E235F0271FD7C423006EEADB /* UserInfoViewController.xib */,
 				E288FB5D1FD8E75200697C29 /* FeedBackViewController.swift */,
@@ -356,10 +380,10 @@
 				E235F02E1FD7C423006EEADB /* IndexViewController.xib */,
 				E235F02F1FD7C423006EEADB /* OneKindShopListViewController.swift */,
 				E235F0301FD7C423006EEADB /* OneKindShopListViewController.xib */,
-				E235F0311FD7C423006EEADB /* PayNowViewController.swift */,
-				E235F0321FD7C423006EEADB /* PayNowViewController.xib */,
 				E235F0331FD7C423006EEADB /* ReadBitCodeViewController.swift */,
 				E235F0341FD7C423006EEADB /* ReadBitCodeViewController.xib */,
+				E235F0311FD7C423006EEADB /* PayNowViewController.swift */,
+				E235F0321FD7C423006EEADB /* PayNowViewController.xib */,
 				E235F0351FD7C423006EEADB /* SearchAreaViewController.swift */,
 				E235F0361FD7C423006EEADB /* SearchAreaViewController.xib */,
 				E235F0371FD7C423006EEADB /* SearchShopViewController.swift */,
@@ -389,8 +413,9 @@
 				E24708961F89D81500F8705D /* PPShopDetailobj.swift */,
 				E2E803C01F6BC3BA0094065F /* PPBannerObject.swift */,
 				E2FA31A91F71450300B657A1 /* PPIndexClassObj.swift */,
-				E297FDD21F7DEFB70056C606 /* CommentObj.swift */,
-				E21D2AAE1F8A752B001D29A1 /* PPPointsHistoryObj.swift */,
+				E297FDD21F7DEFB70056C606 /* PPCommentObj.swift */,
+				E21D2AAE1F8A752B001D29A1 /* PPOrderHisoryObj.swift */,
+				E22E414E1FDF737000663A73 /* PPPointsHistoryObj.swift */,
 				E2D8D51E1FD91D89006246FA /* PPFAQObj.swift */,
 				E23135831FDE6F9600F659E6 /* PPMsgObject.swift */,
 			);
@@ -421,6 +446,8 @@
 				E297FDCB1F7DDA6C0056C606 /* CommentTableViewCell.xib */,
 				E21D2AAA1F8A71EB001D29A1 /* PointsHistoryTableViewCell.swift */,
 				E21D2AAB1F8A71EB001D29A1 /* PointsHistoryTableViewCell.xib */,
+				E22E41581FDFBEA200663A73 /* PointsTransObtainHistoryTableViewCell.swift */,
+				E22E41591FDFBEA200663A73 /* PointsTransObtainHistoryTableViewCell.xib */,
 				E25B8B1F1FCF97AD00F56982 /* ShareAlertView.swift */,
 				E25B8B211FCF97B400F56982 /* ShareAlertView.xib */,
 				E2D8D5201FD91E79006246FA /* FAQIssueTableViewCell.swift */,
@@ -554,6 +581,7 @@
 				E25230481FD7CC5600E79EAB /* PayNowViewController.xib in Resources */,
 				E288FB641FD9193000697C29 /* FAQViewController.xib in Resources */,
 				E25230491FD7CC5600E79EAB /* ReadBitCodeViewController.xib in Resources */,
+				E22E41531FDFB46A00663A73 /* PointsDesViewController.xib in Resources */,
 				E252304A1FD7CC5600E79EAB /* SearchAreaViewController.xib in Resources */,
 				E252304B1FD7CC5600E79EAB /* SearchShopViewController.xib in Resources */,
 				E252304C1FD7CC5600E79EAB /* ShopDetailViewController.xib in Resources */,
@@ -565,14 +593,17 @@
 				E25230511FD7CC5600E79EAB /* FindPassWordViewController.xib in Resources */,
 				E25230521FD7CC5600E79EAB /* LoginViewController.xib in Resources */,
 				E25230531FD7CC5600E79EAB /* MyInviteCodeViewController.xib in Resources */,
+				E2DB25991FE21AA2005A4EEF /* CheckRegisDealDesViewController.xib in Resources */,
 				E25230541FD7CC5600E79EAB /* PointsHistoryViewController.xib in Resources */,
 				E25230551FD7CC5600E79EAB /* RegistViewController.xib in Resources */,
 				E25230561FD7CC5600E79EAB /* TransPointsViewController.xib in Resources */,
 				E2D8D5231FD91E79006246FA /* FAQIssueTableViewCell.xib in Resources */,
 				E25230571FD7CC5600E79EAB /* UserCenterViewController.xib in Resources */,
 				E25230581FD7CC5600E79EAB /* UserInfoViewController.xib in Resources */,
+				E22E415B1FDFBEA200663A73 /* PointsTransObtainHistoryTableViewCell.xib in Resources */,
 				E2FE292B1F7E9BB200015D46 /* qrcode_found.wav in Resources */,
 				E29D56051F6FA0E70006C746 /* IndexSectionHeaderView.xib in Resources */,
+				E22E41571FDFBC4B00663A73 /* TransPointsHistoryViewController.xib in Resources */,
 				E2B6025B1F7D4102006FFAE1 /* ShopDetailSingleImageTableViewCell.xib in Resources */,
 				E21A64421F6663E3007D1C49 /* LaunchScreen.storyboard in Resources */,
 				E2FA31AC1F71593400B657A1 /* IndexClassItemView.xib in Resources */,
@@ -658,6 +689,7 @@
 				E25230341FD7CC4C00E79EAB /* ReadBitCodeViewController.swift in Sources */,
 				E25230351FD7CC4C00E79EAB /* SearchAreaViewController.swift in Sources */,
 				E25230361FD7CC4C00E79EAB /* SearchShopViewController.swift in Sources */,
+				E22E41561FDFBC4B00663A73 /* TransPointsHistoryViewController.swift in Sources */,
 				E288FB631FD9193000697C29 /* FAQViewController.swift in Sources */,
 				E25230371FD7CC4C00E79EAB /* ShopDetailViewController.swift in Sources */,
 				E25230381FD7CC4C00E79EAB /* WriteCommentViewController.swift in Sources */,
@@ -670,6 +702,7 @@
 				E252303E1FD7CC4C00E79EAB /* MyInviteCodeViewController.swift in Sources */,
 				E252303F1FD7CC4C00E79EAB /* PointsHistoryViewController.swift in Sources */,
 				E25230401FD7CC4C00E79EAB /* RegistViewController.swift in Sources */,
+				E22E415A1FDFBEA200663A73 /* PointsTransObtainHistoryTableViewCell.swift in Sources */,
 				E25230411FD7CC4C00E79EAB /* TransPointsViewController.swift in Sources */,
 				E25230421FD7CC4C00E79EAB /* UserCenterViewController.swift in Sources */,
 				E25230431FD7CC4C00E79EAB /* UserInfoViewController.swift in Sources */,
@@ -686,10 +719,11 @@
 				E2F1EF3E1F676DA500CF90C2 /* UIImage+MyCustomImage.m in Sources */,
 				E2F1EF481F67701900CF90C2 /* BaseObject.swift in Sources */,
 				E20A7CA31F68FD2D00346D4A /* KuangkuangView.swift in Sources */,
-				E21D2AAF1F8A752B001D29A1 /* PPPointsHistoryObj.swift in Sources */,
+				E21D2AAF1F8A752B001D29A1 /* PPOrderHisoryObj.swift in Sources */,
 				E2B602561F7D407E006FFAE1 /* ShopDetailSingleTextTableViewCell.swift in Sources */,
 				E25369A91F7F6A5A004AC8A3 /* PPRequestManager.swift in Sources */,
 				E2D8D5261FD91E94006246FA /* FAQAnswerTableViewCell.swift in Sources */,
+				E22E414F1FDF737000663A73 /* PPPointsHistoryObj.swift in Sources */,
 				E288FB5F1FD8E75200697C29 /* FeedBackViewController.swift in Sources */,
 				E25B8B201FCF97AD00F56982 /* ShareAlertView.swift in Sources */,
 				E20A7CA51F690AA900346D4A /* ConstantForSwift.swift in Sources */,
@@ -697,6 +731,7 @@
 				E2FA31AE1F715A2500B657A1 /* IndexClassItemView.swift in Sources */,
 				E28BE24F1F78909300775097 /* UserLocationManager.swift in Sources */,
 				E2F1EF4A1F67717300CF90C2 /* PPShopObject.swift in Sources */,
+				E2DB25981FE21AA2005A4EEF /* CheckRegisDealDesViewController.swift in Sources */,
 				E24708971F89D81500F8705D /* PPShopDetailobj.swift in Sources */,
 				E228688E1F8667690050CDEC /* PPUserInfoManager.swift in Sources */,
 				E2E803B81F6A56A40094065F /* UserCenterTableViewCell.swift in Sources */,
@@ -706,7 +741,8 @@
 				E29A68421FA4D1D200A2A4CF /* TTUmengManager.m in Sources */,
 				E2E803BF1F6BAAE30094065F /* IndexHeaderView.swift in Sources */,
 				E2E803BC1F6BA6F00094065F /* PPShopTableViewCell.swift in Sources */,
-				E297FDD31F7DEFB70056C606 /* CommentObj.swift in Sources */,
+				E297FDD31F7DEFB70056C606 /* PPCommentObj.swift in Sources */,
+				E22E41521FDFB46A00663A73 /* PointsDesViewController.swift in Sources */,
 				E23135811FDE6DB000F659E6 /* MsgListTableViewCell.swift in Sources */,
 				E2B6025A1F7D4102006FFAE1 /* ShopDetailSingleImageTableViewCell.swift in Sources */,
 				E297FDCC1F7DDA6C0056C606 /* CommentTableViewCell.swift in Sources */,

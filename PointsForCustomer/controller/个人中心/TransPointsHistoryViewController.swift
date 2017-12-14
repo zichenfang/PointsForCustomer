@@ -1,34 +1,32 @@
 //
-//  PointsHistoryViewController.swift
+//  TransPointsHistoryViewController.swift
 //  PointsForCustomer
 //
-//  Created by 殷玉秋 on 2017/10/8.
+//  Created by 殷玉秋 on 2017/12/12.
 //  Copyright © 2017年 fff. All rights reserved.
 //
 
 import UIKit
 
-class PointsHistoryViewController: BaseViewController , UITableViewDataSource , UITableViewDelegate{
-    @IBOutlet var lastPointsLabel: UILabel!
+class TransPointsHistoryViewController: BaseViewController , UITableViewDataSource , UITableViewDelegate{
+    convenience init() {
+        self.init(nibName: "TransPointsHistoryViewController", bundle: nil);
+    }
     @IBOutlet var tableView: UITableView!
     //积分纪录列表数据
-    var pointsHistoryData  = NSMutableArray() as! [PPOrderHisoryObj];
+    var pointsHistoryData  = NSMutableArray() as! [PPPointsHistoryObj];
     //商家列表分页页码
     var page :Int = 1;
-    convenience init() {
-        self.init(nibName: "PointsHistoryViewController", bundle: nil);
-    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title  = "消费记录"
-        let points = PPUserInfoManager.userInfo()!["integral_balance"] as? Int
-        lastPointsLabel.text = String.init(format: "%d", points!)
+        self.title = "转赠记录";
         configTableView()
         loadPointsHistoryData()
+
     }
     //MARK:配置tableview下拉刷新，cell ，contentInset
     func configTableView()  {
-        tableView.register(UINib.init(nibName: "PointsHistoryTableViewCell", bundle: nil), forCellReuseIdentifier: "pointshistory");
+        tableView.register(UINib.init(nibName: "PointsTransObtainHistoryTableViewCell", bundle: nil), forCellReuseIdentifier: "pointshistory");
         tableView.mj_header = MJRefreshNormalHeader.init(refreshingBlock: {
             self.page = 1
             self.loadPointsHistoryData()
@@ -42,9 +40,10 @@ class PointsHistoryViewController: BaseViewController , UITableViewDataSource , 
     func loadPointsHistoryData() {
         let para = ["token":PPUserInfoManager.token(),
                     "p":page,
-                    "pagesize":LIST_PAGESIZE] as [String : AnyObject]
+                    "pagesize":LIST_PAGESIZE,
+                    "type":"1"] as [String : AnyObject]
         
-        PPRequestManager.POST(url: API_USER_ORDER_HISTORY, para: para, success: { (json) in
+        PPRequestManager.POST(url: API_USER_POINTS_HISTORY, para: para, success: { (json) in
             if self.page == 1{
                 self.tableView.mj_header.endRefreshing()
             }
@@ -59,7 +58,7 @@ class PointsHistoryViewController: BaseViewController , UITableViewDataSource , 
                     self.pointsHistoryData.removeAll()
                 }
                 for pointhis_dic in result{
-                    let pointhisObj = PPOrderHisoryObj.init(info: pointhis_dic as! NSDictionary)
+                    let pointhisObj = PPPointsHistoryObj.init(info: pointhis_dic as! NSDictionary)
                     self.pointsHistoryData.append(pointhisObj)
                 }
                 if result.count < LIST_PAGESIZE {
@@ -84,7 +83,7 @@ class PointsHistoryViewController: BaseViewController , UITableViewDataSource , 
         return pointsHistoryData.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell :PointsHistoryTableViewCell! = tableView.dequeueReusableCell(withIdentifier: "pointshistory", for: indexPath) as! PointsHistoryTableViewCell;
+        let cell :PointsTransObtainHistoryTableViewCell! = tableView.dequeueReusableCell(withIdentifier: "pointshistory", for: indexPath) as! PointsTransObtainHistoryTableViewCell;
         let aobj = pointsHistoryData[indexPath.row]
         cell.data(obj: aobj);
         return cell!;
@@ -95,34 +94,6 @@ class PointsHistoryViewController: BaseViewController , UITableViewDataSource , 
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true);
-        let aobj = pointsHistoryData[indexPath.row]
-//        "state": "integer,订单状态 2-冻结中 3-退款中 5-已完成  9-已退款",
-        if aobj.state == 2 {
-            let alertVC = UIAlertController.init(title: "确认退款？", message: nil, preferredStyle: UIAlertControllerStyle.alert)
-            alertVC.addAction(UIAlertAction.init(title: "退出", style: UIAlertActionStyle.destructive, handler: { (act) in
-                self.refundOrder(orderObj: aobj);
-            }))
-            alertVC.addAction(UIAlertAction.init(title: "取消", style: UIAlertActionStyle.cancel, handler: nil))
-            self.present(alertVC, animated: true, completion: nil)
-        }
     }
-    //    MARK:退款
-    func refundOrder(orderObj:PPOrderHisoryObj) {
-        let para = ["token":PPUserInfoManager.token(),
-                    "order_id":orderObj.order_history_id ?? 0] as [String : AnyObject]
-        PPRequestManager.POST(url: API_USER_ORDER_REFUND, para: para, success: { (json) in
-            let code = json["code"] as! Int
-            let msg = json["msg"] as! String
-            if code == 200 {
-                ProgressHUD.showSuccess(msg, interaction: false);
-                orderObj.state = 3;
-                orderObj.state_des = "退款中";
-                self.tableView.reloadData();
-            }
-            else{
-                ProgressHUD.showError(msg, interaction: false)
-            }
-        }) {
-        }
-    }
+
 }

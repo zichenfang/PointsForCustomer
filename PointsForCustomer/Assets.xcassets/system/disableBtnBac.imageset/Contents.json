@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "123.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "iv_jiangli.png",
       "scale" : "2x"
     },
     {

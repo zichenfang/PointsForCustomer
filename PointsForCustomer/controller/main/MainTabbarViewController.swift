@@ -25,6 +25,7 @@ class MainTabbarViewController: UITabBarController ,UITabBarControllerDelegate{
         userCenterVC = UserCenterViewController();
         addChildVC(childVC: userCenterVC!, title: "我的", image: "tabbar_usercenter");
         NotificationCenter.default.addObserver(self, selector: #selector(scanCode), name: NOTI_INDEX_SCANECODE, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(userLogOuted), name: NOTI_USER_LOGOUT, object: nil)
         self.delegate = self
     }
     func addChildVC(childVC :UIViewController,title:String,image:String) {
@@ -44,9 +45,12 @@ class MainTabbarViewController: UITabBarController ,UITabBarControllerDelegate{
             self.selectedViewController = self.viewControllers?[1]
         }
     }
+    @objc func userLogOuted (){
+        self.selectedViewController = self.viewControllers?[0]
+    }
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
-        //扫码时，判断登录状态
-        if viewController == self.viewControllers?[1] && PPUserInfoManager.isLogined() == false {
+        //扫码时和点击个人中心时，判断登录状态
+        if (viewController == self.viewControllers?[1]||viewController == self.viewControllers?[2]) && PPUserInfoManager.isLogined() == false {
             let vc = LoginViewController()
             self.selectedViewController?.present(UINavigationController.init(rootViewController: vc), animated: true, completion: nil)
             return false

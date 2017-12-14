@@ -56,7 +56,6 @@ class IndexViewController: BaseViewController , UITableViewDataSource , UITableV
         tableView.contentInset = UIEdgeInsets.init(top: -20, left: 0, bottom: 0, right: 0);
         tableView.mj_header = MJRefreshNormalHeader.init(refreshingBlock: {
             self.page = 1
-            self.shopDatas?.removeAllObjects()
             self.loadShopData()
             self.loadBannerData()
             self.loadSubClassData()
@@ -162,8 +161,11 @@ class IndexViewController: BaseViewController , UITableViewDataSource , UITableV
     func updateLocationLabel(address : String) {
         locationLabel.text = address;
         var locationLabelWidth :CGFloat = (address.widthWithFountAndHeight(font: locationLabel.font, height: locationLabel.frame.size.height)) + 40;
-        if locationLabelWidth >  SCREEN_WIDTH - 180{
-            locationLabelWidth = SCREEN_WIDTH - 180;
+//        if locationLabelWidth >  SCREEN_WIDTH - 180{
+//            locationLabelWidth = SCREEN_WIDTH - 180;
+//        }
+        if locationLabelWidth > 180{
+            locationLabelWidth = 180;
         }
         locationViewConstraint.constant = locationLabelWidth;
     }
@@ -209,6 +211,9 @@ class IndexViewController: BaseViewController , UITableViewDataSource , UITableV
             let msg = json["msg"] as! String
             if code == 200 {
                 let result = json.array_ForKey(key: "result")
+                if self.page == 1{
+                    self.shopDatas?.removeAllObjects()
+                }
                 for shop_dic in result{
                     let shop = PPShopObject.init(info: shop_dic as! NSDictionary)
                     self.shopDatas?.add(shop)

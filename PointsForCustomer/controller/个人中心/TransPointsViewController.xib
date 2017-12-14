@@ -15,6 +15,7 @@
                 <outlet property="loginPWTF" destination="pzs-AE-EeH" id="MBa-qT-MSs"/>
                 <outlet property="phoneTF" destination="uNm-GH-dJ7" id="XzL-gW-Njb"/>
                 <outlet property="pointsTF" destination="XcI-Fm-5QE" id="Yrr-8X-fqj"/>
+                <outlet property="saveBtn" destination="Veh-34-EQB" id="XwM-fz-1FH"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -46,7 +47,7 @@
                                                 <constraint firstAttribute="height" constant="1" id="aRQ-SB-Dsy"/>
                                             </constraints>
                                         </view>
-                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请在此输入您想转赠的人的手机号码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uNm-GH-dJ7">
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请在此输入转赠的手机号码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uNm-GH-dJ7">
                                             <rect key="frame" x="20" y="0.0" width="315" height="60"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="60" id="VzG-Tv-6tB"/>
@@ -55,7 +56,7 @@
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                         </textField>
-                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请在此输入转赠金额" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XcI-Fm-5QE">
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请在此输入转赠积分" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XcI-Fm-5QE">
                                             <rect key="frame" x="20" y="60" width="315" height="60"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="60" id="bkW-Vu-5He"/>
@@ -101,7 +102,7 @@
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Veh-34-EQB">
+                                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Veh-34-EQB">
                                     <rect key="frame" x="10" y="270" width="355" height="45"/>
                                     <color key="backgroundColor" red="0.89411764709999997" green="0.22352941179999999" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
@@ -111,6 +112,7 @@
                                     <state key="normal" title="立即转赠">
                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <state key="disabled" backgroundImage="disableBtnBac"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -153,4 +155,7 @@
             <point key="canvasLocation" x="24.5" y="51.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="disableBtnBac" width="595" height="249"/>
+    </resources>
 </document>

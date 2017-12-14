@@ -11,11 +11,13 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RegistViewController" customModule="PointsForCustomer" customModuleProvider="target">
             <connections>
+                <outlet property="agreeBtn" destination="2XC-5f-wIn" id="xpx-sO-Xwg"/>
                 <outlet property="codeBtn" destination="Eeb-h7-pwz" id="tcT-Iv-6pB"/>
                 <outlet property="codeTF" destination="hH3-fc-WyV" id="MYl-pZ-kNc"/>
                 <outlet property="inviteCodeTF" destination="p3C-XX-awA" id="hfZ-zP-PsT"/>
                 <outlet property="passWordTF" destination="hRN-fK-60q" id="fzE-sl-8yh"/>
                 <outlet property="phoneTF" destination="bBp-Ru-7vN" id="i1I-hN-d7y"/>
+                <outlet property="saveBtn" destination="XIK-Jy-x3s" id="SDN-Lp-eVT"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -85,7 +87,7 @@
                                         </textField>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eeb-h7-pwz">
                                             <rect key="frame" x="270" y="73" width="100" height="34"/>
-                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="backgroundColor" red="0.89411764709999997" green="0.22352941179999999" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="34" id="KAi-TT-f1Y"/>
                                                 <constraint firstAttribute="width" constant="100" id="mxK-Pn-ooB"/>
@@ -130,7 +132,7 @@
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" keyboardType="alphabet"/>
                                         </textField>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XIK-Jy-x3s">
+                                        <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XIK-Jy-x3s">
                                             <rect key="frame" x="10" y="315" width="355" height="44"/>
                                             <color key="backgroundColor" red="0.89411764709999997" green="0.22352941179999999" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
@@ -139,6 +141,7 @@
                                             <state key="normal" title="确定">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
+                                            <state key="disabled" backgroundImage="disableBtnBac"/>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -184,6 +187,36 @@
                                         <constraint firstItem="Ucc-nh-s2f" firstAttribute="leading" secondItem="BLG-4l-t9x" secondAttribute="leading" constant="2" id="zlT-Gu-X2y"/>
                                     </constraints>
                                 </view>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2XC-5f-wIn">
+                                    <rect key="frame" x="23" y="368" width="44" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                    <state key="normal" image="gouxuan_0">
+                                        <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
+                                    <state key="selected" image="gouxuan_1">
+                                        <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="agreeDeal" destination="-1" eventType="touchUpInside" id="UUB-NZ-3zd"/>
+                                    </connections>
+                                </button>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="我已经阅读并同意" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JZ8-ZF-29V">
+                                    <rect key="frame" x="63" y="368" width="97" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" name=".PingFangSC-Regular" family=".PingFang SC" pointSize="11"/>
+                                    <color key="textColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zAe-Sh-fuU">
+                                    <rect key="frame" x="156" y="368" width="116" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                    <state key="normal" title="大哲扣用户使用协议"/>
+                                    <connections>
+                                        <action selector="checkDeal" destination="-1" eventType="touchUpInside" id="T6Z-uf-3Rx"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
@@ -210,10 +243,13 @@
                 <constraint firstItem="Nue-Ma-Ubl" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="YL8-tm-DK9"/>
                 <constraint firstAttribute="trailing" secondItem="Nue-Ma-Ubl" secondAttribute="trailing" id="fYD-RH-fj9"/>
             </constraints>
-            <point key="canvasLocation" x="36" y="33"/>
+            <point key="canvasLocation" x="-76.5" y="19.5"/>
         </view>
     </objects>
     <resources>
+        <image name="disableBtnBac" width="595" height="249"/>
+        <image name="gouxuan_0" width="15" height="15"/>
+        <image name="gouxuan_1" width="15" height="15"/>
         <image name="login_password" width="14" height="19"/>
         <image name="login_phone" width="13" height="19"/>
         <image name="regist_yaoqingma" width="16" height="20"/>

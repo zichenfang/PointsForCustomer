@@ -17,6 +17,7 @@ class ShopDetailViewController: BaseViewController , UITableViewDataSource , UIT
     var isFav :Bool = false;
     @IBOutlet var tableView: UITableView!
     @IBOutlet var bannerScrollView: SDCycleScrollView!
+    @IBOutlet var headIV: UIImageView!
     @IBOutlet var titleLabel: UILabel! //标题
     @IBOutlet var contentLabel: UILabel! //内容
     @IBOutlet var pointScaleLabel: UILabel! //比例
@@ -42,7 +43,7 @@ class ShopDetailViewController: BaseViewController , UITableViewDataSource , UIT
         tableView.register(UINib.init(nibName: "ShopDetailSingleTextTableViewCell", bundle: nil), forCellReuseIdentifier: "shopdetailtext");
         tableView.register(UINib.init(nibName: "ShopDetailSingleImageTableViewCell", bundle: nil), forCellReuseIdentifier: "shopdetailimage");
         prepareFavItem();
-        richBannerScrollView();
+//        richBannerScrollView();
         //获取店铺详情数据
         loadShopDetailData()
         //获取店铺收藏状态
@@ -59,17 +60,17 @@ class ShopDetailViewController: BaseViewController , UITableViewDataSource , UIT
         }
         navigationItem.rightBarButtonItem = favBarItem;
     }
-    //    MARK:配置轮播图
-    func richBannerScrollView() {
-        bannerScrollView.delegate = self
-        bannerScrollView.backgroundColor = UIColor.white;
-        bannerScrollView.pageControlAliment = SDCycleScrollViewPageContolAlimentCenter;
-        bannerScrollView.currentPageDotColor = UIColor.styleRed(); // 自定义分页控件小圆标颜色
-        bannerScrollView.pageDotColor = UIColor.darkGray; //
-        bannerScrollView.autoScrollTimeInterval = 4.0;
-        bannerScrollView.pageControlBottomOffset = 10;
-        bannerScrollView.bannerImageViewContentMode = UIViewContentMode.scaleAspectFill;
-    }
+//    //    MARK:配置轮播图
+//    func richBannerScrollView() {
+//        bannerScrollView.delegate = self
+//        bannerScrollView.backgroundColor = UIColor.white;
+//        bannerScrollView.pageControlAliment = SDCycleScrollViewPageContolAlimentCenter;
+//        bannerScrollView.currentPageDotColor = UIColor.styleRed(); // 自定义分页控件小圆标颜色
+//        bannerScrollView.pageDotColor = UIColor.darkGray; //
+//        bannerScrollView.autoScrollTimeInterval = 4.0;
+//        bannerScrollView.pageControlBottomOffset = 10;
+//        bannerScrollView.bannerImageViewContentMode = UIViewContentMode.scaleAspectFill;
+//    }
 //    MARK:获取店铺详情数据
     func loadShopDetailData(){
         let para = ["seller_id":shopObj.id ?? 0]
@@ -117,7 +118,8 @@ class ShopDetailViewController: BaseViewController , UITableViewDataSource , UIT
 //    MARK:更新头部数据（除图文以外的数据）
     func updateHeaderUIData() {
         tableView.beginUpdates()
-        bannerScrollView.imageURLStringsGroup = shopDetailObj.images as! [String];
+//        bannerScrollView.imageURLStringsGroup = shopDetailObj.images as! [String];
+        self.headIV.sd_setImage(with: URL.init(string: self.shopDetailObj.head_img!), placeholderImage: PLACE_HOLDER_IMAGE_GENERAL);
         //测试一下修改headerView高度
         contentLabel.text = shopDetailObj.introduction
         let bannerHeight = SCREEN_WIDTH*7/15
@@ -309,6 +311,12 @@ class ShopDetailViewController: BaseViewController , UITableViewDataSource , UIT
         let broVC :ImageBrowserVC = ImageBrowserVC.init(links: self.shopDetailObj.images as! [Any], currentIndex: index);
         broVC.show();
     }
-
-
+    // MARK:查看头部图片
+    @IBAction func checkHeadImage(_ sender: Any) {
+        let broVC :ImageBrowserVC = ImageBrowserVC.init(links:[self.shopDetailObj.head_img ?? "00"], currentIndex: 0);
+        broVC.show();
+    }
+    
+    
+    
 }

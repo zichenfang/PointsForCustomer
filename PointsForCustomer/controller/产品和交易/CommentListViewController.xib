@@ -170,6 +170,11 @@
                             <constraint firstAttribute="trailing" secondItem="AUS-pf-xWt" secondAttribute="trailing" id="ZPO-s4-qeQ"/>
                         </constraints>
                     </view>
+                    <view key="tableFooterView" contentMode="scaleToFill" id="khu-eq-742" userLabel="footer View">
+                        <rect key="frame" x="0.0" y="191" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="WNR-Hx-v7L"/>
                         <outlet property="delegate" destination="-1" id="Bl9-ki-Cub"/>

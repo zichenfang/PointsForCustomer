@@ -79,7 +79,31 @@ class UserCenterViewController: BaseViewController , UITableViewDataSource , UIT
         }) {
         }
     }
-    //    MARK:消息列表
+    //    MARK:签到
+    @IBAction func goSignIn(_ sender: Any) {
+        if PPUserInfoManager.isLogined() == false {
+            let vc = LoginViewController()
+            self.present(UINavigationController.init(rootViewController: vc), animated: true, completion: nil)
+            return;
+        }
+        let para = ["token":PPUserInfoManager.token()] as [String:AnyObject];
+        PPRequestManager.POST(url: API_USER_SIGNIN, para: para, success: { (json) in
+            let code = json["code"] as! Int
+            let msg = json["msg"] as! String;
+            if code == 200 {
+                let result = json.dictionary_ForKey(key: "result");
+                if let get_point :Int = result["get_point"] as? Int {
+                    ProgressHUD.showSuccess(String.init(format: "签到成功，获得%d积分", get_point), interaction: false);
+                }
+            }
+            else{
+                ProgressHUD.showSuccess(msg, interaction: false);
+            }
+        }) {
+        }
+
+    }
+    //    MARK:跳转到消息列表
     @IBAction func goMsg(_ sender: Any) {
         if PPUserInfoManager.isLogined() == false {
             let vc = LoginViewController()
@@ -135,7 +159,9 @@ class UserCenterViewController: BaseViewController , UITableViewDataSource , UIT
     }
     //    MARK:积分说明
     @IBAction func goPointsReadMe(_ sender: Any) {
-        print("goPointsReadMe")
+        let vc = PointsDesViewController()
+        vc.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 
     //    MARK:UITableViewDataSource
@@ -220,6 +246,7 @@ class UserCenterViewController: BaseViewController , UITableViewDataSource , UIT
             PPUserInfoManager.updateIsLogined(logined: false)
             let vc = LoginViewController()
             self.present(UINavigationController.init(rootViewController: vc), animated: true, completion: nil)
+            NotificationCenter.default.post(name: NOTI_USER_LOGOUT, object: nil);
         }))
         alertVC.addAction(UIAlertAction.init(title: "取消", style: UIAlertActionStyle.cancel, handler: nil))
         self.present(alertVC, animated: true, completion: nil)

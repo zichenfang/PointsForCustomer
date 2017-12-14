@@ -16,13 +16,43 @@ class TransPointsViewController: BaseViewController {
     @IBOutlet var pointsTF: UITextField!
     @IBOutlet var loginPWTF: UITextField!
     @IBOutlet var lastPointsLabel: UILabel!//剩余积分
+    
+    @IBOutlet var saveBtn: UIButton!//再未获取到账户信息时，禁用掉此按钮
     var lastPoints :Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "积分转赠"
-        lastPoints = 10
-        lastPointsLabel.text = String.init(format: "账户当前剩余%d积分", lastPoints)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "转赠记录", style: UIBarButtonItemStyle.plain, target: self, action: #selector(goTransHistory));
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated);
+        self.saveBtn.isEnabled = false;
+        self.loadAccountInfo();
+    }
+    // MARK: - 获取账户信息（这里会用到积分余额）
+    func loadAccountInfo() {
+        let para = ["token":PPUserInfoManager.token()] as [String : AnyObject]
+        ProgressHUD.show(nil, interaction: false)
+        PPRequestManager.POST(url: API_USER_ACCOUNT_INFO, para: para, success: { (json) in
+            ProgressHUD.dismiss();
+            let code = json["code"] as! Int
+            let msg = json["msg"] as! String
+            if code == 200 {
+                let result = json.dictionary_ForKey(key: "result");
+                if let integral_balance :Int = result["integral_balance"] as? Int {
+                    if integral_balance > 0 {
+                        self.lastPoints = integral_balance;
+                        self.saveBtn.isEnabled = true;
+                        self.lastPointsLabel.text = String.init(format: "账户当前剩余%d积分", self.lastPoints)
+                    }
+                }
+            }
+            else{
+                ProgressHUD.showError(msg, interaction: false)
+            }
+        }) {
+        }
     }
     // MARK: - 转赠
     @IBAction func transNow(_ sender: Any) {
@@ -55,13 +85,13 @@ class TransPointsViewController: BaseViewController {
         let para = ["token":PPUserInfoManager.token(),
                     "tomobile":phoneTF.text!,
                     "amount":Int(pointsTF.text!)!,
-                    "remark":"备注"] as [String:AnyObject]
-        PPRequestManager.GET(url: API_USER_TRANS_POINTS, para: para, success: { (json) in
+                    "remark":"备注",
+                    "password":self.loginPWTF.text!.md5_32Bit_String()] as [String:AnyObject];
+        PPRequestManager.POST(url: API_USER_TRANS_POINTS, para: para, success: { (json) in
             let code = json["code"] as! Int
             let msg = json["msg"] as! String
             if code == 200 {
                 ProgressHUD.showSuccess("转赠成功", interaction: false)
-                self.perform(#selector(self.tranSuccess), with: nil, afterDelay: 1.2)
             }
             else{
                 ProgressHUD.showError(msg, interaction: false)
@@ -70,9 +100,14 @@ class TransPointsViewController: BaseViewController {
             ProgressHUD.showError("请求错误，请重试", interaction: false)
         }
     }
-    //    MARK:支付成功，跳转到评论页面
+    //    MARK:转赠成功之后的回掉
     @objc func tranSuccess()  {
-        self.navigationController?.popToRootViewController(animated: false)
+        self.loadAccountInfo();
+    }
+    //    MARK:查看转赠记录
+    @objc func goTransHistory()  {
+        let vc = TransPointsHistoryViewController();
+        self.navigationController?.pushViewController(vc, animated: true);
     }
 
 }

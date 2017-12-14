@@ -7,7 +7,7 @@
 //
 
 import UIKit
-class CommentObj: BaseObject {
+class PPCommentObj: BaseObject {
     var id :Int?
     var user_id :Int?
     var nickname :String?

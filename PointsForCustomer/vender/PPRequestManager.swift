@@ -70,13 +70,11 @@ class PPRequestManager: NSObject {
         var url_here = url
         if url_here .hasPrefix("http") == false{
             url_here = API_HEADERURL + url_here
-        }
-//        url_here = url_here.replacingOccurrences(of: "//", with: "/")
-        
+        }        
         manager.post(url_here, parameters: para, progress: nil, success: {(task,response) in
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
             let response_data = response as! Data
-            print(String.init(data: response_data, encoding: String.Encoding.utf8));
+//            print(String.init(data: response_data, encoding: String.Encoding.utf8));
             do{
                 let json_option = try JSONSerialization.jsonObject(with: response_data, options: .allowFragments)
                 let json_dic = json_option as! Dictionary<String, AnyObject>
@@ -124,7 +122,11 @@ class PPRequestManager: NSObject {
             url_here = API_HEADERURL + url_here
         }
         //        url_here = url_here.replacingOccurrences(of: "//", with: "/")
-        manager.post(url_here, parameters: para_here, constructingBodyWith: construct, progress: nil, success: { (task, response) in
+        
+        manager.post(url_here, parameters: para_here, constructingBodyWith: construct, progress:{ (uploadProgress) in
+            let percent:String = String.init(format: "%.0f%%", 100.0*(Float)(uploadProgress.completedUnitCount)/(Float)(uploadProgress.totalUnitCount));
+            ProgressHUD.show(percent, interaction: false);
+        }, success: { (task, response) in
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
             let response_data = response as! Data
             print(String.init(data: response_data, encoding: String.Encoding.utf8)!)

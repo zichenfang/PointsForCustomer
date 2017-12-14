@@ -11,12 +11,13 @@ import UIKit
 class PayNowViewController: BaseViewController {
     // 店铺id,店铺名,转换比例,消费金额
     var para :Array<String>!
-    @IBOutlet var maxPointLabel: UILabel!
+    @IBOutlet var percentLabel: UILabel!//比例
     @IBOutlet var canGetPointLabel: UILabel!
     @IBOutlet var usePointTF: UITextField!
     @IBOutlet var priceLabel: UILabel!
     var canUseMaxPoint :Int! //本单使用积分上限
     var price : Double! //消费总金额
+    var percent : Double! //比例
     @IBOutlet var payTruePriceLabel: UILabel!//实际消费
     
     var shopId :Int! //店铺ID
@@ -28,17 +29,16 @@ class PayNowViewController: BaseViewController {
         // Do any additional setup after loading the view.
         shopId = Int(para[0])
         self.title = para[1]
+        self.percent = Double(para[2])!*0.01;
+        //比例
+        self.percentLabel.text = String.init(format: "%.0f%%", self.percent*100);
         //消费金额
         price = Double(para[3])
-        priceLabel.text = String.init(format: "%.2f", price)
-        payTruePriceLabel.text = String.init(format: "%.2f", price);
+        priceLabel.text = String.init(format: "%.0f元", price)
+        payTruePriceLabel.text = String.init(format: "%.0f元", price);
         //最多使用积分限制
-        print(Double(para[2])! * 0.01 * price)
-        print(Int(Double(para[2])! * 0.01 * price))
-        canUseMaxPoint = Int(Double(para[2])! * 0.01 * price)
-        maxPointLabel.text = String.init(format: "%d分", canUseMaxPoint)
-        canGetPointLabel.text = maxPointLabel.text
-        
+        canUseMaxPoint = Int(self.percent * price);
+        canGetPointLabel.text = String.init(format: "%.0f分", canUseMaxPoint)
         //添加textField通知监听
         usePointTF.addTarget(self, action: #selector(tfChanged(_:)), for: UIControlEvents.allEvents)
     }
@@ -54,7 +54,7 @@ class PayNowViewController: BaseViewController {
         }
         canGetPointLabel.text = String.init(format: "%d分", canUseMaxPoint - inputPoint)
         //实际支付
-        payTruePriceLabel.text = String.init(format: "%.2f", price - (Double)(inputPoint));
+        payTruePriceLabel.text = String.init(format: "%.0f元", price - (Double)(inputPoint));
     }
 //    MARK:开始支付
     @IBAction func payNow(_ sender: Any) {

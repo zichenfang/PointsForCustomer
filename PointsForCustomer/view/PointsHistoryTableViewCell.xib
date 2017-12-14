@@ -64,7 +64,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-100" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gwn-mL-ZhI">
-                                <rect key="frame" x="208" y="64" width="32.5" height="20"/>
+                                <rect key="frame" x="212.5" y="64" width="32.5" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="BfB-PX-jel"/>
                                 </constraints>
@@ -72,12 +72,12 @@
                                 <color key="textColor" red="0.16078431369999999" green="0.81960784310000001" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="状态描述" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M2b-II-o5n">
-                                <rect key="frame" x="250.5" y="64" width="61.5" height="20"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="状态描述 " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M2b-II-o5n">
+                                <rect key="frame" x="255" y="64" width="57" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="2hn-0R-O9G"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" red="0.89411764709999997" green="0.22352941179999999" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -107,11 +107,13 @@
                 <constraint firstAttribute="bottom" secondItem="xLD-9Y-lVl" secondAttribute="bottom" constant="5" id="z0g-7Q-zWn"/>
             </constraints>
             <connections>
+                <outlet property="huodePointsLabel" destination="Gwn-mL-ZhI" id="Amh-vO-Ozf"/>
                 <outlet property="shopNameLabel" destination="8QJ-qb-tlP" id="4v6-7m-oZB"/>
+                <outlet property="stateLabel" destination="M2b-II-o5n" id="kYa-4Q-zqF"/>
                 <outlet property="timeLabel" destination="Uci-uB-eLl" id="dnN-0a-cY9"/>
-                <outlet property="valueLabel" destination="OC8-rw-ceQ" id="bcE-LP-oyx"/>
+                <outlet property="xiaofeiPointsLabel" destination="OC8-rw-ceQ" id="9Wh-3G-vOS"/>
             </connections>
-            <point key="canvasLocation" x="-56" y="-30.5"/>
+            <point key="canvasLocation" x="-354" y="-107"/>
         </tableViewCell>
     </objects>
 </document>

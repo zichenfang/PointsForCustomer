@@ -12,6 +12,7 @@ class MsgListTableViewCell: UITableViewCell {
     @IBOutlet var msgTitleLabel: UILabel!
     @IBOutlet var contentLabel: UILabel!
     @IBOutlet var timeLabel: UILabel!
+    @IBOutlet var arrowIV: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -33,6 +34,12 @@ class MsgListTableViewCell: UITableViewCell {
             self.msgTitleLabel.textColor = UIColor.black;
             self.timeLabel.textColor = UIColor.black;
             self.contentLabel.textColor = UIColor.black;
+        }
+        if obj.isOpen == true {
+            arrowIV.transform = CGAffineTransform.init(rotationAngle: CGFloat(Double.pi));
+        }
+        else{
+            arrowIV.transform = CGAffineTransform.init(rotationAngle: 0);
         }
     }
 }

@@ -49,7 +49,8 @@ let NOTI_USERINFO_CHANGED  = NSNotification.Name(rawValue: "pp_noti_002");
 let NOTI_USERSTATUS_CHANGED  = NSNotification.Name(rawValue: "pp_noti_003");
 //MARK: ●点击首页右上角扫码动作
 let NOTI_INDEX_SCANECODE  = NSNotification.Name(rawValue: "pp_noti_004");
-
+//MARK: ●用户注销登录
+let NOTI_USER_LOGOUT  = NSNotification.Name(rawValue: "pp_noti_005");
 
 //MARK: 列表页内数据个数
 let LIST_PAGESIZE  = 50 ;
@@ -66,10 +67,12 @@ let API_USER_MESSAGE :String = "/api.php/v1.Publics/sendSms";
 let API_USER_LOGIN :String = "/api.php/v1.Publics/login";
 //MARK: ●忘记密码
 let API_USER_FINDPASSWORD :String = "/api.php/v1.Publics/retrievePassword";
-//MARK: ●积分使用记录
-let API_USER_POINTS_HISTORY :String = "/api.php/v1.User/statement";
+//MARK: ●获取订单历史
+let API_USER_ORDER_HISTORY :String = "/api.php/v1.User/orders";
 //MARK: ●积分转赠
 let API_USER_TRANS_POINTS :String = "/api.php/v1.User/invitationWithdraw";
+//MARK: ●申请退款
+let API_USER_ORDER_REFUND :String = "/api.php/v1.User/refund";
 //MARK: ●修改密码
 let API_USER_CHANGE_PASSWORD :String = "/api.php/v1.User/changePassword";
 
@@ -111,6 +114,20 @@ let API_USER_GET_UNREADMESSAGE :String = "/api.php/v1.User/unreadMessages";
 let API_USER_MESSAGE_LIST :String = "/api.php/v1.User/messages";
 //MARK: ●设置消息为已读
 let API_USER_READ_MESSAGE :String = "/api.php/v1.User/readMessage";
+//MARK: ●获取积分说明
+let API_USER_POINTS_README :String = "/api.php/v1.Publics/integralExplain";
+//MARK: ●获取账户信息
+let API_USER_ACCOUNT_INFO :String = "/api.php/v1.User/account";
+//MARK: ●获取积分记录
+let API_USER_POINTS_HISTORY :String = "/api.php/v1.User/statement";
+//MARK: ●获取邀请统计数据
+let API_USER_INVITE_INFO :String = "/api.php/v1.User/inviteStatistics";
+//MARK: ●获取三个评分数据
+let API_USER_TRIBLE_SCORE :String = "/api.php/v1.Index/average";
+//MARK: ●签到
+let API_USER_SIGNIN :String = "/api.php/v1.User/signIn";
+//MARK: ●用户协议
+let API_USER_REGIST_DEAL_DES :String = "/api.php/v1.Publics/registrationProtocol";
 
 
 class ConstantForSwift: NSObject {
