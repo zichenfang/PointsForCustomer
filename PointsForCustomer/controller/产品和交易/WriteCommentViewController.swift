@@ -8,7 +8,7 @@
 
 import UIKit
 
-class WriteCommentViewController: BaseViewController {
+class WriteCommentViewController: BaseViewController ,UMSocialUIDelegate{
     convenience init(){
         self.init(nibName: "WriteCommentViewController", bundle: nil)
     }
@@ -20,6 +20,9 @@ class WriteCommentViewController: BaseViewController {
     var kda_fuwu : Int = 5 //服务评分
     var kda_chanpin : Int = 5 //产品评分
     var kda_huanjing : Int = 5 //环境评分
+    public var sAlertView :ShareAlertView!
+
+    
 
     @IBOutlet var placeHolderTV: UITextView!//用于显示placeholder的textview，因为要保持跟commentTV一致，所以用了UITextView
     @IBOutlet var commentTV: UITextView!//输入评论内容
@@ -198,7 +201,7 @@ class WriteCommentViewController: BaseViewController {
             ProgressHUD.showError("请输入不少于5个字的内容")
             return
         }
-        let para = ["comment":self.commentTV.text,
+        let para = ["comment":self.commentTV.text.killEmoji(),
                     "score":NSNumber.init(value: kda_zonghe),
                     "server_score":NSNumber.init(value: kda_fuwu),
                     "product_score":NSNumber.init(value: kda_chanpin),
@@ -234,27 +237,47 @@ class WriteCommentViewController: BaseViewController {
 
     //MARK:show alert
     func showShareAlertView() {
-        let sAlertView :ShareAlertView? = Bundle.main.loadNibNamed("ShareAlertView", owner: self, options: nil)?.first as? ShareAlertView;
+        sAlertView = Bundle.main.loadNibNamed("ShareAlertView", owner: self, options: nil)?.first as? ShareAlertView;
         sAlertView?.frame = UIScreen.main.bounds;
         UIApplication.shared.keyWindow?.addSubview(sAlertView!);
         sAlertView?.cancelBtn.addTarget(self, action: #selector(cancelShareApp(_sender:)), for: UIControlEvents.touchUpInside)
-        sAlertView?.cancelBtn.addTarget(self, action: #selector(shareAPP(_sender:)), for: UIControlEvents.touchUpInside)
+        sAlertView?.shareBtn.addTarget(self, action: #selector(shareAPP(_sender:)), for: UIControlEvents.touchUpInside)
     }
-    //MARK:hide alert 取消掉alert之后，跳转到订单记录页面
+    //MARK:取消分享
     @objc func cancelShareApp(_sender:UIButton) {
-        _sender.superview?.superview?.removeFromSuperview();
-        self.commentSuccessBack();
+        self.goPointsHistory();
     }
-    //MARK:share app
+    //MARK:分享 app
     @objc func shareAPP(_sender:UIButton) {
         _sender.superview?.superview?.removeFromSuperview();
-        TTUmengManager.shareContent(withTitle: "大哲扣", url: "http://www.baidu.com/", shareText: "大哲扣", shareImage: PLACE_HOLDER_IMAGE_GENERAL, delegate: nil, inSheetView: self);
+        TTUmengManager.shareContent(withTitle: "大哲扣", url: "http://www.baidu.com/", shareText: "大哲扣", shareImage: PLACE_HOLDER_IMAGE_GENERAL, delegate: self, inSheetView: self);
     }
-    //    MARK:评论成功之后返回
-    @objc func commentSuccessBack()  {
-        self.dismiss(animated: true, completion: nil)
-        if self.handler != nil{
-            self.handler!([:])
+    //    MARK:跳转到积分记录页面
+    @objc func goPointsHistory()  {
+        sAlertView.removeFromSuperview();
+        let vc = PointsHistoryViewController();
+        vc.handler = {(_ info) -> Void in
+            //从积分记录页面返回回来之后，发送通知，跳转到个人中心
+            if self.handler != nil {
+                self.handler!([:]);
+            }
+            self.dismiss(animated: true, completion: nil);
+            NotificationCenter.default.post(name: NOTI_GO_USERCENTER, object: nil)
         }
+        self.navigationController?.pushViewController(vc, animated: true);
+    }
+    //MARK:友盟分享回调
+    func didFinishGetUMSocialData(inViewController response: UMSocialResponseEntity!) {
+        if response.responseCode == UMSResponseCodeSuccess {
+            ProgressHUD.showSuccess("分享成功！");
+            self.goPointsHistory();
+        }
+        else{
+            ProgressHUD.showError("分享失败！");
+            self.showShareAlertView();
+        }
+    }
+    func didCloseUIViewController(_ fromViewControllerType: UMSViewControllerType) {
+        self.showShareAlertView();
     }
 }

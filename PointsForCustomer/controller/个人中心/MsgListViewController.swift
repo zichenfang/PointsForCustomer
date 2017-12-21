@@ -43,7 +43,7 @@ class MsgListViewController: BaseViewController  , UITableViewDataSource , UITab
             self.loadMsgListData()
         })
     }
-    //    MARK:获取积分纪录数据
+    //    MARK:获取消息纪录数据
     func loadMsgListData() {
         let para = ["token":PPUserInfoManager.token(),
                     "p":page,

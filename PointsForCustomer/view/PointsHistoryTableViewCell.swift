@@ -25,6 +25,7 @@ class PointsHistoryTableViewCell: UITableViewCell {
         stateLabel.layer.borderColor = UIColor.styleRed().cgColor;
     }
     func data (obj:PPOrderHisoryObj){
+//        type 1-交易订单  9-评论    10-签到   11-首次注册
         self.shopNameLabel.text = obj.seller_name
         self.timeLabel.text = obj.pay_time
         self.xiaofeiPointsLabel.text = String.init(format: "-%d", obj.integral_proportion!);

@@ -47,7 +47,7 @@ class FeedBackViewController: BaseViewController {
             return
         }
 
-        var para = ["content":inputTV.text,
+        var para = ["content":inputTV.text.killEmoji(),
                     "token":PPUserInfoManager.token()] as [String:AnyObject];
         if inputPhoneTF.text!.characters.count > 0{
             para.updateValue(inputPhoneTF.text as AnyObject, forKey: "phone");

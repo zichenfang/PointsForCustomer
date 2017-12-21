@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UserCenterViewController: BaseViewController , UITableViewDataSource , UITableViewDelegate {
+class UserCenterViewController: BaseViewController , UITableViewDataSource , UITableViewDelegate ,UMSocialUIDelegate{
 
     @IBOutlet var tableView: UITableView!
     @IBOutlet var msgCountLabel: UILabel!//消息数目
@@ -22,7 +22,7 @@ class UserCenterViewController: BaseViewController , UITableViewDataSource , UIT
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
+//        self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
         //开局手动刷新一下页面
         userStatusDidChanged()
         tableView.register(UINib.init(nibName: "UserCenterTableViewCell", bundle: nil), forCellReuseIdentifier: "usercenter");
@@ -225,7 +225,7 @@ class UserCenterViewController: BaseViewController , UITableViewDataSource , UIT
             self.navigationController?.pushViewController(vc, animated: true)
         case "分享软件":
             // MARK: - 分享软件
-            TTUmengManager.shareContent(withTitle: "积分购", url: "http://www.baidu.com/", shareText: "积分购应用", shareImage: PLACE_HOLDER_IMAGE_GENERAL, delegate: nil, inSheetView: self);
+            TTUmengManager.shareContent(withTitle: "积分购", url: "http://jf.bingplus.com/index.php/index/index/download", shareText: "积分购应用", shareImage: PLACE_HOLDER_IMAGE_GENERAL, delegate: self, inSheetView: self);
         case "联系我们":
             // MARK: - 联系我们
             let service_phone = PPUserInfoManager.userInfo()?.value(forKey: "service_phone") as! String;
@@ -242,7 +242,7 @@ class UserCenterViewController: BaseViewController , UITableViewDataSource , UIT
     // MARK: - 注销登录
     func logOut()  {
         let alertVC = UIAlertController.init(title: "确认退出？", message: nil, preferredStyle: UIAlertControllerStyle.alert)
-        alertVC.addAction(UIAlertAction.init(title: "退出", style: UIAlertActionStyle.destructive, handler: { (act) in
+        alertVC.addAction(UIAlertAction.init(title: "退出", style: UIAlertActionStyle.default, handler: { (act) in
             PPUserInfoManager.updateIsLogined(logined: false)
             let vc = LoginViewController()
             self.present(UINavigationController.init(rootViewController: vc), animated: true, completion: nil)
@@ -251,14 +251,13 @@ class UserCenterViewController: BaseViewController , UITableViewDataSource , UIT
         alertVC.addAction(UIAlertAction.init(title: "取消", style: UIAlertActionStyle.cancel, handler: nil))
         self.present(alertVC, animated: true, completion: nil)
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    //MARK:友盟分享回调
+    func didFinishGetUMSocialData(inViewController response: UMSocialResponseEntity!) {
+        if response.responseCode == UMSResponseCodeSuccess {
+            ProgressHUD.showSuccess("分享成功！");
+        }
+        else{
+            ProgressHUD.showError("分享失败！");
+        }
     }
-    */
-
 }

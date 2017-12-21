@@ -7,7 +7,7 @@
 //
 
 //友盟appkey
-#define kUMAppKey                       @"5822de7e5312dd084d003520"
+#define kUMAppKey                       @"5a33712ff43e48415f00021e"
 //
 
 /**
@@ -15,13 +15,14 @@
  *
  
  */
-#define kShareQQAppId                   @"1105616487"
-#define kShareQQAppKey                  @"azdubC3iZzybxWXS"
-#define kShareQQUrl                  @"http://www.google.com/"
+#define kShareQQAppId                   @"1106531957"/*QQ互联*/   //@"1106608196" /*腾讯开放平台*/
+#define kShareQQAppKey                  @"6LWnvQZ3HIZGnww9"/*QQ互联*/  //@"ekEU4BqsaRtZeXw5"/*腾讯开放平台*/
+#define kShareQQUrl                  @"http://jf.bingplus.com/index.php/index/index/download"
 
 #define kShareWeChatAppId               @"wxfc2fdeb0868877ac"
 #define kShareWeChatAppSecrect          @"3da019df02117fa684be6227123d744c"
-
+#define kShareSinaAppKey               @"2295252639"
+#define kShareSinaAppSecrect          @"87ea1dd6388022db08f9bb5e9c506698"
 
 
 #import "TTUmengManager.h"
@@ -32,9 +33,9 @@
 + (void)setUp
 {
     [UMSocialData setAppKey:kUMAppKey];
-
     [UMSocialQQHandler setQQWithAppId:kShareQQAppId appKey:kShareQQAppKey url:kShareQQUrl];
     [UMSocialWechatHandler setWXAppId:kShareWeChatAppId appSecret:kShareWeChatAppSecrect url:nil];
+    [UMSocialSinaSSOHandler openNewSinaSSOWithAppKey:kShareSinaAppKey secret:kShareSinaAppSecrect RedirectURL:nil];
 }
 
 +(void)shareContentWithTitle:(NSString *)title
@@ -55,13 +56,14 @@
     [UMSocialData defaultData].extConfig.qqData.title = title;
     [UMSocialData defaultData].extConfig.qzoneData.title = title;
     [UMSocialData defaultData].extConfig.wechatSessionData.title = title;
+    [UMSocialData defaultData].extConfig.sinaData.shareText = [NSString stringWithFormat:@"%@ \n %@ %@",title,shareText,url];
 
 
     [UMSocialSnsService presentSnsIconSheetView:controller
                                          appKey:kUMAppKey
                                       shareText:shareText
                                      shareImage:shareImage
-                                shareToSnsNames:[NSArray arrayWithObjects:UMShareToWechatSession,UMShareToWechatTimeline,UMShareToQQ,nil]
+                                shareToSnsNames:[NSArray arrayWithObjects:UMShareToWechatSession,UMShareToWechatTimeline,UMShareToQQ,UMShareToSina,nil]
                                        delegate:delegate];
 }
 @end

@@ -20,7 +20,10 @@ class PointsHistoryViewController: BaseViewController , UITableViewDataSource , 
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title  = "消费记录"
+        self.title  = "积分记录"
+        if self.handler != nil {
+            self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(title: "返回", style: UIBarButtonItemStyle.plain, target: self, action: #selector(goUserCenter));
+        }
         let points = PPUserInfoManager.userInfo()!["integral_balance"] as? Int
         lastPointsLabel.text = String.init(format: "%d", points!)
         configTableView()
@@ -29,6 +32,7 @@ class PointsHistoryViewController: BaseViewController , UITableViewDataSource , 
     //MARK:配置tableview下拉刷新，cell ，contentInset
     func configTableView()  {
         tableView.register(UINib.init(nibName: "PointsHistoryTableViewCell", bundle: nil), forCellReuseIdentifier: "pointshistory");
+        tableView.register(UINib.init(nibName: "PointsHistoryOtherTableViewCell", bundle: nil), forCellReuseIdentifier: "pointshistoryother");
         tableView.mj_header = MJRefreshNormalHeader.init(refreshingBlock: {
             self.page = 1
             self.loadPointsHistoryData()
@@ -84,10 +88,27 @@ class PointsHistoryViewController: BaseViewController , UITableViewDataSource , 
         return pointsHistoryData.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell :PointsHistoryTableViewCell! = tableView.dequeueReusableCell(withIdentifier: "pointshistory", for: indexPath) as! PointsHistoryTableViewCell;
-        let aobj = pointsHistoryData[indexPath.row]
-        cell.data(obj: aobj);
-        return cell!;
+        let aobj = pointsHistoryData[indexPath.row];
+        if aobj.type == 1 {
+            let cell :PointsHistoryTableViewCell! = tableView.dequeueReusableCell(withIdentifier: "pointshistory", for: indexPath) as! PointsHistoryTableViewCell;
+            cell.data(obj: aobj);
+            return cell!;
+
+        }
+        else{
+            let cell :PointsHistoryOtherTableViewCell! = tableView.dequeueReusableCell(withIdentifier: "pointshistoryother", for: indexPath) as! PointsHistoryOtherTableViewCell;
+            cell.data(obj: aobj);
+            return cell!;
+        }
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let aobj = pointsHistoryData[indexPath.row];
+        if aobj.type == 1 {
+            return 95;
+        }
+        else{
+            return 70;
+        }
     }
     //    MARK:UITableViewDelegate
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -99,7 +120,7 @@ class PointsHistoryViewController: BaseViewController , UITableViewDataSource , 
 //        "state": "integer,订单状态 2-冻结中 3-退款中 5-已完成  9-已退款",
         if aobj.state == 2 {
             let alertVC = UIAlertController.init(title: "确认退款？", message: nil, preferredStyle: UIAlertControllerStyle.alert)
-            alertVC.addAction(UIAlertAction.init(title: "退出", style: UIAlertActionStyle.destructive, handler: { (act) in
+            alertVC.addAction(UIAlertAction.init(title: "退款", style: UIAlertActionStyle.destructive, handler: { (act) in
                 self.refundOrder(orderObj: aobj);
             }))
             alertVC.addAction(UIAlertAction.init(title: "取消", style: UIAlertActionStyle.cancel, handler: nil))
@@ -124,5 +145,12 @@ class PointsHistoryViewController: BaseViewController , UITableViewDataSource , 
             }
         }) {
         }
+    }
+    //MARK:从评论页面跳转到该记录页面之后，返回到个人中心
+    @objc func goUserCenter () {
+        if self.handler != nil {
+            self.handler!([:]);
+        }
+        self.navigationController?.popViewController(animated: false);
     }
 }

@@ -15,6 +15,7 @@
                 <outlet property="payTruePriceLabel" destination="XiN-N6-SvY" id="5Ld-pr-YRh"/>
                 <outlet property="percentLabel" destination="rqK-9q-Czg" id="lmO-46-9XD"/>
                 <outlet property="priceLabel" destination="RYH-3d-aPy" id="cJX-OI-mL2"/>
+                <outlet property="saveBtn" destination="Pfl-DQ-wOk" id="H99-bb-JRN"/>
                 <outlet property="usePointTF" destination="Gah-Vo-DAl" id="Kmp-Sx-0tq"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -100,7 +101,7 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0分" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EtB-YV-pMb">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0分" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="EtB-YV-pMb">
                                             <rect key="frame" x="318.5" y="0.0" width="26.5" height="60"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" red="0.89411764709999997" green="0.22352941179999999" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
@@ -162,7 +163,7 @@
                                         <constraint firstItem="eQz-1k-EcD" firstAttribute="top" secondItem="UxX-pc-nx4" secondAttribute="top" id="yMU-9c-tXX"/>
                                     </constraints>
                                 </view>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pfl-DQ-wOk">
+                                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pfl-DQ-wOk">
                                     <rect key="frame" x="10" y="300" width="355" height="45"/>
                                     <color key="backgroundColor" red="0.89411764709999997" green="0.22352941179999999" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
@@ -172,6 +173,7 @@
                                     <state key="normal" title="确 定">
                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <state key="disabled" backgroundImage="disableBtnBac"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -246,4 +248,7 @@
             <point key="canvasLocation" x="-209.5" y="-242.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="disableBtnBac" width="595" height="249"/>
+    </resources>
 </document>

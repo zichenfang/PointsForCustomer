@@ -7,7 +7,7 @@
 //
 
 import UIKit
-let PPREQUEST_TIME_OUT :Double = 60.0;
+let PPREQUEST_TIME_OUT :Double = 10.0;
 
 class PPRequestManager: NSObject {
     //MARK:GET
@@ -18,15 +18,14 @@ class PPRequestManager: NSObject {
         manager.requestSerializer.timeoutInterval = PPREQUEST_TIME_OUT
         /*系统的公共参数集中在这里*/
         //设备平台
-        var para_here = para
-        para_here?.updateValue("ios", forKey: "client")
+        let para_here = PPRequestManager.killEmojiInPara(para: para);
         var url_here = url
         if url_here .hasPrefix("http") == false{
             url_here = API_HEADERURL + url_here
         }
 //        url_here = url_here.replacingOccurrences(of: "//", with: "/")
 
-        manager.get(url_here, parameters: para, progress: nil, success: {(task,response) in
+        manager.get(url_here, parameters: para_here, progress: nil, success: {(task,response) in
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
             let response_data = response as! Data
             do{
@@ -65,13 +64,13 @@ class PPRequestManager: NSObject {
         manager.requestSerializer.timeoutInterval = PPREQUEST_TIME_OUT
         /*系统的公共参数集中在这里*/
         //设备平台
-        var para_here = para
-        para_here?.updateValue("ios", forKey: "client")
+        let para_here = PPRequestManager.killEmojiInPara(para: para);
+
         var url_here = url
         if url_here .hasPrefix("http") == false{
             url_here = API_HEADERURL + url_here
         }        
-        manager.post(url_here, parameters: para, progress: nil, success: {(task,response) in
+        manager.post(url_here, parameters: para_here, progress: nil, success: {(task,response) in
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
             let response_data = response as! Data
 //            print(String.init(data: response_data, encoding: String.Encoding.utf8));
@@ -112,12 +111,14 @@ class PPRequestManager: NSObject {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         let manager = AFHTTPSessionManager()
         manager.responseSerializer = AFHTTPResponseSerializer()
-        manager.requestSerializer.timeoutInterval = PPREQUEST_TIME_OUT
+        manager.requestSerializer.timeoutInterval = PPREQUEST_TIME_OUT * 2.5
         /*系统的公共参数集中在这里*/
         //设备平台
-        var para_here = para
-        para_here?.updateValue("ios", forKey: "client")
-        var url_here = url
+        let para_here = PPRequestManager.killEmojiInPara(para: para);
+
+        //批量去掉emoji表情
+
+        var url_here = url;
         if url_here .hasPrefix("http") == false{
             url_here = API_HEADERURL + url_here
         }
@@ -159,6 +160,24 @@ class PPRequestManager: NSObject {
             }
         }
 
+    }
+    //暂时先不用这个方法了，太危险了
+    static func killEmojiInPara(para:[AnyHashable : Any]?) -> [AnyHashable : Any]? {
+//        var para_noEmoji:[AnyHashable : Any] = [:];
+//        if para == nil {
+//            return para_noEmoji;
+//        }
+//        for (key,value) in para! {
+//            if let value_string  = value as? String {
+//                para_noEmoji.updateValue(value_string.killEmoji(), forKey: key);
+//            }
+//            else{
+//                para_noEmoji.updateValue(value, forKey: key);
+//            }
+//        }
+//        para_noEmoji.updateValue("ios", forKey: "client");
+//        return para_noEmoji;
+        return para;
     }
 
 }

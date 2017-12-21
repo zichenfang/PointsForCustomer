@@ -111,11 +111,17 @@ class IndexViewController: BaseViewController , UITableViewDataSource , UITableV
         headerView.delegate = self;
         //    MARK:跳转到某一个分类列表
         headerView.classSelectedHandler = {(_ item :PPIndexClassObj)->Void in
-//            print(item.id!);
-            let vc = OneKindShopListViewController();
-            vc.classObj = item;
-            vc.hidesBottomBarWhenPushed = true;
-            self.navigationController?.pushViewController(vc, animated: true);
+            if item.name?.contains("全部") == true {
+                //跳转到全部分类
+                let vc = AllKindsListViewController();
+                self.navigationController?.pushViewController(vc, animated: true);
+            }
+            else{
+                let vc = OneKindShopListViewController();
+                vc.classObj = item;
+                vc.hidesBottomBarWhenPushed = true;
+                self.navigationController?.pushViewController(vc, animated: true);
+            }
         }
         tableView.tableHeaderView = headerView;
     }
@@ -164,8 +170,8 @@ class IndexViewController: BaseViewController , UITableViewDataSource , UITableV
 //        if locationLabelWidth >  SCREEN_WIDTH - 180{
 //            locationLabelWidth = SCREEN_WIDTH - 180;
 //        }
-        if locationLabelWidth > 180{
-            locationLabelWidth = 180;
+        if locationLabelWidth > 140{
+            locationLabelWidth = 140;
         }
         locationViewConstraint.constant = locationLabelWidth;
     }

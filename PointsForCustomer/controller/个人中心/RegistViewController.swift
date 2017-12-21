@@ -92,10 +92,10 @@ class RegistViewController: BaseViewController {
             return
         }
         var para = ["password":passWordTF.text?.md5_32Bit_String(),
-                    "mobile":self.phoneTF.text ?? "",
+                    "mobile":phoneTF.text!,
                     "verifycode":codeTF.text,
                     "push_token":PPUserInfoManager.jPushRegistID()
-            ] as [String : AnyObject]
+            ] as [String : AnyObject];
         if inviteCodeTF.text != "" && (inviteCodeTF.text?.characters.count)!>1{
             para.updateValue(inviteCodeTF, forKey: "invitation")
         }

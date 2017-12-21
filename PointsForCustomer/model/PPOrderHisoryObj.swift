@@ -50,7 +50,6 @@ class PPOrderHisoryObj: BaseObject {
         if let state = info["state"]as?Int {
             self.state = state;
         }
-        self.type = info["type"]as?Int;
 //        "state": "integer,订单状态 2-冻结中 3-退款中 5-已完成  9-已退款",
         switch self.state {
         case 2:
@@ -64,5 +63,7 @@ class PPOrderHisoryObj: BaseObject {
         default:
             self.state_des = "已完成";
         }
+//        1-交易订单  9-评论    10-签到   11-首次注册
+        self.type = info["type"]as?Int;
     }
 }

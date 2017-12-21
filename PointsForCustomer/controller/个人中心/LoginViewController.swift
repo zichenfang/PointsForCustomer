@@ -47,7 +47,7 @@ class LoginViewController: BaseViewController {
             ProgressHUD.showError("请输入至少6位数密码", interaction: false)
             return
         }
-        let para = ["mobile":phoneTF.text,
+        let para = ["mobile":phoneTF.text!,
                     "password":passWordTF.text?.md5_32Bit_String(),
                     "push_token":PPUserInfoManager.jPushRegistID()] as [String : AnyObject]
         ProgressHUD.show(nil, interaction: false)

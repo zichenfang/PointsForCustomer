@@ -97,7 +97,7 @@ class UserInfoViewController: BaseViewController {
     @objc func save () {
         var para = ["token":PPUserInfoManager.token()] as [String:AnyObject];
         if self.namecache != nil {
-            para.updateValue(self.namecache as AnyObject, forKey: "nickname");
+            para.updateValue(self.namecache.killEmoji() as AnyObject, forKey: "nickname");
         }
         if self.avatarUrl_new != nil {
             para.updateValue(self.avatarUrl_new as AnyObject, forKey: "head_img");

@@ -16,7 +16,7 @@ class BoundsListViewController: BaseViewController, UITableViewDataSource , UITa
     @IBOutlet var allBoundLabel: UILabel!
     @IBOutlet var tableView: UITableView!
     //积分纪录列表数据
-    var pointsHistoryData  = NSMutableArray() as! [PPPointsHistoryObj];
+    var pointsHistoryData  = NSMutableArray() as! [PPInviteListObj];
     //商家列表分页页码
     var page :Int = 1;
     override func viewDidLoad() {
@@ -24,10 +24,12 @@ class BoundsListViewController: BaseViewController, UITableViewDataSource , UITa
         self.title = "奖励信息";
         configTableView()
         self.loadInviteInfo();
+        self.loadPointsHistoryData();
     }
     //MARK:配置tableview下拉刷新，cell ，contentInset
     func configTableView()  {
-        tableView.register(UINib.init(nibName: "PointsTransObtainHistoryTableViewCell", bundle: nil), forCellReuseIdentifier: "pointshistory");
+        
+        tableView.register(UINib.init(nibName: "BoundListTableViewCell", bundle: nil), forCellReuseIdentifier: "pointshistory");
         tableView.mj_header = MJRefreshNormalHeader.init(refreshingBlock: {
             self.page = 1
             self.loadPointsHistoryData()
@@ -60,14 +62,13 @@ class BoundsListViewController: BaseViewController, UITableViewDataSource , UITa
         }) {
         }
     }
-    //    MARK:获取积分纪录数据
+    //    MARK:获取邀请列表
     func loadPointsHistoryData() {
         let para = ["token":PPUserInfoManager.token(),
                     "p":page,
-                    "pagesize":LIST_PAGESIZE,
-                    "type":"0"] as [String : AnyObject]
+                    "pagesize":LIST_PAGESIZE] as [String : AnyObject]
         
-        PPRequestManager.POST(url: API_USER_POINTS_HISTORY, para: para, success: { (json) in
+        PPRequestManager.POST(url: API_USER_INVITE_LIST, para: para, success: { (json) in
             if self.page == 1{
                 self.tableView.mj_header.endRefreshing()
             }
@@ -82,7 +83,7 @@ class BoundsListViewController: BaseViewController, UITableViewDataSource , UITa
                     self.pointsHistoryData.removeAll()
                 }
                 for pointhis_dic in result{
-                    let pointhisObj = PPPointsHistoryObj.init(info: pointhis_dic as! NSDictionary)
+                    let pointhisObj = PPInviteListObj.init(info: pointhis_dic as! NSDictionary)
                     self.pointsHistoryData.append(pointhisObj)
                 }
                 if result.count < LIST_PAGESIZE {
@@ -107,7 +108,7 @@ class BoundsListViewController: BaseViewController, UITableViewDataSource , UITa
         return pointsHistoryData.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell :PointsTransObtainHistoryTableViewCell! = tableView.dequeueReusableCell(withIdentifier: "pointshistory", for: indexPath) as! PointsTransObtainHistoryTableViewCell;
+        let cell :BoundListTableViewCell! = tableView.dequeueReusableCell(withIdentifier: "pointshistory", for: indexPath) as! BoundListTableViewCell;
         let aobj = pointsHistoryData[indexPath.row]
         cell.data(obj: aobj);
         return cell!;

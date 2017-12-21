@@ -113,7 +113,7 @@
                 <outlet property="timeLabel" destination="Uci-uB-eLl" id="dnN-0a-cY9"/>
                 <outlet property="xiaofeiPointsLabel" destination="OC8-rw-ceQ" id="9Wh-3G-vOS"/>
             </connections>
-            <point key="canvasLocation" x="-354" y="-107"/>
+            <point key="canvasLocation" x="-459" y="-84"/>
         </tableViewCell>
     </objects>
 </document>

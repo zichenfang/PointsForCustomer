@@ -47,5 +47,6 @@
 - (NSString *)base64ToNormalStr;
 
 + (void)test;
-
+//过滤掉emoji表情
+- (NSString *)killEmoji;
 @end

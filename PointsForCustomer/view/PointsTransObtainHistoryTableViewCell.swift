@@ -7,7 +7,9 @@
 //
 
 import UIKit
-
+/*
+ 积分转赠记录
+ */
 class PointsTransObtainHistoryTableViewCell: UITableViewCell {
 
     @IBOutlet var userNameLabel: UILabel!//用户名

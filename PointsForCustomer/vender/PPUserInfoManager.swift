@@ -10,6 +10,7 @@ import UIKit
 let USERDEFAULTS_KEY_USERINFO = "userdefaults_001";
 let USERDEFAULTS_KEY_ISLOGINED = "userdefaults_002";
 let USERDEFAULTS_KEY_JPUSH_REGISTID = "userdefaults_003";
+let USERDEFAULTS_KEY_REJECT_VERSION_UPDATE = "userdefaults_004";//拒绝更新的版本号key
 
 class PPUserInfoManager: NSObject {
 //    MARK:用户信息综合
@@ -68,4 +69,17 @@ class PPUserInfoManager: NSObject {
             return "";
         }
     }
+    //    MARK:拒绝版本更新的版本号
+    static func updateRejectUpdateVersion(version :String) {
+        UserDefaults.standard.setValue(version, forKey: USERDEFAULTS_KEY_REJECT_VERSION_UPDATE)
+    }
+    static func rejectUpdateVersion() -> String{
+        if let version = UserDefaults.standard.value(forKey: USERDEFAULTS_KEY_REJECT_VERSION_UPDATE) as? String{
+            return version;
+        }
+        else{
+            return "1.0";
+        }
+    }
+
 }

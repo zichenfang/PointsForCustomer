@@ -69,18 +69,28 @@ extension String{
         }
         
         result.deallocate(capacity: digestLen)
-        
         return String(format: hash as String)
         
     }
-//    - (NSString *)md5_32Bit_String{
-//    const char *cStr = [self UTF8String];
-//    unsigned char digest[CC_MD5_DIGEST_LENGTH];
-//    CC_MD5(cStr,  (unsigned)strlen(cStr), digest );
-//    NSMutableString *result = [NSMutableString stringWithCapacity:CC_MD5_DIGEST_LENGTH * 2];
-//    for(int i = 0; i < CC_MD5_DIGEST_LENGTH; i++)
-//    [result appendFormat:@"%02x", digest[i]];
-//    return result.uppercaseString;//大写
-//    }
-    
+
+    //过滤掉emoji表情
+    func killEmoji() -> String {
+        do{
+            //去除表情规则
+            let expression = try NSRegularExpression.init(pattern: "[^0-9a-zA-z,.，。!！?？_\u{2E80}-\u{9FFF}]+", options: NSRegularExpression.Options.caseInsensitive);
+            return expression.stringByReplacingMatches(in: self, options: NSRegularExpression.MatchingOptions(rawValue: 0), range: NSRange.init(location: 0, length: self.characters.count), withTemplate: "");
+        }catch let error as NSError{
+            print("去除表情\(error)");
+            return "";
+        }
+    }
+
 }
+
+
+
+
+
+
+
+

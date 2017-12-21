@@ -82,6 +82,11 @@
 		E2547C491F73FB12000DA9E9 /* citys.db in Resources */ = {isa = PBXBuildFile; fileRef = E2547C481F73FB12000DA9E9 /* citys.db */; };
 		E25B8B201FCF97AD00F56982 /* ShareAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25B8B1F1FCF97AD00F56982 /* ShareAlertView.swift */; };
 		E25B8B221FCF97B400F56982 /* ShareAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E25B8B211FCF97B400F56982 /* ShareAlertView.xib */; };
+		E27F2FAB1FEA31B600672105 /* PointsHistoryOtherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27F2FA91FEA31B600672105 /* PointsHistoryOtherTableViewCell.swift */; };
+		E27F2FAC1FEA31B600672105 /* PointsHistoryOtherTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E27F2FAA1FEA31B600672105 /* PointsHistoryOtherTableViewCell.xib */; };
+		E27F2FAF1FEB49E300672105 /* BoundListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27F2FAD1FEB49E300672105 /* BoundListTableViewCell.swift */; };
+		E27F2FB01FEB49E300672105 /* BoundListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E27F2FAE1FEB49E300672105 /* BoundListTableViewCell.xib */; };
+		E27F2FB21FEB513900672105 /* PPInviteListObj.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27F2FB11FEB513900672105 /* PPInviteListObj.swift */; };
 		E288FB5F1FD8E75200697C29 /* FeedBackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E288FB5D1FD8E75200697C29 /* FeedBackViewController.swift */; };
 		E288FB601FD8E75200697C29 /* FeedBackViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E288FB5E1FD8E75200697C29 /* FeedBackViewController.xib */; };
 		E288FB631FD9193000697C29 /* FAQViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E288FB611FD9193000697C29 /* FAQViewController.swift */; };
@@ -98,6 +103,10 @@
 		E2B602571F7D407E006FFAE1 /* ShopDetailSingleTextTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2B602551F7D407E006FFAE1 /* ShopDetailSingleTextTableViewCell.xib */; };
 		E2B6025A1F7D4102006FFAE1 /* ShopDetailSingleImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B602581F7D4102006FFAE1 /* ShopDetailSingleImageTableViewCell.swift */; };
 		E2B6025B1F7D4102006FFAE1 /* ShopDetailSingleImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2B602591F7D4102006FFAE1 /* ShopDetailSingleImageTableViewCell.xib */; };
+		E2B7F32B1FEB566600AF6FEB /* AllKindsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B7F3291FEB566600AF6FEB /* AllKindsListViewController.swift */; };
+		E2B7F32C1FEB566600AF6FEB /* AllKindsListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2B7F32A1FEB566600AF6FEB /* AllKindsListViewController.xib */; };
+		E2B7F32F1FEB581400AF6FEB /* AllKindsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B7F32D1FEB581400AF6FEB /* AllKindsCollectionViewCell.swift */; };
+		E2B7F3301FEB581400AF6FEB /* AllKindsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2B7F32E1FEB581400AF6FEB /* AllKindsCollectionViewCell.xib */; };
 		E2D8D51F1FD91D89006246FA /* PPFAQObj.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D8D51E1FD91D89006246FA /* PPFAQObj.swift */; };
 		E2D8D5221FD91E79006246FA /* FAQIssueTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D8D5201FD91E79006246FA /* FAQIssueTableViewCell.swift */; };
 		E2D8D5231FD91E79006246FA /* FAQIssueTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2D8D5211FD91E79006246FA /* FAQIssueTableViewCell.xib */; };
@@ -207,6 +216,11 @@
 		E2547C481F73FB12000DA9E9 /* citys.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = citys.db; sourceTree = "<group>"; };
 		E25B8B1F1FCF97AD00F56982 /* ShareAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareAlertView.swift; sourceTree = "<group>"; };
 		E25B8B211FCF97B400F56982 /* ShareAlertView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShareAlertView.xib; sourceTree = "<group>"; };
+		E27F2FA91FEA31B600672105 /* PointsHistoryOtherTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsHistoryOtherTableViewCell.swift; sourceTree = "<group>"; };
+		E27F2FAA1FEA31B600672105 /* PointsHistoryOtherTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PointsHistoryOtherTableViewCell.xib; sourceTree = "<group>"; };
+		E27F2FAD1FEB49E300672105 /* BoundListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoundListTableViewCell.swift; sourceTree = "<group>"; };
+		E27F2FAE1FEB49E300672105 /* BoundListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BoundListTableViewCell.xib; sourceTree = "<group>"; };
+		E27F2FB11FEB513900672105 /* PPInviteListObj.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPInviteListObj.swift; sourceTree = "<group>"; };
 		E288FB5D1FD8E75200697C29 /* FeedBackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedBackViewController.swift; sourceTree = "<group>"; };
 		E288FB5E1FD8E75200697C29 /* FeedBackViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedBackViewController.xib; sourceTree = "<group>"; };
 		E288FB611FD9193000697C29 /* FAQViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQViewController.swift; sourceTree = "<group>"; };
@@ -224,6 +238,10 @@
 		E2B602551F7D407E006FFAE1 /* ShopDetailSingleTextTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShopDetailSingleTextTableViewCell.xib; sourceTree = "<group>"; };
 		E2B602581F7D4102006FFAE1 /* ShopDetailSingleImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopDetailSingleImageTableViewCell.swift; sourceTree = "<group>"; };
 		E2B602591F7D4102006FFAE1 /* ShopDetailSingleImageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShopDetailSingleImageTableViewCell.xib; sourceTree = "<group>"; };
+		E2B7F3291FEB566600AF6FEB /* AllKindsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllKindsListViewController.swift; sourceTree = "<group>"; };
+		E2B7F32A1FEB566600AF6FEB /* AllKindsListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AllKindsListViewController.xib; sourceTree = "<group>"; };
+		E2B7F32D1FEB581400AF6FEB /* AllKindsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllKindsCollectionViewCell.swift; sourceTree = "<group>"; };
+		E2B7F32E1FEB581400AF6FEB /* AllKindsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AllKindsCollectionViewCell.xib; sourceTree = "<group>"; };
 		E2C52F4B1FE24FA6004CA4D8 /* PointsForCustomer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PointsForCustomer.entitlements; sourceTree = "<group>"; };
 		E2D8D51E1FD91D89006246FA /* PPFAQObj.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPFAQObj.swift; sourceTree = "<group>"; };
 		E2D8D5201FD91E79006246FA /* FAQIssueTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQIssueTableViewCell.swift; sourceTree = "<group>"; };
@@ -380,6 +398,8 @@
 				E235F02C1FD7C423006EEADB /* CommentListViewController.xib */,
 				E235F02D1FD7C423006EEADB /* IndexViewController.swift */,
 				E235F02E1FD7C423006EEADB /* IndexViewController.xib */,
+				E2B7F3291FEB566600AF6FEB /* AllKindsListViewController.swift */,
+				E2B7F32A1FEB566600AF6FEB /* AllKindsListViewController.xib */,
 				E235F02F1FD7C423006EEADB /* OneKindShopListViewController.swift */,
 				E235F0301FD7C423006EEADB /* OneKindShopListViewController.xib */,
 				E235F0331FD7C423006EEADB /* ReadBitCodeViewController.swift */,
@@ -420,6 +440,7 @@
 				E22E414E1FDF737000663A73 /* PPPointsHistoryObj.swift */,
 				E2D8D51E1FD91D89006246FA /* PPFAQObj.swift */,
 				E23135831FDE6F9600F659E6 /* PPMsgObject.swift */,
+				E27F2FB11FEB513900672105 /* PPInviteListObj.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -448,6 +469,8 @@
 				E297FDCB1F7DDA6C0056C606 /* CommentTableViewCell.xib */,
 				E21D2AAA1F8A71EB001D29A1 /* PointsHistoryTableViewCell.swift */,
 				E21D2AAB1F8A71EB001D29A1 /* PointsHistoryTableViewCell.xib */,
+				E27F2FA91FEA31B600672105 /* PointsHistoryOtherTableViewCell.swift */,
+				E27F2FAA1FEA31B600672105 /* PointsHistoryOtherTableViewCell.xib */,
 				E22E41581FDFBEA200663A73 /* PointsTransObtainHistoryTableViewCell.swift */,
 				E22E41591FDFBEA200663A73 /* PointsTransObtainHistoryTableViewCell.xib */,
 				E25B8B1F1FCF97AD00F56982 /* ShareAlertView.swift */,
@@ -458,6 +481,10 @@
 				E2D8D5251FD91E94006246FA /* FAQAnswerTableViewCell.xib */,
 				E231357F1FDE6DB000F659E6 /* MsgListTableViewCell.swift */,
 				E23135801FDE6DB000F659E6 /* MsgListTableViewCell.xib */,
+				E27F2FAD1FEB49E300672105 /* BoundListTableViewCell.swift */,
+				E27F2FAE1FEB49E300672105 /* BoundListTableViewCell.xib */,
+				E2B7F32D1FEB581400AF6FEB /* AllKindsCollectionViewCell.swift */,
+				E2B7F32E1FEB581400AF6FEB /* AllKindsCollectionViewCell.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -607,15 +634,19 @@
 				E25230581FD7CC5600E79EAB /* UserInfoViewController.xib in Resources */,
 				E22E415B1FDFBEA200663A73 /* PointsTransObtainHistoryTableViewCell.xib in Resources */,
 				E2FE292B1F7E9BB200015D46 /* qrcode_found.wav in Resources */,
+				E2B7F3301FEB581400AF6FEB /* AllKindsCollectionViewCell.xib in Resources */,
 				E29D56051F6FA0E70006C746 /* IndexSectionHeaderView.xib in Resources */,
 				E22E41571FDFBC4B00663A73 /* TransPointsHistoryViewController.xib in Resources */,
+				E2B7F32C1FEB566600AF6FEB /* AllKindsListViewController.xib in Resources */,
 				E2B6025B1F7D4102006FFAE1 /* ShopDetailSingleImageTableViewCell.xib in Resources */,
 				E21A64421F6663E3007D1C49 /* LaunchScreen.storyboard in Resources */,
 				E2FA31AC1F71593400B657A1 /* IndexClassItemView.xib in Resources */,
 				E23135821FDE6DB000F659E6 /* MsgListTableViewCell.xib in Resources */,
+				E27F2FB01FEB49E300672105 /* BoundListTableViewCell.xib in Resources */,
 				E288FB601FD8E75200697C29 /* FeedBackViewController.xib in Resources */,
 				E25B8B221FCF97B400F56982 /* ShareAlertView.xib in Resources */,
 				E2D8D5271FD91E94006246FA /* FAQAnswerTableViewCell.xib in Resources */,
+				E27F2FAC1FEA31B600672105 /* PointsHistoryOtherTableViewCell.xib in Resources */,
 				E21A643F1F6663E3007D1C49 /* Assets.xcassets in Resources */,
 				E2547C471F73F9DF000DA9E9 /* AllCityTableViewCell.xib in Resources */,
 				E2E803BD1F6BA6F00094065F /* PPShopTableViewCell.xib in Resources */,
@@ -706,12 +737,14 @@
 				E252303D1FD7CC4C00E79EAB /* LoginViewController.swift in Sources */,
 				E252303E1FD7CC4C00E79EAB /* MyInviteCodeViewController.swift in Sources */,
 				E252303F1FD7CC4C00E79EAB /* PointsHistoryViewController.swift in Sources */,
+				E27F2FAB1FEA31B600672105 /* PointsHistoryOtherTableViewCell.swift in Sources */,
 				E25230401FD7CC4C00E79EAB /* RegistViewController.swift in Sources */,
 				E22E415A1FDFBEA200663A73 /* PointsTransObtainHistoryTableViewCell.swift in Sources */,
 				E25230411FD7CC4C00E79EAB /* TransPointsViewController.swift in Sources */,
 				E25230421FD7CC4C00E79EAB /* UserCenterViewController.swift in Sources */,
 				E25230431FD7CC4C00E79EAB /* UserInfoViewController.swift in Sources */,
 				E252302D1FD7CC3200E79EAB /* MainTabbarViewController.swift in Sources */,
+				E2B7F32B1FEB566600AF6FEB /* AllKindsListViewController.swift in Sources */,
 				E2F1EF3A1F676DA500CF90C2 /* NSDate+MyDate.m in Sources */,
 				E2F1EF441F676F1300CF90C2 /* UIDevice+MyDevice.m in Sources */,
 				E2E803C11F6BC3BA0094065F /* PPBannerObject.swift in Sources */,
@@ -728,6 +761,7 @@
 				E2B602561F7D407E006FFAE1 /* ShopDetailSingleTextTableViewCell.swift in Sources */,
 				E25369A91F7F6A5A004AC8A3 /* PPRequestManager.swift in Sources */,
 				E2D8D5261FD91E94006246FA /* FAQAnswerTableViewCell.swift in Sources */,
+				E27F2FAF1FEB49E300672105 /* BoundListTableViewCell.swift in Sources */,
 				E22E414F1FDF737000663A73 /* PPPointsHistoryObj.swift in Sources */,
 				E288FB5F1FD8E75200697C29 /* FeedBackViewController.swift in Sources */,
 				E25B8B201FCF97AD00F56982 /* ShareAlertView.swift in Sources */,
@@ -746,7 +780,9 @@
 				E29A68421FA4D1D200A2A4CF /* TTUmengManager.m in Sources */,
 				E2E803BF1F6BAAE30094065F /* IndexHeaderView.swift in Sources */,
 				E2E803BC1F6BA6F00094065F /* PPShopTableViewCell.swift in Sources */,
+				E2B7F32F1FEB581400AF6FEB /* AllKindsCollectionViewCell.swift in Sources */,
 				E297FDD31F7DEFB70056C606 /* PPCommentObj.swift in Sources */,
+				E27F2FB21FEB513900672105 /* PPInviteListObj.swift in Sources */,
 				E22E41521FDFB46A00663A73 /* PointsDesViewController.swift in Sources */,
 				E23135811FDE6DB000F659E6 /* MsgListTableViewCell.swift in Sources */,
 				E2B6025A1F7D4102006FFAE1 /* ShopDetailSingleImageTableViewCell.swift in Sources */,

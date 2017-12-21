@@ -51,6 +51,8 @@ let NOTI_USERSTATUS_CHANGED  = NSNotification.Name(rawValue: "pp_noti_003");
 let NOTI_INDEX_SCANECODE  = NSNotification.Name(rawValue: "pp_noti_004");
 //MARK: ●用户注销登录
 let NOTI_USER_LOGOUT  = NSNotification.Name(rawValue: "pp_noti_005");
+//MARK: ●跳转到个人中心页面
+let NOTI_GO_USERCENTER  = NSNotification.Name(rawValue: "pp_noti_006");
 
 //MARK: 列表页内数据个数
 let LIST_PAGESIZE  = 50 ;
@@ -122,12 +124,17 @@ let API_USER_ACCOUNT_INFO :String = "/api.php/v1.User/account";
 let API_USER_POINTS_HISTORY :String = "/api.php/v1.User/statement";
 //MARK: ●获取邀请统计数据
 let API_USER_INVITE_INFO :String = "/api.php/v1.User/inviteStatistics";
+//MARK: ●获取邀请列表
+let API_USER_INVITE_LIST :String = "/api.php/v1.User/inviteList";
 //MARK: ●获取三个评分数据
 let API_USER_TRIBLE_SCORE :String = "/api.php/v1.Index/average";
 //MARK: ●签到
 let API_USER_SIGNIN :String = "/api.php/v1.User/signIn";
 //MARK: ●用户协议
 let API_USER_REGIST_DEAL_DES :String = "/api.php/v1.Publics/registrationProtocol";
+//MARK: ●I获取版本信息
+let API_APP_VERSION_INFO :String = "/api.php/v1.Publics/checkVersion";
+
 
 
 class ConstantForSwift: NSObject {

@@ -12,7 +12,7 @@ class PPShopDetailobj: BaseObject {
     var id :Int?
     var address :String?
     var name :String?
-    var head_img :String?
+    var head_img :String? = ""
     //描述文字
     var desc1 :String?
     var desc2 :String?
@@ -24,7 +24,7 @@ class PPShopDetailobj: BaseObject {
     var image3 :String?
     var images = NSMutableArray()
     //详细描述
-    var introduction :String?
+    var introduction :String? = ""
     //营业执照
     var business_license :String?
     //营业许可证
@@ -61,7 +61,9 @@ class PPShopDetailobj: BaseObject {
         self.name = info["name"]as?String;
         self.address = info["address"]as?String;
         //头部图
-        self.head_img = info["head_img"]as?String;
+        if let head_img = info["head_img"]as?String {
+            self.head_img = head_img;
+        }
 
         self.desc1 = info["desc"]as?String ?? "";
         self.desc2 = info["desc2"]as?String ?? "";
@@ -77,8 +79,9 @@ class PPShopDetailobj: BaseObject {
         self.images.add(self.image1!)
         self.images.add(self.image2!)
         self.images.add(self.image3!)
-
-        self.introduction = info["introduction"]as?String;
+        if let introduction = info["introduction"]as?String {
+            self.introduction = introduction;
+        }
         self.business_license = info["business_license"]as?String;
         self.business_permit = info["business_permit"]as?String;
 
@@ -100,6 +103,8 @@ class PPShopDetailobj: BaseObject {
         
         self.mobile = info["mobile"]as?String;
         self.type = info["type"]as?String;
+        self.business_hours = info["business_hours"]as?String;
+        self.use_range = info["use_range"]as?String;
 
     }
 }

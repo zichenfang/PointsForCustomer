@@ -15,6 +15,8 @@ class PayNowViewController: BaseViewController {
     @IBOutlet var canGetPointLabel: UILabel!
     @IBOutlet var usePointTF: UITextField!
     @IBOutlet var priceLabel: UILabel!
+    @IBOutlet var saveBtn: UIButton!
+    
     var canUseMaxPoint :Int! //本单使用积分上限
     var price : Double! //消费总金额
     var percent : Double! //比例
@@ -51,6 +53,10 @@ class PayNowViewController: BaseViewController {
         if inputPoint<0 {
             inputPoint = 0
             usePointTF.text = "0"
+            self.saveBtn.isEnabled = false;
+        }
+        else{
+            self.saveBtn.isEnabled = true;
         }
         canGetPointLabel.text = String.init(format: "%d分", canUseMaxPoint - inputPoint)
         //实际支付

@@ -46,9 +46,10 @@ class ShopDetailViewController: BaseViewController , UITableViewDataSource , UIT
 //        richBannerScrollView();
         //获取店铺详情数据
         loadShopDetailData()
-        //获取店铺收藏状态
-        loadFavStatus()
-        
+        if PPUserInfoManager.isLogined() == true {
+            //获取店铺收藏状态
+            loadFavStatus()
+        }
     }
     //MAR:修改收藏状态按钮
     func prepareFavItem() {
@@ -74,10 +75,12 @@ class ShopDetailViewController: BaseViewController , UITableViewDataSource , UIT
 //    MARK:获取店铺详情数据
     func loadShopDetailData(){
         let para = ["seller_id":shopObj.id ?? 0]
+        ProgressHUD.show(nil, interaction: false);
         PPRequestManager.POST(url: API_SHOP_SHOPS_DETAIL, para: para, success: { (json) in
             let code = json["code"] as! Int
             let msg = json["msg"] as! String
             if code == 200 {
+                ProgressHUD.dismiss();
                 let result = json["result"] as! NSDictionary
                 self.shopDetailObj = PPShopDetailobj.init(info: result)
                 self.tableView.reloadData()
@@ -85,9 +88,13 @@ class ShopDetailViewController: BaseViewController , UITableViewDataSource , UIT
             }
             else{
                 ProgressHUD.showError(msg, interaction: false)
+                self.perform(#selector(self.loadDetailFailBack), with: nil, afterDelay: 1.2);
             }
         }) {
         }
+    }
+    @objc func loadDetailFailBack () {
+        self.navigationController?.popViewController(animated: true);
     }
     //    MARK:获取收藏状态
     func loadFavStatus(){

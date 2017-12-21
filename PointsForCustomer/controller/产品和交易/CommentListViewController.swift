@@ -172,15 +172,21 @@ class CommentListViewController: BaseViewController , UITableViewDataSource , UI
         let obj = commentDatas[indexPath.row]
         //包含图片
         if obj.images.count>0 {
-            return 74 + SCREEN_WIDTH * 0.2 + obj.comment!.heightWithFountAndWidth(font: UIFont.systemFont(ofSize: 14), width: SCREEN_WIDTH - 10*2) + 15
+            return 84 + SCREEN_WIDTH * 0.2 + obj.comment!.heightWithFountAndWidth(font: UIFont.systemFont(ofSize: 14), width: SCREEN_WIDTH - 10*2) + 15
         }
             //不包含图片，只有文字
         else{
-            return 74 + obj.comment!.heightWithFountAndWidth(font: UIFont.systemFont(ofSize: 14), width: SCREEN_WIDTH - 10*2) + 15
+            return 84 + obj.comment!.heightWithFountAndWidth(font: UIFont.systemFont(ofSize: 14), width: SCREEN_WIDTH - 10*2) + 15
         }
        
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        let obj = commentDatas[indexPath.row];
+        if obj.images.count > 0  {
+            let broVC :ImageBrowserVC = ImageBrowserVC.init(links:obj.images, currentIndex: 0);
+            broVC.show();
+        }
+
     }
 }
